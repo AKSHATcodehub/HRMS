@@ -1,0 +1,48 @@
+// @import "../../../../../scss/common";
+@import '../../../../../scss/mixins/flex';
+
+.gallery-home{
+    // width: auto;
+    width: 90%;
+    margin: 10px;
+    position: relative;
+    margin-top: 2.1rem;
+    img{
+        height: 100%;
+        width: 100%;
+    }
+    .gallery-name{
+        position: absolute;
+        bottom: 35px;
+        left:10px;
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 450;
+        @include flex(center,space-between);
+        width: 90%;
+        button{
+            margin: 0px 0px 16px 60px;
+            padding: 8px 30px;
+            font-size: 14px;
+            color:white;
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border: 0.80154px solid rgba(255, 255, 255, 0.6);
+            box-sizing: border-box;
+            border-radius: 24.8478px;
+            cursor: pointer;
+            transition: 0.3s ease-in-out all;
+            &:hover{
+              background: rgb(245, 242, 242);
+              opacity: 0.85;
+              color: black;
+              font-weight: 600;
+              font-size: 15px;
+            }
+        }
+        
+
+    }
+}

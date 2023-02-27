@@ -1,0 +1,139 @@
+<div class="pitch-wrapper">
+    <div class="pitch-header ">
+        <h1>Add Pitch</h1>
+        <div class="pitch-action-btn">
+            <button>Cancel</button>
+            <button>Submit</button>
+        </div>
+    </div>
+    <div class="pitch-content">
+        <div class="pitch-card">
+            <div class="pitch-details">
+                <div class="card-heading flex-row">
+                    <div class="flex-col-1">
+                        <h1>My Details</h1>
+                    </div>
+                </div>
+                <div class="card-details">
+                    <div class="form-group flex-row">
+                        <div class="flex-col-1">
+                            <label for="">Name</label><br>
+                            <mat-form-field appearance="outline" class="flex-col-1">
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-group flex-row">
+                        <div class="flex-col-2">
+                            <label for="">Name</label><br>
+                            <mat-form-field appearance="outline" class="flex-col-1">
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                        <div class="flex-col-2">
+                            <label for="">Name</label><br>
+                            <mat-form-field appearance="outline" class="flex-col-1">
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pitch-details">
+                <div class="card-heading">
+                    <h1>Pitch Details</h1>
+                </div>
+                <div class="card-details">
+                    <div class="form-group flex-row">
+                        <div class="flex-col-1">
+                            <label for="">Pitch Title</label><br>
+                            <mat-form-field appearance="outline" class="flex-col-1">
+                                <input matInput>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row">
+                        <div class="flex-col-1">
+                            <div class="input-field" >
+                                <label for="" >Industry</label>
+                                <mat-form-field appearance="outline" >
+                                  <div class="wrapper" #wapper>
+                                    <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
+                                      <input matInput type="text" readonly="readonly"  placeholder="Industry"  >
+                                      <i class="uil uil-angle-down"></i>
+                                    </div> 
+                                    <div class="content" #content>
+                                      <div class="search">
+                                        <i class="uil uil-search"></i>
+                                        <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                                      </div>
+                                      <ul class="options">
+                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <!-- <mat-error class="custom-error" >{{pitchForm | validationError : 'genderr' : 'Gender' }}</mat-error> -->
+                                </mat-form-field>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="form-group flex-row">
+                        <div class="flex-col-1">
+                            <div class="input-field" >
+                                <label for="" >Industry</label>
+                                <mat-form-field appearance="outline" >
+                                  <div class="wrapper" #wapper>
+                                    <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
+                                      <input matInput type="text" readonly="readonly"  placeholder="Technical"  >
+                                      <i class="uil uil-angle-down"></i>
+                                    </div> 
+                                    <div class="content" #content>
+                                      <div class="search">
+                                        <i class="uil uil-search"></i>
+                                        <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                                      </div>
+                                      <ul class="options">
+                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                                      </ul>
+                                    </div>
+                                  </div>
+                                  <!-- <mat-error class="custom-error" >{{pitchForm | validationError : 'genderr' : 'Gender' }}</mat-error> -->
+                                </mat-form-field>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="flex-row">
+                        <div class="flex-col-1">
+                            <label>Idea-(Share your idea in  brief)</label>
+                            <editor
+                                [init]="{
+                                    height: 500,
+                                    menubar: false,
+                                    plugins: [
+                                    'advlist autolink lists link image charmap print preview anchor',
+                                    'searchreplace visualblocks code fullscreen',
+                                    'insertdatetime media table paste code help wordcount'
+                                    ],
+                                    toolbar:
+                                    'undo redo | formatselect | bold italic backcolor | \
+                                    alignleft aligncenter alignright alignjustify | \
+                                    bullist numlist outdent indent | removeformat | help'
+                                }"
+                            ></editor>
+                        </div>
+                    </div>
+                    <div class="flex-row file">
+                        <div class="flex-col-1">
+                            <br>
+                            <label for="">Presentation - (Share your detailed presentation on the idea) (ppt,pdf)</label>
+                            <br>
+                            <input type="file">
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

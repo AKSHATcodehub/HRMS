@@ -1,0 +1,52 @@
+@import '../../../../../scss/mixins/flex';
+
+
+
+.appraisal-wrapper{
+    background-color: white;
+
+    .appraisal-header{
+        h6{
+            margin: 0px;
+            padding: 11px 15px;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #3246d3;
+            font-weight: 700;
+        }
+    }
+    .card{
+        border: 0px;
+        ::ng-deep .mat-form-field{
+          cursor: not-allowed;
+        }
+        ::ng-deep .mat-form-field-infix{
+          cursor: not-allowed;
+          span{
+            cursor: not-allowed;
+          }
+        }
+        .card-body{
+            border: 0px;
+            padding: 0px;
+            .row{
+                width: 100%;
+                padding: 25px;
+                @include flex(auto,start);
+                
+                .input-field{
+                  width: 33%;
+                  label{
+                    font-size: 14px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    font-weight: 600;
+                  }
+                  mat-form-field{
+                    width: 90%;
+                  }
+                }
+              }
+
+        }
+    }
+}

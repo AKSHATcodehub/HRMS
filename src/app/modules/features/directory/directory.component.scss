@@ -1,0 +1,150 @@
+@import '../../../../scss/theme/card';
+@import '../../../../scss/mixins/flex';
+
+.directory-wrapper{
+    padding: 24px 32px;
+    .directory-header{
+        h1{
+            color: blue;
+        }
+        .directory-header-main{
+            
+            .input-group{
+                padding: 20px;
+                display: block;
+                width: 99%;
+                mat-form-field{
+                    width: 100%;
+                }
+                button{
+                    height: 40px;
+                    min-width: 100px;
+                    font-size: 20px;
+                    margin: 10px;
+                    border-radius: 5px;
+                    background-color: white;
+                    mat-icon{
+                        font-size: 18px;
+                    }
+                    font-size: 18px;
+                    color: #bbb9b9;
+                    border: 1px solid #d8d8d8
+                }
+                button:nth-child(2) {
+                    background:#199CFF;
+                    color: white;
+                    border: 0px;
+                  }
+                
+            }
+            .button-wrapper{
+                @include flex(center,center);
+                flex-direction: column;
+            }
+        }
+    }
+    .directory-body{
+        .card{
+            overflow: hidden;
+            width: 33.33%;
+            padding: 20px;
+            border: 0px;
+            background-clip:content-box;
+            background-color: #f7f5ec;
+            .directory-card-top{
+                overflow: hidden;
+                @include flex(center,center);
+                padding: 30px 0px 20px 0px;
+                position: relative;
+                min-height: 200px;
+                .img-wrapper{
+                    position: absolute;
+                    @include flex(center,space-between);
+                    border-radius: 50%;
+                    width: 130px;
+                    height: 130px;
+                    border: 0px;
+                    padding: 0px;
+                    background-color: white;
+                    transition: border 1s , padding 1s;
+                    img{
+                        border-radius: 50%;
+                        width: 100%;
+                        height:100%;
+                        // position:absolute;
+                        z-index: 20;
+                        transition: width 1s , height 1s;
+
+                    }
+                }
+                
+                
+
+            }
+            .directory-card-mid{
+                overflow: hidden;
+
+                h3{
+                    text-align: center;
+                    font-size: 25px;
+                }
+                h4{
+                    text-align: center;
+                }   
+            }
+        }
+    }
+}
+
+.top-animation-div{
+    width: 80%;
+    height: 0px;
+    border-radius:90%;
+    transition: height 1s;
+    top: -50%;
+    background-color: blue;
+    position: absolute;
+}
+
+@keyframes example {
+    from {height: 0px;}
+    to {height: 100px;}
+}
+.card:hover{
+    .top-animation-div{
+        // animation-name: example;
+        // animation-duration: 1s;
+        // animation-timing-function: linear;
+        height: 200px;
+        border-radius: 90%;
+    }
+    .bottom-animation-div{
+        transform: translateY(-20px);
+    }
+    .img-wrapper{
+        border: 10px solid blue !important;
+        padding: 10px !important;
+        img{
+            width: 100% !important;
+            height:100% !important;
+            // position:absolute;
+            z-index: 20;
+        }
+    }
+}
+.bottom-animation-div-wrapper{
+    height: 20px;
+    width: 100%;
+    position: relative;
+}
+.bottom-animation-div{
+    
+    position: absolute;
+    transform: translateY(0px);
+    top: 20px;
+    width: 100%;
+    height:20px;
+    transition: transform 1s ;
+    background-color: blue;
+
+}

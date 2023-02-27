@@ -1,0 +1,111 @@
+@import '../../../../../scss/mixins/flex';
+@import '../../../../../scss/var';
+
+::ng-deep .mat-dialog-container{
+    width: 800px;
+    padding: 0px !important;
+    .dialog-wrapper{
+        .dialog-wrapper-header{
+            @include flex(normal,space-between);
+            width: 100%;
+            padding: 10px 30px;
+            background-color: #F3F3F3;
+            height: 50px;
+            h1{
+                margin: 0px !important;
+                color: #199CFF;
+                font-size: 20px;
+
+            }
+            button{
+                height: 30px;
+                border: 0px;
+                border-radius: 50%;
+                background-color:$white ;
+            }
+        }
+        .dialog-wrapper-body{
+            padding: 24px;
+            .title{
+                padding: 30px 0px 20px 0px;
+                h3{
+                    // height: 40px;
+                    margin: 0px !important;
+                    font-size: 22px;
+                    font-weight: 500;
+                }
+            }
+            .row{
+                width: 100%;
+                .col{
+                    max-width: 100%;
+                    .input-field{
+                        label{
+                            margin-bottom: 5px;
+                            color: #96A5B8;
+                            font-size: 14px;
+                        }
+                        width: 100% !important;
+                        mat-form-field{
+                          width: 100% !important;
+                          ::ng-deep .mat-form-field-outline{
+                                background-color: #F3F3F3;
+                                box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+
+                            }
+                        }
+                      }
+                }
+            }
+            .candidates-field{
+                mat-form-field{
+                    width: 100% !important;
+                    ::ng-deep .mat-form-field-outline{
+                          background-color: $white !important;
+                          box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+
+                      }
+                  }
+                .file-input{
+                    height: 55px;
+                    border: 1px solid #F3F3F3 ;
+                    box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+                    width: 100%;
+                    padding: 15px;
+                }
+                .skill-set{
+                    ::ng-deep .mat-form-field-wrapper{
+                        height: 140px !important;
+                    }
+                    ::ng-deep .mat-form-field-flex{
+                        height: 140px !important;
+                    }
+                }
+                
+            }
+            .action-btn{
+                display: flex;
+                justify-content: flex-end;
+                button{
+                    width: 100px;
+                    height: 40px;
+                    font-size: 14px;
+                    color: #96A5B8;
+                    padding: 8px 16px;
+                    margin: 5px;
+                    border: 1px solid #F3F3F3;
+                    background-color: $white;
+                    border-radius: 5px;
+
+                }
+                button:nth-child(2){
+                    background-color: #199CFF;
+                    color: $white;
+                    border-radius: 5px;
+
+                }
+            }
+            
+        }
+    }
+}

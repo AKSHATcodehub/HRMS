@@ -1,0 +1,156 @@
+  <section>
+      <div class="basic-information">
+        <!-- <div class="cards">
+          <div class="basic-info-header">
+            <a href=""  >
+              <mat-icon>account_circle</mat-icon>
+              Basic Information
+            </a>
+          </div>
+          
+          <div *ngFor="let title of titleData">
+            <a href="">
+              <mat-icon>{{title.icom}}</mat-icon>
+              {{title.title}}
+            </a>
+          </div>
+
+        
+         
+        
+        </div> -->
+        <div class="user-basic-info" [formGroup]="basicInfoForm"> 
+          <h1>Basic Information</h1>
+         
+          <div class="basic-information-form">
+            <div class="row">
+              <div class="input-field">
+                <label for="">First Name</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Name" formControlName="firstName">
+                  <mat-error>{{basicInfoForm | validationError:'firstName':'Firstname' }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Last Name</label>
+                <mat-form-field appearance="outline" style="position: relative;" >
+                  <input matInput placeholder="Name" formControlName="lastName">
+                  <mat-error>{{basicInfoForm | validationError:'lastName':'Lastname' }}</mat-error>
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Date of Birth</label>
+                <mat-form-field appearance="outline" style="position: relative;" >
+                  <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
+                  <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'DateOfBirth' }}</mat-error>
+                  <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div class="row">
+
+              <div class="input-field" >
+                  <label for="" >Gender</label>
+                  <mat-form-field appearance="outline" >
+                    <div class="wrapper" #wapper>
+                      <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
+                        <input matInput type="text" readonly="readonly"  placeholder="Gender"  formControlName="genderr">
+                        <i class="uil uil-angle-down"></i>
+                      </div> 
+                      <div class="content" #content>
+                        <div class="search">
+                          <i class="uil uil-search"></i>
+                          <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                        </div>
+                        <ul class="options">
+                          <li *ngFor="let item of gender" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                        </ul>
+                      </div>
+                    </div>
+                    <mat-error class="custom-error" >{{basicInfoForm | validationError : 'genderr' : 'Gender' }}</mat-error>
+                  </mat-form-field>
+            </div>
+              
+              
+            <div class="input-field" >
+              <label for="" >Marriage status</label>
+              <mat-form-field appearance="outline" >
+                <div class="wrapper" #wapper1>
+                  <div class="select-btn" (click)="optionClicked(wapper1)" #selectbtn1>
+                    <input matInput type="text" readonly="readonly"  placeholder="Marriage Status"  formControlName="marriageStatus">
+                    <i class="uil uil-angle-down"></i>
+                  </div> 
+                  <div class="content" #content1>
+                    <div class="search">
+                      <i class="uil uil-search"></i>
+                      <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                    </div>
+                    <ul class="options">
+                      <li *ngFor="let item of marriage" (click)="updateName(item,selectbtn1,wapper1,'marriageStatus')" #{item}>{{item}}</li> 
+                    </ul>
+                  </div>
+                </div>
+                <mat-error class="custom-error" >{{basicInfoForm | validationError : 'marriageStatus' : 'Marriage Status' }}</mat-error>
+              </mat-form-field>
+             
+        </div>
+              
+              <div class="input-field">
+                <label for="">Contact Number</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Number" formControlName="contactNumber">
+                  <mat-error>{{basicInfoForm | validationError:'contactNumber':'ContactNumber' }}</mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div class="total-experience">
+              <div class="col">
+                <label for="">Total Working Experience</label>
+                <div class="row">
+                  <div class="input-field">
+                    <label for="">Years</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name" formControlName="YearOfExperience">
+                      <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="input-field">
+                    <label for="">Months</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name"  formControlName="YearOfExperience">
+                      <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                    </mat-form-field>
+                  </div> 
+                </div>
+              </div>
+    
+              <div class="col">
+                <label for="">Total Working Experience</label>
+                <div class="row">
+                  <div class="input-field">
+                    <label for="">Years</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name"  formControlName="relevantExperience">
+                      <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="input-field">
+                    <label for="">Months</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name"  formControlName="relevantExperience">
+                      <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                    </mat-form-field>
+                  </div> 
+                </div>
+              </div>
+            </div>
+            <div class="form-action">
+              <button (click)="saveBasicInfo()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

@@ -1,0 +1,219 @@
+@import "../../../../scss/var";
+@import './../../../../scss/mixins/flex';
+
+::ng-deep .mat-tab-label-active{
+  background-color: $primary !important;
+  color: $white !important;
+  ::ng-deep .mat-icon{
+    color: $white !important;
+  }
+ 
+}
+
+::ng-deep .mat-expansion-panel-content{
+  visibility: hidden;
+  height: 0px;    
+  background-color: greenyellow;
+  display: none !important;
+}
+::ng-deep .mat-ink-bar{
+  display: hide !important;
+  visibility: hidden !important;
+}
+
+::ng-deep .mat-elevation-z4{
+  box-shadow: 0px 0px 0px 0px !important;
+}
+
+::ng-deep .mat-tab-header-pagination{
+  display: hide !important;
+  visibility: hidden !important;
+}
+@media screen and (max-width: 700px) {
+  .row{
+    display: block !important;
+    .input-field{
+      width: 100% !important;
+      mat-form-field{
+        width: 100% !important;
+      }
+    }
+  }
+}
+hr{
+  margin: 20px 0px;
+  border: 0px;
+}
+.profile-content{
+  min-height: 100%; 
+  width: 100%;
+  background: $lightblue;
+  padding: 24px;
+  @media screen and (max-width: 500px) {
+    padding: 0px;
+
+  }
+  .profile-info{
+    margin: 20px;
+    border-radius: 5px;
+    display: flex;
+    padding: 20px;
+    background-color: white;
+    @media screen and (max-width: 500px) {
+      display: block;
+      margin-bottom: 5px;
+
+    }
+    .profile-img{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     
+      @media screen and (max-width: 500px) {
+        justify-content: center;
+      }
+      img{
+        height: 128px;
+        width: 150px;
+        background-color: black;
+        border-radius: 50%;
+      }
+    }
+    .login-details{
+      padding: 25px 50px;
+      width: 100%;
+      div{
+        strong{
+          font-size: 15px;
+          font-weight: 600;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        span{
+          font-size: 15px;
+          font-weight: 500;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     
+
+        }
+      }
+      h1{
+        font-size: 30px;
+      }
+      @media screen and (max-width: 500px) {
+        padding: 10px 10px;
+
+  
+      }
+    }
+  }
+ 
+}
+
+.cards{
+  width: 26%;
+  background-clip: content-box;
+  background-color: $lightblue;
+  border-radius: 5px 5px 0 0 ;
+  padding: 0 20px;
+  @media screen and (max-width: 1200px) {
+    width: 100%;
+    margin-bottom: 20px;
+
+  }
+  
+  div.basic-info-header{
+    border-radius: 5px 5px 0 0 ;
+    background-color: $primary;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    a{
+      border-radius: 5px 5px 0 0;
+      color: white;
+    }
+  }
+  div{
+    padding: 12px 28px;
+    background-color: white;
+    border: 1px solid $lightblue ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 1500px) {
+      padding: 0 5px;
+        min-height: 66px;
+
+    }
+    
+    a{
+      display: flex;
+      // justify-content: space-evenly;
+      align-items: center;
+      font-size: 16px;
+      text-decoration: none;
+      color: #8c8e90;
+      mat-icon{
+        margin: 0px 10px;
+      }
+    }
+
+  }
+}
+
+
+
+::ng-deep .mat-tab-labels{
+  display: block !important;
+  background-color: white;
+}
+
+::ng-deep .mat-tab-label{
+  background-color: white;
+  width: 100%;
+}
+::ng-deep .mat-tab-group{
+  flex-direction: row !important;
+  @include flex(auto,space-between);
+  @media screen and (max-width: 950px) {
+    margin: 20px; 
+  }
+
+}
+::ng-deep .mat-tab-header{
+  width: 24% !important; 
+  border: 0px !important;
+  border-radius: 5px;
+  @media screen and (max-width: 950px) {
+    margin-bottom: 24px !important;
+  }
+}
+::ng-deep .mat-tab-body-wrapper{
+  width: 72% !important;
+  @media screen and (max-width: 950px) {
+    width: 100% !important;
+
+  }
+}
+::ng-deep .mat-ripple{
+  justify-content: start !important;
+  mat-icon{
+    margin-right: 10px !important;
+  }
+}
+
+.tab{
+  padding: 20px;
+  @media screen and (max-width: 950px) {
+    width: 100%;
+    padding: 0px;
+    margin-bottom: 24px !important;
+    ::ng-deep .mat-tab-group{
+      display: block !important;
+    }
+    ::ng-deep .mat-tab-header{
+      width: 100% !important;
+    }
+
+  }
+}

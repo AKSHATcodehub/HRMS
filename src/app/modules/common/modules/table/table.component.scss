@@ -1,0 +1,52 @@
+
+section {
+    table {
+      line-height: 3.6;
+      margin: 20px;
+      width: 97%;
+      border: 1px solid rgb(235, 235, 235);
+      th {
+        border: 1px solid rgb(235, 235, 235);
+        font-size: 15px;
+        text-align: center !important;
+        margin-bottom: 20px;
+      //   color: black;
+       
+      }
+      td {
+        //  background-color: rgb(235, 235, 235);
+        text-align: center;
+      }
+      mat-icon {
+      //   color: $primary;
+        margin-right: 4px;
+      }
+      
+    }
+  }
+table{
+    width: 100%;
+    td{
+        text-align: center;
+    }
+}
+
+.actionIcon{ 
+    font-size: 5px;
+    // color: #199CFF;
+    // margin: 10px;
+    // padding: 5px;
+    // background-color: #F8F8F8;
+    // border-radius: 5px;
+    // .mat-18{
+    //   font-size: 17px;
+    // }
+    button{
+      font-size: 11px;
+      height: 29px;
+      line-height: 1.6;
+    }
+  }
+  .mat-cell{
+    background-color: white;
+  }

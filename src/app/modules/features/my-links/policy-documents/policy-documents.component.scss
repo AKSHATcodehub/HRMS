@@ -1,0 +1,17 @@
+@import './../../../../../scss/global';
+@import './../../../../../scss/var';
+
+
+.policy-wrapper{
+    padding: 24px;
+    background-color: $lightblue;
+    height: 100vh;
+    .card-body{
+        margin:0px 30px ;
+    }
+    .table{
+        background-color: white;
+        border-radius: 10px;
+       
+    }
+}

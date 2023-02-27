@@ -1,0 +1,213 @@
+@import './../../../../scss/var';
+*{
+    box-sizing: border-box;
+}
+
+@keyframes animation{
+    0% {top:-460px;}
+    100% {top:calc(50vh - 230px) ;}     
+}  
+.password{
+    margin-bottom: 20px;
+}
+::ng-deep .mat-form-field-flex{
+    padding: 0rem !important;
+}
+::ng-deep .mat-snack-bar-container{
+    padding: 0px !important;
+}
+label{
+    margin: 0rem !important;
+}
+
+::ng-deep .mat-form-field-subscript-wrapper{
+    padding: 0em !important;
+}
+.authentication-wrapper{
+    min-width: 500px;
+    min-height: 500px;
+    background-size: cover !important ; 
+    background: url('../../../../assets/banner.png') no-repeat center center fixed ;
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    height: 100vh;
+    // height: 100%;
+    padding:0px 24px;
+    .authentication-form-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh; 
+        max-width: 380px;
+        position: relative;
+        .card{
+            background-color: white;
+            position: absolute;
+            animation-name: animation; 
+            animation-duration: 1s; 
+            // height: 472px;
+            max-width: 380px;
+            width: 100%;
+            .login-header{
+                padding: 48px;
+                // height: 361px;
+                @media screen and (max-width: 480px) {
+                    padding: 24px   ;
+                }
+                .logo{
+                    img{
+                        width: 100%;
+                    }
+                }
+                .authentication-with-google{
+                    height: 100px;
+                    margin: 48px 0px;
+                    .sign-in-google:hover{
+                        box-shadow: 0px 2px 4px $primary;
+
+                    }
+                    
+                    .sign-in-google{
+                        display: flex;
+                        height: 50px;
+                        div{
+                            width: 20%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border: 1px solid #4285f4;
+                            img{
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+                        button{
+                            height: 50px;
+                            width: 80%;
+                            font-family: sans-serif;
+                            font-size: 18px;
+                            background-color: #4285f4;
+                            border: 0px;
+                            color: white;
+                        }
+                    }
+                    .text{
+                        padding: 16px 0px;
+                        height: 50px;
+                        width: 100%;
+                        text-align: center;
+                        font-family: sans-serif;
+                        color: #b5b6b8;
+                    }
+
+                }
+                .login-form-container{
+                    height: 230px;
+                    margin: 20px 0px;
+
+                    mat-form-field{
+                        width: 100%;
+                        
+                        ::ng-deep .mat-form-field-flex{
+                            background-color: white;
+                            border-bottom: #b5b6b8;
+                        }
+                        mat-label{
+                            color: #b5b6b8;
+                        }
+                        ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+                            background-color: green;
+                          }
+                        button{
+                            border: 0px;
+                            background-color: $white;
+                            mat-icon{
+                                color: $primary;
+                            }
+                        }
+                        
+                    }
+                    a{
+                        color: #1e70cd;
+                        text-decoration: none;
+                    }
+                    a:hover{
+                        color: #2688f9;
+
+                    }
+                    .login-btn{
+                        width: 100%;
+                        button:hover{
+                            box-shadow: 0px 2px 4px rgb(196, 193, 193);
+                        }
+                        button{
+                            position: relative;
+                            float: right;
+                            text-align: center;
+                            border: 0px;
+                            height: 35px;
+                            width: 100px;
+                            color: white;
+                            background-color: #00abff;
+
+                            mat-icon{
+                                position: absolute;
+                                top: 5px;
+                                left: 10px;
+                            }
+                            span{
+                                position:absolute;
+                                top: 10px;
+                                left: 40px;
+                            }
+                        }
+                    }
+
+                }
+                
+
+            }
+            .login-with-credentials{
+                width: 96%;
+                height: 35px;
+                margin: 8px;
+                @media screen and (max-width: 400px) {
+                    margin: 6px;
+                }
+          
+                button{
+                    border-radius: 3px;
+                    border: #00abff;
+                    background-color:#00abff;
+                    color: white;
+                    padding: 8px 16px;
+                    font-size:14px;
+                    width: 100%;
+                    height: 100%;
+                    font-family: sans-serif;
+                   
+                }
+                button:hover{
+                    
+                    box-shadow: 0px 2px 4px rgb(196, 193, 193);
+                }
+            }
+            .card-footer{
+                width: 100%;
+                
+                padding: 16px 48px;
+                .footer-text{
+                    text-align: center;
+                    color: #b5b6b8;
+                }
+                
+
+            }
+            
+
+        }
+    }
+
+}

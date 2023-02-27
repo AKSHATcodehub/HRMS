@@ -1,0 +1,59 @@
+
+   <section>
+    <table mat-table *ngIf="dataSource" matSortDirection="asc" [dataSource]="dataSource" matSort>
+      
+      <ng-container class="data" *ngFor="let row of columns" [matColumnDef]="row.heading">
+
+        <ng-container *ngIf="row.sort; else notSortable"  >
+          <th mat-header-cell *matHeaderCellDef >{{row.heading}}</th>
+        </ng-container>
+
+        <ng-template #notSortable>
+          <th mat-header-cell *matHeaderCellDef  style="text-align: center;">{{row.heading}}</th>
+        </ng-template>
+
+        <td mat-cell *matCellDef="let element; let i=index">
+
+          <ng-container class="value" [ngSwitch]="row.type" >
+
+            <ng-container *ngSwitchCase="'text'">
+             {{element[row.key]}}
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'link'">
+              <a href="">{{element[row.key]}}</a>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'download'" >
+              <div class="download_link">
+                <a [href]="element.link" download >Download<mat-icon>download</mat-icon></a>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'action'">
+              <div class="actionIcon">
+                <!-- <ng-container *ngFor="let icon of row.action; let i=index;"> -->
+                  
+                    
+                    <button style="background-color: grey;color: white;margin-right: 5px;width: 50px;border: 0px;" (click)="editClick(element)" >Edit</button>
+                    <button style="background-color: red;color:white;margin-left: 5px;width: 50px;border: 0px;" (click)="deleteClick(element)" >Delete</button>
+                 
+                    <!-- <span>Download</span><mat-icon class="mat-18"  *ngIf="icon==2">get_app</mat-icon> -->
+                  <!-- <mat-icon>get_app</mat-icon> -->
+                <!-- </ng-container> -->
+              </div>
+            </ng-container>
+
+          </ng-container>
+          
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="matHeaderRow"></tr>
+      <tr mat-row *matRowDef="let row; columns: matHeaderRow;"></tr>
+      <tr class="noData" class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="9">No data available in table</td>
+      </tr>
+    </table>
+    <mat-paginator appCustompaginators  [pageSizeOptions]="paginationSizes" [pageSize]="defaultPageSize" [hidePageSize]="true">
+    </mat-paginator>
+  </section>

@@ -1,0 +1,67 @@
+<div class="authentication-wrapper">        
+    <div class="authentication-form-container">
+        <div class="card">
+            <div class="login-header">
+                <div class="logo">
+                    <img src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png" alt="">
+                </div>
+                <div class="authentication-with-google" *ngIf="!showLoginWithGoogle">
+                    <div class="sign-in-google">
+                        <div><img src="assets/Google__G__Logo.svg.png" alt=""></div>
+                        <button>Sing in with Google</button>
+                    </div>
+                    <div class="text">
+                        Please use your official Email id
+                    </div>
+                </div>
+                
+                <div class="login-form-container" *ngIf="showLoginWithGoogle">
+                    <form action="" [formGroup]="loginForm">
+                        <label >Email</label><br>
+                        <mat-form-field appearance="fill">
+                            <input placeholder="Your Email" matInput  formControlName="email" required>
+                            <mat-error *ngIf="emaill.invalid">{{loginForm | validationError: 'email': 'Email'}}</mat-error>
+                        </mat-form-field>
+                        <!-- <mat-error *ngIf="lo">*Required</mat-error> -->
+
+
+                        <label >Password</label><br>
+                        <mat-form-field appearance="fill" class="password">
+                            
+                            <input placeholder="Your Password" matInput [type]="hide ? 'password' : 'text'"  formControlName="password"  (keydown)="noSpace($event)">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                            <mat-error *ngIf="emaill.invalid">{{loginForm | validationError: 'password': 'Password' }}</mat-error>
+
+                          </mat-form-field>
+                        <!-- <mat-error *ngIf="lo">*Required</mat-error> -->
+
+       
+                        <a routerLink="./forgot_password">Forgot Password?</a>
+
+                        <div class="login-btn">
+                            
+                            <button (click)="onLogin()" >
+                                <mat-icon>lock</mat-icon>
+                                <span>
+                                    LOGIN
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="login-with-credentials">
+                <button *ngIf="showLoginWithGoogle" (click)="onLoginWithGoogle()">LOGIN WITH GOOGLE</button>
+                <button *ngIf="!showLoginWithGoogle" (click)="onLoginwithCredential()">LOGIN WITH CREDENTIALS</button>
+            </div>
+            <div class="card-footer">
+                <div class="footer-text">
+                    2023 © Appinventiv HR System                                            
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>      

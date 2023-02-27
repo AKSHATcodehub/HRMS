@@ -1,0 +1,23 @@
+<div class="input-field" >
+  <div class="wrapper" >
+    <div class="select-btn" (click)="optionClicked()" #selectbtn>
+      <input type="text" readonly="readonly"  >
+      <i class="uil uil-angle-down"></i>
+    </div>
+    <!-- <div>{{formName | validationError : controlName : controlName}}</div> -->
+    <div class="content">
+      <div class="search">
+        <i class="uil uil-search"></i>
+        <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+      </div>
+      <ul class="options">
+        <li *ngFor="let item of filterCountries" (click)="updateName(item,selectbtn)" #item1>{{item}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+

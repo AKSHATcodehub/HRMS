@@ -1,0 +1,31 @@
+<div class="profile-picture-wrapper">
+    <div class="profile-picture-header">
+        <h6>Profile Picture</h6>
+    </div>
+    <div class="profile-picture-body" [formGroup]="profileForm" >
+        <div class="card-block">
+            <div class="form-group">
+                <fieldset class="form-group">
+                    <label for="logo">Browse</label><br>
+                    <input  type="file" class="form-control-file" id="p_file" name="p_file" formControlName="profilePicture" (change)="selectFile($event)" ><br>
+                    <small>Upload files only: gif,png,jpg,jpeg</small>
+                </fieldset>
+                <img [src]="url" *ngIf="url">
+                <br>
+                
+                <input type="checkbox" class="custom-control-input"  name="remove_profile_picture">
+
+                <label class="lt_Check mt-10" *ngIf="url">
+                    <!-- <span id="image" class="checkmark"></span> -->
+                    <mat-checkbox formControlName="checkbox" name="remove_profile_picture"></mat-checkbox> 
+                    <label class="remove_profile_picture">Remove Profile Picture</label>                    
+                </label>   
+            </div>
+            <div class="form-actions">
+                <button name="hrsale_form" type="submit" class="btn" (click)="saveProfile()" >
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

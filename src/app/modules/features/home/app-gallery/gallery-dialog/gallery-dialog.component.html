@@ -1,0 +1,18 @@
+<p mat-dialog-close>X</p>
+
+<ng-container *ngFor="let item of selectedGallery.gallery_images">
+    <ng-template #listOfDivs>
+        <div class="gallery-wrapper" >
+            <!-- <img src="../../../../../../assets/gallery_images/all-gallery-images/christmas1.JPG" alt=""> -->
+            <img [src]="'../../../../../../assets/gallery_images/all-gallery-images/' + item" alt="" />
+        </div>
+
+    </ng-template>
+
+</ng-container>
+
+<ng-container *ngIf="render_child">
+    <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="galleryDialogData"
+        [gridConfig]="galleryDialogGridConfig">
+    </app-resp-carousel>
+</ng-container>

@@ -1,0 +1,66 @@
+// @import "../../../../../../";
+@import '../../../../../scss/mixins/flex';
+h2{
+    position: absolute;
+    margin-left:3rem;
+}
+
+ngu-carousel{
+    button{
+        border: none;
+        background-color: white;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .rightRs{
+        position: absolute;
+        top:0;
+        right:10%
+    }
+    .leftRs{
+        position: absolute;
+        top:0;
+        right:20%
+    }
+    .bottomLeftRs{
+        position: absolute;
+        top:101%;
+        right:53%
+    }
+    .bottomRightRs{
+        position: absolute;
+        top:101%;
+        right:47%
+    }
+    .item{
+        @include flex(center,center);
+        flex-direction:column;
+    }
+    .myPoint {
+        list-style-type: none;
+        text-align: center;
+        padding: 16px;
+        margin: 0;
+        white-space: nowrap;
+        overflow: auto;
+        cursor:pointer;
+        box-sizing: border-box;
+      }
+      .myPoint  li {
+          display: inline-block;
+          border-radius: 50%;
+          border: 1px solid rgba(0, 0, 0, 0.55);
+          padding: 6px;
+          margin: 0 5px;
+          transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+          transition: 0.4s;
+      }
+     li:hover {
+            border:1px solid blue;
+       }
+      .myPoint  li.active {
+            background: #6b6b6b;
+            transform: scale(1.1);
+    }
+}

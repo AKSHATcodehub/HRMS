@@ -1,0 +1,62 @@
+@import './../../../../../scss/var';
+@import '../../../../../scss/mixins/flex';
+
+::ng-deep #cdk-overlay-0{
+
+    ::ng-deep .cdk-global-overlay-wrapper{
+        display: block;
+        .mat-simple-snackbar{
+            @include flex(center,center); 
+            span{
+                font-size: 20px;
+            }
+        }
+    }
+}
+.profile-picture-wrapper{
+    background-color: white;
+    padding: 24px;
+    .profile-picture-header{
+        h6{
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #3246d3;
+            font-weight: 700;
+        }
+    }
+
+    .profile-picture-body{
+        .card-block{
+            .form-group{
+                fieldset{
+                    label{
+                        font-size: 14px;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                    input{
+                        margin: 12px 0px;
+                    }
+                    small{
+                        font-size: 12px;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                }
+                .remove_profile_picture{
+                    margin: 10px;
+                }
+                img{
+                    width: 100px;
+                    height: 70px;
+                }
+                
+
+            }
+            .form-actions{
+                button{
+                    color: $white;
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+}

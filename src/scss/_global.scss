@@ -1,0 +1,98 @@
+@import './var';
+
+.flex-row{
+    display: flex;
+    flex-wrap: wrap;
+    label{
+        padding: 5px;
+    }
+    .flex-col-1{
+        width: 100%;
+        padding:5px;
+    }
+    .flex-col-2{
+        width: 50%;
+        padding: 5px;
+        mat-form-field{
+            width: 100%;
+        }
+    }
+    .flex-col-3{
+        width: 33.33%;
+        padding: 5px;
+    }
+    .flex-col-4{
+        width: 25%;
+        padding: 5px;
+    }
+}
+
+.card{
+    border: 0px;
+    border-radius: 5px;
+    background-color: $lightblue;
+    padding: 24px;
+    .card-header{
+        padding: 24px;
+        border: 0px ;
+        background-color: $white;
+        border-bottom: 1px solid #E9E9E9;
+        h1{
+            color:#199CFF;
+            font-size: 24px;
+            font-weight: 500;
+        }
+    }
+    .card-body{
+        padding: 12px;
+        background-color: $white;
+        border-radius: 5px;
+        .card-top{
+            display: flex;
+            padding: 12px;
+            .profile-pic{
+                img{
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50%;
+                }
+                margin: 10px;
+            }
+            .user-info{
+                margin: 10px;
+                h1{
+                    height: auto;
+                }
+                p{
+                    height: auto;
+                }
+            }
+            
+        }
+        .card-mid{
+            width: 100%;
+            padding: 12px;
+            
+        }
+        .card-bottom{
+            width: 100%;
+        }
+    }
+    .card-bottom{
+        width: auto;
+    }
+}
+.textarea{
+    height: 100px;
+}
+.button-wrapper{
+    float: right;
+}
+.button{
+    margin: 5px;
+    height: 40px;
+    color: $white;
+    background-color: $primary;
+    border: 0px;
+    border-radius: 5px;
+}

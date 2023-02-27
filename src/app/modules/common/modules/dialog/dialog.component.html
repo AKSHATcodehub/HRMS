@@ -1,0 +1,155 @@
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+
+<div class="dialog-wrapper">
+
+    
+    <div class="dialog-wrapper-header">
+        <h1 >Refer a Candidate</h1>
+        <button mat-button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
+    </div>
+    <div class="dialog-wrapper-body">
+        <div class="title">
+          
+            <div class="row ">
+                <div class="col-1 dropdown-divider"></div>
+                <div class="col-auto"><h3>Job Details</h3> </div>
+                <div class="col dropdown-divider"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Department Name</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Job Code</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Location</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Experience</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="title">
+            <div class="row ">
+                <div class="col-1 dropdown-divider"></div>
+                <div class="col-auto"><h3>Candidates Details</h3></div>
+                <div class="col dropdown-divider"></div>
+            </div>
+            
+        </div>
+        <div class="row candidates-field">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Department Name</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Job Code</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row candidates-field">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Department Name</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Job Code</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row candidates-field">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Department Name</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Job Code</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="row candidates-field">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Upload CV (pdf,doc)</label>
+                    <input type="file" class="file-input">
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Skill Set</label>
+                    <mat-form-field appearance="outline" class="skill-set" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="action-btn">
+            <button (click)="onNoClick()">Cancel</button>
+            <button>Submit</button>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,73 @@
+@import './../../../../scss/global',
+         './../../../../scss/var',
+         './../../../../scss/mixins/flex';
+
+.performance-wrapper{
+    padding: 24px;
+    background-color: $lightblue;
+    .awards{
+        width: 60%;
+        margin: 10px;
+        padding: 10px;
+        background-color: #FFF3CB;
+        border-radius: 5px;
+    }
+    .honours{
+        border-radius: 5px;
+        margin: 10px;
+        padding: 10px;
+        width: 20%;
+        background-color: #CBE7FF;
+    }
+    .rating-wrapper{
+        background-color: #dfffb0;
+        margin: 20px;
+        .rating-info{
+            padding: 10px;
+            margin-right: 10px;
+            .rating-count{
+                h1{
+                    font-size: 45px;
+                }
+            }
+            .rating-time{
+                p{
+                    margin: auto;
+                    background-color: $white;
+                    width: 70%;
+                    text-align: center;
+                    border-radius: 5px;
+                }
+            }
+        }
+        .rating-skills{
+            padding: 10px;
+            margin-right: 10px;
+            .block{
+                border-radius: 5px;
+                background-color: #FFF3CB;
+                margin: 5px;
+                padding: 5px;
+                text-align: center;
+                min-width: 70px;
+            }
+            @media screen and (max-width: 500px) {
+                display: block;
+                div{
+                    width: 100%;
+                }
+              }
+        }
+    }
+    .monthly-block{
+        height: 160px;
+        border: 1px solid #E9E9E9;
+        border-radius: 5px;
+        padding: 10px;
+        
+        p{
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+}

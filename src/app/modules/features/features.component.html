@@ -1,0 +1,348 @@
+
+<!-- <div  style="width: 100vw;height: 100vh ; opacity: 0.5;background-color: rgb(113, 101, 101);"> -->
+
+<!-- <div class="name" style="width: 100vw;height: 100vh ; z-index: 2384839 ; background-color: black;"></div> -->
+
+<div class="layout-navbar">
+	<mat-toolbar color="primary" class="example-toolbar">
+		<img src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png" alt="">
+		<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+	</mat-toolbar>
+
+	<div class="navbar-features" *ngIf="showNavbarFeature">
+		<div class="login-time-status">
+			<strong>Last Login</strong>
+			<span class="text-mutded">Feb-02-2023 04:08 PM from 172.31.25.47</span>
+		</div>
+		<div class="features">
+			<div class="info">
+				
+				<span>Akshat Sahu</span>
+				<img src="data:image/png;base64,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" alt="">
+				<div class="dropdown">
+					  <button mat-icon-button [matMenuTriggerFor]="menu">
+						<mat-icon>keyboard_arrow_down</mat-icon>
+					  </button>
+					  <mat-menu #menu="matMenu" xPosition="before">
+						<button mat-menu-item routerLink="./profile">
+						  <mat-icon>assignment_ind</mat-icon>
+						  <span>My Profile</span>
+						</button>
+						<button mat-menu-item >
+						  <mat-icon>phonelink_lock</mat-icon>
+						  <span>Change Password</span>
+						</button>
+						<button mat-menu-item (click)="logout()">
+						  <mat-icon>vpn_key</mat-icon>
+						  <span>Sign out</span>
+						</button>
+					  </mat-menu>
+				</div>
+			</div>
+			<div class="help">
+				<button>
+					Help
+				</button>
+			</div>
+			<div class="notification">
+				<mat-icon>notifications</mat-icon>
+	
+			</div>
+		</div> 
+	</div>
+	
+</div>
+<mat-sidenav-container class="example-container" autosize>
+	
+	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+			<mat-nav-list class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+				<mat-accordion *ngIf="isExpanded || isShowing">
+					<mat-expansion-panel hideToggle disabled>
+					  <mat-expansion-panel-header>
+						<mat-panel-title>
+							<mat-list-item  class="parent" routerLink="home">
+								<span class="full-width" *ngIf="isExpanded || isShowing">Home</span>
+								<mat-icon mat-list-icon  >home</mat-icon>
+							</mat-list-item>
+						</mat-panel-title>
+					  </mat-expansion-panel-header>
+					</mat-expansion-panel>
+					<mat-expansion-panel hideToggle disabled>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent" routerLink="profile">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">My Profile</span>
+								  <mat-icon mat-list-icon>person</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					</mat-expansion-panel>
+					<mat-expansion-panel hideToggle disabled>
+						<mat-expansion-panel-header>
+							<mat-panel-title>
+								<mat-list-item  class="parent" routerLink="directory">
+									<span class="full-width" *ngIf="isExpanded || isShowing">Directory</span>
+									<mat-icon mat-list-icon>library_books</mat-icon>
+								</mat-list-item>
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header >
+						  <mat-panel-title>
+							  <mat-list-item  class="parent" >
+								  <span class="full-width" *ngIf="isExpanded || isShowing"><div>Entrepreneurship<br>Program</div></span>
+								  <mat-icon mat-list-icon>paid</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item routerLink="entrepreneurship">Explore</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header >
+						  <mat-panel-title>
+							  <mat-list-item  class="parent" >
+								  <span class="full-width" *ngIf="isExpanded || isShowing">My Links</span>
+								  <mat-icon mat-list-icon>paid</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div>
+						  <mat-list-item>Insurance Verification Details</mat-list-item>
+						  <mat-list-item>Holiday Calendar 2023</mat-list-item>
+						  <mat-list-item routerLink="policy-documents">Policy Documents</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header >
+							<mat-panel-title>
+								<mat-list-item  class="parent" >
+									<span class="full-width" *ngIf="isExpanded || isShowing">Finance</span>
+									<mat-icon mat-list-icon>paid</mat-icon>
+								</mat-list-item>
+							</mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+							<mat-list-item>SubSubmenu Item 1</mat-list-item>
+							<mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Review</span>
+								  <mat-icon mat-list-icon>reviews</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item routerLink="performance">My Performance</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Refer a Friend</span>
+								  <mat-icon mat-list-icon>reviews</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Fresher Training</span>
+								  <mat-icon mat-list-icon>groups</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Training</span>
+								  <mat-icon mat-list-icon>school</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Assest inventory</span>
+								  <mat-icon mat-list-icon>school</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Attendence</span>
+								  <mat-icon mat-list-icon>science</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Leave</span>
+								  <mat-icon mat-list-icon>schedule</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Ticket</span>
+								  <mat-icon mat-list-icon>event</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">DSR</span>
+								  <mat-icon mat-list-icon>terminal</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+						<div  >
+						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
+						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
+						</div>
+					</mat-expansion-panel>
+					<mat-expansion-panel hideToggle>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Project</span>
+								  <mat-icon mat-list-icon>terminal</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					  </mat-expansion-panel>
+					  <mat-expansion-panel hideToggle>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Expenses</span>
+								  <mat-icon mat-list-icon>real_estate_agent</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					  </mat-expansion-panel>
+					  <mat-expansion-panel hideToggle>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Announcements</span>
+								  <mat-icon mat-list-icon>campaign</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					  </mat-expansion-panel>
+					  <mat-expansion-panel hideToggle>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Travels</span>
+								  <mat-icon mat-list-icon>flight</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					  </mat-expansion-panel>
+					  <mat-expansion-panel hideToggle>
+						<mat-expansion-panel-header>
+						  <mat-panel-title>
+							  <mat-list-item  class="parent">
+								  <span class="full-width" *ngIf="isExpanded || isShowing">Logout</span>
+								  <mat-icon mat-list-icon>logout</mat-icon>
+							  </mat-list-item>
+						  </mat-panel-title>
+						</mat-expansion-panel-header>
+					  </mat-expansion-panel>
+				  </mat-accordion>
+				
+				</mat-nav-list>
+				<mat-nav-list>
+			</mat-nav-list>
+	</mat-sidenav>
+	
+	
+	
+	<div class="example-sidenav-content" >
+		
+		<router-outlet></router-outlet>   
+
+	</div>
+	<button mat-button class="covid-help">Covid 19-Desk</button>
+	<!-- <div>
+		<footer>
+			<p>2023 &#169; Appinventiv HR System v1.0.6</p>
+		  </footer>
+	</div> -->
+	
+
+</mat-sidenav-container>
+
+
+
+
+<!-- </div> -->
+
+
+
+
+
+<!-- Copyright 2017 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

@@ -1,0 +1,246 @@
+
+<div class="profile-content">
+    <div class="profile-info">
+      <div class="profile-img">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGTpxmfWYxJ6Spa0StJvpeUGRvlJafGr3hYwTv-ars9DLb_BgmmdCMo5UU-wkeZngdgy4&usqp=CAU" alt="">
+      </div>
+      <div class="login-details">
+        <h1>Akshat Sahu</h1>
+        <div>
+          <strong>Email : </strong>
+          <span>akshat@appinventiv.com</span>
+        </div>
+        <div>
+          <strong>Employee ID : </strong>
+          <span>AI1592</span>
+        </div>
+        <div>
+          <strong>Designation : </strong>
+          <span>Software ENgineer</span>
+        </div>
+        <div>
+          <strong>Last Login : </strong>
+          <span>31-Jan-2023</span>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <!-- <section>
+      <div class="basic-information">
+        <div class="cards">
+          <div class="basic-info-header">
+            <a href=""  >
+              <mat-icon>account_circle</mat-icon>
+              Basic Information
+            </a>
+          </div>
+          
+          <div *ngFor="let title of titleData">
+            <a href="">
+              <mat-icon>{{title.icom}}</mat-icon>
+              {{title.title}}
+            </a>
+          </div>
+
+        
+         
+        
+        </div>
+        <div class="user-basic-info"> 
+          <h1>Basic Information</h1>
+         
+          <div class="basic-information-form">
+            <div class="row">
+              <div class="input-field">
+                <label for="">First Name</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Last Name</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Date of Birth</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div class="row">
+              
+              <div class="input-field">
+                <label for="">Gender</label>
+                <mat-form-field appearance="outline">
+                  <mat-label>Select</mat-label>
+                  <mat-select>
+                    <mat-option value="one">Male</mat-option>
+                    <mat-option value="two">Female</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Maritial Status</label>
+                <mat-form-field appearance="outline">
+                  <mat-label>Select</mat-label>
+                  <mat-select>
+                    <mat-option value="one">Male</mat-option>
+                    <mat-option value="two">Female</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="input-field">
+                <label for="">Contact Number</label>
+                <mat-form-field appearance="outline" >
+                  <input matInput placeholder="Name">
+                </mat-form-field>
+              </div>
+            </div>
+  
+            <div class="total-experience">
+              <div class="col">
+                <label for="">Total Working Experience</label>
+                <div class="row">
+                  <div class="input-field">
+                    <label for="">Years</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                  </div>
+                  <div class="input-field">
+                    <label for="">Months</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                  </div> 
+                </div>
+              </div>
+    
+              <div class="col">
+                <label for="">Total Working Experience</label>
+                <div class="row">
+                  <div class="input-field">
+                    <label for="">Years</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                  </div>
+                  <div class="input-field">
+                    <label for="">Months</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name">
+                    </mat-form-field>
+                  </div> 
+                </div>
+              </div>
+            </div>
+            <div class="form-action">
+              <button>Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+   
+  <div class="tab">
+
+      <!-- <div class="cards">
+          <div class="basic-info-header">
+            <a href=""  >
+              <mat-icon>account_circle</mat-icon>
+              Basic Information
+            </a>
+          </div>
+          
+          <div *ngFor="let title of titleData">
+            <a href="">
+              <mat-icon>{{title.icom}}</mat-icon>
+              {{title.title}}
+            </a>
+          </div>
+
+        
+         
+        
+        </div> -->
+      
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+        <a href=""  >
+          <mat-tab >
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">account_circle</mat-icon>
+              Basic Information
+            </ng-template>
+            <app-basic-information></app-basic-information>
+          </mat-tab>
+        </a>
+
+    
+        <a href="">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">camera_alt</mat-icon>
+              Profile Picture
+            </ng-template>
+            <app-profile-picture></app-profile-picture>
+          </mat-tab>
+        </a>
+
+     
+        <a href="">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">book</mat-icon>
+              Qualifcation
+            </ng-template>
+            <app-qualification></app-qualification>
+          </mat-tab>
+        </a>
+ 
+
+        <a href="">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">account_box</mat-icon>
+              Shift
+            </ng-template>
+            <app-shift></app-shift>
+          </mat-tab>
+        </a>
+
+      
+        <a href="">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">vpn_key</mat-icon>
+              Changed Password
+            </ng-template>
+            <app-change-password></app-change-password>
+          </mat-tab>
+        </a>
+      
+      
+        <a href="">
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <mat-icon class="example-tab-icon">thumb_up_alt</mat-icon>
+              Appraisal
+            </ng-template>
+            <app-appraisal></app-appraisal>
+          </mat-tab>
+        </a>
+      
+      <!-- <mat-tab label="First"><app-basic-information></app-basic-information></mat-tab>
+      <mat-tab label="Second">Content 2</mat-tab>
+      <mat-tab label="Third">Content 3</mat-tab>
+      <mat-tab label="Fourth">Content 4</mat-tab>
+      <mat-tab label="Fifth">Content 5</mat-tab> -->
+
+    </mat-tab-group>
+  </div>
+    
+  </div>  
