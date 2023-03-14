@@ -1,6 +1,11 @@
 @import '../../../../../scss/mixins/flex';
 @import '../../../../../scss/var';
 
+.custom-error{
+    font-size: 10px;
+    margin: 5px;
+}
+
 ::ng-deep .mat-dialog-container{
     width: 800px;
     padding: 0px !important;
@@ -10,7 +15,8 @@
             width: 100%;
             padding: 10px 30px;
             background-color: #F3F3F3;
-            height: 50px;
+            box-sizing: border-box;
+
             h1{
                 margin: 0px !important;
                 color: #199CFF;
@@ -40,12 +46,14 @@
                 .col{
                     max-width: 100%;
                     .input-field{
+
                         label{
                             margin-bottom: 5px;
                             color: #96A5B8;
                             font-size: 14px;
                         }
                         width: 100% !important;
+                        
                         mat-form-field{
                           width: 100% !important;
                           ::ng-deep .mat-form-field-outline{
@@ -71,11 +79,13 @@
                     border: 1px solid #F3F3F3 ;
                     box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
                     width: 100%;
+                    box-sizing: border-box;
                     padding: 15px;
+
                 }
                 .skill-set{
                     ::ng-deep .mat-form-field-wrapper{
-                        height: 140px !important;
+                        height: 160px !important;
                     }
                     ::ng-deep .mat-form-field-flex{
                         height: 140px !important;
@@ -86,6 +96,7 @@
             .action-btn{
                 display: flex;
                 justify-content: flex-end;
+                padding: 0px 24px;
                 button{
                     width: 100px;
                     height: 40px;

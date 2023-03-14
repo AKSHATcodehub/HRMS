@@ -1,0 +1,159 @@
+@import '../../../../../scss/var',
+        '../../../../../scss/mixins/flex',
+        '../../../../../scss/theme/card';
+
+
+        
+.card-body{
+    margin: 16px;
+    max-width: 31% !important;
+    min-width: 31%;
+    border: 1px solid rgba(150, 165, 184, 0.3);
+    border-radius: 5px;
+    background-color: $white;
+    .card-body-top{
+      background-clip:border-box;
+      padding: 0px 20px;
+      height: 180px;
+      background-color: $backgroundcolor;
+      @include flex(center,center);
+      flex-direction: column;
+      figure{
+        @include flex(center,center);
+        img{
+          height: 100px;
+          width: 100px;
+        }
+      }
+      .job-opining-info{
+        width: 100%;
+        @include flex(auto,space-between);
+        @media screen and (max-width: 1400px) {
+          display: block;
+          .location{
+            width: 100%;
+            h3{
+              width: 100%;
+              p{
+              text-overflow: ellipsis !important; 
+              }
+            }
+          }
+          .date{
+            width: 100%;
+            @include flex(center,center);
+          }
+        }
+
+        .location{
+          // min-width: 160px;
+          height: 30px;
+          position: relative !important;
+          ::ng-deep .mat-icon{
+            position: absolute;
+            top: 6px !important;
+            left: 7px !important;
+            width: 9px;
+            height: 12px;
+            font-size: 15px;
+            margin-right: 8px !important;
+          
+          }
+          h3{
+            font-size: 12px;
+            font-weight: 400;
+            color: #231E1E;
+            text-align: center;
+            background-color: $white;
+            border-radius: 15px;
+            overflow: hidden;
+            max-height: 28px;
+            p{
+              text-overflow: ellipsis !important;
+
+            }
+            
+          }
+        }
+        .date{
+          font-size: 12px;
+          color: #606167;
+          font-weight: 500;
+        }
+      }
+
+    }
+    .card-body-mid{
+      .job-description{
+        border-bottom: 1px solid rgba(150, 165, 184, 0.3);
+        h3{
+          font-size: 20px;
+          color: #231E1E;
+          margin: 10px 0px !important;
+        }
+        p{
+          color: #606167;
+          word-break: break-all;
+          min-height: 40px;
+          overflow-y: hidden;
+          margin-bottom:8px!important;
+
+        }
+      }
+      .job-data{
+        @include flex(normal,space-between);
+        margin: 10px 0px !important;
+        
+        .no_opeanings{
+          p{
+            font-size: 10px;
+            margin-bottom: 16px !important;
+          }
+          h4{
+            font-size: 16px;
+            margin-bottom: 16px !important;
+            font-weight: 500;
+          }
+        }
+        .no_experience{
+          p{
+            font-size: 10px;
+            margin-bottom: 16px !important;
+          }
+          h4{
+            font-size: 16px;
+            margin-bottom: 16px !important;
+            font-weight: 500;
+          }
+        }
+
+      }
+    }
+    .card-body-bottom{
+  
+      .btn-wrapper{
+        @include flex(normal,space-between);
+        button{
+          border: 1px solid rgba(150, 165, 184, 0.3);
+          width: 45%;
+          margin: 0px !important;
+          padding: 0px !important;
+          height: 50px;
+          font-size: 14px;
+          background-color: $white;
+          color: #199CFF;
+          font-weight: 500;
+          border-radius: 5px;
+        }
+        @media screen and (max-width: 600px) {
+          display: block;
+          button{
+            width: 100%;
+            margin: 10px 0px !important;
+          }
+        }
+        
+      }
+    }
+
+  }

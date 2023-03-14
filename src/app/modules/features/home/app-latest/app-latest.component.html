@@ -1,0 +1,75 @@
+<ng-container *ngFor="let item of appinventiv_latest">
+    <ng-template #listOfDivs>
+
+        <div class="latest-wrapper" *ngIf="item.division_name == 'Apprecitaion'">
+            <app-appreciate></app-appreciate>
+        </div>
+        <div class="latest-wrapper" *ngIf="item.division_name == 'Birthday Celebration'">
+            <div class="birthdays-wrapper">
+                <h2>
+                    <span>&#183;</span>
+                    {{item.division_name}}
+                </h2>
+                <p>Dear</p>
+                <app-birthdays></app-birthdays>
+                <p class="birthdays-message">
+                    Congratulations On Your birthday. Celebrate it and mark it in the calender of your life to achieve
+                    many
+                    more milestones ahead
+                </p>
+                <p>
+                    cheers!
+                </p>
+                <p class="company-marker">Appinventiv</p>
+            </div>
+        </div>
+
+        <div class="latest-wrapper" *ngIf="item.division_name == 'Work Anniversary'">
+            <div class="birthdays-wrapper">
+                <h2>
+                    <span>&#183;</span>
+                    {{item.division_name}}
+                </h2>
+                <p>Dear</p>
+                <app-work-anniversary></app-work-anniversary>
+                <p class="birthdays-message">
+                    Congratulations On Your birthday. Celebrate it and mark it in the calender of your life to achieve
+                    many
+                    more milestones ahead
+                </p>
+                <p>
+                    cheers!
+                </p>
+                <p class="company-marker">Appinventiv</p>
+            </div>
+        </div>
+
+        <div class="latest-wrapper" *ngIf="item.division_name == 'Awards'">
+            <div class="birthdays-wrapper">
+                <h2>
+                    <span>&#183;</span>
+                    {{item.division_name}}
+                </h2>
+                <p>Dear</p>
+                <app-awards></app-awards>
+                <p class="birthdays-message">
+                    Congratulations On Your birthday. Celebrate it and mark it in the calender of your life to achieve
+                    many
+                    more milestones ahead
+                </p>
+                <p>
+                    cheers!
+                </p>
+                <p class="company-marker">Appinventiv</p>
+            </div>
+        </div>
+
+    </ng-template>
+
+</ng-container>
+
+<ng-container *ngIf="render_child">
+    <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="newOpeningsData"
+        [gridConfig]="appLatestGridConfig" [carouselPointNumbers] = "true"  >
+    </app-resp-carousel>
+</ng-container>

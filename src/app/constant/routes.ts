@@ -55,6 +55,12 @@ export const ENTREPRENURSHIP:IRoute = {
         return `${this.path}`
     }
 }
+export const EXPOLRE1:IRoute = {
+    path:'explore',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
 
 export const STARTUP:IRoute = {
     path:'startup',
@@ -64,7 +70,7 @@ export const STARTUP:IRoute = {
 }
 
 export const ADD_PITCH:IRoute = {
-    path:"add_patch",
+    path:"add_pitch",
     get fullUrl():string{
         return `${this.path}`
     }
@@ -81,5 +87,54 @@ export const PERFORMANCE:IRoute = {
     path:'performance',
     get fullUrl():string{
         return `${this.path}`;
+    }
+}
+
+export const JOBDETAILS:IRoute = {
+    path:"job-details",
+    get fullUrl():string{
+        return `${this.path}`;
+    }
+}
+
+export const HOLIDAY_CALENDAR:IRoute = {
+    path:'holiday-calendar',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const JOB_OPENINGS:IRoute = {
+    path:'job-openings',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const REFER_CANDIDATE:IRoute = {
+    path:'refer-candidate',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const INTERVIEW:IRoute = {
+    path:'interview',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const MY_TRAINING:IRoute = {
+    path:'my-training',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const TRAINING_DETAILS_TRAINE:IRoute = {
+    path:'training-details-traine',
+    get fullUrl():string{
+        return `${this.path}`
     }
 }

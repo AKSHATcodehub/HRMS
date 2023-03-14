@@ -10,9 +10,8 @@ export class SnackbarService {
 
   snackBar(mesages:string){
     this._snackbar.open(mesages,'',{
-      duration:30000,
-      panelClass: ['mat-toolbar', 'mat-warn'],
-      // horizontalPosition: 'center',
+      duration:2000,
+      panelClass: ['mat-toolbar', 'mat-primary'],
       verticalPosition: 'top',
     })
   }

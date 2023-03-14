@@ -3,22 +3,25 @@
 @import './../../../../../scss/theme/card';
 
 
+  
 .latest-opning{
     width: 100%;
-    padding: 24px;
+    // padding: 24px;
     border-right: 1px solid thin;
+    height: 100%;
     @media screen and (max-width: 1300px) {
       padding: 0px;
 
     }
     .card{
         border: 0px;
-        padding: 15px;
+        // padding: 15px;
+        // height: 100%;
         .card-header{
             @include flex(center,space-between);
             border: 0px;
             background-color: $white;
-            padding: 8px 0px;
+            
             h1{
               font-size: 20px;
               font-weight: 500;
@@ -42,13 +45,14 @@
     position: relative !important;
     overflow: hidden !important;
     min-height: 500px !important;
+    // height:100% !important;
     width: 100% !important;
 
     // animation: transform 1s linear !important;
     .card-body{
-        // height: 450px;
+        height: 100%;
         position: absolute !important;
-        width: 100% !important;
+        width: 90% !important;
         // height: 170px !important;
         transition: 1s;
         border: 1px solid rgba(150, 165, 184, 0.3);

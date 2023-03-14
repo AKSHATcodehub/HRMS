@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FEATURES } from 'src/app/constant/routes';
+import { FormService } from 'src/app/services/form.service';
 import { Industry } from './pitch-data';
 
 @Component({
@@ -8,10 +11,11 @@ import { Industry } from './pitch-data';
   styleUrls: ['./add-pitch.component.scss']
 })
 export class AddPitchComponent implements OnInit {
-selectedFile: any;
-onFileSelected($event: Event) {
-throw new Error('Method not implemented.');
-}
+  
+  selectedFile: any;
+  onFileSelected($event: Event) {
+  throw new Error('Method not implemented.');
+  }
   
   toggleStatus:boolean = false;
   pitchForm!:FormGroup;
@@ -20,29 +24,46 @@ throw new Error('Method not implemented.');
   searchInp: any;
   selectBtn: any;
   wrapper: any;
-
+  today = new Date();
 
   constructor(private ref:ElementRef,
     private render:Renderer2,
-    private fb:FormBuilder) { }
+    private fb:FormBuilder,
+    private _form:FormService,
+    private _route:Router) { }
 
   ngOnInit(): void {
 
     setTimeout(() => {
 
-      // console.log("data of gender....",this.data);
-      
       this.wrapper = this.ref.nativeElement.querySelector(".wrapper");
       this.selectBtn = document.querySelector(".select-btn");
       this.searchInp = document.querySelector(".searchbar"),
       this.options =document.querySelector(".options");
-  
- 
-    this.IndustryData=this.IndustryData;
+      this.IndustryData=this.IndustryData;
   
     }, 2000);
+
+    this.createPitchForm();
   }
 
+  createPitchForm(){
+    return this.pitchForm = this.fb.group({
+      empName:this._form.getControl('empName'),
+      empId:this._form.getControl('empId'),
+      DOB:this._form.getControl('DOB'),
+      pitchTitle:this._form.getControl('pitchTitle'),
+      pitchIndustry:this._form.getControl('pitchIndustry'),
+      pitchType:this._form.getControl('pitchType')
+    })
+  }
+
+  actionbtn(){
+    this.pitchForm.markAllAsTouched();
+    if(this.pitchForm.valid){
+      this._route.navigate([FEATURES.fullUrl])
+    }
+  }
 
   optionClicked(wapper:any){
 
@@ -50,10 +71,8 @@ throw new Error('Method not implemented.');
 
     console.log("toggle sta tus..",this.toggleStatus);
     
-
     if(this.toggleStatus){
       this.render.addClass(wapper,'active');
-
     }
     if(!this.toggleStatus){
       this.render.removeClass(wapper,'active');
@@ -88,6 +107,9 @@ throw new Error('Method not implemented.');
     this.searchInp.value = "";
     wapper.classList.remove("active");
     selectbtn.firstElementChild.value = selectedLi;
+    console.log("this is psatch control>>>",this.pitchForm?.get(control));
+    
     this.pitchForm?.get(control)?.setValue(selectedLi);
+
   }
 }

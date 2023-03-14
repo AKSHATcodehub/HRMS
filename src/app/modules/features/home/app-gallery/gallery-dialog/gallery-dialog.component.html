@@ -1,4 +1,4 @@
-<p mat-dialog-close>X</p>
+<p (click)="onNoClick()">X</p>
 
 <ng-container *ngFor="let item of selectedGallery.gallery_images">
     <ng-template #listOfDivs>
@@ -13,6 +13,6 @@
 
 <ng-container *ngIf="render_child">
     <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="galleryDialogData"
-        [gridConfig]="galleryDialogGridConfig">
+        [gridConfig]="galleryDialogGridConfig" [carouselPointNumbers] = "true" >
     </app-resp-carousel>
 </ng-container>

@@ -3,11 +3,12 @@
         <h1>Add Pitch</h1>
         <div class="pitch-action-btn">
             <button>Cancel</button>
-            <button>Submit</button>
+            <button (click)="actionbtn()">Submit</button>
         </div>
     </div>
+    <hr>
     <div class="pitch-content">
-        <div class="pitch-card">
+        <div class="pitch-card" [formGroup]="pitchForm">
             <div class="pitch-details">
                 <div class="card-heading flex-row">
                     <div class="flex-col-1">
@@ -19,22 +20,27 @@
                         <div class="flex-col-1">
                             <label for="">Name</label><br>
                             <mat-form-field appearance="outline" class="flex-col-1">
-                                <input matInput>
+                                <input matInput formControlName="empName">
+                                <mat-error>{{pitchForm | validationError : 'empName': 'Employer Name'}}</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
 
                     <div class="form-group flex-row">
                         <div class="flex-col-2">
-                            <label for="">Name</label><br>
+                            <label for="">Employee Id</label><br>
                             <mat-form-field appearance="outline" class="flex-col-1">
-                                <input matInput>
+                                <input matInput formControlName="empId">
+                                <mat-error>{{pitchForm | validationError : 'empId': 'Employer Id'}}</mat-error>
                             </mat-form-field>
                         </div>
                         <div class="flex-col-2">
-                            <label for="">Name</label><br>
-                            <mat-form-field appearance="outline" class="flex-col-1">
-                                <input matInput>
+                            <label for="">Date of Birth</label><br>
+                            <mat-form-field appearance="outline" style="position: relative;" >
+                                <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="DOB">
+                                <mat-error>{{pitchForm | validationError:'DOB':'DOB' }}</mat-error>
+                                <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
                             </mat-form-field>
                         </div>
                     </div>
@@ -49,7 +55,8 @@
                         <div class="flex-col-1">
                             <label for="">Pitch Title</label><br>
                             <mat-form-field appearance="outline" class="flex-col-1">
-                                <input matInput>
+                                <input matInput formControlName="pitchTitle" >
+                                <mat-error>{{pitchForm | validationError : 'pitchTitle': 'Pitch Title'}}</mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -60,7 +67,7 @@
                                 <mat-form-field appearance="outline" >
                                   <div class="wrapper" #wapper>
                                     <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
-                                      <input matInput type="text" readonly="readonly"  placeholder="Industry"  >
+                                      <input matInput type="text" readonly="readonly"  placeholder="Industry" formControlName="pitchIndustry" >
                                       <i class="uil uil-angle-down"></i>
                                     </div> 
                                     <div class="content" #content>
@@ -69,36 +76,36 @@
                                         <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
                                       </div>
                                       <ul class="options">
-                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'pitchIndustry')" #{item}>{{item}}</li> 
                                       </ul>
                                     </div>
                                   </div>
-                                  <!-- <mat-error class="custom-error" >{{pitchForm | validationError : 'genderr' : 'Gender' }}</mat-error> -->
+                                  <mat-error class="custom-error" >{{pitchForm | validationError : 'pitchIndustry' : 'Industry' }}</mat-error>
                                 </mat-form-field>
-                          </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group flex-row">
                         <div class="flex-col-1">
                             <div class="input-field" >
-                                <label for="" >Industry</label>
+                                <label for="" >Type</label>
                                 <mat-form-field appearance="outline" >
-                                  <div class="wrapper" #wapper>
-                                    <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
-                                      <input matInput type="text" readonly="readonly"  placeholder="Technical"  >
+                                  <div class="wrapper" #wapper1>
+                                    <div class="select-btn" (click)="optionClicked(wapper1)" #selectbtn1>
+                                      <input matInput type="text" readonly="readonly"  placeholder="Type" formControlName="pitchType" >
                                       <i class="uil uil-angle-down"></i>
                                     </div> 
-                                    <div class="content" #content>
+                                    <div class="content" #content1>
                                       <div class="search">
                                         <i class="uil uil-search"></i>
                                         <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
                                       </div>
                                       <ul class="options">
-                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                                        <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn1,wapper1,'pitchType')" #{item}>{{item}}</li> 
                                       </ul>
                                     </div>
                                   </div>
-                                  <!-- <mat-error class="custom-error" >{{pitchForm | validationError : 'genderr' : 'Gender' }}</mat-error> -->
+                                  <mat-error class="custom-error" >{{pitchForm | validationError : 'pitchType' : 'Type' }}</mat-error>
                                 </mat-form-field>
                           </div>
                         </div>
@@ -137,3 +144,5 @@
         </div>
     </div>
 </div>
+
+<router-outlet></router-outlet>

@@ -1,3 +1,10 @@
+@import '../var';
+@import '../mixins/flex';
+
+.center{
+    @include flex(center,center);
+}
+
 .Row{
     display: flex;
 }
@@ -21,4 +28,99 @@ hr{
 .flex-wrap{
     display: flex;
     flex-wrap: wrap;
+}
+
+.row{
+    display: flex;
+}
+
+.left-margin{
+    margin-left: 10px;
+}
+.right-margin{
+    margin-right: 10px;
+}
+.top-margin{
+    margin-top: 10px;
+}
+.bottom-margin{
+    margin-bottom: 10px;
+}
+
+.wrapper{
+    padding: 24px;
+    background-color: $lightblue;
+    
+}
+
+.card{
+    border: 1px solid rgb(221, 218, 218);
+    border-radius: 5px;
+    background-color: $white;
+    padding: 24px;
+    .card-header{
+        padding: 8px 0px;
+        border: 0px ;
+        background-color: $white;
+        border-bottom: 1px solid #E9E9E9;
+        h1{
+            color:#199CFF;
+            font-size: 24px;
+            font-weight: 500;
+            padding: 0px;
+        }
+    }
+    .card-body{
+        padding: 16px;
+        background-color: $white;
+        border-radius: 5px;
+        .card-top{
+            display: flex;
+            padding: 12px;
+            .profile-pic{
+                img{
+                    height: 100px;
+                    width: 100px;
+                    border-radius: 50%;
+                }
+                margin: 10px;
+            }
+            .user-info{
+                margin: 10px;
+                h1{
+                    height: auto;
+                }
+                p{
+                    height: auto;
+                }
+                h3{
+                    margin: 0px;
+                }
+            }
+            
+        }
+        .card-mid{
+            width: 100%;
+            padding: 12px;
+            .card-mid-row{
+                margin: 20px 0px;
+            }
+            
+        }
+        .card-bottom{
+            width: 100%;
+        }
+    }
+    .card-bottom{
+        width: auto;
+    }
+}
+
+.button{
+    margin: 5px 20px;
+    height: 40px;
+    color: $white;
+    background-color: $primary;
+    border: 0px;
+    border-radius: 5px;
 }

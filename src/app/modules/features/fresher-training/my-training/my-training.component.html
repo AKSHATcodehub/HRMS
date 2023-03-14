@@ -1,0 +1,56 @@
+
+<div class="latest-opning">
+    <div class="card" >
+        <div class="card-header">
+            <h1>Training</h1>
+        </div>
+        <div class="main">
+            <div class="card-body" *ngFor="let card of cards">
+                <!-- <app-carousel></app-carousel> -->
+                <div class="card-body-top">
+                    <figure>
+                        <img src="https://dashboard.appinventiv.com/uploads/award/react-native.svg" alt="">
+                    </figure><br>
+                    <div class="job-opining-info">
+                        <div class="location">
+                            <!-- <mat-icon>location_on</mat-icon> -->
+                            <h3>
+                                <p>Noida, Uttar Pradesh</p>
+                            </h3>
+                        </div>
+                        <div class="date">
+                            9/02/2023
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body-mid">
+                    <div class="job-description">
+                        <h3>Sr. Software Engineer - <span class="department_name">Magento</span></h3>
+                        <p>Looking for Senior Magento Developers.</p>
+                    </div>
+                    <div class="job-data">
+                       
+                        <div class="no_opeanings">
+                            <p>No. of Openings</p>
+                            <h4>2</h4>
+                        </div>
+                        <div class="no_experience">
+                            <p>Experience</p>
+                            <h4>3 to 5 Years</h4>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="card-body-bottom">
+                    <div class="btn-wrapper">
+                        <button routerLink="../training-details-traine" >View Details</button>
+                        <button (click)="openDialog()">Feedback</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>

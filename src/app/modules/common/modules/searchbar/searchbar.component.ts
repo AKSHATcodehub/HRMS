@@ -21,7 +21,7 @@ export class SearchbarComponent implements OnInit {
   func(event:any){
 
     this.arr = this.data.filter((item:any)=>{
-      if(item.name.toLowerCase().startsWith(event.target.value)){
+      if(item.name?.toLowerCase()?.startsWith(event.target.value)){
         return item;
       }else{
         return 

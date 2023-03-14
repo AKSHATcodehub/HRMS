@@ -128,16 +128,19 @@ app-carousel{
                 app-latest-job{
                   width: 50%;
                 }
+                app-latest-job-cards{
+                  width: 50%;
+                }
                 .referal-bonous{
                     width: 50%;
-                    padding: 24px;
+                    // padding: 24px;
                     border-left: 1px dashed gray;
                     @media screen and (max-width: 1300px) {
                       padding: 0px;
         
                     }
                     .card{
-                      height: 100%;
+                      // height: 100%;
                       border: 0px;
 
                       .card-header{
@@ -147,18 +150,19 @@ app-carousel{
                           color: $primary;
                           text-transform: uppercase;
                           margin-left: 10px !important;
+                          
                         }
                         background-color:$white;
                       }
                       .bonus-cards{
                         @include flex(auto,center);
-                        display: flex;
+                        display: flex !important;
                         flex-wrap: wrap ;
                         padding: 16px;
                         li{
                             
                             background-color: $lightblue;
-                            width: 45%;
+                            width: 35%;
                             // height: 203px;
                             margin: 10px !important;
                             padding: 25px 15px;
@@ -210,7 +214,7 @@ app-carousel{
             }
             .new-family-members{
                 width: 34%;
-                padding: 24px;
+                // padding: 24px;
                 background-color: white;
                 border-radius:0px 5px 5px 0px;
                 margin-left: 8px ;
@@ -265,6 +269,11 @@ app-carousel{
     .latest-info-wrapper{
       background-color: $white;
       border-radius: 5px;
+      border: 1px solid rgb(221, 218, 218);
+      app-app-latest{
+        width: 100%;
+      }
+
       h3{
         border-radius: 5px 5px 0px 0px;
         font-size: 20px;
@@ -302,6 +311,7 @@ app-carousel{
           }
           .card-body{
             .card-body-top{
+             
               p{
                 font-size: 12px;
                 padding: 0px 8px;
@@ -376,8 +386,13 @@ app-carousel{
     }
 
     .gallery-wrapper{
+      background-color: white;
+      border-radius: 5px;
+      
       .gallery-header{
-        padding: 14px 24px;
+        border: 1px solid rgb(221, 218, 218);
+        border-bottom: 0px;
+        padding: 14px 24px; 
         h3{
           font-size: 20px;
           font-weight: 500;
@@ -386,7 +401,7 @@ app-carousel{
       }
       .card{
         .card-body{
-          padding: 40px 16px;
+          // padding: 40px 16px;
         }
       }
     }

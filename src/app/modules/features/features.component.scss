@@ -214,11 +214,11 @@
     }
   }
 }
-::ng-deep .mat-sidenav-container{
-  @media screen and (max-width: 1000px) {
-    background-color: aliceblue !important;
-  }
-}
+// ::ng-deep .mat-sidenav-container{
+//   @media screen and (max-width: 1000px) {
+//     background-color: aliceblue !important;
+//   }
+// }
 
 
 mat-icon{
@@ -231,9 +231,11 @@ mat-icon{
   display: none;
   } 
 
+  
 ::ng-deep .mat-list-item-content{
+  width: 90%;
   padding: 0px !important; ;
-  width: 190px;
+ 
   span{
     margin: 5px;
   }
@@ -258,8 +260,13 @@ mat-icon{
   background: white;
 }
 
+.mb-5{
+  margin-bottom: 0rem !important;
+}
 
 ::ng-deep .mat-list-item{
+  display: flex !important;
+  justify-content: center !important;
   span{
     font-size: 15px;
     color: #2c2c2c;
@@ -310,15 +317,19 @@ mat-icon{
   }
   .example-sidenav {
      user-select: none;
+     width:250px;
     ::ng-deep .mat-expansion-panel-spacing{
       margin: 0px;
     }
+   
+    
   }
 
 }
 
-.example-sidenav-content {
 
+.example-sidenav-content {
+  background-color: $lightblue;
   height: 100%;
   align-items: center;
   justify-content: center;
@@ -345,7 +356,7 @@ mat-icon{
   transform: scaleY(1);
 }
 .mat-toolbar{
-  background-color: white;
+  background-color: white !important  ; 
 }
 ::ng-deep .mat-toolbar-single-row{
   width: auto !important;
@@ -358,6 +369,7 @@ button{
 
 
 @media screen and (max-width: 1000px) {
+
   ::ng-deep .mat-sidenav-content{
     margin: 0px !important;
   }

@@ -14,7 +14,8 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ValidationErrorModule
+    ValidationErrorModule,
+    FormsModule
   ],
   exports:[
     DropdownComponent

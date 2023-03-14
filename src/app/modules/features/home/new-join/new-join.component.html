@@ -1,0 +1,22 @@
+
+
+<ng-container *ngFor="let person of newJoinings">
+        <ng-template #listOfDivs >
+            <div class="new-join-wrapper">
+
+                <div class="new-joinings-image">
+                    <img [src]="'../../../../../assets/' + person" alt="" />
+                </div>
+            </div>
+            </ng-template>
+</ng-container>
+
+
+<ng-container *ngIf="render_child">  
+    <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="newJoinData"
+        [gridConfig]="newJoinGridConfig"
+    >
+    </app-resp-carousel>  
+    
+</ng-container>
+

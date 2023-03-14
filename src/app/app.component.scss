@@ -1,0 +1,9 @@
+::ng-deep .cdk-global-overlay-wrapper {
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+    top: 50px;
+    overflow: auto;
+    height: 90vh;
+    pointer-events: auto;  
+  }

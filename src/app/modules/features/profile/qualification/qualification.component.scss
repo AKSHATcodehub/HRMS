@@ -99,6 +99,7 @@ hr{
         font-weight: 500;
       }
       .basic-information-form{
+        
         .total-experience{
           @media screen and (max-width: 700px) {
             display: block;
@@ -158,6 +159,7 @@ hr{
             }
           }
           .address{
+            width: 100%;
             .input-field{
                 width: 100%;
                 label{

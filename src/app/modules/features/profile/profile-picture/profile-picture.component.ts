@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
@@ -26,6 +27,9 @@ export class ProfilePictureComponent implements OnInit {
       console.log(this.profileForm);
       
     }, 2000);
+
+    let pro = new Promise(()=>{console.log("hyy")});
+    
   }
 
   createForm(){
@@ -66,17 +70,26 @@ export class ProfilePictureComponent implements OnInit {
 		
 		reader.onload = (_event) => {
 			this.url = reader.result; 
+      this.profileForm.markAsUntouched(); 
 		}
 	}
 
   saveProfile(){
     console.log("form >>>>> ",this.profileForm);
-    this._snackBar.snackBar("prifile updated");
+    if(!(this.profileForm.controls.profilePicture.value.length>0)){
+      this.profileForm.markAsTouched();
 
+    }
     if(this.profileForm.controls.checkbox.value){
       this.removeImage();
-      this._snackBar.snackBar("profile updated");
+      this._snackBar.snackBar("Profile Updated");
       this.profileForm.controls.checkbox.reset();
+      this.profileForm.markAsUntouched();
+    }
+    if(this.profileForm.controls.profilePicture.valid){
+      this._snackBar.snackBar("Profile Updated");
+      this.profileForm.controls.checkbox.reset();
+      this.profileForm.markAsUntouched();
     }
     // if(this.profileForm.invalid){
     //   alert("select profile pic")

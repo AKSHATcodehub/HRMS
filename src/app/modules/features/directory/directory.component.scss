@@ -1,26 +1,50 @@
-@import '../../../../scss/theme/card';
-@import '../../../../scss/mixins/flex';
+@import '../../../../scss/theme/card',
+         '../../../../scss/mixins/flex',
+         '../../../../scss/var',
+         '../../../../scss//mixins/media',
+        '../../../../scss/theme/grid';
+
+
+.card{
+    max-width: 100%;
+}
+::ng-deep .mat-form-field-outline{
+    background-color:white;
+    box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) ;
+}
+
+li{
+    word-break: break-all;
+}
 
 .directory-wrapper{
     padding: 24px 32px;
+    background-color: $lightblue;
+    @include media(xs){
+        padding: 10px;
+    }
     .directory-header{
         h1{
             color: blue;
         }
         .directory-header-main{
-            
-            .input-group{
-                padding: 20px;
-                display: block;
-                width: 99%;
-                mat-form-field{
+            // @include media(lg){
+            //     display: block;
+            // }
+            .column-3{
+                @include media(xl){
                     width: 100%;
                 }
+            }
+            
+            .button-wrapper{
+                @include flex(center,flex-start);
+            
                 button{
                     height: 40px;
                     min-width: 100px;
                     font-size: 20px;
-                    margin: 10px;
+                    margin:0px 10px 0px 0px;
                     border-radius: 5px;
                     background-color: white;
                     mat-icon{
@@ -35,22 +59,24 @@
                     color: white;
                     border: 0px;
                   }
-                
-            }
-            .button-wrapper{
-                @include flex(center,center);
-                flex-direction: column;
             }
         }
     }
     .directory-body{
         .card{
+            box-sizing: border-box;
             overflow: hidden;
-            width: 33.33%;
+            min-width: 33.33%;
             padding: 20px;
             border: 0px;
             background-clip:content-box;
             background-color: #f7f5ec;
+            @include media(xl){
+                min-width: 50%;
+            }
+            @include media(md){
+                width: 100%
+            };
             .directory-card-top{
                 overflow: hidden;
                 @include flex(center,center);
@@ -61,7 +87,7 @@
                     position: absolute;
                     @include flex(center,space-between);
                     border-radius: 50%;
-                    width: 130px;
+                    min-width: 130px;
                     height: 130px;
                     border: 0px;
                     padding: 0px;

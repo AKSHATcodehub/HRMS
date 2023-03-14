@@ -18,7 +18,7 @@
         <h1 >Refer a Candidate</h1>
         <button mat-button (click)="onNoClick()"><mat-icon>close</mat-icon></button>
     </div>
-    <div class="dialog-wrapper-body">
+    <div class="dialog-wrapper-body" [formGroup]="dialogForm">
         <div class="title">
           
             <div class="row ">
@@ -32,7 +32,8 @@
                 <div class="input-field">
                     <label for="">Department Name</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="departmentName">
+                      <mat-error>{{dialogForm | validationError :'departmentName' :'Department Name'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -40,7 +41,8 @@
                 <div class="input-field">
                     <label for="">Job Code</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="jobCode">
+                      <mat-error>{{dialogForm | validationError :'jobCode' :'Job Code'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -50,7 +52,8 @@
                 <div class="input-field">
                     <label for="">Location</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="location">
+                      <mat-error>{{dialogForm | validationError :'location' :'Location'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -58,7 +61,8 @@
                 <div class="input-field">
                     <label for="">Experience</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="experience">
+                      <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -75,35 +79,19 @@
         <div class="row candidates-field">
             <div class="col">
                 <div class="input-field">
-                    <label for="">Department Name</label>
+                    <label for="">Job Location</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="jobLocation">
+                      <mat-error>{{dialogForm | validationError :'jobLocation' :'Job Location'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
             <div class="col">
                 <div class="input-field">
-                    <label for="">Job Code</label>
+                    <label for="">Candidate Name</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
-                    </mat-form-field>
-                </div>
-            </div>
-        </div>
-        <div class="row candidates-field">
-            <div class="col">
-                <div class="input-field">
-                    <label for="">Department Name</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
-                    </mat-form-field>
-                </div>
-            </div>
-            <div class="col">
-                <div class="input-field">
-                    <label for="">Job Code</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="empName">
+                      <mat-error>{{dialogForm | validationError :'empName' :'Candidate Name'}}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -111,17 +99,43 @@
         <div class="row candidates-field">
             <div class="col">
                 <div class="input-field">
-                    <label for="">Department Name</label>
+                    <label for="">Position Title</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="projectTitle">
+                      <mat-error>{{dialogForm | validationError :'projectTitle' :'Project Title'}}</mat-error>
+
                     </mat-form-field>
                 </div>
             </div>
             <div class="col">
                 <div class="input-field">
-                    <label for="">Job Code</label>
+                    <label for="">Experience</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="experience">
+                      <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row candidates-field">
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Email ID</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name" formControlName="email">
+                      <mat-error>{{dialogForm | validationError :'email' :'Email'}}</mat-error>
+
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="col">
+                <div class="input-field">
+                    <label for="">Phone Number</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name" formControlName="phoneNumber">
+                      <mat-error>{{dialogForm | validationError :'phoneNumber' :'Phone Number'}}</mat-error>
+
                     </mat-form-field>
                 </div>
             </div>
@@ -131,14 +145,18 @@
             <div class="col">
                 <div class="input-field">
                     <label for="">Upload CV (pdf,doc)</label>
-                    <input type="file" class="file-input">
+                    <input type="file" class="file-input" formControlName="file">
+                    <mat-error *ngIf="dialogForm.controls.file.touched" class='custom-error'>{{dialogForm | validationError :'file' :'File'}}</mat-error>
+
                 </div>
             </div>
             <div class="col">
                 <div class="input-field">
                     <label for="">Skill Set</label>
                     <mat-form-field appearance="outline" class="skill-set" >
-                      <input matInput placeholder="Name">
+                      <input matInput placeholder="Name" formControlName="skill">
+                      <mat-error>{{dialogForm | validationError :'skill' :'Skill'}}</mat-error>
+
                     </mat-form-field>
                 </div>
             </div>
@@ -146,7 +164,7 @@
 
         <div class="action-btn">
             <button (click)="onNoClick()">Cancel</button>
-            <button>Submit</button>
+            <button (click)="onSubmit()">Submit</button>
         </div>
 
     </div>

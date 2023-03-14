@@ -6,6 +6,7 @@ import { VALIDATION_CRITERIA } from '../constant/validation-criteria';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FormService {
 
   constructor() { }
@@ -38,7 +39,22 @@ export class FormService {
     language:[],
     description:[],
     fromTimePerioed:[],
-    toTimePerioed:[ ]
+    toTimePerioed:[ ],
+    empName:[],
+    empId:[],
+    DOB:[],
+    pitchTitle:[],
+    pitchIndustry:[],
+    pitchType:[],
+    departmentName:[],
+    jobCode:[],
+    location:[],
+    experience:[],
+    jobLocation:[],
+    projectTitle:[],
+    phoneNumber:[],
+    skill:[],
+    file:[]
   }
 
   getControl(name:any,required=true,prerfilled?:any){
@@ -47,12 +63,10 @@ export class FormService {
     } 
 
     // console.log("this is form control ....",this.VALIDATION['email']);
-    
 
     let compose = [...this.VALIDATION[name]];
 
     console.log("this is form control ....",compose);
-
 
     if(required){
       if(name === "checkbox"){
@@ -61,8 +75,6 @@ export class FormService {
         compose.splice(0,0,Validators.required);
       }
     }
-
-    
 
     return [prerfilled, Validators.compose(compose)];
   }

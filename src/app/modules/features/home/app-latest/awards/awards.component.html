@@ -1,0 +1,25 @@
+<ng-container *ngFor="let item of arr">
+    <ng-template #listOfDivs>
+
+        <div class="birthdays-wrapper">
+            <div class="member-image">
+                <img [src]="'../../../../../../assets/profileImages/' + item.image_name" alt="">
+            </div>
+            <div class="member-name">
+                {{item.member_name}}
+            </div>
+            <div class="member-designation">
+                {{item.member_designation}}
+            </div>
+            
+        </div>
+
+    </ng-template>
+
+</ng-container>
+
+<ng-container *ngIf="render_child">
+    <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="newOpeningsData"
+        [gridConfig]="awardsGridConfig">
+    </app-resp-carousel>
+</ng-container>

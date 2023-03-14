@@ -1,0 +1,17 @@
+@import '../../../../../../scss/theme/grid',
+        '../../../../../../scss/theme/margin',
+        '../../../../../../scss/var';
+*{
+    box-sizing: border-box;
+}
+p{
+    word-break:break-all;
+}
+label{
+    width: 110px;
+}
+.jd-description{
+    height: 80px;
+    background-color: $lightblue;
+    padding: 25px;
+}

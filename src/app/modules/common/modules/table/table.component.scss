@@ -1,23 +1,30 @@
-
+@import '../../../../../scss/mixins/media';
 section {
+  padding: 5px;
+  overflow: scroll;
     table {
       line-height: 3.6;
-      margin: 20px;
-      width: 97%;
+      // margin: 20px;
+      width: 100%;
       border: 1px solid rgb(235, 235, 235);
       th {
         border: 1px solid rgb(235, 235, 235);
-        font-size: 15px;
+        font-size: 14px;
         text-align: center !important;
         margin-bottom: 20px;
-      //   color: black;
+        color:rgb(58, 56, 56);
        
       }
       td {
         //  background-color: rgb(235, 235, 235);
         text-align: center;
       }
+      a{
+        position: relative;
+      }
       mat-icon {
+        position: absolute;
+        top: -3px;
       //   color: $primary;
         margin-right: 4px;
       }
@@ -26,8 +33,9 @@ section {
   }
 table{
     width: 100%;
+    
     td{
-        text-align: center;
+       text-align: center;
     }
 }
 

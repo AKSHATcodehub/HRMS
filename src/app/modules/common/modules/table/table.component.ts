@@ -19,8 +19,8 @@ export class TableComponent implements OnInit {
   @Input() Table_DATA!: any;
   @Input() checkBox!: string;
   @Input() isFilterable: any;
-paginationSizes: number[] =[10];
-defaultPageSize: NumberInput =10;
+  paginationSizes: number[] =[10];
+  defaultPageSize: NumberInput =10;
   @ViewChild(MatSort) set matSort(sort: MatSort) {
     this.dataSource.sort = sort;
   }

@@ -1,12 +1,8 @@
 
-<!-- <div  style="width: 100vw;height: 100vh ; opacity: 0.5;background-color: rgb(113, 101, 101);"> -->
-
-<!-- <div class="name" style="width: 100vw;height: 100vh ; z-index: 2384839 ; background-color: black;"></div> -->
-
 <div class="layout-navbar">
 	<mat-toolbar color="primary" class="example-toolbar">
 		<img src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png" alt="">
-		<button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+		<button mat-icon-button (click)="expandAction()"><mat-icon>menu</mat-icon></button>
 	</mat-toolbar>
 
 	<div class="navbar-features" *ngIf="showNavbarFeature">
@@ -53,270 +49,43 @@
 	
 </div>
 <mat-sidenav-container class="example-container" autosize>
-	
-	<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-			<mat-nav-list class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-				<mat-accordion *ngIf="isExpanded || isShowing">
-					<mat-expansion-panel hideToggle disabled>
-					  <mat-expansion-panel-header>
-						<mat-panel-title>
-							<mat-list-item  class="parent" routerLink="home">
-								<span class="full-width" *ngIf="isExpanded || isShowing">Home</span>
-								<mat-icon mat-list-icon  >home</mat-icon>
-							</mat-list-item>
-						</mat-panel-title>
-					  </mat-expansion-panel-header>
-					</mat-expansion-panel>
-					<mat-expansion-panel hideToggle disabled>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent" routerLink="profile">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">My Profile</span>
-								  <mat-icon mat-list-icon>person</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					</mat-expansion-panel>
-					<mat-expansion-panel hideToggle disabled>
-						<mat-expansion-panel-header>
-							<mat-panel-title>
-								<mat-list-item  class="parent" routerLink="directory">
-									<span class="full-width" *ngIf="isExpanded || isShowing">Directory</span>
-									<mat-icon mat-list-icon>library_books</mat-icon>
-								</mat-list-item>
-							</mat-panel-title>
-						</mat-expansion-panel-header>
-					</mat-expansion-panel>
+	<mat-sidenav   #sidenav (window:resize)="onResize($event)" class="example-sidenav disappear-1000px" mode="side" opened="true" (mouseenter)="mouseenter()"
+	(mouseleave)="mouseleave()"  id="side-nav-id">
+	<mat-nav-list>
+		<ng-container *ngFor="let navBarItem of localNavBarData">
 
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header >
-						  <mat-panel-title>
-							  <mat-list-item  class="parent" >
-								  <span class="full-width" *ngIf="isExpanded || isShowing"><div>Entrepreneurship<br>Program</div></span>
-								  <mat-icon mat-list-icon>paid</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item routerLink="entrepreneurship">Explore</mat-list-item>
-						</div>
-					</mat-expansion-panel>
+			<mat-list-item (click)="showSubMenu()"
+				class="parent"
+				(click)="openSubMenu(navBarItem)"
+				[routerLink]='navBarItem.link' [routerLinkActive]="navBarItem.link ? 'is_active' : 'null'"
+				>
+				<span class="full-width" *ngIf="isExpanded">
+					{{navBarItem.name}}
+				</span>
+				<mat-icon id="sidenev-icon" mat-list-icon>{{navBarItem.icon}}</mat-icon>
+				<mat-icon class="menu-button" [ngClass]="{'rotated' : navBarItem.subMenuClicked}" *ngIf="navBarItem.subMenu" >
+					expand_more
+				</mat-icon>
+			</mat-list-item>
+			<div class="submenu" 
+			[ngClass]="{'expanded' : navBarItem.subMenuClicked}"
+			 *ngIf="navBarItem.subMenuClicked" >
+				<ng-container *ngFor="let subMenuItem of navBarItem.subMenu">
+					<a   mat-list-item  [routerLink]='subMenuItem.link' [routerLinkActive]="subMenuItem.link ? 'is_active' : 'null'" >
+							<mat-icon class="mb-5">
+								{{subMenuItem.icon}}
+							</mat-icon>
+						<span>
+							{{subMenuItem.name}}
+						</span>
+					</a>
+				</ng-container>                                 
+			</div>
+		</ng-container> 
+	</mat-nav-list>
+</mat-sidenav>
 
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header >
-						  <mat-panel-title>
-							  <mat-list-item  class="parent" >
-								  <span class="full-width" *ngIf="isExpanded || isShowing">My Links</span>
-								  <mat-icon mat-list-icon>paid</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div>
-						  <mat-list-item>Insurance Verification Details</mat-list-item>
-						  <mat-list-item>Holiday Calendar 2023</mat-list-item>
-						  <mat-list-item routerLink="policy-documents">Policy Documents</mat-list-item>
-						</div>
-					</mat-expansion-panel>
 
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header >
-							<mat-panel-title>
-								<mat-list-item  class="parent" >
-									<span class="full-width" *ngIf="isExpanded || isShowing">Finance</span>
-									<mat-icon mat-list-icon>paid</mat-icon>
-								</mat-list-item>
-							</mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-							<mat-list-item>SubSubmenu Item 1</mat-list-item>
-							<mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Review</span>
-								  <mat-icon mat-list-icon>reviews</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item routerLink="performance">My Performance</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Refer a Friend</span>
-								  <mat-icon mat-list-icon>reviews</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Fresher Training</span>
-								  <mat-icon mat-list-icon>groups</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Training</span>
-								  <mat-icon mat-list-icon>school</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Assest inventory</span>
-								  <mat-icon mat-list-icon>school</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Attendence</span>
-								  <mat-icon mat-list-icon>science</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Leave</span>
-								  <mat-icon mat-list-icon>schedule</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Ticket</span>
-								  <mat-icon mat-list-icon>event</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">DSR</span>
-								  <mat-icon mat-list-icon>terminal</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-						<div  >
-						  <mat-list-item>SubSubmenu Item 1</mat-list-item>
-						  <mat-list-item>SubSubmenu Item 2</mat-list-item>
-						</div>
-					</mat-expansion-panel>
-					<mat-expansion-panel hideToggle>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Project</span>
-								  <mat-icon mat-list-icon>terminal</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					  </mat-expansion-panel>
-					  <mat-expansion-panel hideToggle>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Expenses</span>
-								  <mat-icon mat-list-icon>real_estate_agent</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					  </mat-expansion-panel>
-					  <mat-expansion-panel hideToggle>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Announcements</span>
-								  <mat-icon mat-list-icon>campaign</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					  </mat-expansion-panel>
-					  <mat-expansion-panel hideToggle>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Travels</span>
-								  <mat-icon mat-list-icon>flight</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					  </mat-expansion-panel>
-					  <mat-expansion-panel hideToggle>
-						<mat-expansion-panel-header>
-						  <mat-panel-title>
-							  <mat-list-item  class="parent">
-								  <span class="full-width" *ngIf="isExpanded || isShowing">Logout</span>
-								  <mat-icon mat-list-icon>logout</mat-icon>
-							  </mat-list-item>
-						  </mat-panel-title>
-						</mat-expansion-panel-header>
-					  </mat-expansion-panel>
-				  </mat-accordion>
-				
-				</mat-nav-list>
-				<mat-nav-list>
-			</mat-nav-list>
-	</mat-sidenav>
-	
 	
 	
 	<div class="example-sidenav-content" >

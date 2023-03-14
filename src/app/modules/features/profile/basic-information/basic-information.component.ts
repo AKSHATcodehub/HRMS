@@ -11,7 +11,8 @@ export class BasicInformationComponent implements OnInit {
 
   constructor(private ref:ElementRef,
               private render:Renderer2,
-              private fb:FormBuilder) { }
+              private fb:FormBuilder
+              ) { }
   
   today = new Date();
   slidePosition = 1;
@@ -24,7 +25,9 @@ export class BasicInformationComponent implements OnInit {
   countries:any;
   filterCountries:any;
   gender=['Male','Female'];
+  genderPlaceHolder:string = 'Gender';
   marriage=['Single','Married','Divorced'];
+  marriagePlaceHolder:string='Marriage Status'
   alpha=['a','b','c'];
   toggleStatus=false;
   basicInfoForm!:FormGroup;
@@ -33,24 +36,16 @@ export class BasicInformationComponent implements OnInit {
 
     this.basicInfoForm = this.createForm();
     
-
     setTimeout(() => {
 
-      // console.log("data of gender....",this.data);
-      
       this.wrapper = this.ref.nativeElement.querySelector(".wrapper");
       this.selectBtn = document.querySelector(".select-btn");
       this.searchInp = document.querySelector(".searchbar"),
       this.options =document.querySelector(".options");
-  
- 
-    this.filterCountries=this.countries;
+      this.filterCountries=this.countries;
   
     }, 2000);
-
   }
-
-
 
   createForm(){
     return this.fb.group({
@@ -84,7 +79,6 @@ export class BasicInformationComponent implements OnInit {
 
     console.log("toggle sta tus..",this.toggleStatus);
     
-
     if(this.toggleStatus){
       this.render.addClass(wapper,'active');
 
@@ -101,7 +95,7 @@ export class BasicInformationComponent implements OnInit {
 
     let arr = [];
     let searchWord = event.target.value.toLowerCase();
-    arr = this.countries.filter((data:any) => {
+    arr = this.gender.filter((data:any) => {
         return data.toLowerCase().startsWith(searchWord);
     })
 
@@ -123,6 +117,7 @@ export class BasicInformationComponent implements OnInit {
     wapper.classList.remove("active");
     selectbtn.firstElementChild.value = selectedLi;
     this.basicInfoForm?.get(control)?.setValue(selectedLi);
+
   }
 
 

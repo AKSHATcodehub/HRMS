@@ -1,0 +1,34 @@
+.latest-wrapper{
+    width: 98%;
+    height: 100%;
+    padding: 5% 2% 2% 2%;
+
+    h2{
+        font-size: 1.2rem;
+        span{
+            font-size: 3.5rem;
+             position: relative;
+             top: 11px;
+            }
+    }
+    p{
+        font-size: 12px;
+        font-weight: 250;
+        margin-bottom: 5px;
+    }
+
+    .birthdays-wrapper{
+        padding: 2%;
+        border: 1px solid lightgray;
+        border-radius: 4px;
+        height: 23rem;
+        .birthdays-message{
+            margin-top: 7px;
+        }
+        .company-marker{
+            color:blue;
+            font-weight: 400;
+        }
+    }
+
+}

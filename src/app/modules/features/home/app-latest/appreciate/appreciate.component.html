@@ -1,0 +1,31 @@
+<ng-container *ngFor="let item of arr">
+    <ng-template #listOfDivs>
+
+        <div class="appreciate-wrapper">
+            <!-- <p>ll</p> -->
+            <div>
+
+                <h2>
+                    <span>&#183;</span>
+                    
+                    {{item.card_name}}
+                </h2>
+                
+                <p>
+                    {{item.message}}
+                </p>
+            </div>
+            <div>
+                <button (click)="appreciationMessage()" >View More</button>
+            </div>
+        </div>
+
+    </ng-template>
+
+</ng-container>
+
+<ng-container *ngIf="render_child">
+    <app-resp-carousel [listToShow]="dataSource" [carouselConfigData]="newOpeningsData"
+        [gridConfig]="appreciateGridConfig">
+    </app-resp-carousel>
+</ng-container>

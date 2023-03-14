@@ -4,15 +4,26 @@ import { ADD_PITCH, STARTUP } from 'src/app/constant/routes';
 import { EntrepreneurshipComponent } from './entrepreneurship.component';
 
 const routes: Routes = [
-  // {
-  //   path:'',component:EntrepreneurshipComponent, 
-  // },
   {
-    path:'ent',
-    loadChildren: ()=>import('./explore/explore.module').then((m)=>m.ExploreModule)
-  }
-  
+    path:'',component:EntrepreneurshipComponent, 
     
+    children:[
+      {
+        path:'',
+        loadChildren:()=>import('./explore1/explore1.module').then((m)=>m.Explore1Module)
+      },
+      {
+        path:ADD_PITCH.fullUrl,
+        loadChildren:()=>import('./add-pitch/add-pitch.module').then((m)=>m.AddPitchModule)
+      }
+    ]
+
+  },
+  {
+    path:ADD_PITCH.fullUrl,
+    loadChildren:()=>import('./add-pitch/add-pitch.module').then((m)=>m.AddPitchModule)
+  }
+   
 ];
 
 @NgModule({

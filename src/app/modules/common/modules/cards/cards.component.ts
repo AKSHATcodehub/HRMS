@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
+openDialog() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 

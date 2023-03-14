@@ -1,27 +1,58 @@
-@import './../../../../scss/global',
+@import './../../../../scss/theme/card',
          './../../../../scss/var',
-         './../../../../scss/mixins/flex';
+         './../../../../scss/global',
+         './../../../../scss/mixins/flex',
+         './../../../../scss/mixins/media';
+
+*{
+    box-sizing: border-box;
+}         
+
+.card{
+    @include media(xs){
+        padding: 0px;
+    }
+}
 
 .performance-wrapper{
     padding: 24px;
     background-color: $lightblue;
-    .awards{
-        width: 60%;
-        margin: 10px;
-        padding: 10px;
-        background-color: #FFF3CB;
-        border-radius: 5px;
+
+    .profile-content{
+        @include media(lg){
+            display: block;
+        }
+        .profile{
+            width: 45%;
+            padding: 0px;
+            @include media(lg){
+                width: 100%;
+            }
+        }
+        .awards{
+            width: 60%;
+            margin: 10px;
+            padding: 10px;
+            background-color: #FFF3CB;
+            border-radius: 5px;
+        }
+        .honours{
+            border-radius: 5px;
+            margin: 10px;
+            padding: 10px;
+            width: 20%;
+            background-color: #CBE7FF;
+        }
     }
-    .honours{
-        border-radius: 5px;
-        margin: 10px;
-        padding: 10px;
-        width: 20%;
-        background-color: #CBE7FF;
-    }
+
+    
     .rating-wrapper{
         background-color: #dfffb0;
         margin: 20px;
+        width: 45%;
+        @include media(lg){
+            width: 90%;
+        }
         .rating-info{
             padding: 10px;
             margin-right: 10px;
@@ -41,9 +72,23 @@
             }
         }
         .rating-skills{
+            @include media(md){
+                flex-wrap: wrap;
+            }
+            .block-wrapper{
+                width: 25%;
+                @include media(md){
+                   min-width: 50%;
+                }
+                @include media(sm){
+                    min-width: 100%;
+                }
+            }
             padding: 10px;
-            margin-right: 10px;
+            // margin-right: 10px;
+            box-sizing: border-box;
             .block{
+                box-sizing: border-box;
                 border-radius: 5px;
                 background-color: #FFF3CB;
                 margin: 5px;
@@ -68,6 +113,14 @@
         p{
             margin: 10px;
             padding: 10px;
+        }
+    }
+
+    .monthly-performance{
+        .flex-col-4{
+            @include media(sm){
+                width: 100%;
+            }
         }
     }
 }

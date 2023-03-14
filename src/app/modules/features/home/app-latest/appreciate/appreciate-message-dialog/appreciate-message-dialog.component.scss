@@ -1,0 +1,54 @@
+@import '../../../../../../../scss/mixins/flex';
+.main{
+    @include flex(stretch,center);
+    flex-direction: column;
+    .close-icon{
+        @include flex(center,flex-end);
+        border:1.5px solid black;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        position: relative;
+        left:90%;
+        img{
+            height: 50%;
+            width: 50%;
+            position: absolute;
+            left: 7px;
+            top: 7px;
+        }
+    }
+    .heading{
+        background-color: #f3f7fc;
+        padding: 20px;
+        border-radius: 8px;
+        gap:20px;
+        @include flex(center,flex-start);
+
+        .heading-left{
+            height: 5rem;
+            width: 5rem;
+            img{
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .heading-right{
+            @include flex(center,center);
+            flex-direction: column;
+            h2{
+                margin-bottom: 0px;
+            }
+            p{
+                margin-bottom: 0px
+            }
+        }
+    }
+    .body{
+
+    }
+    .ending-note{
+
+    }
+
+}

@@ -29,6 +29,7 @@
         .card-block{
             .form-group{
                 fieldset{
+                    border: 1px solid $grey;
                     label{
                         font-size: 14px;
                         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -52,11 +53,25 @@
 
             }
             .form-actions{
+                margin: 10px 5px;
                 button{
-                    color: $white;
+                    color: white;
                     background-color: $primary;
-                }
+                    border: 0px;
+                    height: 37px;
+                    width: 64px;
+                    font-weight: 13px;
+                    font-weight: 500;
+                    border-radius: 6px;
+                  }
             }
         }
     }
 }
+
+::ng-deep .mat-simple-snackbar{
+    display: flex !important;
+    justify-content: center !important;
+}
+
+  

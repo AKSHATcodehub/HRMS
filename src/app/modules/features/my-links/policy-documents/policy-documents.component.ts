@@ -20,12 +20,12 @@ export class PolicyDocumentsComponent implements OnInit {
 
   ]
   Table_DATA: any[] = [
-    { 'no': 1, 'UName': ' Appinventiv_Policy_Manual', 'type': 'pdf', 'size': '	341.71 KB', 'Modified': '	May-13-2022',link:'/assets/abk.jpeg'  },
-    { 'no': 2, 'UName': ' Contact_List_Updated_Appinventiv', 'type': 'pdf', 'size': '	406.30 KB', 'Modified': '	Apr-20-2022',  },
+    { 'no': 1, 'UName': ' Appinventiv_Policy_Manual',                        'type': 'pdf', 'size': '	341.71 KB', 'Modified': '	May-13-2022',link:'/assets/abk.jpeg'  },
+    { 'no': 2, 'UName': ' Contact_List_Updated_Appinventiv',                 'type': 'pdf', 'size': '	406.30 KB', 'Modified': '	Apr-20-2022',  },
     { 'no': 3, 'UName': ' Employee_Referral_Policy_and_Process_Appinventiv', 'type': 'pdf', 'size': '	447.03 KB', 'Modified': '	Apr-20-2022',  },
-    { 'no': 4, 'UName': '  Holiday-Calendar-2023', 'type': 'pdf', 'size': '	881.48 KB', 'Modified': 'Jan-02-2023', 'Action':'Download' },
-    { 'no': 5, 'UName': '  LeavePolicy', 'type': 'pdf', 'size': '	152.90 KB', 'Modified': '	Jan-02-2023',  },
-    { 'no': 6, 'UName': ' SexualHarassment', 'type': 'pdf', 'size': '	153.03 KB', 'Modified': 'Apr-20-2022',  },
+    { 'no': 4, 'UName': ' Holiday-Calendar-2023',                            'type': 'pdf', 'size': '	881.48 KB', 'Modified': 'Jan-02-2023', 'Action':'Download' },
+    { 'no': 5, 'UName': ' LeavePolicy',                                      'type': 'pdf', 'size': '	152.90 KB', 'Modified': '	Jan-02-2023',  },
+    { 'no': 6, 'UName': ' SexualHarassment',                                 'type': 'pdf', 'size': '	153.03 KB', 'Modified': 'Apr-20-2022',  },
   ]
   constructor() { }
 

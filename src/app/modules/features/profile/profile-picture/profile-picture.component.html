@@ -7,13 +7,16 @@
             <div class="form-group">
                 <fieldset class="form-group">
                     <label for="logo">Browse</label><br>
-                    <input  type="file" class="form-control-file" id="p_file" name="p_file" formControlName="profilePicture" (change)="selectFile($event)" ><br>
-                    <small>Upload files only: gif,png,jpg,jpeg</small>
+                    <input      type="file" class="form-control-file" id="p_file" name="p_file" formControlName="profilePicture" (change)="selectFile($event)" >
+                    <div style="color: red;" *ngIf=" profileForm.touched">*required</div>
+                    <div>
+                        <small>Upload files only: gif,png,jpg,jpeg</small>
+                    </div>
                 </fieldset>
                 <img [src]="url" *ngIf="url">
                 <br>
                 
-                <input type="checkbox" class="custom-control-input"  name="remove_profile_picture">
+                <!-- <input type="checkbox" class="custom-control-input"  name="remove_profile_picture"> -->
 
                 <label class="lt_Check mt-10" *ngIf="url">
                     <!-- <span id="image" class="checkmark"></span> -->

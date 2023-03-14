@@ -1,5 +1,5 @@
 <ng-container *ngFor="let item of arr">
-    <ng-template #litOfDivs>
+    <ng-template #listOfDivs>
         <div class="card-wrapper">
             <app-latest-job></app-latest-job>
         </div>
@@ -7,7 +7,7 @@
 </ng-container>
 
 <ng-container *ngIf="render_child">
-    <app-resp-carousel [listToShow]="dataSource" [gridConfig1="gridConfig" >
+    <app-resp-carousel [listToShow]="dataSource" [gridConfig]="gridConfig" >
 
     </app-resp-carousel>
 </ng-container>

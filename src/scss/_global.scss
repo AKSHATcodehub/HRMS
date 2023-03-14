@@ -1,8 +1,24 @@
-@import './var';
+@import './var','./mixins/flex';
 
+
+.center{
+    @include flex(center,center);
+}
+
+.wrapper{
+    // height: 100vh;
+    background-color: $lightblue;
+}
+.flex-wrap{
+    display: flex;
+    flex-wrap: wrap ;
+}
 .flex-row{
     display: flex;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
+    mat-form-field{
+        width: 100%;
+    }
     label{
         padding: 5px;
     }
@@ -12,18 +28,28 @@
     }
     .flex-col-2{
         width: 50%;
-        padding: 5px;
-        mat-form-field{
-            width: 100%;
-        }
+        padding: 5px; 
     }
     .flex-col-3{
         width: 33.33%;
         padding: 5px;
     }
     .flex-col-4{
-        width: 25%;
+        box-sizing: border-box;
+        min-width: 25%;
         padding: 5px;
+    }
+}
+
+
+.container-wrapper{
+    padding: 24px;
+    background-color: $lightblue;
+    height: 100vh;
+    h1{
+        padding: 12px;
+        color: $primary;
+        background-color: $lightblue;
     }
 }
 
@@ -72,6 +98,9 @@
         .card-mid{
             width: 100%;
             padding: 12px;
+            .card-mid-row{
+                margin: 20px 0px;
+            }
             
         }
         .card-bottom{

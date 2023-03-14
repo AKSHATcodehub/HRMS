@@ -1,5 +1,5 @@
-import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
+import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
@@ -8,19 +8,21 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class DropdownComponent implements OnInit {
 
-  @Input() data:any;
-  @Input() formName:any ;
-  @Input() controlName:any;
-  
+  @Input() data!:any;
+  @Input() formName!:FormGroup ;
+  @Input() controlName!:AbstractControl;
+  @Input() placeHolder!:string;
+  @Output() outputData :EventEmitter<any> = new EventEmitter();
 
+  
   constructor(private ref:ElementRef,private render:Renderer2) { }
   slidePosition = 1;
   wrapper:any;
   selectBtn:any;
   searchInp:any;
-  options:any;
-  countries:any;
-  filterCountries:any;
+  options:any;  
+  parentData:any;
+  filterData:any;
   control!:FormControl ;
   
   ngOnInit(): void {
@@ -30,15 +32,16 @@ export class DropdownComponent implements OnInit {
 
     setTimeout(() => {
       
-      this.wrapper = this.ref.nativeElement.querySelector(".wrapper");
-      this.selectBtn = document.querySelector(".select-btn");
-      this.searchInp = document.querySelector(".searchbar"),
-      this.options =document.querySelector(".options");
+      this.wrapper = this.ref.nativeElement.querySelector(".input-wrapper");
+      this.selectBtn = this.ref.nativeElement.querySelector(".select-btn");
+      this.searchInp =this.ref.nativeElement.querySelector(".searchbar"),
+      this.options =this.ref.nativeElement.querySelector(".options");
   
-    this.countries=this.data;
-    this.filterCountries=this.countries;
+    this.parentData=this.data;
+    this.filterData=this.parentData;
   
-    }, 2000);
+  
+    }, 100);
 
   }
 
@@ -57,7 +60,7 @@ export class DropdownComponent implements OnInit {
 
     }
     if(!this.toggleStatus){
-      this.render.removeClass(this.wrapper,'active');
+      this.render?.removeClass(this.wrapper,'active');
 
     }
   }
@@ -67,29 +70,30 @@ export class DropdownComponent implements OnInit {
 
     let arr = [];
     let searchWord = event.target.value.toLowerCase();
-    arr = this.countries.filter((data:any) => {
+    arr = this.parentData.filter((data:any) => {
         return data.toLowerCase().includes(searchWord);
     })
 
     console.log("arr>>>>",arr);
     
-    this.filterCountries = arr.length>0 ? arr : ['No Result! '];
+    this.filterData = arr.length>0 ? arr : ['No Result! '];
 
     if(event.target.value.toLowerCase().length==0){
-      this.filterCountries=this.countries;
+      this.filterData=this.parentData;
     }
   }
 
   updateName(selectedLi?:any,selectbutton?:any) {
 
-    console.log("control....",this.formName.get(this.controlName));
-
-    console.log("upadted function called...");
     this.searchInp.value = "";
-    // this.addCountry(selectedLi.innerText);
-    this.wrapper.classList.remove("active");
-    this.formName.get(this.controlName).setValue(selectedLi);
-    // selectbtn.firstElementChild.innerText = selectedLi.innerText;
+
+    this.render.removeClass(this.wrapper,'active');
+
+    this.selectBtn.firstElementChild.value = selectedLi;
+
+    this.outputData.emit(selectedLi);  
   }
+
+ 
   
 }

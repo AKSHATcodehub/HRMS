@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { FEATURES, JOBDETAILS } from 'src/app/constant/routes';
+import { LoginComponent } from 'src/app/modules/account/login/login.component';
 import { DialogComponent } from 'src/app/modules/common/modules/dialog/dialog.component';
 
 @Component({
@@ -10,7 +13,10 @@ import { DialogComponent } from 'src/app/modules/common/modules/dialog/dialog.co
 export class LatestJobComponent implements OnInit {
 
  
-  constructor(public dialog: MatDialog,private render:Renderer2,private  elementRef:ElementRef) { }
+  constructor(public dialog: MatDialog,
+              private render:Renderer2,
+              private  elementRef:ElementRef,
+              private router:Router) { }
 
   slideIndex = 1;
 
@@ -22,40 +28,41 @@ export class LatestJobComponent implements OnInit {
 
   ngOnInit(): void {
 
-    setTimeout(() => {
+    // setTimeout(() => {
 
       
-      this.slides = this.elementRef.nativeElement.querySelectorAll('.card-body');
+    //   this.slides = this.elementRef.nativeElement.querySelectorAll('.card-body');
 
-      this.slides.forEach((item:any,index:any) => {
-        this.render.setStyle(item,'left',`${index*100}%`)
-      });
+    //   this.slides.forEach((item:any,index:any) => {
+    //     this.render.setStyle(item,'left',`${index*100}%`)
+    //   });
 
-      setInterval(() =>{
-        this.slideImage();
-        this.counter=this.counter+1;
-        if(this.counter==5){
-          this.counter=1;
-        }
-      }, 2000);
+    //   setInterval(() =>{
+    //     this.slideImage();
+    //     this.counter=this.counter+1;
+    //     if(this.counter==5){
+    //       this.counter=1;
+    //     }
+    //   }, 2000);
 
 
-    }, 1000);
+    // }, 1000);
   }
 
-  slideImage=()=>{
-    // console.log("slide image called..");
+  // slideImage=()=>{
+  //   // console.log("slide image called..");
     
-    this.slides.forEach((item:any) => {
+  //   this.slides.forEach((item:any) => {
       
-      this.render.setStyle(item,'transform',`translateX(-${this.counter*100}%)`)
+  //     this.render.setStyle(item,'transform',`translateX(-${this.counter*100}%)`)
       
-    });
-  }
+  //   });
+  // }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      data: {name: "mistu", animal: "dog"},
+      // data: {name: "mistu", animal: "dog"},
+      
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -64,5 +71,6 @@ export class LatestJobComponent implements OnInit {
     });
   }
 
+  
  
 }

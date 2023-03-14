@@ -7,18 +7,36 @@
     padding: 32px;
     .pitch-header{
         @include flex(center,space-between);
+        @media screen and (max-width: 480px) {
+          display: block;
+
+        }
         h1{
             font-size: 24px;
             color: #199CFF;
             margin: 0px;
+            @media screen and (max-width: 480px) {
+              text-align: center;
+            }
+            
         }
         .pitch-action-btn{
+            @media screen and (max-width: 480px) {
+              display: flex;
+              flex-direction: column ;
+              
+            }
             button{
                 width: 100px;
                 height: 40px;
-                margin: 10px;
-                border: 1px solid $lightgrey;
+                margin: 10px 0px 10px 10px;
+                border: 1px solid rgb(212, 208, 208);
                 border-radius: 5px;
+                @media screen and (max-width: 480px) {
+                  width: 100%;
+                  margin: 10px 0px;
+                }
+
             }
             button:nth-child(2){
                 color:$white;
@@ -26,11 +44,23 @@
             }
         }
     }
+    hr{
+      margin: 10px 0px;
+    }
     .pitch-content{
         background-color: $white;
         padding: 24px;
         .pitch-card{
             .pitch-details{
+                .card-details{
+                  .flex-row{
+                    @media screen and (max-width: 576px) {
+                      .flex-col-2{
+                        width: 100%;
+                      }
+                    }
+                  }
+                }
                 .file{
                     flex-direction:column !important;
                     min-height: 120px;

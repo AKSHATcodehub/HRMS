@@ -1,0 +1,24 @@
+<div class="container-wrapper">
+     
+    <h1>List All Candidates</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="card-mid">
+                <div class="flex-row">
+                    <div class="flex-col-4">
+                        <label for="">Department</label><br>
+                        <app-dropdown [placeHolder]="deparrtmentPlaceholder"></app-dropdown>
+                    </div>
+                    <div class="flex-col-4">
+                        <label for="">Status</label><br>
+                        <app-dropdown  [placeHolder]="statusPlaceholder"></app-dropdown>
+                    </div>
+                </div>
+                <div class="table">
+                    <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

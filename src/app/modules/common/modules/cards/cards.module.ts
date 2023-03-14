@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { CardsRoutingModule } from './cards-routing.module';
 import { CardsComponent } from './cards.component';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -12,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   imports: [
     CommonModule,
-    CardsRoutingModule,
     MatIconModule
   ],
   exports:[

@@ -1,0 +1,36 @@
+<div class="wrapper">
+    <h1>
+        Angular Training 
+    </h1>
+    <div class="card">
+        <div class="card-body">
+            <div class="training-action">
+                <div class="training-tabs">
+                    <div class="tab">
+                        <button class="tablinks" (click)="openCity($event, 'London')">Training Details</button>
+                        <button class="tablinks" (click)="openCity($event, 'Paris')">Sub-Topics</button>
+                        <button class="tablinks" (click)="openCity($event, 'Tokyo')">Attendance </button>
+                    </div>
+                </div>
+                <div >
+                    <button class="button">Complete</button>
+                </div>
+            </div>
+            <hr>
+            <div class="card-mid">
+                <div id="London" class="tabcontent">
+                    <app-details></app-details>
+                </div>
+                  
+                <div id="Paris" class="tabcontent">
+                    <app-sub-topics></app-sub-topics>
+                </div>
+                  
+                <div id="Tokyo" class="tabcontent">
+                    <app-attendance></app-attendance>
+                </div>
+                      
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 @import "../../../../scss/var";
 @import './../../../../scss/mixins/flex';
+@import '../../../../scss/theme/info';
 
 ::ng-deep .mat-tab-label-active{
   background-color: $primary !important;
@@ -53,60 +54,6 @@ hr{
     padding: 0px;
 
   }
-  .profile-info{
-    margin: 20px;
-    border-radius: 5px;
-    display: flex;
-    padding: 20px;
-    background-color: white;
-    @media screen and (max-width: 500px) {
-      display: block;
-      margin-bottom: 5px;
-
-    }
-    .profile-img{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-     
-      @media screen and (max-width: 500px) {
-        justify-content: center;
-      }
-      img{
-        height: 128px;
-        width: 150px;
-        background-color: black;
-        border-radius: 50%;
-      }
-    }
-    .login-details{
-      padding: 25px 50px;
-      width: 100%;
-      div{
-        strong{
-          font-size: 15px;
-          font-weight: 600;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        span{
-          font-size: 15px;
-          font-weight: 500;
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-     
-
-        }
-      }
-      h1{
-        font-size: 30px;
-      }
-      @media screen and (max-width: 500px) {
-        padding: 10px 10px;
-
-  
-      }
-    }
-  }
- 
 }
 
 .cards{

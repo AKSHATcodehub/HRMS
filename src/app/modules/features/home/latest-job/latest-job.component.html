@@ -5,7 +5,7 @@
             <button>View All</button>
         </div>
         <div class="main">
-            <div class="card-body" *ngFor="let card of cards">
+            <div class="card-body" >
                 <!-- <app-carousel></app-carousel> -->
                 <div class="card-body-top">
                     <figure>
@@ -43,7 +43,7 @@
                 </div>
                 <div class="card-body-bottom">
                     <div class="btn-wrapper">
-                        <button>View Details</button>
+                        <button routerLink="../job-details" >View Details</button>
                         <button (click)="openDialog()">Refer a Candidate</button>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, Inject, OnInit, QueryList, TemplateRef, ViewChildren } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GALLERY_IMAGES } from '../../home-data';
 
 @Component({
@@ -10,7 +10,8 @@ import { GALLERY_IMAGES } from '../../home-data';
 export class GalleryDialogComponent implements OnInit {
 
   
-  constructor(@Inject(MAT_DIALOG_DATA) public id: number) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public id: number,
+              public dialogRef: MatDialogRef<GalleryDialogComponent>,) { }
 
   allGalleryImages = GALLERY_IMAGES;
   selectedGallery:any;
@@ -54,6 +55,11 @@ export class GalleryDialogComponent implements OnInit {
       this.render_child = true;
     },10)
 
+  }
+
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 
 
