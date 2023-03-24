@@ -11,7 +11,7 @@ export class PolicyDocumentsComponent implements OnInit {
   datasource = new MatTableDataSource<any>();
   headings = [
     { heading: '#', key: 'no', type: 'text'},
-    { heading: 'Name', key: 'UName', type: 'text' },
+    { heading: 'Name', key: 'UName', type: 'icon-text' },
     { heading: 'Type', key: 'type', type: 'text' },
     { heading: 'File Size', key: 'size', type: 'text'},
     { heading: 'Last Modified', key: 'Modified', type: 'text'},

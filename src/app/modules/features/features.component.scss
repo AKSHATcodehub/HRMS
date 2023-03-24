@@ -51,7 +51,7 @@
       }
     }
     .features{
-      @include flex(auto,space-between);
+      @include flex(normal,space-between);
       @media screen and (max-width: 1000px) {
         width: 0px;
         visibility: hidden !important;
@@ -333,6 +333,7 @@ mat-icon{
   height: 100%;
   align-items: center;
   justify-content: center;
+  overflow: auto;
   
 }
 .full-width {

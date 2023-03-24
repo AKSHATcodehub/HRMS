@@ -26,7 +26,8 @@ import {MatMenuModule} from '@angular/material/menu';
     MatIconModule,
     MatListModule,
     MatExpansionModule,
-    MatMenuModule
+    MatMenuModule,
+    
   ] 
 }) 
 export class FeaturesModule { }

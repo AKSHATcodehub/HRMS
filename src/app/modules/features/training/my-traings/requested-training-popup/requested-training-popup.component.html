@@ -1,0 +1,76 @@
+<div class="header">
+    <h2 mat-dialog-title>Request For Training</h2>
+    <mat-icon mat-dialog-close>close</mat-icon>
+  </div>
+  
+  <mat-dialog-content class="mat-typography">
+    <div class="card">
+      <div class="input-box">
+        <p>Training Name:</p>
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Select Training">
+            <mat-option value="All"> NOne</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="input-box">
+        <p>Team Name:</p>
+        <mat-form-field appearance="outline">
+          <mat-select placeholder="Select Team">
+            <mat-option value="All"> NOne</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="skill-set">
+        <p>
+          Please mention the training/learning area’s you feel can be beneficial
+          for your skill enhancement and job performance *
+        </p>
+        <textarea placeholder="Type Your answer here..."></textarea>
+      </div>
+  
+      <div class="skill-set">
+        <p>
+          Why do you feel these skills are needed and how they will benefit your
+          personal and organizational needs
+        </p>
+        <textarea placeholder="Type Your answer here..."></textarea>
+      </div>
+  
+      <div class="helpful">
+        <p>Are you interested to give the Trainings? *</p>
+  
+        <mat-radio-group aria-label="Select an option">
+          <mat-radio-button value="1">Yes</mat-radio-button>
+          <mat-radio-button value="2">No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  
+      <div class="timeline">
+        <p>What should be the timeline to conduct this training? *</p>
+        <div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="1">Intermediate</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="2">3-6 Months</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div>
+          <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="2">More than 6 Months</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions>
+    <button class="cancel" mat-button mat-dialog-close>Cancel</button>
+    <button class="submit" mat-button cdkFocusInitial>
+      Submit
+    </button>
+  </mat-dialog-actions>
+  

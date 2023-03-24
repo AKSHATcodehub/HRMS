@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ADD_PITCH, DASHBOARD, DIRECTORY, ENTREPRENURSHIP, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, MY_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, REFER_CANDIDATE, TRAINING_DETAILS_TRAINE } from 'src/app/constant/routes';
+import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
 import { FeaturesComponent } from './features.component';
 import { HomeModule } from './home/home.module';
 
@@ -99,6 +99,90 @@ const routes: Routes = [
         path:TRAINING_DETAILS_TRAINE.fullUrl,
         loadChildren:()=>import('./fresher-training/training-details/training-details.module').then(
           (m)=>m.TrainingDetailsModule
+        )
+      },
+      {
+        path:DSR.fullUrl,
+        loadChildren:()=>import('./dsr/dsr.module').then(
+          (m)=>m.DsrModule
+        )
+      },
+      {
+        path:UPCOMING_TRAINING.fullUrl,
+        loadChildren:()=>import('./training/upcoming-training/upcoming-training.module').then(
+          (m)=>m.UpcomingTrainingModule
+        )
+      },
+      {
+        path:ONGOING_TRAINING.fullUrl,
+        loadChildren:()=>import('./training/ongoing-training/ongoing-training.module').then(
+          (m)=>m.OngoingTrainingModule
+        )
+      },
+      {
+        path:REQUESTED_TRAINING.fullUrl,
+        loadChildren:()=>import('./training/requested-training/requested-training.module').then(
+          (m)=>m.RequestedTrainingModule
+        )
+      },
+      {
+        path:MYTRAINING.fullUrl,
+        loadChildren:()=>import('./training/my-traings/my-traings.module').then(
+          (m)=>m.MyTraingsModule
+        )
+      },
+      {
+        path:MY_ASSETS.fullUrl,
+        loadChildren:()=>import('./assets/my-assets/my-assets.module').then(
+          (module)=>module.MyAssetsModule
+        )
+      },
+      {
+        path:REQUESTED_ASSETS.fullUrl,
+        loadChildren:()=>import('./assets/request-assets/request-assets.module').then(
+          (module)=>module.RequestAssetsModule
+        )
+      },
+      {
+        path:ASSETS_DECLARATION.fullUrl,
+        loadChildren:()=>import('./assets/assets-declaration/assets-declaration.module').then(
+          (module)=>module.AssetsDeclarationModule
+        )
+      },
+      {
+        path:ATTENDANCE_CALENDAR.fullUrl,
+        loadChildren:()=>import('./attendance/attendance-calendar/attendance-calendar.module').then(
+        (module)=>module.AttendanceCalendarModule
+        )
+      },
+      {
+        path:MANUAL_PUNCH.fullUrl,
+        loadChildren:()=>import('./attendance/manual-punch/manual-punch.module').then(
+          (module)=>module.ManualPunchModule
+        )
+      },
+      {
+        path:PUNCH_LOG.fullUrl,
+        loadChildren:()=>import('./attendance/punch-log/punch-log.module').then(
+          (module)=>module.PunchLogModule
+        )
+      },
+      {
+        path:MY_LEAVE.fullUrl,
+        loadChildren:()=>import('./leave/my-leave/my-leave.module').then(
+          (module)=>module.MyLeaveModule
+        )
+      },
+      {
+        path:FLOATING_LEAVE.fullUrl,
+        loadChildren:()=>import('./leave/floating-leave/floating-leave.module').then(
+          (module)=>module.FloatingLeaveModule
+        )
+      },
+      {
+        path:'ticket',
+        loadChildren:()=>import('./ticket/ticket.module').then(
+          (module)=>module.TicketModule
         )
       }
     ]

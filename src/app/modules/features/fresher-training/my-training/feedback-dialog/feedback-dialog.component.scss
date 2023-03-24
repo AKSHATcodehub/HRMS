@@ -1,0 +1,123 @@
+.main {
+    background-color: #f3f3f3;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    h1 {
+        color: #199cff;
+        margin: 10px 0px 0px 0px;
+        padding: 0px;
+    }
+    .close-icon-pointer{
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-color: white;
+        padding: 10px;
+        mat-icon{
+            font-size:30px;
+        }
+    }
+
+}
+.tittle {
+    padding: 40px;
+    .data {
+        border-bottom: 1px solid lightgray;
+        .data_detail {
+            display: flex;
+            label {
+                min-width: 150px;
+                color: #96a5b8;
+            }
+        }
+
+        .date {
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+    }
+    .goal {
+        margin-top: 10px;
+        p {
+            color: #96a5b8;
+        }
+        ::ng-deep {
+            .mat-radio-button {
+                color: #96a5b8;
+            }
+            .mat-radio-outer-circle {
+                border-color: #96a5b8;
+            }
+        }
+    }
+    .relevant {
+        margin-top: 20px;
+        p {
+            color: #96a5b8;
+        }
+        .rate {
+            display: grid;
+            grid-template-columns: 20% 60% 20%;
+            margin-left: 20px;
+            .red {
+                color: red;
+            }
+            .green {
+                color: green;
+            }
+            ::ng-deep {
+                .mat-radio-button {
+                    margin-left: 20px;
+                }
+                .mat-radio-outer-circle {
+                    border-color: #96a5b8;
+                }
+            }
+        }
+    }
+    .feedback {
+        margin-top: 20px;
+        p {
+            color: #96a5b8;
+        }
+        textarea {
+            width: 100%;
+            border-color: #96a5b8;
+        }
+    }
+    .btn22 {
+        margin-top: 30px;
+        display: flex;
+        justify-content: flex-end;
+        button:first-child {
+            border: 1.5px solid rgba(150, 165, 184, 0.5);
+            background-color: #ffffff;
+            font-family: "Lato";
+            font-size: 14px;
+            color: #96a5b8;
+            font-weight: 500;
+            line-height: 1.4;
+            border-radius: 4px;
+            width: 100px;
+            height: 40px;
+        }
+        button {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), #199CFF;
+            background-blend-mode: soft-light, normal;
+            border: 1px solid rgba(150, 165, 184, 0.2);
+            box-sizing: border-box;
+            box-shadow: 0px 1px 4px rgb(0 0 0 / 12%), inset 0px 2px 0px rgb(255 255 255 / 24%);
+            border-radius: 4px;
+            color: #FFFFFF;
+            width: 100px;
+            height: 40px;
+            margin-left: 20px;
+        }
+    }
+}
+::ng-deep {
+    .mat-dialog-container {
+        padding: 0px;
+    }
+}

@@ -138,3 +138,101 @@ export const TRAINING_DETAILS_TRAINE:IRoute = {
         return `${this.path}`
     }
 }
+
+export const DSR:IRoute = {
+    path:"dsr",
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const UPCOMING_TRAINING = {
+    path:'upcoming-training',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const ONGOING_TRAINING = {
+    path:'ongoing-training',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const MYTRAINING = {
+    path:'mytraining',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const REQUESTED_TRAINING = {
+    path:'requested-training',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const MY_ASSETS:IRoute = {
+    path:'my-assets',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const REQUESTED_ASSETS:IRoute = {
+    path:"requested-assets",
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const ASSETS_DECLARATION:IRoute = {
+    path:'assets-declaration',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const ATTENDANCE_CALENDAR:IRoute = {
+    path:'attendance-calendar',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const MANUAL_PUNCH:IRoute = {
+    path:'manual-punch',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const PUNCH_LOG:IRoute = {
+    path:'punch-log',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const MY_LEAVE:IRoute = {
+    path:'my-leave',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const FLOATING_LEAVE:IRoute = {
+    path:'floating-leave',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const TICKET:IRoute = {
+    path:'ticket',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}

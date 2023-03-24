@@ -1,6 +1,7 @@
 @import "../../../../scss/var";
 @import './../../../../scss/mixins/flex';
-@import '../../../../scss/theme/info';
+@import '../../../../scss/theme/info',
+        '../../../../scss/mixins/media';
 
 ::ng-deep .mat-tab-label-active{
   background-color: $primary !important;
@@ -47,12 +48,15 @@ hr{
 }
 .profile-content{
   min-height: 100%; 
-  width: 100%;
+  // width: 100%;
   background: $lightblue;
   padding: 24px;
   @media screen and (max-width: 500px) {
     padding: 0px;
 
+  }
+  @include media(lg){
+    padding: 16px;
   }
 }
 
@@ -121,11 +125,7 @@ hr{
 }
 ::ng-deep .mat-tab-group{
   flex-direction: row !important;
-  @include flex(auto,space-between);
-  @media screen and (max-width: 950px) {
-    margin: 20px; 
-  }
-
+  @include flex(normal,space-between);
 }
 ::ng-deep .mat-tab-header{
   width: 24% !important; 

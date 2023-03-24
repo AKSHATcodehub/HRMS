@@ -1,0 +1,83 @@
+<div class="main">
+    <h1>Training feedback form</h1>
+    <div class="close-icon-pointer" mat-dialog-close>
+        <mat-icon class="close-icon" >close</mat-icon>
+    </div>
+</div>
+<div class="tittle">
+    <div class="data">
+        <div class="data_detail">
+            <label>Title :</label>
+            <!-- <p>{{data.training_title}}</p> -->
+        </div>
+        <div class="data_detail">
+            <label>Department :</label>
+            <!-- <p>{{data.department}}</p> -->
+        </div>
+        <div class="date">
+            <div class="data_detail">
+                <label>Start date :</label>
+                <!-- <p>{{data.start_date}}</p> -->
+            </div>
+            <div class="data_detail">
+                <label>Dnd date :</label>
+                <!-- <p>{{data.end_date}}</p> -->
+            </div>
+        </div>
+    </div>
+    <div class="goal">
+        <p>Do you feel that the objective/goal of the training has been fulfilled? *</p>
+        <mat-radio-group aria-label="Select an option">
+            <mat-radio-button value="yes">Yes</mat-radio-button><br>
+            <mat-radio-button value="No">No</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="relevant">
+        <p>How relevant and helpful do you think it was for your job? *</p>
+        <div class="rate">
+            <p class="red">Not very</p>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">1</mat-radio-button>
+                <mat-radio-button value="2">2</mat-radio-button>
+                <mat-radio-button value="3">3</mat-radio-button>
+                <mat-radio-button value="4">4</mat-radio-button>
+            </mat-radio-group>
+            <p class="green">Very much</p>
+        </div>
+    </div>
+    <div class="relevant">
+        <p>How would you rate the overall training? *</p>
+        <div class="rate">
+            <p class="red">Not Good</p>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">1</mat-radio-button>
+                <mat-radio-button value="2">2</mat-radio-button>
+                <mat-radio-button value="3">3</mat-radio-button>
+                <mat-radio-button value="4">4</mat-radio-button>
+            </mat-radio-group>
+            <p class="green">Excellent</p>
+        </div>
+    </div>
+    <div class="relevant">
+        <p>How satisfied were you with the session content? *<br>
+            (Both presented and pre-read material)</p>
+        <div class="rate">
+            <p class="red">Poor</p>
+            <mat-radio-group aria-label="Select an option">
+                <mat-radio-button value="1">1</mat-radio-button>
+                <mat-radio-button value="2">2</mat-radio-button>
+                <mat-radio-button value="3">3</mat-radio-button>
+                <mat-radio-button value="4">4</mat-radio-button>
+            </mat-radio-group>
+            <p class="green">Excellent</p>
+        </div>
+    </div>
+    <div class="feedback">
+        <p>Any overall feedback for the training? *</p>
+        <textarea></textarea>
+    </div>
+    <div class="btn22">
+        <button mat-dialog-close>Cancel</button>
+        <button>Submit</button>
+    </div>
+</div> 

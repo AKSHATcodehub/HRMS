@@ -1,10 +1,14 @@
-@import './../../../../../scss/mixins/flex';
-@import './../../../../../scss/global';
-@import './../../../../../scss/var';
+@import './../../../../../scss/mixins/flex',
+        './../../../../../scss/var',
+        './../../../../../scss/mixins/media',
+        './../../../../../scss//theme/grid';
 
 .pitch-wrapper{
     background-color: $lightblue;
     padding: 32px;
+    @include media(lg){
+      padding: 16px;
+    }
     .pitch-header{
         @include flex(center,space-between);
         @media screen and (max-width: 480px) {
@@ -50,17 +54,11 @@
     .pitch-content{
         background-color: $white;
         padding: 24px;
+        @include media(lg){
+          padding: 16px 0px;
+        }
         .pitch-card{
             .pitch-details{
-                .card-details{
-                  .flex-row{
-                    @media screen and (max-width: 576px) {
-                      .flex-col-2{
-                        width: 100%;
-                      }
-                    }
-                  }
-                }
                 .file{
                     flex-direction:column !important;
                     min-height: 120px;
@@ -75,6 +73,7 @@
         }
         mat-form-field{
             width: 100%;
+            padding: 5px;
         }
         
         editor{

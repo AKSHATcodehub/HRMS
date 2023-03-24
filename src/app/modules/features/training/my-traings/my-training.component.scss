@@ -1,0 +1,10 @@
+@import '../../../../../scss/mixins/flex',
+        '../../../../../scss/theme/wrapper';
+
+.wrapper{
+    
+    .wrapper-heading{
+        @include flex(center,space-between);
+    }
+
+}

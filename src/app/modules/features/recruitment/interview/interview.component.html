@@ -5,18 +5,22 @@
     <div class="card">
         <div class="card-body">
             <div class="card-mid">
-                <div class="flex-row">
-                    <div class="flex-col-4">
+                <div class="row">
+                    <div class="col-md-3">
                         <label for="">Department</label><br>
-                        <app-dropdown [placeHolder]="deparrtmentPlaceholder"></app-dropdown>
+                        <div>
+                        <app-dropdown [data]="departmentDropdown"  [placeHolder]="deparrtmentPlaceholder"></app-dropdown>
+                        </div>
                     </div>
-                    <div class="flex-col-4">
+                    <div class="col-md-3">
                         <label for="">Status</label><br>
-                        <app-dropdown  [placeHolder]="statusPlaceholder"></app-dropdown>
+                        <app-dropdown  [data]="interviewStatusDropdown" [placeHolder]="statusPlaceholder"></app-dropdown>
                     </div>
                 </div>
-                <div class="table">
-                    <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+                <div class="table row">
+                    <div class="col-md-12">
+                        <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+                    </div>
                 </div>
             </div>
         </div>

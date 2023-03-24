@@ -1,0 +1,183 @@
+<div class="wrapper">
+    <div class="wrapper-top">
+
+        <div [ngClass]="{'my-card': true}">
+            <div class="row new-dsr">
+                <h1 class="">Create New DSR</h1>
+                <button  class="button " (click)="toggleCard()">Add</button>
+            </div>
+            <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
+            
+                <div class="add-dsr">
+                    <div class="row ">
+                        <div class="col-6">
+        
+                            <!-- Project Listing -->
+                            <div class="form-group col-12" id="project_ajax">
+                                <div class="col-md-12">
+                                    <label for="project_ajax" class="control-label">Project</label>
+                                    <app-dropdown [data]="projectDropdown" ></app-dropdown>
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="start_date">Date</label>
+                                        <mat-form-field appearance="outline" style="position: relative;" >
+                                            <input  matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                        </mat-form-field>
+                                    </div>
+                                </div>                                                                        
+        
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                                            <label for="task_hour" class="control-label">Estimated Hour</label>
+        
+                                            <mat-form-field appearance="outline" >
+                                                <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                            </mat-form-field>
+        
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <div class="col-4">
+                                    <div class="form-group mt-30">    
+                                        <div class="form-check checkbox">
+                                            <input type="checkbox" class="form-check-input" name="no_work" id="no_work_done">
+                                            <label class="form-check-label" for="no_work_done">No Work Done</label>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+        
+                            <!-- all AM -->
+                            
+                            <!-- ALL AM -->
+        
+        
+                        </div>
+        
+                        <div class="col-6">
+                            <div class="col-md-12">
+                                <label for="">Description</label>
+                                <editor
+                                    [init]="{
+                                        height: 400,
+                                        menubar: false,
+                                        plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount'
+                                        ],
+                                        toolbar:
+                                        'undo redo | formatselect | bold italic backcolor | \
+                                        alignleft aligncenter alignright alignjustify | \
+                                        bullist numlist outdent indent | removeformat | help'
+                                    }"
+                                ></editor>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-actions col-12 ">
+                        <button type="submit" class="button "> <i class="fa fa-check-square-o"></i> Add </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <hr>
+    <div class=" dsr">
+        
+        <div class="row">
+
+            <!-- From Date -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="first_name">From Date</label>
+                    <mat-form-field appearance="outline" >
+                        <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <!-- To Date -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="first_name">End Date</label>
+                    <mat-form-field appearance="outline" >
+                        <input matInput type="text" class="date_filter_to form-control hasDatepicker" placeholder="Select to-date" id="dp1678966291434">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="first_name">Submission Status</label>
+
+                    <app-dropdown></app-dropdown>    
+                </div>
+            </div>
+
+            <!-- Project -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="first_name">Project</label>
+                    <app-dropdown></app-dropdown>    
+                </div>
+            </div>
+        
+        </div>
+
+        <div class="row">
+        
+        </div>
+    
+        <!-- Final Approval -->
+        <div class="row">
+            
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="rm_status">Final Approval Status</label>
+                    <app-dropdown></app-dropdown>
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="rm_status">Hours</label>
+                        <app-dropdown></app-dropdown>
+                    </div>
+            </div>
+
+        
+            
+            <div class="button-wrapper "> 
+                <button name="hrsale_form" type="submit" class="button"><i class="fa fa fa-check-square-o"></i> Reset</button>
+            </div>
+        </div>
+
+        <!-- <div class="form-actions padd-left"> 
+            <button name="hrsale_form" type="submit" class="btn btn btn-primary reset-filters"><i class="fa fa fa-check-square-o"></i> Reset</button>
+        </div> -->
+    
+    </div>
+
+    <hr>
+
+    <div class="dsr-body">
+        <app-table  [columns]="headings" [dataSource]="datasource"></app-table>
+    </div>
+</div>
+

@@ -2,7 +2,7 @@
       <div class="basic-information">
         <div class="user-basic-info" [formGroup]="basicInfoForm"> 
           <h1>Basic Information</h1>
-         
+        
           <div class="basic-information-form">
             <div class="row">
               <div class="col-lg-4">
@@ -97,14 +97,14 @@
               <div class="col-md-6">
                 <label for="">Total Working Experience</label>
                 <div class="row">
-                  <div >
+                  <div class="col">
                     <label for="">Years</label>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name" formControlName="YearOfExperience">
                       <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
                     </mat-form-field>
                   </div>
-                  <div >
+                  <div class="col">
                     <label for="">Months</label>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name"  formControlName="YearOfExperience">
@@ -117,14 +117,14 @@
               <div class="col-md-6">
                 <label for="">Total Working Experience</label>
                 <div class="row">
-                  <div>
+                  <div class="col">
                     <label for="">Years</label>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name"  formControlName="relevantExperience">
                       <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
                     </mat-form-field>
                   </div>
-                  <div>
+                  <div class="col">
                     <label for="">Months</label>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name"  formControlName="relevantExperience">

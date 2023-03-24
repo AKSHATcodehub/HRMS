@@ -34,6 +34,7 @@ export class FeaturesComponent implements OnInit {
   slidePosition = 1;
   selectedID:any;
   sidenavv = sideNavList;
+  
 
   ngOnInit(): void {
     
@@ -108,7 +109,7 @@ export class FeaturesComponent implements OnInit {
     // alert("moouse enter called>>>")
     if (!this.isExpanded) {   
       this.isShowing = true;
-      this.expandAction();
+      // this.expandAction();  after uncommemting mouseover property get works
     }
     
   }
@@ -117,7 +118,7 @@ export class FeaturesComponent implements OnInit {
 
     if (this.isExpanded) {
       this.isShowing = false;
-      this.expandAction();
+      // this.expandAction(); after uncommemting mouseleave property get works
       
     }
   }

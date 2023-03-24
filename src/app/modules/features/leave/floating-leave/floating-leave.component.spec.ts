@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardsComponent } from './cards.component';
+import { FloatingLeaveComponent } from './floating-leave.component';
 
-describe('CardsComponent', () => {
-  let component: CardsComponent;
-  let fixture: ComponentFixture<CardsComponent>;
+describe('FloatingLeaveComponent', () => {
+  let component: FloatingLeaveComponent;
+  let fixture: ComponentFixture<FloatingLeaveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardsComponent ]
+      declarations: [ FloatingLeaveComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CardsComponent);
+    fixture = TestBed.createComponent(FloatingLeaveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

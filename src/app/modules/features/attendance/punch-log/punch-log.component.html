@@ -1,0 +1,51 @@
+<div class="manual-punch-wrapper">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="punch-details-card">
+                <div class="punch-details-header">
+                    <h1>Employee Details</h1>
+                </div>
+                <div class="punch-details-body ">
+                    <div class="row">
+                        <div class="col-md-12 pd-10">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="date">Date</label>
+                                        <mat-form-field appearance="outline">
+                                            <input type="text" matInput >
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="first_name">Company</label>
+                                <mat-form-field appearance="outline">
+                                    <input type="text" matInput >
+                                </mat-form-field>
+                            </div>
+                            
+                            <button class="button">Get</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="punch-details-card">
+                <div class="punch-details-header">
+                    <h1>Manual Punch List</h1>
+                </div>
+                <div class="punch-details-body ">
+                    <div class="row">
+                        <div class="col-md-12 pd-10">
+                            <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

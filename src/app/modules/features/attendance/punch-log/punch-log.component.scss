@@ -1,0 +1,25 @@
+@import '../../../../../scss/theme/grid',
+        '../../../../../scss/var';
+
+mat-form-field{
+    width: 100%;
+}
+
+.manual-punch-wrapper{
+    padding: 24px;
+    background-color: $lightblue;
+    .punch-details-card{
+        background-color: $white;
+        border-radius: 5px;
+        .punch-details-header{
+            padding: 20px;
+            margin: 0px;
+        }
+        .punch-details-body{
+            button{
+                margin: 20px 0px;
+            }
+        }
+    }
+}
+    

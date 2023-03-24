@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PerformanceRoutingModule } from './performance-routing.module';
 import { PerformanceComponent } from './performance.component';
+import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { PerformanceComponent } from './performance.component';
   ],
   imports: [
     CommonModule,
-    PerformanceRoutingModule
+    PerformanceRoutingModule,
+    DropdownModule
   ]
 })
 export class PerformanceModule { }

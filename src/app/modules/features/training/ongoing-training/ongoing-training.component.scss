@@ -1,0 +1,12 @@
+@import '../../../../../scss/theme/wrapper',
+        '../../../../../scss/mixins/flex';
+
+.ongoing-training-content{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    @include flex(center,center);
+    h1{
+        color: black;
+    }
+}

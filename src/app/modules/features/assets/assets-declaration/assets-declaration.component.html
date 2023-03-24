@@ -1,0 +1,90 @@
+<section>
+    <div class="wrapper">
+        <div class="request-assets">
+            <div [ngClass]="{'my-card': true}" class="col-md-12">
+                <div class="col-md-12">
+                    <button class="button col-md-2 " (click)="toggleCard()">Add New Assets Declaration</button>
+                </div>
+            </div>
+            <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-12 pd-10">
+                          <div class="row">
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="gender">Assets Categories <span class="red-color">*</span></label>
+                                <mat-form-field appearance="outline" >
+                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                  </mat-form-field>
+                              </div>
+                            </div>
+          
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="experience" class="control-label">Quantity <span class="red-color">*</span></label>
+                                <mat-form-field appearance="outline" >
+                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                </mat-form-field>
+                              </div>
+                            </div>
+          
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="experience" class="control-label">Priority <span class="red-color">*</span></label>
+                                <mat-form-field appearance="outline" >
+                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="required_by">Required by Date <span class="red-color">*</span></label>
+                                <mat-form-field appearance="outline" >
+                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label for="allocationType">Allocation type <span class="red-color">*</span> </label>
+                                <mat-form-field appearance="outline" >
+                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                </mat-form-field>
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                            <label for="short_description">Request Reason <span class="red-color">*</span></label><br>
+                            <textarea class="form-control" placeholder="Request Reason" name="request_reason" cols="30" rows="3"></textarea>    
+                        </div>
+                    </div>
+                </div>
+                <div class="row form-actions align-center text-center col-md-12">
+                    <div class="col-md-12">
+                        <button  id="assetDeclarationSaveBtn" type="submit" class="button"> <i class="fa fa-check-square-o"></i> Submit </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="assest-wrapper">
+            <div class="wrapper-heading">
+                <h1>List All Assets Inventory</h1>
+            </div>
+            <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+        </div>
+    </div>
+
+</section>

@@ -4,16 +4,22 @@
         <hr>
         <div class="directory-header-main row">
             <div class="col-lg-4">
-                <label for="">Name</label><br>
-                <app-searchbar [data]="directoryData" [reset]="reset"   (filteData)="filterDataHandler($event)"  (keyup)="keyfunc($event)"></app-searchbar>          
+                <div class="col-lg-12">
+                    <label for="">Name</label><br>
+                    <app-searchbar [data]="directoryData" [reset]="reset"   (filteData)="filterDataHandler($event)"  (keyup)="keyfunc($event)"></app-searchbar>          
+                </div>
             </div>
             <div class="col-lg-4">
-                <label for="">Department</label>
-                <app-dropdown [placeHolder]="departmentPlaceholder" [data]="dropDownData"  (outputData)="eventHandler($event)"></app-dropdown>                 
+                <div class="col-lg-12">
+                    <label for="">Department</label>
+                    <app-dropdown [placeHolder]="departmentPlaceholder" [data]="dropDownData"  (outputData)="eventHandler($event)"></app-dropdown>                 
+                </div>
             </div>
             <div class="col-lg-4 button-wrapper">
-                <button (click)="clickReset()">Reset</button>
-                <button (click)=" clickSearch()"> <mat-icon>search</mat-icon> <span>Search</span></button>
+                <div class="col-lg-12">
+                    <button (click)="clickReset()">Reset</button>
+                    <button (click)="clickSearch()"> <mat-icon>search</mat-icon> <span>Search</span></button>
+                </div>
             </div>
         </div>
     </div>

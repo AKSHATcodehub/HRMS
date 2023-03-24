@@ -1,0 +1,79 @@
+@import '../../../../../scss/theme/wrapper',
+        '../../../../../scss/theme/grid',
+        '../../../../../scss/theme/margin',
+        '../../../../../scss/theme/padding',
+        '../../../../../scss/var',
+        '../../../../../scss/mixins/flex';
+
+
+.card{
+    background-color: $white;
+}
+
+.small{
+    color:#a3a4a6;
+    font-size: 13px;
+}
+.calendar-icon{
+    mat-icon{
+        color:goldenrod;
+    }
+}
+mat-form-field{
+    width: 100%;
+}
+
+.wrapper{
+    hr{
+        border: 0px;
+    }
+    .add-leave{
+        @include flex(center,space-between);
+        padding: 20px;
+        span{
+            color: blue;
+            font-size: 20px;
+            @include media(md){
+                padding: 10px 0px;
+            }
+        }
+        .button{
+            
+        }
+        @include media(md){
+            padding: 15px;
+        }
+    }
+    .leave-content{
+        .action-btn{
+            .button{
+                margin: 20px 10px;
+                @include media(md){
+                    margin: 20px 5px;
+                }
+            
+            }
+        }
+    }
+    .leave-section{
+        background-color: $white;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    .ticket-list{
+        background-color: $white;
+        padding: 10px;
+        margin: 10px;
+    }
+}
+.file{
+    flex-direction:column !important;
+    min-height: 120px;
+    input{
+        border: 1px solid grey;
+        border-radius: 5px;
+        width: 100%;
+        padding: 15px;
+    }
+}

@@ -5,15 +5,15 @@
        
         <div class="basic-information-form" [formGroup]="qualificationForm">
           <div class="row">
-            <div class="input-field">
-              <label for="">School/University</label>
+            <div class="col-lg-6">
+              <label for="">School/University</label><br>
               <mat-form-field appearance="outline" >
                 <input matInput placeholder="Name" formControlName="university">
                 <mat-error>{{qualificationForm | validationError : 'university' : 'University' }}</mat-error>
               </mat-form-field>
             </div>
-            <div class="input-field">
-                <label for="">Education Level</label>
+            <div class="col-lg-6">
+                <label for="">Education Level</label><br>
                 <mat-form-field appearance="outline">
                   <mat-select formControlName="education">
                     <mat-option [value]="item.value" *ngFor="let item of qualifications">{{item.viewValue}}</mat-option>
@@ -26,8 +26,10 @@
 
           <div class="row ">
 
-            <label for="">Time Period</label>
-            <div class="input-field">
+            <div class="col-auto">
+              <label for="">Time Period</label>
+            </div>
+            <div class="col-lg-6">
                 <mat-form-field appearance="outline" style="position: relative;" >
                   <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="fromTimePerioed">
                   <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
@@ -36,8 +38,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="input-field">
-              <label for=""></label>
+            <div class="col-lg-6">
               <mat-form-field appearance="outline" style="position: relative;" >
                 <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed">
                 <mat-datepicker-toggle matIconSuffix [for]="toTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
@@ -50,30 +51,15 @@
 
           <div class="row">
             
-            <div class="input-field" >
-              <label for="" >Language</label>
-              <mat-form-field appearance="outline" >
-                <div class="wrapper" #wapper>
-                  <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
-                    <input matInput type="text" readonly="readonly"  placeholder="Language"  formControlName="language">
-                    <i class="uil uil-angle-down"></i>
-                  </div> 
-                  <div class="content" #content>
-                    <div class="search">
-                      <i class="uil uil-search"></i>
-                      <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
-                    </div>
-                    <ul class="options">
-                      <li *ngFor="let item of filterCountries" (click)="updateName(item,selectbtn,wapper,'language')" #{item}>{{item}}</li> 
-                    </ul>
-                  </div>
-                </div>
-                <mat-error class="custom-error" >{{qualificationForm | validationError : 'language' : 'Language' }}</mat-error>
-              </mat-form-field>
+            <div class="col-lg-6">
+              <label for="" >Language</label><br>
+              <div class="dropdown">
+                <app-dropdown  [placeHolder]="languagePlaceHolder" [data]="language"></app-dropdown>
+              </div>
             </div>
             
-              <div class="input-field">
-                <label for="">Professional Courses (if any)</label>
+              <div class="col-lg-6">
+                <label for="">Professional Courses (if any)</label><br>
                 <mat-form-field appearance="outline" >
                   <input matInput placeholder="Name">
                 </mat-form-field>
@@ -82,7 +68,7 @@
           </div>
 
             <div class="row">
-              <div class="address">
+              <div class="address col-lg-12">
                 <div class="input-field">
                   <label for="">Description</label><br>
                   <mat-form-field appearance="outline" >
@@ -115,7 +101,7 @@
           </div>
           <div class="qualification-row">
             <!-- <section class="table"> -->
-              <app-table [columns]="headings" [dataSource]="datasource"   (editEvent)="editEvent($event)"   (deleteEvent)="deleteEvent($event)" >hiiiii</app-table>
+              <app-table [columns]="headings" [dataSource]="datasource" (editEvent)="editEvent($event)"   (deleteEvent)="deleteEvent($event)" >hiiiii</app-table>
            <!-- </section> -->
             <!-- <app-table [dataSource]="datasource" [displayedColumns]="headings"></app-table> -->
           </div>

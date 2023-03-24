@@ -1,6 +1,7 @@
 @import "./../../../../../scss/var";
 @import './../../../../../scss/mixins/flex';
-@import './../../../../../scss/theme/card';
+@import './../../../../../scss/theme/card',
+        './../../../../../scss/theme/grid';
 
 *{
   box-sizing: border-box;
@@ -48,13 +49,8 @@
 
     min-height: 500px !important;
     width: 100% !important;
-    display: flex;
-    flex-wrap: wrap;
-
     .card-body{
-        margin: 16px;
-        max-width: 31% !important;
-        min-width: 31%;
+        margin: 16px 0px;
         border: 1px solid rgba(150, 165, 184, 0.3);
         border-radius: 5px;
         background-color: $white;
@@ -74,7 +70,7 @@
           }
           .job-opining-info{
             width: 100%;
-            @include flex(auto,space-between);
+            @include flex(normal,space-between);
             @media screen and (max-width: 1400px) {
               display: block;
               .location{

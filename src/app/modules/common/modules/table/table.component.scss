@@ -1,41 +1,124 @@
-@import '../../../../../scss/mixins/media';
+@import '../../../../../scss/mixins/media',
+        '../../../../../scss/mixins/flex',
+        '../../../../../scss/mixins/media',
+        '../../../../../scss/var';
+
+
+::ng-deep .mat-form-field-underline{
+  display: none;
+}
+
 section {
-  padding: 5px;
-  overflow: scroll;
-    table {
-      line-height: 3.6;
-      // margin: 20px;
-      width: 100%;
-      border: 1px solid rgb(235, 235, 235);
-      th {
-        border: 1px solid rgb(235, 235, 235);
-        font-size: 14px;
-        text-align: center !important;
-        margin-bottom: 20px;
-        color:rgb(58, 56, 56);
-       
+  padding: 30px;
+  overflow: auto;
+  position: relative;
+  background-color: $white;
+  .filter-options{
+    min-height: 70px;
+    display: flex;
+    @include flex(normal,space-between);
+    @include media(sm){
+      display: block;
+    }
+    
+
+    label{
+      line-height: 3;
+    }
+    .dropdown{
+
+
+      @include media(sm){
+        width: 100%;
       }
-      td {
-        //  background-color: rgb(235, 235, 235);
-        text-align: center;
+    }
+    .searchbar{
+      display: flex;
+      ::ng-deep .mat-form-field-flex{
+      border: 1px solid #d8d8d8;
+    }
+   
+      mat-form-field{
+        margin-left: 10px;
       }
-      a{
-        position: relative;
+      @include media(sm){
+        width: 100%;
       }
-      mat-icon {
-        position: absolute;
-        top: -3px;
-      //   color: $primary;
-        margin-right: 4px;
-      }
-      
     }
   }
+  ::ng-deep .mat-paginator-page-size{
+    position: absolute;
+    top: 25px;
+    left: 83px;
+    width: 65px;
+    .mat-paginator-page-size-label{
+      display: none;
+    }
+    
+    
+  }
+  table {
+    // line-height: 3.6;
+    // margin: 20px;
+    width: 100%;
+    border: 1px solid rgb(235, 235, 235);
+    mat-paginator{
+      ::ng-deep .mat-form-field-flex{
+        border: 1px solid #d8d8d8;
+      }
+    }
+    th {
+      border: 1px solid rgb(235, 235, 235);
+      font-size: 14px;
+      text-align: center !important;
+      margin-bottom: 20px;
+      color:rgb(58, 56, 56);
+      
+    }
+    td {
+      //  background-color: rgb(235, 235, 235);
+      text-align: center;
+      .download_link{
+        padding: 5px;
+        background-color: #F8F8F8;
+        a{
+          color: #199CFF;
+          text-decoration: none;
+          mat-icon{
+            margin-left:5px;
+            color: #199CFF;
+          }
+        }
+      }
+    }
+    a{
+      position: relative;
+    }
+    mat-icon {
+      position: absolute;
+      top: -3px;
+    //   color: $primary;
+      margin-right: 4px;
+    }
+    
+  }
+  }
+
+
+::ng-deep .mat-paginator{
+  ::ng-deep .mat-form-field-flex{
+    border: 1px solid #d8d8d8;
+  }
+}
+
 table{
     width: 100%;
     
     td{
        text-align: center;
+      .text-with-icon{
+        line-height: 1.3;
+      }
     }
 }
 

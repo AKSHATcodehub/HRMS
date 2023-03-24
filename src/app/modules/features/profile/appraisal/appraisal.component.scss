@@ -30,9 +30,8 @@
             border: 0px;
             padding: 0px;
             .row{
-                width: 100%;
                 padding: 25px;
-                @include flex(auto,start);
+                @include flex(normal,flex-start);
                 
                 .input-field{
                   width: 33%;

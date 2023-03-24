@@ -2,21 +2,35 @@
          './../../../../scss/var',
          './../../../../scss/global',
          './../../../../scss/mixins/flex',
-         './../../../../scss/mixins/media';
+         './../../../../scss/mixins/media',
+         './../../../../scss/theme/grid';
 
 *{
     box-sizing: border-box;
 }         
 
 .card{
+    @include media(lg){
+        padding: 16px;
+    }
     @include media(xs){
         padding: 0px;
     }
+    .card-body{
+        height: 100%;
+    }
+
 }
 
 .performance-wrapper{
     padding: 24px;
     background-color: $lightblue;
+    @include media(lg){
+        padding: 16px;
+    }
+    h1{
+        color: blue;
+    }
 
     .profile-content{
         @include media(lg){
@@ -30,7 +44,7 @@
             }
         }
         .awards{
-            width: 60%;
+            // width: 60%;
             margin: 10px;
             padding: 10px;
             background-color: #FFF3CB;
@@ -40,7 +54,7 @@
             border-radius: 5px;
             margin: 10px;
             padding: 10px;
-            width: 20%;
+            // width: 20%;
             background-color: #CBE7FF;
         }
     }
@@ -48,24 +62,25 @@
     
     .rating-wrapper{
         background-color: #dfffb0;
-        margin: 20px;
-        width: 45%;
-        @include media(lg){
-            width: 90%;
-        }
+        // margin: 20px;
+        width: 100%;
+        
         .rating-info{
-            padding: 10px;
+            padding: 10px 0px;
             margin-right: 10px;
             .rating-count{
-                h1{
+                h2{
                     font-size: 45px;
+                    @include media(md){
+                        text-align: center;
+                    }
                 }
             }
             .rating-time{
                 p{
-                    margin: auto;
+                    
                     background-color: $white;
-                    width: 70%;
+                    width: 100%;
                     text-align: center;
                     border-radius: 5px;
                 }
@@ -91,7 +106,7 @@
                 box-sizing: border-box;
                 border-radius: 5px;
                 background-color: #FFF3CB;
-                margin: 5px;
+                margin: 1px;
                 padding: 5px;
                 text-align: center;
                 min-width: 70px;
@@ -105,22 +120,33 @@
         }
     }
     .monthly-block{
-        height: 160px;
+        height: 140px;
         border: 1px solid #E9E9E9;
         border-radius: 5px;
-        padding: 10px;
-        
-        p{
-            margin: 10px;
-            padding: 10px;
+        padding: 20px;
+        margin: 10px 0px;
+        .awards{
+            margin-top: 20px;
+            .award-count{
+                margin: 10px 0px;
+                font-size: 18px;
+                font-weight: 500;
+                color: #F7C417;
+            }
+            .honours-count{
+                margin: 10px 0px;
+                font-size: 18px;
+                font-weight: 500;
+                color: #0086FF;
+            }
         }
     }
 
-    .monthly-performance{
-        .flex-col-4{
-            @include media(sm){
-                width: 100%;
-            }
-        }
+}
+
+
+:host ::ng-deep .input-field{
+    .input-wrapper{
+        margin-bottom: 0px;
     }
 }

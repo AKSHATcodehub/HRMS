@@ -7,6 +7,8 @@
         @include flex(center,center);
         margin: 0px auto;
         max-width: 1140px;
+        padding: 24px;
+        column-gap: 50px;
         .entrepreneurship-content{
             width: 50%;
             margin:100px 0px;

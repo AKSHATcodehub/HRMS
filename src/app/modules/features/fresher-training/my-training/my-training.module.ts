@@ -4,16 +4,26 @@ import { CommonModule } from '@angular/common';
 import { MyTrainingRoutingModule } from './my-training-routing.module';
 import { MyTrainingComponent } from './my-training.component';
 import { CardsModule } from 'src/app/modules/common/modules/cards/cards.module';
+import { FeedbackDialogComponent } from './feedback-dialog/feedback-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatRadioModule} from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { TrainingCardModule } from 'src/app/modules/common/modules/training-card/training-card.module';
 
 
 @NgModule({
   declarations: [
-    MyTrainingComponent
+    MyTrainingComponent,
+    FeedbackDialogComponent
   ],
   imports: [
     CommonModule,
     MyTrainingRoutingModule,
-    CardsModule
+    CardsModule,
+    MatDialogModule,
+    MatRadioModule,
+    MatIconModule,
+    TrainingCardModule
   ]
 })
 export class MyTrainingModule { }

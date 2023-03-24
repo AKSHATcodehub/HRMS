@@ -1,10 +1,12 @@
+<!-- <div class="content-wrapper">
+</div> -->
 <div class="input-field" >
   <div class="input-wrapper" >
     <div class="select-btn" (click)="optionClicked()" #selectbtn>
-      <input type="text" readonly="readonly" [placeholder]="placeHolder"  FormControl="controlName" >
+      <input type="text" readonly="readonly" placeholder="Select"  FormControl="controlName" >
       <i class="uil uil-angle-down"></i>
     </div>
-    <!-- <div>{{formName | validationError : controlName : controlName}}</div> -->
+    <!-- <div>{{formName | validationError : controlName : placeHolder}}</div> -->
     <div class="content">
       <div class="search">
         <i class="uil uil-search"></i>
@@ -16,13 +18,5 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
 
 

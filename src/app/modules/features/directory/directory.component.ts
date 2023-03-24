@@ -35,6 +35,7 @@ export class DirectoryComponent implements OnInit {
       
     });
   }
+
   filterDataHandler(filterData:any){
     console.log("this is filter data...",filterData);
     this.filterData = filterData;
@@ -46,6 +47,7 @@ export class DirectoryComponent implements OnInit {
       // });
     
   }
+  
   click(){
     console.log("this is dropdown>>>>>>>",this.dropDownData);
     

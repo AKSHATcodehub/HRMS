@@ -19,6 +19,7 @@ import { TableModule } from 'src/app/modules/common/modules/table/table.module';
 import { DialogModule } from 'src/app/modules/common/modules/dialog/dialog.module';
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/materia
     ReactiveFormsModule,
     TableModule,
     DialogModule,
+    DropdownModule,
     MatDialogModule
   ],
   exports:[

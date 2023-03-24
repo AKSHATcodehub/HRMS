@@ -1,0 +1,1 @@
+export const PROJECT_DROPDOWN = ['Training Project React JS' ,'Miscellaneous' ,'Interview']

@@ -11,6 +11,9 @@ import { TableColumn } from 'src/app/interfaces/column';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+applyFilter($event: KeyboardEvent) {
+throw new Error('Method not implemented.');
+}
   matHeaderRow: any = [];
   @Output() editEvent:EventEmitter<any> = new EventEmitter();
   @Output() deleteEvent:EventEmitter<any> = new EventEmitter();
@@ -21,9 +24,9 @@ export class TableComponent implements OnInit {
   @Input() isFilterable: any;
   paginationSizes: number[] =[10];
   defaultPageSize: NumberInput =10;
-  @ViewChild(MatSort) set matSort(sort: MatSort) {
-    this.dataSource.sort = sort;
-  }
+  // @ViewChild(MatSort) set matSort(sort: MatSort) {
+  //   this.dataSource.sort = sort;
+  // }
   // @Output() getResponse = new EventEmitter;  
   // @Output() userDetail: EventEmitter<any> = new EventEmitter();
   @Output() sort: EventEmitter<Sort> = new EventEmitter();

@@ -73,7 +73,7 @@
           }
           .job-opining-info{
             width: 100%;
-            @include flex(auto,space-between);
+            @include flex(normal,space-between);
             @media screen and (max-width: 1400px) {
               display: block;
               .location{

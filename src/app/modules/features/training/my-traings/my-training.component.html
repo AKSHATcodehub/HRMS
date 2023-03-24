@@ -1,0 +1,7 @@
+<div class="wrapper">
+    <div class="wrapper-heading">
+        <h1>My Training</h1>
+        <button class="button" (click)="requestForTraining()">Request For Training</button>
+    </div>
+    <app-training-card [cards]="cards" (viewDetailsEvent)="viewDteails()" (feedbackEvent)="openEntrollmentPopup()"></app-training-card>
+</div>

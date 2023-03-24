@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PerformanceComponent } from './performance.component';
+import { ManualPunchComponent } from './manual-punch.component';
 
-describe('PerformanceComponent', () => {
-  let component: PerformanceComponent;
-  let fixture: ComponentFixture<PerformanceComponent>;
+describe('ManualPunchComponent', () => {
+  let component: ManualPunchComponent;
+  let fixture: ComponentFixture<ManualPunchComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PerformanceComponent ]
+      declarations: [ ManualPunchComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PerformanceComponent);
+    fixture = TestBed.createComponent(ManualPunchComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

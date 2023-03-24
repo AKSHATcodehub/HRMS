@@ -49,8 +49,10 @@
 	
 </div>
 <mat-sidenav-container class="example-container" autosize>
-	<mat-sidenav   #sidenav (window:resize)="onResize($event)" class="example-sidenav disappear-1000px" mode="side" opened="true" (mouseenter)="mouseenter()"
-	(mouseleave)="mouseleave()"  id="side-nav-id">
+	<mat-sidenav   #sidenav (window:resize)="onResize($event)" class="example-sidenav disappear-1000px" mode="side" opened="true"    
+	(mouseenter)="mouseenter()"
+	(mouseleave)="mouseleave()" 
+	 id="side-nav-id">
 	<mat-nav-list>
 		<ng-container *ngFor="let navBarItem of localNavBarData">
 

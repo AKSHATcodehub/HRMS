@@ -1,18 +1,33 @@
 @import './../../../../../scss/global';
-@import './../../../../../scss/var';
-
-
-.policy-wrapper{
-    padding: 24px;
-    background-color: $lightblue;
-    height: 100vh;
-    .card-header{
+@import './../../../../../scss/var',
+        './../../../../../scss/mixins/media';
+            
+    .card{
+        height: 100vh;
         background-color: $lightblue;
-        border: 0px;
+        padding: 16px;
+        @include media(lg){
+            padding: 0px;
+        }
+    }
+    .card-header{
+        background-color: $lightblue !important;
+        border: 0px !important;
+        // @include media(xs){
+        //     padding: 16px;
+        // }
+        h1{
+            @include media(lg){
+                margin: 0px;
+            }
+        }
     }
     .card-body{
         border: 0px;
         margin:0px 30px ;
+        // @include media(xs){
+        //     margin: 0px 16px;
+        // }
     }
     .table{
         border: 0px;
@@ -20,4 +35,3 @@
         border-radius: 10px;
        
     }
-}

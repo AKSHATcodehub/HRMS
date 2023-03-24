@@ -1,29 +1,30 @@
 <div class="performance-wrapper">
     <h1>Performance</h1>
     <div class="card">
-        <div class="card-body flex-row profile-content">
-            <div  class="card-body profile" >
-                <div class="card-top flex-col-1">
+        <div class="card-body row profile-content">
+            <div  class="card-body col-lg-6 profile" >
+                <div class="card-top ">
                     <div class="profile-pic">
                         <img src="../../../../assets/abk.jpeg" alt="">
                     </div>
                     <div class="user-info">
-                        <h1>
+                        <h2>
                             Akshat
-                        </h1>
+                        </h2>
                         <p>
                             Software Engineer (Angular)
                         </p>
                         <h3>0.9 Years</h3>
                     </div>
                 </div>
-                <div class="card-mid flex-row">
-                    <div class="awards">
+                <div class="card-mid row">
+                    <div class="awards col-md-7">
                         <h6>AWARDS</h6>
                         <ul></ul>
                         <span>N/A</span>
                     </div>
-                    <div class="honours">
+
+                    <div class="honours col-md-3">
                         <h6>AWARDS</h6>
                         <ul></ul>
                         <span>N/A</span>
@@ -31,44 +32,46 @@
                 </div>
             </div>
             
-
-            <div class="rating-wrapper card-body ">
-                <div class="rating-info flex-row">
-                    <div class="rating-count flex-col-2">
-                        <h1>3.4</h1>
-                   </div>
-                   <div class="rating-time flex-col-2">
-                       <p>Jan 2021 - Till NOW</p>
-                   </div>
-                </div>
-                <div class="rating-skills flex-row">
-                    <div class="block-wrapper">
-                        <div class="block ">
-                            <p>Technical skills</p>
-                            <h3>3.0</h3>
-                        </div>
+            <div class="col-lg-6">
+                <div class="rating-wrapper  card-body ">
+                    <div class="rating-info row">
+                        <div class="rating-count col-md-6">
+                            <h2>3.4</h2>
+                       </div>
+                       <div class="rating-time col-md-6">
+                           <p>Jan 2021 - Till NOW</p>
+                       </div>
                     </div>
-                    <div class="block-wrapper">
-                        <div class="block ">
-                            <p>Technical skills</p>
-                            <h3>3.0</h3>
+                    <div class="rating-skills row">
+                        <div class="block-wrapper">
+                            <div class="block ">
+                                <p>Technical skills</p>
+                                <h3>3.0</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block-wrapper">
-                        <div class="block ">
-                            <p>Technical skills</p>
-                            <h3>3.0</h3>
+                        <div class="block-wrapper">
+                            <div class="block ">
+                                <p>Technical skills</p>
+                                <h3>3.0</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="block-wrapper">
-                        <div class="block ">
-                            <p>Technical skills</p>
-                            <h3>3.0</h3>
+                        <div class="block-wrapper">
+                            <div class="block ">
+                                <p>Technical skills</p>
+                                <h3>3.0</h3>
+                            </div>
                         </div>
+                        <div class="block-wrapper">
+                            <div class="block ">
+                                <p>Technical skills</p>
+                                <h3>3.0</h3>
+                            </div>
+                        </div>
+                        
                     </div>
-                    
                 </div>
             </div>
+
 
         </div>
     </div>
@@ -81,77 +84,32 @@
                 <button class="button">Monthly Rating</button>
             </div>
             <div class="card-body">
-                <div class="card-top">
+                <div class="card-top justify-content-sm-between ">
                     <div class="user-info">
                         <h1>Monthly Performance Calendar</h1>
                     </div>
+                    <div class="performance-year">
+                        <label for="">Select Year</label><br>
+                        <app-dropdown [data]="dropdownRatingData"  (outputData)="selectedOption($event)"></app-dropdown>
+                    </div>
                 </div>
-                <div class="card-mid flex-row flex-wrap">
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
+                <div class="card-mid row ">
+                    <div class="col-md-3"   *ngFor="let item of filterRating">
+                        <div class="monthly-block " [ngStyle]="{'background-color':item.data_exist ? '#F9F9F9' : 'white'}" >
+                            <div class="row justify-content-sm-between">
+                                <span>{{item.month_name}}</span>
+                                <span>{{item.overall_rating}}</span>
+                            </div>
+                            <div class="awards" *ngIf="item.data_exist" >
+                                <div class="award-count">
+                                    AWARDS:{{item.honours}} 
+                                </div>
+                                <div class="honours-count">
+                                    HONOURS:{{item.awards}} 
+                                </div>  
+                            </div>
                         </div>
                     </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div><div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-                    <div class="flex-col-4">
-                        <div class="monthly-block ">
-                            <p>January</p>
-                        </div>
-                    </div>
-    
                 </div>
             </div>
         </div>

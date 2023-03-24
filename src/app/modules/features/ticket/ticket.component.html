@@ -1,0 +1,91 @@
+<div class="wrapper">
+    <div class="wrapper-top">
+        <div [ngClass]="{'my-card': true}">
+            <div class="row">
+                <div class="col-sm-6 d-flex align-items-center ">
+                    <h1 class="col-sm-12">Create New Ticket</h1>
+                </div>
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        <button  class="button add-ticket-btn" (click)="toggleCard()">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
+            
+                <div class="add-dsr">
+                    <div class="row ">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 pd-10">
+                                    <div class="form-group">
+                                        <label for="date">Subject</label>
+                                        <mat-form-field appearance="outline">
+                                            <input type="text" matInput >
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="first_name">Department</label>
+                                        <app-dropdown></app-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="first_name">Ticket Category</label>
+                                        <app-dropdown></app-dropdown>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="first_name">Priority</label>
+                                        <app-dropdown></app-dropdown>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label for="">Description</label>
+                                <editor
+                                    [init]="{
+                                        height: 400,
+                                        menubar: false,
+                                        plugins: [
+                                        'advlist autolink lists link image charmap print preview anchor',
+                                        'searchreplace visualblocks code fullscreen',
+                                        'insertdatetime media table paste code help wordcount'
+                                        ],
+                                        toolbar:
+                                        'undo redo | formatselect | bold italic backcolor | \
+                                        alignleft aligncenter alignright alignjustify | \
+                                        bullist numlist outdent indent | removeformat | help'
+                                    }"
+                                ></editor>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="form-actions col-12 ">
+                        <div class="col-md-12">
+                            <div class="col-md-12">
+                                <button type="submit" class="button action-btn">  Add </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="ticket-list">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>List All Ticket</h1>
+                <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+            </div>
+        </div>
+    </div>
+</div>

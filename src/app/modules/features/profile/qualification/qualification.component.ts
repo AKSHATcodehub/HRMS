@@ -32,7 +32,10 @@ export class QualificationComponent implements OnInit{
   countries:any;
   filterCountries:any;
   qualificationForm!:FormGroup;
+  languagePlaceHolder:string='Language';
+  language=['Hindi','English'];
   datasource = new MatTableDataSource<any>();
+  pageOptions = ['5','10']
   headings = [
     { heading: 'Action', key: 'status', type: 'action', sort: true, action: [1]},
     { heading: 'School/University', key: 'SUName', type: 'text', sort:true },
@@ -91,6 +94,8 @@ export class QualificationComponent implements OnInit{
     if(!this.toggleStatus){
       this.render.removeClass(wapper,'active');
     }
+
+    
   }
 
   keyFunc(event:any){
@@ -158,6 +163,11 @@ export class QualificationComponent implements OnInit{
   
   actionSave(){
 
+    alert("action")
+
+    console.log("quali",this.qualificationForm);
+    
+
     this.qualificationForm.markAllAsTouched();
  
     if(this.qualificationForm.valid){
@@ -171,6 +181,14 @@ export class QualificationComponent implements OnInit{
       this.datasource = new MatTableDataSource<any>(this.Table_DATA)
       
     }
+    setTimeout(() => {
+      
+      console.log("this is TABLE DATAA>>>>>>>>>>",this.Table_DATA);
+      
+    }, 3000);
+
+    console.log("this is data soucrce>>>>>>>>>>",this.datasource);
+    
   }
   openDialog(event:any): void {
     const dialogRef = this.dialog.open(EditQualificationComponent,{

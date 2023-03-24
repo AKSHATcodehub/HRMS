@@ -1,8 +1,27 @@
-@import '../var';
+@import '../var',
+        '../mixins/flex',
+        '../mixins/media';
+
+        
 .wrapper{
     background-color: $lightblue;
     padding: 24px;
+    @include media(md){
+        padding: 16px;
+    }
     h1{
         color: blue;
     }
 }
+.button{
+    // margin: 5px 20px;
+    height: 40px;
+    color: $white;
+    background-color: $primary;
+    border: 0px;
+    border-radius: 5px;
+    min-width: 100px;
+    @include media(xs){
+        width: 100%;
+    }
+  }

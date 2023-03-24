@@ -30,12 +30,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     ValidationErrorModule,
     ReactiveFormsModule,
     EditorModule,
-
     MatDatepickerModule,
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-
     MatSelectModule,
     MatStepperModule,
     MatTabsModule,
