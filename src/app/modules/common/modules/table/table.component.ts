@@ -1,6 +1,7 @@
 import { NumberInput } from '@angular/cdk/coercion';
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
+import {MatPaginator} from '@angular/material/paginator';
 import { MatTable } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { TableColumn } from 'src/app/interfaces/column';
@@ -10,10 +11,8 @@ import { TableColumn } from 'src/app/interfaces/column';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit {
-applyFilter($event: KeyboardEvent) {
-throw new Error('Method not implemented.');
-}
+export class TableComponent implements OnInit,AfterViewInit {
+
   matHeaderRow: any = [];
   @Output() editEvent:EventEmitter<any> = new EventEmitter();
   @Output() deleteEvent:EventEmitter<any> = new EventEmitter();
@@ -22,8 +21,12 @@ throw new Error('Method not implemented.');
   @Input() Table_DATA!: any;
   @Input() checkBox!: string;
   @Input() isFilterable: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   paginationSizes: number[] =[10];
   defaultPageSize: NumberInput =10;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
   // @ViewChild(MatSort) set matSort(sort: MatSort) {
   //   this.dataSource.sort = sort;
   // }
@@ -38,6 +41,7 @@ throw new Error('Method not implemented.');
       this.matHeaderRow.push(item.heading)
     });
     this.columns.map((tableColumn: TableColumn) => tableColumn.heading);
+
   }
 
   editClick(element:any){
@@ -50,5 +54,13 @@ throw new Error('Method not implemented.');
     
   }
   
+  applyFilterTable(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
 }

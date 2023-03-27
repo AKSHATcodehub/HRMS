@@ -10,7 +10,7 @@ export class DropdownComponent implements OnInit {
 
   @Input() data!:any;
   @Input() formName!:FormGroup ;
-  @Input() controlName!:any;
+  @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string;
   @Output() outputData :EventEmitter<any> = new EventEmitter();
 
