@@ -4,7 +4,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { DsrRoutingModule } from './dsr-routing.module';
 import { DsrComponent } from './dsr.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
 import { TableModule } from '../../common/modules/table/table.module';
@@ -13,7 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+// import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     DropdownModule,
     EditorModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ValidationErrorModule,
+    // NgxMatTimepickerModule
   ]
 })
 export class DsrModule { }

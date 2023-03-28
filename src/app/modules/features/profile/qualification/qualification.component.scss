@@ -75,7 +75,6 @@ mat-form-field{
         
       }
       .qualification-wrapper{
-        padding: 24px;
         .qualification-row{
           width: 100%;
           min-height: 56px;
@@ -96,4 +95,16 @@ mat-form-field{
     }
     
   }
+
+  .dropdown{
+    .dropdown-body{
+      position: relative;
+    }
+    small{
+      position: absolute;
+      top: 73px;
+      left: 20px;
+    }
+  }
+
 

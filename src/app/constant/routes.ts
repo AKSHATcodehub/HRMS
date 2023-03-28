@@ -236,3 +236,10 @@ export const TICKET:IRoute = {
         return `${this.path}`
     }
 }
+
+export const DSR_DETAILS:IRoute = {
+    path:'dsr-details',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}

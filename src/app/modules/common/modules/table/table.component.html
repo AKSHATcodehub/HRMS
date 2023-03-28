@@ -49,6 +49,12 @@
             </div>
           </ng-container>
 
+          <ng-container *ngSwitchCase="'dsr_status'" >
+            <div class="download_link">
+              <a [href]="element.link" (click)="dsrAction(element)" >Pending</a>
+            </div>
+          </ng-container>
+
           <ng-container *ngSwitchCase="'action'">
             <div class="actionIcon">
               <!-- <ng-container *ngFor="let icon of row.action; let i=index;"> -->

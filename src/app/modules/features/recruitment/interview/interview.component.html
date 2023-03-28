@@ -1,4 +1,4 @@
-<div class="container-wrapper">
+<div class="wrapper">
      
     <h1>List All Candidates</h1>
     
@@ -6,16 +6,12 @@
         <div class="card-body">
             <div class="card-mid">
                 <div class="row">
-                    <div class="col-md-3">
-                        <label for="">Department</label><br>
-                        <div>
-                        <app-dropdown [data]="departmentDropdown"  [placeHolder]="deparrtmentPlaceholder"></app-dropdown>
+                    <ng-container *ngFor="let filter of filterSelectObj">
+                        <div class="col-md-3" >
+                            <label for="">{{filter.label}}</label><br>
+                            <app-dropdown [data]="filter.data"  [placeHolder]="filter.placeholder" (outputData)="filterChange($event)"></app-dropdown>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="">Status</label><br>
-                        <app-dropdown  [data]="interviewStatusDropdown" [placeHolder]="statusPlaceholder"></app-dropdown>
-                    </div>
+                    </ng-container>
                 </div>
                 <div class="table row">
                     <div class="col-md-12">

@@ -9,7 +9,8 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-03-04',
         interview_time:'22:09',
         final_status:'1',
-        team:'ios'
+        team:'ios',
+        status:'selected'
     },
     {
         s_no:2,
@@ -21,7 +22,9 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-02-02',
         interview_time:'22:09',
         final_status:'2',
-        team:'Angular'
+        team:'Angular',
+        status:'selected'
+
 
     },
     {
@@ -34,7 +37,9 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-01-01',
         interview_time:'22:09',
         final_status:'3',
-        team:'Blockchain'
+        team:'Blockchain',
+        status:'selected'
+        
 
     },
     {
@@ -47,7 +52,9 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-02-10',
         interview_time:'22:09',
         final_status:'4',
-        team:'Admin'
+        team:'Admin',
+        status:'selected'
+
 
     },
     {
@@ -60,7 +67,9 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-02-05',
         interview_time:'22:09',
         final_status:'1',
-        team:'ios'
+        team:'ios',
+        status:'inprogress'
+
 
     },
     {
@@ -73,7 +82,98 @@ export const INTERVIEW_DATA = [
         interview_date:'2023-01-06',
         interview_time:'22:09',
         final_status:'3',
-        team:'Finance'
+        team:'Finance',
+        status:'inprogress'
+
+
+    },
+    {
+        s_no:1,
+        department:1,
+        name:'Shivam Singh',
+        email:'shivam5@gmail.com',
+        mobile_number:'89894904',
+        round_type:'round_1',
+        interview_date:'2023-03-04',
+        interview_time:'22:09',
+        final_status:'1',
+        team:'ios',
+        status:'inprogress'
+
+    },
+    {
+        s_no:2,
+        department:2,
+        name:'Swapnil Maurya',
+        email:'swapnil@gmail.com',
+        mobile_number:'79867799',
+        round_type:'round_2',
+        interview_date:'2023-02-02',
+        interview_time:'22:09',
+        final_status:'2',
+        team:'Angular',
+        status:'missed'
+
+
+    },
+    {
+        s_no:3,
+        department: 3,
+        name:'Arpit Dwivedi',
+        email:'arpit@gmail.com',
+        mobile_number:'76769798',
+        round_type:'round_5',
+        interview_date:'2023-01-01',
+        interview_time:'22:09',
+        final_status:'3',
+        team:'Blockchain',
+        status:'missed'
+
+
+    },
+    {
+        s_no:4,
+        department:4,
+        name:'Rishab Ghildiyal',
+        email:'swapnil@gmail.com',
+        mobile_number:'79867799',
+        round_type:'round_10',
+        interview_date:'2023-02-10',
+        interview_time:'22:09',
+        final_status:'4',
+        team:'Admin',
+        status:'rejected'
+
+
+    },
+    {
+        s_no:5,
+        department:5,
+        name:'Walter White',
+        email:'walter@gmail.com',
+        mobile_number:'69876978',
+        round_type:'round_1',
+        interview_date:'2023-02-05',
+        interview_time:'22:09',
+        final_status:'1',
+        team:'ios',
+        status:'rejected'
+
+
+    },
+    {
+        s_no:6,
+        department:6,
+        name:'Jesse Pinkman',
+        email:'jesse@gmail.com',
+        mobile_number:'79867799',
+        round_type:'round_3',
+        interview_date:'2023-01-06',
+        interview_time:'22:09',
+        final_status:'3',
+        team:'Finance',
+        status:'rejected'
+
 
     },
     

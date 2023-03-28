@@ -16,6 +16,7 @@ export class TableComponent implements OnInit,AfterViewInit {
   matHeaderRow: any = [];
   @Output() editEvent:EventEmitter<any> = new EventEmitter();
   @Output() deleteEvent:EventEmitter<any> = new EventEmitter();
+  @Output() openFilledDsr:EventEmitter<any> = new EventEmitter();
   @Input() columns!: any;
   @Input() dataSource!: any;
   @Input() Table_DATA!: any;
@@ -61,6 +62,10 @@ export class TableComponent implements OnInit,AfterViewInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  dsrAction(element:any){
+    this.openFilledDsr.emit(element);
   }
 
 }

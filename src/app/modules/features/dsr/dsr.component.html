@@ -9,14 +9,15 @@
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
             
                 <div class="add-dsr">
-                    <div class="row ">
+                    <div class="row " [formGroup]="dsrForm">
                         <div class="col-6">
         
                             <!-- Project Listing -->
                             <div class="form-group col-12" id="project_ajax">
                                 <div class="col-md-12">
                                     <label for="project_ajax" class="control-label">Project</label>
-                                    <app-dropdown [data]="projectDropdown" ></app-dropdown>
+                                    <app-dropdown [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
+                                    <small *ngIf="this.dsrForm.controls.dsrProject.touched">{{dsrForm | validationError : 'dsrProject' : 'Project' }}</small>
                                 </div>
                             </div>
         
@@ -26,9 +27,10 @@
                                     <div class="form-group">
                                         <label for="start_date">Date</label>
                                         <mat-form-field appearance="outline" style="position: relative;" >
-                                            <input  matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
+                                            <input  matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dsrDate">
                                             <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                                             <mat-datepicker #picker1></mat-datepicker>
+                                            <mat-error *ngIf="this.dsrForm.controls.dsrDate.touched">{{dsrForm | validationError : 'dsrDate' : 'Hours' }}</mat-error>
                                         </mat-form-field>
                                     </div>
                                 </div>                                                                        
@@ -39,7 +41,7 @@
                                             <label for="task_hour" class="control-label">Estimated Hour</label>
         
                                             <mat-form-field appearance="outline" >
-                                                <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                                <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433" formControlName="dsrHours">
                                             </mat-form-field>
         
                                             <span class="input-group-addon">
@@ -70,6 +72,7 @@
                             <div class="col-md-12">
                                 <label for="">Description</label>
                                 <editor
+                                    formControlName="dsrContent"
                                     [init]="{
                                         height: 400,
                                         menubar: false,
@@ -84,12 +87,13 @@
                                         bullist numlist outdent indent | removeformat | help'
                                     }"
                                 ></editor>
+                                <small *ngIf="this.dsrForm.controls.dsrContent.touched">{{dsrForm | validationError : 'dsrContent' : 'Description' }}</small>
                             </div>
                         </div>
                         
                     </div>
                     <div class="form-actions col-12 ">
-                        <button type="submit" class="button "> <i class="fa fa-check-square-o"></i> Add </button>
+                        <button type="submit" class="button " (click)="dsrSummit()" > <i class="fa fa-check-square-o"></i> Add </button>
                     </div>
                 </div>
             </div>
@@ -98,75 +102,87 @@
     </div>
     <hr>
     <div class=" dsr">
+        <div class="col-md-12">
+            <div class="row"  [formGroup]="filterForm">    
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="first_name">From Date</label>
+                            <mat-form-field appearance="outline">
+                                <input matInput 
+                                  [matDatepicker]="fromDate" 
+                                  placeholder="From Date" 
+                                  formControlName="fromDate">
+                                <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                                <mat-datepicker #fromDate></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
         
-        <div class="row">
-
-            <!-- From Date -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="first_name">From Date</label>
-                    <mat-form-field appearance="outline" >
-                        <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <!-- To Date -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="first_name">End Date</label>
-                    <mat-form-field appearance="outline" >
-                        <input matInput type="text" class="date_filter_to form-control hasDatepicker" placeholder="Select to-date" id="dp1678966291434">
-                    </mat-form-field>
-                </div>
-            </div>
-
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="first_name">Submission Status</label>
-
-                    <app-dropdown></app-dropdown>    
-                </div>
-            </div>
-
-            <!-- Project -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="first_name">Project</label>
-                    <app-dropdown></app-dropdown>    
-                </div>
-            </div>
-        
-        </div>
-
-        <div class="row">
-        
-        </div>
+                    <!-- To Date -->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="first_name">End Date</label>
+                            <mat-form-field appearance="outline">
+                                <input matInput 
+                                  [matDatepicker]="toDate" 
+                                  placeholder="To Date" 
+                                  formControlName="toDate"
+                                  (dateChange)="applyFilter()"
+                                  >
+                                <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                                <mat-datepicker #toDate></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                <!-- From Date -->
     
-        <!-- Final Approval -->
-        <div class="row">
-            
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="rm_status">Final Approval Status</label>
-                    <app-dropdown></app-dropdown>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="first_name">Submission Status</label>
+                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event)"></app-dropdown>    
+                    </div>
                 </div>
+    
+                <!-- Project -->
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="first_name">Project</label>
+                        <app-dropdown [data]="projectDataDropdown" (outputData)="dropdownFilter($event)"></app-dropdown>    
+                    </div>
+                </div>
+            
             </div>
-
-
-            <div class="col-md-3">
+    
+            <div class="row">
+            
+            </div>
+        
+            <!-- Final Approval -->
+            <div class="row">
+                
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="rm_status">Final Approval Status</label>
+                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event)"></app-dropdown>
+                    </div>
+                </div>
+    
+    
+                <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Hours</label>
-                        <app-dropdown></app-dropdown>
+                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event)" ></app-dropdown>
                     </div>
-            </div>
-
-        
+                </div>
+    
             
-            <div class="button-wrapper "> 
-                <button name="hrsale_form" type="submit" class="button"><i class="fa fa fa-check-square-o"></i> Reset</button>
+                
+                <div class="button-wrapper "> 
+                    <button (click)="applyFilter()" name="hrsale_form" type="submit" class="button"><i class="fa fa fa-check-square-o"></i> Reset</button>
+                </div>
             </div>
         </div>
+        
 
         <!-- <div class="form-actions padd-left"> 
             <button name="hrsale_form" type="submit" class="btn btn btn-primary reset-filters"><i class="fa fa fa-check-square-o"></i> Reset</button>
@@ -177,7 +193,7 @@
     <hr>
 
     <div class="dsr-body">
-        <app-table  [columns]="headings" [dataSource]="datasource"></app-table>
+        <app-table  [columns]="headings" [dataSource]="datasource" (openFilledDsr)="openFilledDsr($event)" ></app-table>
     </div>
 </div>
 

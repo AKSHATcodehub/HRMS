@@ -31,11 +31,41 @@ export class InterviewComponent implements OnInit {
   statusPlaceholder = 'Select Status';
   departmentDropdown = DEPARTMENT_OPTIONS;
   interviewStatusDropdown=INTERVIEW_STATUS;
-  constructor() { }
+  filterValues:any;
+  filterSelectObj:{ name: string,columnProp: string,data:any[],placeholder:string,label:string}[]=[];
+
+  constructor() {
+    this.filterSelectObj = [
+      {
+        name: 'Status',
+        columnProp: 'status',
+        data:this.departmentDropdown,
+        placeholder:this.deparrtmentPlaceholder,
+        label:'Department'
+        
+      },
+      {
+        name: 'Dept',
+        columnProp: 'dept',
+        data:this.interviewStatusDropdown,
+        placeholder:this.statusPlaceholder,
+        label:'Status'
+      }
+    ];
+   }
 
   ngOnInit(): void {
     // this.datasource = new MatTableDataSource<any>(this.Table_DATA)
 
+  }
+
+  filterChange( event:any) {
+    console.log(">>>>>>>>>>",event);
+
+   let selectedOption = event.trim().toLowerCase();
+    this.datasource.filter = selectedOption;
+    console.log(">>>>>>>>>>",this.datasource);
+    
   }
 
 }

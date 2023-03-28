@@ -24,6 +24,7 @@ export class DirectoryComponent implements OnInit {
   constructor() { }
   
   ngOnInit(): void {
+    
     this.showList = this.directoryData;
 
     this.directoryData.forEach((item:any) => {
@@ -69,28 +70,40 @@ export class DirectoryComponent implements OnInit {
     }
   }
 
+  dataAccordingToSelectedDropdownValue:any;
+
   eventHandler(event:any){
 
     this.selectedValue = event;
 
     this.selectedDropdownData = [];
     
-    ALL_DIRECTORY_TEAM_DATA.forEach((item:any)=>{
+    this.dataAccordingToSelectedDropdownValue=ALL_DIRECTORY_TEAM_DATA.filter((item:any)=>{
 
       if(item.team == event){
 
         console.log("event Handler>>>>",item.team,event);
         
         this.selectedDropdownData.push(item);
+
+        return item;
       }
      
     })
 
+    console.log(">>>>>>>>>>>>>>>>>>>>",this.dataAccordingToSelectedDropdownValue)
+
+
     if( event == 'all' ){
         this.filterData = ALL_DIRECTORY_TEAM_DATA;
+
+        this.directoryData = ALL_DIRECTORY_TEAM_DATA;
+
     }else{
 
       this.filterData = this.selectedDropdownData;
+
+      this.directoryData = this.dataAccordingToSelectedDropdownValue;
     }
   }
 

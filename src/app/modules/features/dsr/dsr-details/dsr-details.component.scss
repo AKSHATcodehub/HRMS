@@ -1,0 +1,33 @@
+@import '../../../../../scss/var';
+*{
+    box-sizing: border-box;
+}
+.dsr-details-wrapper{
+    padding: 24px;
+    border-radius: 5px;
+    .dsr-details-top{
+        background-color: white;
+        padding: 20px;
+        h1{
+            margin: 0px;
+            color: blue;
+        }
+    }
+    .dsr-details-body{
+        padding: 10px;
+        background-color: white;
+        .table{
+            table{
+                width: 100%;
+                th ,td{
+                    border:1px solid #f1f1f2;
+                    padding: 0px ;
+                    
+                }
+                td{
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

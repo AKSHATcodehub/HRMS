@@ -1,7 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
-import { PROJECT_DROPDOWN } from './dsr-data';
+import { DSR_TABLEDATA, PROJECT_DROPDOWN } from './dsr-data';
+
+
+
 
 @Component({
   selector: 'app-dsr',
@@ -13,33 +18,99 @@ export class DsrComponent implements OnInit {
   isOpen!: boolean;
   panelOpenState: boolean = false;
   projectDropdown=PROJECT_DROPDOWN;
-  datasource = new MatTableDataSource<any>(INTERVIEW_DATA);
+  datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
+  dsrForm!:FormGroup;
   headings = [
     { heading: 'S.No.', key: 's_no', type: 'text'},
-    { heading: 'Department', key: 'department', type: 'text' },
-    { heading: 'Name', key: 'name', type: 'text' },
+    { heading: 'Employee Name', key: 'emp_name', type: 'text' },
+    { heading: 'Employee Id', key: 'emp_id', type: 'text' },
     { heading: 'Email', key: 'email', type: 'text'},
-    { heading: 'Mobile No.', key: 'mobile_number', type: 'text'},
-    { heading: 'Round Type', key: 'round_type', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Date', key: 'interview_date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Time', key: 'interview_time', type: 'text'},
-    { heading: 'Final Status', key: 'final_status', type: 'text'},
-    // { heading: 'Action', key: 'action', type: 'text'},
+    { heading: 'Employee Type', key: 'employment_type', type: 'text'},
+    { heading: 'Date', key: 'date', type: 'text', action: [2] , link: '/dashboard/client-details' },
+    { heading: 'Logged Hr', key: 'logged_hr', type: 'text', action: [2] , link: '/dashboard/client-details' },
+    { heading: 'Approval Status', key: 'approval_status', type: 'dsr_status' , link:'dsr-details'},
 
   ]
-  constructor() { }
+  pipe: DatePipe;
+  filterForm!:FormGroup;
+  submissionStatusData = ['All','Submitted','Due'];
+  projectDataDropdown = ['All','Training Project React.js'];
+  finalApprovalDropdown = ['All','Pending','Approved','Rejected'];
+  hoursDropdown = ['Hours','Less than 5 Hours','Greater than 5, Less than equal to 8','Greater than 8','Greater than 10']
+
+  constructor(private _fb:FormBuilder) {
+
+    this.pipe = new DatePipe('en');
+   
+    
+  }
 
   ngOnInit(): void {
-
     this.isOpen = false;
+    this.createDsrFilterForm();
+    this.createDsrForm();
+     
+    this.datasource.filterPredicate = (data,filter) =>{
+      
+      if (this.fromDate && this.toDate) {
 
+        console.log('hyy ther',this.fromDate, this.toDate)
+        
+        return data.date >= this.fromDate && data.date <= this.toDate;
+      }
+
+      // if()
+  
+      return true;
+    }
+  }
+
+  get fromDate() {
+    this.filterForm?.controls.fromDate.setValue(this.convert(`${this.filterForm.get('fromDate')?.value}`));
+    return this.filterForm.get('fromDate')?.value;
+   }
+  get toDate() { 
+    this.filterForm?.controls.toDate.setValue(this.convert(`${this.filterForm.get('toDate')?.value}`));
+    return this.filterForm.get('toDate')?.value; 
   }
 
 
+  applyFilter() {
+
+    this.datasource.filter = ''+Math.random();
+
+  }
+
+    
+  convert(str:any) :any{
+    var date = new Date(str),
+    mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+    day = ("0" + date.getDate()).slice(-2);
+    return [date.getFullYear(), mnth, day].join("-");
+  }
+
+  createDsrFilterForm(){
+   return this.filterForm = this._fb.group({
+    fromDate: [],
+    toDate:[],
+    submissionStatus:[],
+    project:[],
+    finalApprovalHours:[],
+    hours:[]
+  });
+  }
+
+  createDsrForm(){
+    return this.dsrForm = this._fb.group({
+      dsrProject:['',Validators.required],
+      dsrDate:['',Validators.required],
+      dsrHours:['',Validators.required],
+      dsrContent:['',Validators.required]
+    })
+  }
+
   togglePanel() {
      
-    console.log("kkkkkkkkkkkkkk");
-
     this.panelOpenState = !this.panelOpenState;
     
   }
@@ -48,5 +119,43 @@ export class DsrComponent implements OnInit {
     this.isOpen = !this.isOpen
   }
  
+  dropdownFilter(event:string){
+    console.log("juu",event.trim().toLowerCase());
+    this.datasource.filter = event.trim().toLowerCase();
+  }
+
+  
+  selectDropdown(event :string,control:string){
+    this.dsrForm.controls[control].setValue(event);
+  }
+
+  dsrSummit(){
+    this.dsrForm.markAllAsTouched();
+    let dsrObject = {
+      s_no: DSR_TABLEDATA.length+1,
+      emp_name: 'akshat',
+      emp_id: '1553',  
+      email: 'akshat@appinventiv.com',
+      employment_type: 'Permanent',
+      date: '2023-03-08',
+      logged_hr: this.dsrForm.controls.dsrHours.value,
+      approval_status: 2,
+      status: 'Due',
+      link:`/features/dsr-details?data=3`,
+      dsr_description: this.dsrForm.controls.dsrContent.value,
+    }
+    DSR_TABLEDATA.push(dsrObject);
+
+    this.datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
+
+    console.log('dsr updated data',DSR_TABLEDATA );
+    
+  }
+  
+  openFilledDsr(element:any){
+    
+  }
 
 }
+
+

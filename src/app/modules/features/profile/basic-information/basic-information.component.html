@@ -5,137 +5,142 @@
         
           <div class="basic-information-form">
             <div class="row">
-              <div class="col-lg-4">
-                <label for="">First Name</label><br>
-                <mat-form-field appearance="outline" >
-                  <input matInput placeholder="Name" formControlName="firstName">
-                  <mat-error>{{basicInfoForm | validationError:'firstName':'Firstname' }}</mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-lg-4">
-                <label for="">Last Name</label><br>
-                <mat-form-field appearance="outline" style="position: relative;" >
-                  <input matInput placeholder="Name" formControlName="lastName">
-                  <mat-error>{{basicInfoForm | validationError:'lastName':'Lastname' }}</mat-error>
-                </mat-form-field>
-              </div>
-              <div class="col-lg-4">
-                <label for="">Date of Birth</label><br>
-                <mat-form-field appearance="outline" style="position: relative;" >
-                  <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
-                  <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'DateOfBirth' }}</mat-error>
-                  <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
-                  <mat-datepicker #picker1></mat-datepicker>
-                </mat-form-field>
-              </div>
-            </div>
-  
-            <div class="row">
-
-              <div class="col-lg-4 dropdown" >
-                  <label for="" >Gender</label><br>
-                  <div class="dropdown">
-                    <app-dropdown  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender"></app-dropdown>
+              <div class="col-sm-12">
+                
+                <div class="row">
+                  <div class="col-lg-4">
+                    <label for="">First Name</label><br>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Name" formControlName="firstName">
+                      <mat-error>{{basicInfoForm | validationError:'firstName':'Firstname' }}</mat-error>
+                    </mat-form-field>
                   </div>
-                    <!-- <mat-form-field appearance="outline" >
-                    <div class="wrapper" #wapper>
-                      <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
-                        <input  type="text" readonly="readonly"  placeholder="Gender"   >
+                  <div class="col-lg-4">
+                    <label for="">Last Name</label><br>
+                    <mat-form-field appearance="outline" style="position: relative;" >
+                      <input matInput placeholder="Name" formControlName="lastName">
+                      <mat-error>{{basicInfoForm | validationError:'lastName':'Lastname' }}</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-lg-4">
+                    <label for="">Date of Birth</label><br>
+                    <mat-form-field appearance="outline" style="position: relative;" >
+                      <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
+                      <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'DateOfBirth' }}</mat-error>
+                      <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                      <mat-datepicker #picker1></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+      
+                <div class="row">
+    
+                  <div class="col-lg-4 dropdown" >
+                      <label for="" >Gender</label><br>
+                      <div class="dropdown">
+                        <app-dropdown  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender"></app-dropdown>
+                      </div>
+                        <!-- <mat-form-field appearance="outline" >
+                        <div class="wrapper" #wapper>
+                          <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
+                            <input  type="text" readonly="readonly"  placeholder="Gender"   >
+                            <i class="uil uil-angle-down"></i>
+                          </div> 
+                          <div class="content" #content>
+                            <div class="search">
+                              <i class="uil uil-search"></i>
+                              <input  type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                            </div>
+                            <ul class="options">
+                              <li *ngFor="let item of gender" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                            </ul>
+                          </div>
+                        </div>
+                        <mat-error class="custom-error" >{{basicInfoForm | validationError : 'genderr' : 'Gender' }}</mat-error>
+                      </mat-form-field> -->
+                </div>
+                  
+                  
+                <div class="col-lg-4"  >
+                  <label for="" >Marriage status</label><br>
+                  <div class="dropdown">
+                    <app-dropdown  [placeHolder]="marriagePlaceHolder" [data]="marriage"></app-dropdown>
+                  </div>
+    
+                  <!-- <mat-form-field appearance="outline" >
+                    <div class="wrapper" #wapper1>
+                      <div class="select-btn" (click)="optionClicked(wapper1)" #selectbtn1>
+                        <input matInput type="text" readonly="readonly"  placeholder="Marriage Status"  formControlName="marriageStatus">
                         <i class="uil uil-angle-down"></i>
                       </div> 
-                      <div class="content" #content>
+                      <div class="content" #content1>
                         <div class="search">
                           <i class="uil uil-search"></i>
-                          <input  type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                          <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
                         </div>
                         <ul class="options">
-                          <li *ngFor="let item of gender" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
+                          <li *ngFor="let item of marriage" (click)="updateName(item,selectbtn1,wapper1,'marriageStatus')" #{item}>{{item}}</li> 
                         </ul>
                       </div>
                     </div>
-                    <mat-error class="custom-error" >{{basicInfoForm | validationError : 'genderr' : 'Gender' }}</mat-error>
-                  </mat-form-field> -->
-            </div>
-              
-              
-            <div class="col-lg-4"  >
-              <label for="" >Marriage status</label><br>
-              <div class="dropdown">
-                <app-dropdown  [placeHolder]="marriagePlaceHolder" [data]="marriage"></app-dropdown>
-              </div>
-
-              <!-- <mat-form-field appearance="outline" >
-                <div class="wrapper" #wapper1>
-                  <div class="select-btn" (click)="optionClicked(wapper1)" #selectbtn1>
-                    <input matInput type="text" readonly="readonly"  placeholder="Marriage Status"  formControlName="marriageStatus">
-                    <i class="uil uil-angle-down"></i>
-                  </div> 
-                  <div class="content" #content1>
-                    <div class="search">
-                      <i class="uil uil-search"></i>
-                      <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                    <mat-error class="custom-error" >{{basicInfoForm | validationError : 'marriageStatus' : 'Marriage Status' }}</mat-error>
+                  </mat-form-field>  -->
+                </div>
+                  
+                  <div class="col-lg-4">
+                    <label for="">Contact Number</label>
+                    <mat-form-field appearance="outline" >
+                      <input matInput placeholder="Number" formControlName="contactNumber">
+                      <mat-error>{{basicInfoForm | validationError:'contactNumber':'ContactNumber' }}</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+      
+                <div class="total-experience row">
+                  <div class="col-md-6">
+                    <label for="">Total Working Experience</label>
+                    <div class="row">
+                      <div class="col">
+                        <label for="">Years</label>
+                        <mat-form-field appearance="outline" >
+                          <input matInput placeholder="Name" formControlName="YearOfExperience">
+                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="col">
+                        <label for="">Months</label>
+                        <mat-form-field appearance="outline" >
+                          <input matInput placeholder="Name"  formControlName="YearOfExperience">
+                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                        </mat-form-field>
+                      </div> 
                     </div>
-                    <ul class="options">
-                      <li *ngFor="let item of marriage" (click)="updateName(item,selectbtn1,wapper1,'marriageStatus')" #{item}>{{item}}</li> 
-                    </ul>
+                  </div>
+        
+                  <div class="col-md-6">
+                    <label for="">Total Working Experience</label>
+                    <div class="row">
+                      <div class="col">
+                        <label for="">Years</label>
+                        <mat-form-field appearance="outline" >
+                          <input matInput placeholder="Name"  formControlName="relevantExperience">
+                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                        </mat-form-field>
+                      </div>
+                      <div class="col">
+                        <label for="">Months</label>
+                        <mat-form-field appearance="outline" >
+                          <input matInput placeholder="Name"  formControlName="relevantExperience">
+                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                        </mat-form-field>
+                      </div> 
+                    </div>
                   </div>
                 </div>
-                <mat-error class="custom-error" >{{basicInfoForm | validationError : 'marriageStatus' : 'Marriage Status' }}</mat-error>
-              </mat-form-field>  -->
-            </div>
-              
-              <div class="col-lg-4">
-                <label for="">Contact Number</label>
-                <mat-form-field appearance="outline" >
-                  <input matInput placeholder="Number" formControlName="contactNumber">
-                  <mat-error>{{basicInfoForm | validationError:'contactNumber':'ContactNumber' }}</mat-error>
-                </mat-form-field>
-              </div>
-            </div>
-  
-            <div class="total-experience row">
-              <div class="col-md-6">
-                <label for="">Total Working Experience</label>
-                <div class="row">
-                  <div class="col">
-                    <label for="">Years</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="YearOfExperience">
-                      <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
-                    </mat-form-field>
-                  </div>
-                  <div class="col">
-                    <label for="">Months</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name"  formControlName="YearOfExperience">
-                      <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
-                    </mat-form-field>
-                  </div> 
+                <div class="form-action">
+                  <button (click)="saveBasicInfo()">Save</button>
                 </div>
               </div>
-    
-              <div class="col-md-6">
-                <label for="">Total Working Experience</label>
-                <div class="row">
-                  <div class="col">
-                    <label for="">Years</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name"  formControlName="relevantExperience">
-                      <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
-                    </mat-form-field>
-                  </div>
-                  <div class="col">
-                    <label for="">Months</label>
-                    <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name"  formControlName="relevantExperience">
-                      <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
-                    </mat-form-field>
-                  </div> 
-                </div>
-              </div>
-            </div>
-            <div class="form-action">
-              <button (click)="saveBasicInfo()">Save</button>
             </div>
           </div>
         </div>

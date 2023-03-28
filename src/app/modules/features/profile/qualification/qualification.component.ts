@@ -163,14 +163,13 @@ export class QualificationComponent implements OnInit{
   
   actionSave(){
 
-    alert("action")
-
+    
     console.log("quali",this.qualificationForm);
     
-
+    
     this.qualificationForm.markAllAsTouched();
- 
-    if(this.qualificationForm.valid){
+    
+    if(this.qualificationForm.invalid){
       
       this._snackBar.snackBar('Qualification Updated');
       this.dp4=this.convert(`${this.qualificationForm.controls?.['fromTimePerioed'].value}`)
@@ -182,7 +181,7 @@ export class QualificationComponent implements OnInit{
       
     }
     setTimeout(() => {
-      
+        
       console.log("this is TABLE DATAA>>>>>>>>>>",this.Table_DATA);
       
     }, 3000);
@@ -218,6 +217,11 @@ export class QualificationComponent implements OnInit{
     
   });
 }
+
+  selectedDropdown(event:any){
+    this.qualificationForm.controls.language.setValue(event);
+    
+  }
 
 }
 

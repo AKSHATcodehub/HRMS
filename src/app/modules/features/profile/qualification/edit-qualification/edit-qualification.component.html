@@ -4,16 +4,16 @@
             <h1>Edit Qualification</h1>
         </div>
         <div class="card-mid" [formGroup]="editQualificationForm">
-            <div class="flex-row">
-                <div class="flex-col-2">
-                    <label for="">School/University</label>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">School/University</label><br>
                     <mat-form-field appearance="outline" >
                         <input matInput placeholder="Name" formControlName="university">
                         <mat-error>{{editQualificationForm | validationError : 'university' : 'University' }}</mat-error>
                       </mat-form-field>
                 </div>
-                <div class="flex-col-2">
-                    <label for="">Education Level</label>
+                <div class="col-sm-6">
+                    <label for="">Education Level</label><br>
                     <mat-form-field appearance="outline">
                         <mat-select formControlName="education">
                           <mat-option [value]="item.value" *ngFor="let item of qualifications">{{item.viewValue}}</mat-option>
@@ -22,11 +22,11 @@
                       </mat-form-field>
                 </div>
             </div>
-            <div class="flex-row">
-                <div class="flex-col-2">
-                    <label for="">Time Period</label>
-                    <div class="flex-row">
-                        <div class="flex-col-2">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Time Period</label><br>
+                    <div class="row">
+                        <div class="col-sm-6">
                             <mat-form-field appearance="outline" style="position: relative;" >
                                 <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="fromTimePerioed">
                                 <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
@@ -34,7 +34,7 @@
                                 <mat-error>{{editQualificationForm | validationError : 'fromTimePerioed' : 'TimePerioed' }}</mat-error>
                             </mat-form-field>
                         </div>
-                        <div class="flex-col-2">
+                        <div class="col-sm-6">
                             <mat-form-field appearance="outline" style="position: relative;" >
                                 <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed">
                                 <mat-datepicker-toggle matIconSuffix [for]="toTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
@@ -45,8 +45,8 @@
                     </div>
                     
                 </div>
-                <div class="flex-col-2">
-                    <label for="">Language</label>
+                <div class="col-sm-6">
+                    <label for="">Language</label><br>
                     <mat-form-field appearance="outline">
                         <mat-select formControlName="language">
                           <mat-option value="English">English</mat-option>
@@ -56,24 +56,28 @@
                     </mat-form-field>
                 </div>
             </div>
-            <div class="flex-row">
-                <div class="flex-col-2">
-                    <label for="">Professional Courses (if any)</label>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="">Professional Courses (if any)</label><br>
                     <mat-form-field appearance="outline" >
                         <input matInput placeholder="Name">
                     </mat-form-field>
                 </div>
-                <div class="flex-col-2">
-                    <label for="">Description</label>
+                <div class="col-sm-6">
+                    <label for="">Description</label><br>
                     <mat-form-field appearance="outline" >
                         <textarea matInput class="textarea" placeholder="Description" formControlName="description"></textarea>
                         <mat-error>{{editQualificationForm | validationError : 'description' : 'Description' }}</mat-error>
                     </mat-form-field>
                 </div>
             </div>
-            <div class="flex-row button-wrapper">
-                <button class="button">Close</button>
-                <button (click)="actionSave()"  [mat-dialog-close]="{form:editQualificationForm,data:data}" class="button">Update</button>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row button-wrapper">
+                        <button class="button" [mat-dialog-close] >Close</button>
+                        <button (click)="actionSave()" class="button">Update</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

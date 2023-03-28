@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
+import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, DSR_DETAILS, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
 import { FeaturesComponent } from './features.component';
 import { HomeModule } from './home/home.module';
 
@@ -183,6 +183,12 @@ const routes: Routes = [
         path:'ticket',
         loadChildren:()=>import('./ticket/ticket.module').then(
           (module)=>module.TicketModule
+        )
+      },
+      {
+        path:DSR_DETAILS.fullUrl,
+        loadChildren:()=>import('./dsr/dsr-details/dsr-details.module').then(
+          (module)=>module.DsrDetailsModule
         )
       }
     ]

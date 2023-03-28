@@ -1,0 +1,79 @@
+<div class="dsr-details-wrapper">
+  <div class="dsr-details-top">
+    <h1>Akshat | DSR | {{filterData?.date}}</h1>
+  </div>
+  <div class="dsr-details-body">
+    <div class="table">
+      <table
+        class="dsrDataDemo datatables-demo table table-striped table-bordered"
+        id="xin_table"
+      >
+        <thead>
+          <tr>
+            <th >#</th>
+            <th >Project Name</th>
+            <th>Dsr</th>
+            <th >Status</th>
+            <th >PM Approval</th>
+            <th >AM Approval</th>
+            <th >RM Approval</th>
+            <th >Final Approval</th>
+            <th >Logged Hrs</th>
+            <th >Action</th>
+          </tr>
+
+          <tr>
+            <td>1</td>
+
+            <td>
+              <b> Training Project React JS</b>
+              <br />
+              <span style="font-size: x-small; color: crimson"
+                >02, Mar 2023 10:29</span
+              >
+            </td>
+
+            <td>
+              <span class="dsr-description">
+                {{filterData?.dsr_description}}
+              </span>
+            </td>
+
+            <td class="dsr_sub_status">
+              <span style="color: green">{{filterData.status}}</span>
+            </td>
+
+            <!-- PM -->
+            <td>
+              <a href="#" data-toggle="tooltip" title="Rabban Ahmad "
+                ><span style="color: orange">Pending</span></a
+              >
+            </td>
+
+            <!-- AM -->
+            <td>
+              <a href="#" data-toggle="tooltip" title="Suyash Saxena "
+                ><span style="color: orange">Pending</span></a
+              >
+            </td>
+
+            <!-- RM -->
+            <td>N/A</td>
+
+            <td><span style="color: orange">Pending</span></td>
+
+            <td>{{filterData.logged_hr}}</td>
+
+            <td>
+              <a
+                href="https://dashboard.appinventiv.com/admin/dsr/edit/717223"
+                class="btn icon-btn btn-xs btn-outline-info waves-effect waves-light"
+                ><span class="fas fa-pencil-alt"></span
+              ></a>
+            </td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>
