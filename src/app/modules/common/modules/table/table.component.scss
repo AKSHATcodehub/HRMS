@@ -1,7 +1,8 @@
 @import '../../../../../scss/mixins/media',
         '../../../../../scss/mixins/flex',
         '../../../../../scss/mixins/media',
-        '../../../../../scss/var';
+        '../../../../../scss/var',
+        '../../../../../scss/mixins/media';
 
 
 ::ng-deep .mat-form-field-underline{
@@ -111,6 +112,19 @@ section {
 ::ng-deep .mat-paginator{
   ::ng-deep .mat-form-field-flex{
     border: 1px solid #d8d8d8;
+  }
+  .mat-select-value-text{
+    @include flex(center,center);
+  }
+  .mat-input-element{
+    padding-left: 10px;
+  }
+}
+
+::ng-deep .mat-form-field-infix{
+  border-top: 0.5em solid transparent;
+  .mat-input-element{
+    padding-left: 10px;
   }
 }
 

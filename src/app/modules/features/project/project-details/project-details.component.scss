@@ -1,0 +1,81 @@
+@import '../../../../../scss/theme/wrapper',
+        '../../../../../scss/var',
+        '../../../../../scss/theme/grid';
+mat-tab-group{
+    background-color: white;
+
+}
+
+hr{
+    border: 0px;
+}
+
+
+
+.projects-tags{
+    background-color: $white;
+    padding: 20px;
+    border-radius: 10px;
+    .tag-header{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+        margin-bottom: 20px;
+        h2{
+            margin: 0px;
+        }
+        mat-icon{
+            background: blue;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+        }
+    }
+    .tag-body{
+        padding: 10px 0px;
+        ul{
+            padding: 0px;
+            li{
+                background: rgba(178, 54, 241, 0.2);
+                display:inline-block;
+                list-style-type: none;
+                margin-right:10px;
+                margin-bottom: 10px;
+                padding: 5px;
+                border-radius: 5px;
+                color: blue;
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .mat-tab-header {
+      align-self: start;
+      border: none;
+      background-color: white;
+      width: 100%;
+  
+    }
+  
+    .mat-tab-list .mat-tab-labels {
+      width: 100px;
+      padding: 3px;
+      border-radius: 7px;
+      color: black;
+      // display: block;
+    }
+  
+    .mat-tab-label {
+      font-size: 20px;
+    }
+  
+    .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+      display: none !important;
+    }
+
+    .mat-tab-body-wrapper{
+        background-color: aliceblue;
+    }
+  
+  }

@@ -6,6 +6,7 @@ h2{
 }
 
 ngu-carousel{
+    // height: 100%;
     button{
         border: none;
         background-color: white;
@@ -36,6 +37,7 @@ ngu-carousel{
     .item{
         @include flex(center,center);
         flex-direction:column;
+        height: 100%;
     }
     .myPoint {
         list-style-type: none;
@@ -64,3 +66,6 @@ ngu-carousel{
             transform: scale(1.1);
     }
 }
+// ::ng-deep .ngu-touch-container{
+//     height: 100%;
+// }

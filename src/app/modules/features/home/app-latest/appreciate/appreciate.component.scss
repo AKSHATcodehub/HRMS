@@ -3,6 +3,7 @@
         '../../../../../../scss/var';
 
 .appreciate-wrapper{
+    width: 95%;
     border: 1px solid lightgray;
     border-radius: 2px;
     @include flex(null,space-between);

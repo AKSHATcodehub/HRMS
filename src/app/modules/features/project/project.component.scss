@@ -1,0 +1,85 @@
+@import '../../../../scss/var',
+        '../../../../scss/mixins/flex';
+
+.listview{
+    list-style-type:none;   
+}
+hr{
+    border: 0px;
+}
+.project-wrapper{
+    padding: 24px;
+    .all-projects-top{
+        @include flex(center,flex-end);
+        display: flex;
+        li{
+            padding: 15px 25px;
+            text-decoration: none;
+            color: #323a46;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .tabs{
+            display: flex;
+            
+
+        }
+        .view_Wrapper{
+            display: flex;
+            li{
+                background-color:#323a46 ;
+                margin: 0px 5px;
+                border-radius: 5px;
+                a{
+                    mat-icon{
+                        color:$white;
+                    }
+                }
+            }
+        }
+
+    }
+    .all-projets{
+        .all-projects-body{
+            border-radius: 5px;
+            background-color: $white;
+            padding: 20px;
+            h1{
+                color: blue;
+                margin: 0px;
+            }
+        }
+    }
+    .grid-view{
+        // padding: ;
+        .card{
+            background-color: $white;
+            width: 30%;
+            padding: 20px;
+            .details{
+                display: flex;
+                .resources{
+                    display: flex;
+                    margin-right: 10px;
+                }
+                .hours{
+                    margin-left: 10px;
+                }
+            }
+            .project-team{
+                margin: 10px 0px;
+                img{
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.active{
+    background: blue;
+    color: white !important;    
+    border-radius: 5px;   
+}

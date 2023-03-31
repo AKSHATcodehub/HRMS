@@ -1,28 +1,32 @@
 <!-- <h2>{{carouselConfigData.heading}}</h2> -->
-<ngu-carousel #myCarousel1 [inputs]="carouselConfig1" [dataSource]="listToShow">
 
-  <button NguCarouselPrev class="leftRs" 
-  >
-  <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomLeftRs' : 'leftRs' " -->
-    <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt=""> -->
 
-  </button>
-  <button NguCarouselNext class="rightRs"
-  >
-  <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' " -->
-    <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt=""> -->
-  </button>
+<div class="carousel" style="height: 100%;">
+  <ngu-carousel class="caro" #myCarousel1 [inputs]="carouselConfig1" [dataSource]="listToShow">
 
-  <div *nguCarouselDef="let item;" class="item">
-
-    <ng-container *ngTemplateOutlet="item"></ng-container>
-
-  </div>
-
-    <ul class="myPoint" NguCarouselPoint  *ngIf="carouselPointNumbers" >
-      <li *ngFor="let it of myCarousel1.pointNumbers; let j = index"
-          [class.active]="j==myCarousel1.activePoint"
-          (click)="myCarousel1.moveTo(j)">
-      </li>
-    </ul>
-</ngu-carousel>
+    <button NguCarouselPrev class="leftRs" 
+    >
+    <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomLeftRs' : 'leftRs' " -->
+      <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt=""> -->
+  
+    </button>
+    <button NguCarouselNext class="rightRs"
+    >
+    <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' " -->
+      <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt=""> -->
+    </button>
+  
+    <div *nguCarouselDef="let item;" class="item">
+  
+      <ng-container *ngTemplateOutlet="item"></ng-container>
+  
+    </div>
+  
+      <ul class="myPoint" NguCarouselPoint  *ngIf="carouselPointNumbers" >
+        <li *ngFor="let it of myCarousel1.pointNumbers; let j = index"
+            [class.active]="j==myCarousel1.activePoint"
+            (click)="myCarousel1.moveTo(j)">
+        </li>
+      </ul>
+  </ngu-carousel>
+</div>

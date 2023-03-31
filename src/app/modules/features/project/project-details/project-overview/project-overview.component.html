@@ -1,0 +1,21 @@
+<hr>
+
+<div class="planned-deliveries">
+    <div class="header">
+        <h2>Planned Deliveries</h2>
+    </div>
+    <app-table class="table" [columns]="plannedDeliveriesHeading" [dataSource]="plannedDeliveriesTableData"></app-table>
+</div>
+
+<hr>
+
+<div class="team-details">
+    <div class="header">
+        <h2>Team Detail ( Team Size 13 ) </h2>
+    </div>
+    <app-table class="table" [columns]="teamDetailsHeadings" [dataSource]="teamDetailsDatasource"></app-table>
+</div>
+
+<hr>
+
+<app-project-status></app-project-status>

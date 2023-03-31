@@ -243,3 +243,24 @@ export const DSR_DETAILS:IRoute = {
         return `${this.path}`
     }
 }
+
+export const PROJECT:IRoute = {
+    path:'project',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const PROJECT_DETAILS:IRoute = {
+    path:'project-details',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const LEAVE_DETAILS = {
+    path:'leave-details',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}

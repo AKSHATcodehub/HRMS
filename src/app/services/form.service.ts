@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PATTERN } from '../constant/patterns';
 import { VALIDATION_CRITERIA } from '../constant/validation-criteria';
 
@@ -54,7 +54,11 @@ export class FormService {
     projectTitle:[],
     phoneNumber:[],
     skill:[],
-    file:[]
+    file:[],
+    leaveType:[],
+    fromDate:[],
+    toDate:[],
+    remark:[],
   }
 
   getControl(name:any,required=true,prerfilled?:any){
@@ -77,6 +81,10 @@ export class FormService {
     }
 
     return [prerfilled, Validators.compose(compose)];
+  }
+
+  getFormControl(formGroup:FormGroup,control:string){
+    return formGroup.get(control)?.value;
   }
 
 }

@@ -8,6 +8,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { TableModule } from 'src/app/modules/common/modules/table/table.module';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 
 
 @NgModule({
@@ -21,9 +26,12 @@ import { TableModule } from 'src/app/modules/common/modules/table/table.module';
     MatInputModule,
     MatFormFieldModule,
     EditorModule,
-    TableModule
-
-    
+    TableModule,
+    DropdownModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    ValidationErrorModule
   ]
 })
 export class MyLeaveModule { }

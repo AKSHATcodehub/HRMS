@@ -33,7 +33,9 @@
                                             <mat-error *ngIf="this.dsrForm.controls.dsrDate.touched">{{dsrForm | validationError : 'dsrDate' : 'Hours' }}</mat-error>
                                         </mat-form-field>
                                     </div>
-                                </div>                                                                        
+                                </div>   
+                                
+                                <hr>
         
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -60,11 +62,30 @@
                                     </div>
                                 </div> 
                             </div>
+
+                            <hr>
+
         
-                            <!-- all AM -->
+                            <div class="row" *ngIf="selctedProject == 'Miscellaneous'">
+                                <div class="col-md-6">
+                                    <label for="">Approving Authority 1 (PM)</label>
+                                    <app-dropdown [data]="approvingAuthority"></app-dropdown>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="">Approving Authority 2 (AM)</label>
+                                    <app-dropdown [data]="approvingAuthority"></app-dropdown>
+                                </div>
+                            </div>
+
+                            <div class="row" *ngIf="selctedProject == 'Interview'">
+                                <div class="col-md-6">
+                                    <label for="">Choose AM</label>
+                                    <app-dropdown [data]="chooseAM"></app-dropdown>
+                                </div>
+                                
+                            </div>
                             
-                            <!-- ALL AM -->
-        
+
         
                         </div>
         

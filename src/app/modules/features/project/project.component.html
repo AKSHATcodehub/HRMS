@@ -1,0 +1,61 @@
+<div class="project-wrapper">
+    <div class="all-projects-top">
+        <ul class="tabs" id="grid-filters" *ngIf="viewGrid" >
+            
+            <li class="listview " (click)="statusClicked(li)"  *ngFor="let item of gridFilters; let i=index" #li>
+                {{item.title}}
+            </li>
+           
+        </ul>
+        <ul class="view_Wrapper">
+            <li class="listview gridview " (click)="showView()">
+                <a  id="grid-view">
+                    <mat-icon>apps</mat-icon>
+                </a>
+            </li>
+            <li class="listview" (click)="showTable()">
+                <a  id="list-view">
+                    <mat-icon>format_list_bulleted</mat-icon>
+                </a>
+            </li>
+            <li class="listview">
+                <a  id="jira-connect" title="Connect With JIRA">
+                    <mat-icon>all_inclusive</mat-icon>
+                </a>
+            </li> 
+        </ul>
+    </div>
+    <hr>
+    <div class="all-projets"  *ngIf="viewTable">
+        <div class="all-projects-body">
+            <h1>All Projects</h1>
+        </div>
+        <app-table class="table" [columns]="headings" [dataSource]="datasource"></app-table>
+    </div>
+    <div class="grid-view" *ngIf="viewGrid" >
+        <div class="card">
+            <h4>Trainig React JS</h4>
+            <p><mat-icon>account_circle</mat-icon></p>
+            <span>Time and Material</span>
+            <span>In Progress</span>
+            <p>No MileStone Define</p>
+            <div class="details">
+                <div class="resources">
+                    <mat-icon>account_circle</mat-icon>
+                    <h4>11 Resources</h4>
+                </div>
+                <div class="hours">
+                    <h4>N/A Hours</h4>
+                </div>
+            </div>
+            <div class="project-team">
+                <ng-container *ngFor="let img of imageLoop">
+                    <img src="assets/images.jpeg" alt="">
+                </ng-container>
+
+            </div>
+            <h1>Project Completed</h1>
+            <h1>0</h1>
+        </div>
+    </div>
+</div>

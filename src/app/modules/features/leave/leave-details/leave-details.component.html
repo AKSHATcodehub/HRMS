@@ -1,0 +1,70 @@
+<div class="leave-details-wrapper">
+    <div class="leave-details-header">
+        <div class="approved-by">
+            <h2>1.Rabban Ahmad</h2>
+            <h2>2 : HR (Human Resourse)</h2>
+        </div>
+        <div class="progress-line-wrapper">
+            <div class="progress-line">
+                <mat-icon>radio_button_checked</mat-icon>
+                <div></div>
+                <mat-icon>radio_button_checked</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="leave-details-body">
+        <div class="leave-details">
+            <div class="header">
+                <h2>Leave Details</h2>
+            </div>
+            <div class="leave-details-content">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Employee Name</th>
+                            <td>Akshat </td>
+                        </tr>
+                        <tr>
+                            <th>Leave Type</th>
+                            <td>{{filteredData.leave_type}} </td>
+                        </tr>
+                        <tr>
+                            <th>Leave Duration</th>
+                            <td>{{filteredData.time_duration}} </td>
+                        </tr>
+                        <tr>
+                            <th>Applied On</th>
+                            <td>{{filteredData.applied_on | date}} </td>
+                        </tr>
+                        <tr>
+                            <th>Start Date</th>
+                            <td>{{filteredData.request_from | date}} </td>
+                        </tr>
+                        <tr>
+                            <th>End Date</th>
+                            <td>{{filteredData.request_to | date}}</td>
+                        </tr>
+                        <tr>
+                            <th>Uploaded Document</th>
+                            <td><mat-icon>account</mat-icon> </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="leave-approval-status ">
+            <div class="header">
+                <h2>Approval Status</h2>
+            </div>
+            <div class="leave-details-content">
+                <strong>Rabban Ahmad</strong>
+                <span>{{filteredData.status}}</span>
+            </div>
+            <div class="leave-details-content">
+                <strong> HR (Human Resourse)</strong>
+                <span>{{filteredData.status}}</span>
+            </div>
+        </div>
+    </div>
+</div>

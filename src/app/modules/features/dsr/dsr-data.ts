@@ -4,7 +4,9 @@ export const PROJECT_DROPDOWN = [
   'Interview',
 ];
 
+export const CHOOSE_AM = [ 'Account Manager','Amardeep Rawat','Amit Singh','Anant Agarwal','Aparna Kaushik','Apeksha Mehta']
 
+export const APPROVING_AUTHORITY = ['Aashini Sharma','Aashish Sharma','Aatish Mittal','Abhijeet Bhadouria','Akanksha Singh'];
 
 export var DSR_TABLEDATA:any = [
   {
@@ -18,7 +20,7 @@ export var DSR_TABLEDATA:any = [
     approval_status: 1,
     status: 'submitted',
     link:`/features/dsr-details?data=1`,
-    dsr_description: ['this is dsr 1'],
+    dsr_description: ['this is dsr 1 '],
   },
   {
     s_no: 2,

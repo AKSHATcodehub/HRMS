@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, DSR_DETAILS, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
+import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, DSR_DETAILS, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, LEAVE_DETAILS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PROJECT, PROJECT_DETAILS, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
 import { FeaturesComponent } from './features.component';
 import { HomeModule } from './home/home.module';
 
@@ -189,6 +189,24 @@ const routes: Routes = [
         path:DSR_DETAILS.fullUrl,
         loadChildren:()=>import('./dsr/dsr-details/dsr-details.module').then(
           (module)=>module.DsrDetailsModule
+        )
+      },
+      {
+        path:PROJECT.fullUrl,
+        loadChildren:()=>import('./project/project.module').then(
+          (module)=>module.ProjectModule
+        )
+      },
+      {
+        path:PROJECT_DETAILS.fullUrl,
+        loadChildren:()=>import('./project/project-details/project-details.module').then(
+          (module)=>module.ProjectDetailsModule
+        )
+      },
+      {
+        path:`${LEAVE_DETAILS.fullUrl}/:id`,
+        loadChildren:()=>import('./leave/leave-details/leave-details.module').then(
+          (module)=>module.LeaveDetailsModule
         )
       }
     ]

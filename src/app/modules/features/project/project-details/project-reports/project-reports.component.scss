@@ -1,0 +1,48 @@
+@import '../../../../../../scss/var',
+        '../../../../../../scss//theme/grid';
+
+hr{
+    border: 0px;
+}
+
+
+h2{
+    color: $darkblue;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.dsr-reports{
+    background-color: $white;
+    padding: 20px;
+    border-radius: 10px;
+    .btn-wrapper{
+        column-gap: 10px;
+    }
+       
+}
+.dsr-report-list{
+    padding: 24px;
+    border-radius: 10px;
+    background-color: $white;
+    
+
+}
+// :host ::ng-deep .section{
+//     padding: 10px 0px;
+// }
+.dsr-report-analytics{
+    padding: 24px;
+    border-radius: 10px;
+    background-color: $white;
+    .dsr-analytics-content{
+        margin-bottom: 20px;
+
+    }
+}
+
+.analytics_btn_wrapper{
+    justify-content: flex-end;
+}

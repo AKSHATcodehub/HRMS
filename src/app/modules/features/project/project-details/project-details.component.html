@@ -1,0 +1,42 @@
+
+
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-9">
+            <h1>Training Project React.js</h1>
+        </div>
+        <div class="col-md-3">
+            <div class="projects-tags">
+                <div class="tag-header row">
+                    <h2 class="col-11">Project Tags/label</h2>
+                    <mat-icon class="col-1" (click)="addHashTag()">add</mat-icon>
+                </div>
+                <div class="tag-body ">
+                    <ul>
+                        <li class="tech_badge node" *ngFor="let tah of hashTags">{{tah}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    
+    <div class="info-tab"  class="row" >
+        <div class="col-md-12">
+            <mat-tab-group mat-align-tabs="start">
+                <mat-tab label="Overview">
+                    <app-project-overview></app-project-overview>
+                </mat-tab>
+                <mat-tab label="Notes">
+                    <app-project-notes></app-project-notes>
+                </mat-tab>
+                <mat-tab label="DSR Reports">
+                    <app-project-reports></app-project-reports>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div>
+
+<hr>

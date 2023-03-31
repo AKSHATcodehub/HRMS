@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { LeaveRoutingModule } from './leave-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    LeaveRoutingModule
+    LeaveRoutingModule,
+    
   ]
 })
 export class LeaveModule { }

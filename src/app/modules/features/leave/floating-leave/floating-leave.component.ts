@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
+import { FLOATING_LEAVE_HEADING, FLOATING_LEAVE_TABKE_DATA } from './floating-leave-data';
 
 @Component({
   selector: 'app-floating-leave',
@@ -14,19 +15,6 @@ export class FloatingLeaveComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  datasource = new MatTableDataSource<any>(INTERVIEW_DATA);
-  headings = [
-    { heading: 'S.No.', key: 's_no', type: 'text'},
-    { heading: 'Department', key: 'department', type: 'text' },
-    { heading: 'Name', key: 'name', type: 'text' },
-    { heading: 'Email', key: 'email', type: 'text'},
-    { heading: 'Mobile No.', key: 'mobile_number', type: 'text'},
-    { heading: 'Round Type', key: 'round_type', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Date', key: 'interview_date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Time', key: 'interview_time', type: 'text'},
-    { heading: 'Final Status', key: 'final_status', type: 'text'},
-    { heading: 'Action', key: 'Action', type: 'text'},
-
-
-  ]
+  datasource = new MatTableDataSource<any>(FLOATING_LEAVE_TABKE_DATA);
+  headings = FLOATING_LEAVE_HEADING;
 }

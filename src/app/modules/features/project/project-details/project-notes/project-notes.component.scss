@@ -1,0 +1,33 @@
+@import '../../../../../../scss/var',
+        '../../../../../../scss/mixins/flex',
+        '../../../../../../scss/mixins/media';
+
+hr{
+    border: 0px;
+}
+.notes-wrapper{
+    background-color: $white;
+    padding: 24px;
+    border-radius: 10px;
+    .notes-header{
+        h2{
+            color: $darkblue;
+        }
+    }
+    .notes-body{
+        .project-plan{
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%);
+            .project-plan-heading{
+                @include flex(center,space-between);
+            }
+            .project-paln-body{
+                h3{
+                    margin: 0px  !important;
+                }
+            }
+        }
+    }
+    
+}

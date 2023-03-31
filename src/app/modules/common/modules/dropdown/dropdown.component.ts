@@ -1,5 +1,17 @@
-import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
+import {
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
+export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() => DropdownComponent),
+  multi: true,
+};
+enum DropdownMouseState {
+  inside,
+  outside,
+}
 
 @Component({
   selector: 'app-dropdown',
@@ -13,9 +25,21 @@ export class DropdownComponent implements OnInit {
   @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string;
   @Output() outputData :EventEmitter<any> = new EventEmitter();
+  @HostListener('document:click') clickedOutside() {
+    console.log("hyy");
+    
+    if (this.state == DropdownMouseState.outside) {
+      this.showMenu = false; // hide the dropdown...
+    }
+  }
 
   
-  constructor(private ref:ElementRef,private render:Renderer2) { }
+  constructor(private ref:ElementRef,private render:Renderer2) {
+    this.showMenu = false;
+    this.state = DropdownMouseState.outside;
+   }
+  state!: DropdownMouseState;
+  showMenu!: boolean;
   slidePosition = 1;
   wrapper:any;
   selectBtn:any;

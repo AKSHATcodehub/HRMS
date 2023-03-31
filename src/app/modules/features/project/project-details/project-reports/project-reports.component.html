@@ -1,0 +1,133 @@
+<hr />
+<div class="dsr-reports">
+  <div class="header">
+    <h2>Filters</h2>
+  </div>
+  <div class="dsr-report-filter">
+
+      <div class="row filterDsr">
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date From</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+      </div>
+    
+      <div class="row">
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date From</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+      </div>
+    
+      <div class="row">
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="col-md-3 ">
+            <label for="first_name">Date to</label>
+            <mat-form-field appearance="outline" >
+                <input matInput placeholder="Name">
+            </mat-form-field>
+        </div>
+    
+        <div class="btn-wrapper col-md-3  d-flex align-items-center ">
+            <button class="button">Add</button>
+            <button class="button">Cancel</button>
+        </div>
+        
+    
+      </div>
+
+  </div>
+</div>
+
+
+  <hr>
+
+<div class="dsr-report-list">
+    <div class="header">
+        <h2>DSR List</h2>
+        <app-table class="table" [columns]="dsrListHeading" [dataSource]="dsrListTableData"></app-table>
+    </div>
+</div>
+
+<hr>
+
+<div class="dsr-report-analytics">
+    <div class="header">
+        <h2>DSR Analytics</h2>
+    </div>
+    <hr>
+    <div class="dsr-analytics-content col-md-12">
+        <ng-container *ngFor="let item of dataAnalytics">
+            <div class="row">
+                <div class="col-10">
+                    <h2>{{item.title}}</h2>
+                </div>
+                <div class="col-2  d-flex analytics_btn_wrapper">
+                    <button class="ttl_dsr_submited button">{{item.data}}</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+
+
+
+

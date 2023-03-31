@@ -1,0 +1,24 @@
+@import '../../../../../../scss/var';
+
+hr{
+    border: 0px;
+}
+
+.header{
+    padding: 20px;
+    h2{
+        color: blue;
+    }
+}
+
+
+.planned-deliveries{
+    background-color: $white;
+    border-radius: 10px;
+}
+
+.team-details{
+    background-color: $white;
+    border-radius: 10px;
+
+}

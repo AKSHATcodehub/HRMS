@@ -1,4 +1,4 @@
-import { DIRECTORY, HOME, PROFILE , ENTREPRENURSHIP, HOLIDAY_CALENDAR, POLICY_DOCUMENTS, PERFORMANCE, JOB_OPENINGS, REFER_CANDIDATE, INTERVIEW, MY_TRAINING, MYTRAINING } from "src/app/constant/routes"
+import { DIRECTORY, HOME, PROFILE , ENTREPRENURSHIP, HOLIDAY_CALENDAR, POLICY_DOCUMENTS, PERFORMANCE, JOB_OPENINGS, REFER_CANDIDATE, INTERVIEW, MY_TRAINING, MYTRAINING, PROJECT } from "src/app/constant/routes"
 
 
 export const sideNavList = [
@@ -270,7 +270,7 @@ export const navBarData:any = [
       name:'Projects',
       icon:'view_day',
       subMenuClicked:false,
-      link:''
+      link:PROJECT.fullUrl
       
   },
   {

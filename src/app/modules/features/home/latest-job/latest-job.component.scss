@@ -16,7 +16,8 @@
     .card{
         border: 0px;
         // padding: 15px;
-        // height: 100%;
+        box-sizing: border-box;
+        height: 100%;
         .card-header{
             @include flex(center,space-between);
             border: 0px;
@@ -43,16 +44,23 @@
 
 .main{
     position: relative !important;
-    overflow: hidden !important;
+    // overflow: hidden !important;
     min-height: 500px !important;
     // height:100% !important;
     width: 100% !important;
 
+
+    @media screen and (max-width: 600px) {
+     height: 780px;
+    }
+
     // animation: transform 1s linear !important;
     .card-body{
-        height: 100%;
+        box-sizing: border-box;
+        // height: 100%;
         position: absolute !important;
-        width: 90% !important;
+        z-index: 100;
+        width: 100% !important;
         // height: 170px !important;
         transition: 1s;
         border: 1px solid rgba(150, 165, 184, 0.3);
@@ -60,15 +68,16 @@
         .card-body-top{
           background-clip:border-box;
           padding: 0px 20px;
-          height: 180px;
+          height: 210px;
           background-color: $backgroundcolor;
           @include flex(center,center);
           flex-direction: column;
-          figure{
+          .img-wrapper{
             @include flex(center,center);
+            margin: 0px;
             img{
-              height: 100px;
-              width: 100px;
+              height: 100%;
+              width: 100%;
             }
           }
           .job-opining-info{
@@ -130,6 +139,7 @@
 
         }
         .card-body-mid{
+          box-sizing: border-box;
           .job-description{
             border-bottom: 1px solid rgba(150, 165, 184, 0.3);
             h3{

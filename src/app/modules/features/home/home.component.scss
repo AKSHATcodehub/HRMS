@@ -1,6 +1,7 @@
 @import "./../../../../scss/var";
 @import './../../../../scss/mixins/flex';
-@import './../../../../scss/theme/card';
+@import './../../../../scss/theme/card',
+        './../../../../scss/mixins/media';
 
 *{
     app-carousel{
@@ -133,7 +134,7 @@ app-carousel{
                 }
                 .referal-bonous{
                     width: 50%;
-                    // padding: 24px;
+                    
                     border-left: 1px dashed gray;
                     @media screen and (max-width: 1300px) {
                       padding: 0px;
@@ -142,7 +143,10 @@ app-carousel{
                     .card{
                       // height: 100%;
                       border: 0px;
-
+                      padding: 24px;
+                      @include media(md){
+                        padding: 16px;
+                      }
                       .card-header{
                         border: 0px ;
 
@@ -159,6 +163,9 @@ app-carousel{
                         display: flex !important;
                         flex-wrap: wrap ;
                         padding: 16px;
+                        @include media(md){
+                          padding: 0px;
+                        }
                         li{
                             
                             background-color: $lightblue;
@@ -400,8 +407,11 @@ app-carousel{
         }
       }
       .card{
+        @include media(md){
+          padding: 16px;
+        }
         .card-body{
-          // padding: 40px 16px;
+          padding: 0px;
         }
       }
     }

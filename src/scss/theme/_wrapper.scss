@@ -25,3 +25,14 @@
         width: 100%;
     }
   }
+
+.header{
+    padding: 13px;
+    border-bottom: 1px solid #f3f7fc;
+    h2{
+        margin: 0px;
+        color: $darkblue;
+        border-radius: 10px;
+    }
+}
+

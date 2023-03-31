@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
-import { DSR_TABLEDATA, PROJECT_DROPDOWN } from './dsr-data';
-
+import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM } from './dsr-data';
+import { LEAVE_TABLEDATA } from './../leave/my-leave/my-leave-data';
 
 
 
@@ -37,19 +37,22 @@ export class DsrComponent implements OnInit {
   projectDataDropdown = ['All','Training Project React.js'];
   finalApprovalDropdown = ['All','Pending','Approved','Rejected'];
   hoursDropdown = ['Hours','Less than 5 Hours','Greater than 5, Less than equal to 8','Greater than 8','Greater than 10']
+  selctedProject:string='';
+  approvingAuthority:string[] = APPROVING_AUTHORITY;
+  chooseAM:string[] = CHOOSE_AM;
 
   constructor(private _fb:FormBuilder) {
 
     this.pipe = new DatePipe('en');
    
-    
   }
 
   ngOnInit(): void {
     this.isOpen = false;
     this.createDsrFilterForm();
     this.createDsrForm();
-     
+    console.log("this is data come from my leave section }}}}}}}}}}}}}",LEAVE_TABLEDATA);
+    
     this.datasource.filterPredicate = (data,filter) =>{
       
       if (this.fromDate && this.toDate) {
@@ -58,8 +61,6 @@ export class DsrComponent implements OnInit {
         
         return data.date >= this.fromDate && data.date <= this.toDate;
       }
-
-      // if()
   
       return true;
     }
@@ -127,6 +128,7 @@ export class DsrComponent implements OnInit {
   
   selectDropdown(event :string,control:string){
     this.dsrForm.controls[control].setValue(event);
+    this.selctedProject = event;
   }
 
   dsrSummit(){

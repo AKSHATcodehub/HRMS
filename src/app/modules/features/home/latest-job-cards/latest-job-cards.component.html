@@ -1,13 +1,15 @@
-<ng-container *ngFor="let item of arr">
-    <ng-template #listOfDivs>
-        <div class="card-wrapper">
-            <app-latest-job></app-latest-job>
-        </div>
-    </ng-template>
-</ng-container>
-
-<ng-container *ngIf="render_child">
-    <app-resp-carousel [listToShow]="dataSource" [gridConfig]="gridConfig" >
-
-    </app-resp-carousel>
-</ng-container>
+<div class="latest-job-cards-wrapper">
+    <ng-container *ngFor="let item of arr">
+        <ng-template #listOfDivs>
+            <div class="card-wrapper">
+                <app-latest-job></app-latest-job>
+            </div>
+        </ng-template>
+    </ng-container>
+    
+    <ng-container *ngIf="render_child">
+        <app-resp-carousel [listToShow]="dataSource" [gridConfig]="gridConfig" >
+    
+        </app-resp-carousel>
+    </ng-container>
+</div>

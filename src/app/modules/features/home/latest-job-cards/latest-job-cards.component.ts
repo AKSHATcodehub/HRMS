@@ -15,7 +15,7 @@ throw new Error('Method not implemented.');
   dataSource:any = []
   ngOnInit(): void {
   }
-  arr = [1,2,3,4]
+  arr = [1]
   @ViewChildren("listOfDivs", { read: TemplateRef }) listToShow!: QueryList<ElementRef<HTMLDivElement>>;
 
 

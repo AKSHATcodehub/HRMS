@@ -1,0 +1,16 @@
+
+<div class="project-status">
+    <div class="notes-bottom ">
+        <ng-container *ngFor="let document of notesDetails">
+            <div class="note-card">
+                <div class="note-card-icon">
+                    {{document.iconName}}
+                </div>
+                <div class="note-card-body">
+                    <h1>{{document.documentHeading}}</h1>
+                    <h2>No Document</h2>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 
-<section >
+<section class="section">
   <div class="filter-options  ">
     <div class="dropdown ">
       <label for="">Show:</label>
@@ -39,8 +39,12 @@
             {{element[row.key]}}
           </ng-container>
 
+          <ng-container *ngSwitchCase="'date'">
+            {{element[row.key] | date }}
+          </ng-container>
+
           <ng-container *ngSwitchCase="'link'">
-            <a href="">{{element[row.key]}}</a>
+            <a [href]='element.link' >{{element[row.key]}}</a>
           </ng-container>
 
           <ng-container *ngSwitchCase="'download'" >
