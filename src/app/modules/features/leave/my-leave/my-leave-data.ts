@@ -11,7 +11,24 @@ export const LEAVE_HEADING = [
     { heading: 'level2', key: 'level2', type: 'text'},
 ]
 
-export const LEAVE_TABLEDATA = [
+interface leave{
+  
+    id:number
+    action:string,
+    leave_type: string,
+    request_from:Date ,
+    request_to: Date,
+    applied_on: Date,
+    time_duration:string,
+    status: string,
+    level1: string,
+    level2: string,
+    link:string,
+
+  
+}
+
+export const LEAVE_TABLEDATA : leave[]= [
     {
       id:1,
       // user_name:'Akshat',
@@ -93,8 +110,7 @@ export const LEAVE_TABLEDATA = [
       status: 'Pending',
       level1: 'Suyash Saxena(AI057)',
       level2: 'HR (Human Resourse)',
-      link:'/features/leave-details/6',
-
+      link: '/features/leave-details/6',
     },
     {
       id:7,
