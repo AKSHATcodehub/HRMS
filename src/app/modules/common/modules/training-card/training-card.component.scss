@@ -36,7 +36,7 @@
   
           }
           .card-body-mid{
-            .job-description{
+            ::ng-deep .job-description{
               border-bottom: 1px solid rgba(150, 165, 184, 0.3);
               
               h3{
@@ -103,3 +103,4 @@
   
      
   }
+

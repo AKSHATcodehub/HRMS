@@ -12,15 +12,26 @@ export class UpcomingTrainingComponent implements OnInit {
   
   ngOnInit(): void {
   }
-  
-  cards = ['card1','card2','card3'];
+  seats:string='seats';
+  cards = [
+      {
+        trainingName:'Micro Froented 2023',
+        trainingStatus:'Completed',
+        startDate:'20-03-2022',
+        endDate:'20-05-2023',
+        seats:'38',
+        id:'101',
+        firstButtonName:'View Details',
+        secondButtonName:'Enrollment'
+      },
+  ];
   
   openDialog() {
     throw new Error('Method not implemented.');
   }
   
   viewDetails() {
-    this._router.navigate(['../job-details'],{relativeTo:this.route});
+    this._router.navigate(['../training-details'],{relativeTo:this.route});
   }
     
 }

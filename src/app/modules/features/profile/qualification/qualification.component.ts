@@ -162,14 +162,12 @@ export class QualificationComponent implements OnInit{
   }
   
   actionSave(){
-
     
     console.log("quali",this.qualificationForm);
     
-    
     this.qualificationForm.markAllAsTouched();
     
-    if(this.qualificationForm.invalid){
+    if(this.qualificationForm.valid){
       
       this._snackBar.snackBar('Qualification Updated');
       this.dp4=this.convert(`${this.qualificationForm.controls?.['fromTimePerioed'].value}`)
@@ -189,7 +187,9 @@ export class QualificationComponent implements OnInit{
     console.log("this is data soucrce>>>>>>>>>>",this.datasource);
     
   }
+
   openDialog(event:any): void {
+    
     const dialogRef = this.dialog.open(EditQualificationComponent,{
       data: event
     }
@@ -198,7 +198,7 @@ export class QualificationComponent implements OnInit{
     console.log('The dialog was closed',result);
   
     this.Table_DATA.filter((item:any)=>{
-      console.log("filter loop>>>>>",item.SUName, result.data.university);
+      console.log("filter loop>>>>>",item.SUName, result.data.SUName);
       
       if(item.SUName == result.data.SUName){
         console.log("data fined>>>>");
@@ -224,12 +224,6 @@ export class QualificationComponent implements OnInit{
   }
 
 }
-
-
-
-
-
-
 
 
 

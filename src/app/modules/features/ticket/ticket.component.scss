@@ -14,9 +14,7 @@ hr{
     border: 0px;
 }
 .wrapper{
-    hr{
-        
-    }
+
     .wrapper-top{
         position: relative;
         background-color: white;
@@ -140,3 +138,16 @@ $purple : #512DA8;
 .seperator {
   margin: 1rem;
 }
+
+
+.dropdown{
+    .dropdown-body{
+      position: relative;
+    }
+    small{
+      color: red;
+      position: absolute;
+      top: 78px;
+      left: 10px;
+    }
+  }

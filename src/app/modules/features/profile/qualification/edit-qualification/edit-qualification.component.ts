@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { AfterContentInit, AfterViewChecked, AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -33,25 +34,29 @@ export class EditQualificationComponent implements OnInit  , AfterViewChecked {
   ];
   dp4: any;
   dp3: any;
-  Table_DATA: any[] = []
+  Table_DATA: any;
 
   
   constructor(private _fb:FormBuilder,
     private _form:FormService,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<EditQualificationComponent>,
-    private _snackBar:SnackbarService
+    private _snackBar:SnackbarService,
+
     ) { }
     
   ngOnInit(): void {
     this.createForm();
     console.log("this is qualificiation form>>>>>>>",this.data);
+    // this.editQualificationForm = this.data.form;
+    // this.Table_DATA = this.data.value;
+
   }
   
   
   ngAfterViewChecked(): void{
     // this.editQualificationForm = this.data ;
-    
+    // this.editQualificationForm = this.data;
   }
   
   
@@ -68,18 +73,13 @@ export class EditQualificationComponent implements OnInit  , AfterViewChecked {
 
   actionSave(){
 
-    this.editQualificationForm.markAllAsTouched();
- 
-    // if(this.editQualificationForm.valid){
-    //   this._snackBar.snackBar('Qualification Updated');
-    //   this.dp4=this.convert(`${this.editQualificationForm.controls?.['fromTimePerioed'].value}`)
-    //   this.dp3=this.convert(`${this.editQualificationForm.controls?.['toTimePerioed'].value}`)
-    //   this.Table_DATA.push(
-    //   { SUName:`${this.editQualificationForm.controls?.['university'].value}`, Time_Period:`${this.dp4} - ${this.dp3}`, ElName:`${this.editQualificationForm.controls?.['education'].value}`}
-    //   )
-    //  this.datasource = new MatTableDataSource<any>(this.Table_DATA)
-      
-    // }
+    if(this.editQualificationForm.valid){
+      this.dialogRef.close({form:this.editQualificationForm,data:this.data});
+
+    }else{
+
+      this.editQualificationForm.markAllAsTouched();
+    }
   }
 
   convert(str:any) {

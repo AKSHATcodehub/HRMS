@@ -3,5 +3,10 @@
         <h1>My Training</h1>
         <button class="button" (click)="requestForTraining()">Request For Training</button>
     </div>
-    <app-training-card [cards]="cards" (viewDetailsEvent)="viewDteails()" (feedbackEvent)="openEntrollmentPopup()"></app-training-card>
+    <app-training-card [dynamicLabel]="mode" [cards]="cards" (viewDetailsEvent)="viewDteails()" (feedbackEvent)="openEntrollmentPopup()">
+        <div class="job-description">
+            <p class="department_name">Who can Attend</p>
+            <h3>Angular</h3>
+        </div>
+    </app-training-card>
 </div>

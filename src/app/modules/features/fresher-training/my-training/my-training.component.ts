@@ -12,8 +12,51 @@ export class MyTrainingComponent implements OnInit {
   
   ngOnInit(): void {
   }
+  mode:string='Mode';
   
-  cards = ['card1','card2','card2','card2','card2','card2','card2','card2'];
+  cards = [
+    {
+      trainingName:'Angular Training Feb 2022',
+      trainingStatus:'Completed',
+      startDate:'20-03-2022',
+      endDate:'20-05-2023',
+      mode:'Online',
+      id:'101',
+      firstButtonName:'ViewDetails',
+      secondButtonName:'Feedback'
+    },
+    {
+      trainingName:'UI/UX Training Feb 2022',
+      trainingStatus:'Completed',
+      startDate:'20-03-2022',
+      endDate:'20-05-2023',
+      mode:'Online',
+      id:'102',
+      firstButtonName:'ViewDetails',
+      secondButtonName:'Feedback'
+      
+    },
+    {
+      trainingName:'JavaScript Training Feb 2022',
+      trainingStatus:'Completed',
+      startDate:'20-03-2022',
+      endDate:'20-05-2023',
+      mode:'Online',
+      id:'103',
+      firstButtonName:'ViewDetails',
+      secondButtonName:'Feedback'
+    },
+    {
+      trainingName:'Angular Training Feb 2022',
+      trainingStatus:'Completed',
+      startDate:'20-03-2022',
+      endDate:'20-05-2023',
+      mode:'Online',
+      id:'104',
+      firstButtonName:'ViewDetails',
+      secondButtonName:'Feedback'
+    }
+  ];
   
   constructor(public dialog: MatDialog,
               private _router:Router,

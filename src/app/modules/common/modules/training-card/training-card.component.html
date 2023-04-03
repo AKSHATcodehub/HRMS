@@ -11,34 +11,31 @@
                         </div>
                         <div class="card-body-mid">
                             <div class="job-description row">
-                                <h3 class="col-10">Micro Frontend Angular</h3>
-                                <p class="department_name col-2">Enrolled</p>
+                                <h3 class="col-10">{{card.trainingName}}</h3>
+                                <p class="department_name col-2">{{card.trainingStatus}}</p>
                             </div>
-                            <div class="job-description">
-                                <p class="department_name">Who can Attend</p>
-                                <h3>Angular</h3>
-                            </div>
+                            <ng-content></ng-content>
                             <div class="job-data">
                                
                                 <div class="job-data-block">
                                     <p>Start Date</p>
-                                    <h4>2</h4>
+                                    <h4>{{card.startDate}}</h4>
                                 </div>
                                 <div class="job-data-block">
                                     <p>End Date</p>
-                                    <h4>3 to 5 Years</h4>
+                                    <h4>{{card.endDate}}</h4>
                                 </div>
                                 <div class="job-data-block">
-                                    <p>Seats</p>
-                                    <h4>3 to 5 Years</h4>
+                                    <p>{{dynamicLabel}}</p>
+                                    <h4>{{card.mode || card.seats}}</h4>
                                 </div>
                                
                             </div>
                         </div>
                         <div class="card-body-bottom">
                             <div class="btn-wrapper">
-                                <button (click)="viewDetails()" >View Details</button>
-                                <button (click)="feedBack()">Enrollment</button>
+                                <button (click)="viewDetails()" >{{card.firstButtonName}}</button>
+                                <button (click)="feedBack()">{{card.secondButtonName}}</button>
                             </div>
                         </div>
                     </div>

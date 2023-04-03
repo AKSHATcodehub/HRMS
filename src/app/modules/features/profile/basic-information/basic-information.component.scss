@@ -40,5 +40,14 @@ mat-form-field{
       }
     }
 
-  
-  
+    .dropdown{
+      .dropdown-body{
+        position: relative;
+      }
+      small{
+        color: red;
+        position: absolute;
+        top: 53px;
+        left: 10px;
+      }
+    }

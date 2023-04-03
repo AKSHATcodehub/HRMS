@@ -220,6 +220,13 @@
 //   }
 // }
 
+.small-phone-menu {
+  display: none;
+  @media (max-width: 1000px) {
+      display: block;
+  }
+}
+
 
 mat-icon{
   color: #2c2c2c;
@@ -303,9 +310,9 @@ mat-icon{
   }
   @media screen and (max-width: 1000px) {
     width: 100% !important;
-    justify-content: space-between;
-    display: flex;
-   
+    button{
+      display: none;
+    }
   }
 }
 .example-container {

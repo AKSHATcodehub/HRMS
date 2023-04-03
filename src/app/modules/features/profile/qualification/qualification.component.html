@@ -43,7 +43,7 @@
     
                 <div class="col-lg-6">
                   <mat-form-field appearance="outline" style="position: relative;" >
-                    <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed">
+                    <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed" [min]="qualificationForm.controls.fromTimePerioed.value" >
                     <mat-datepicker-toggle matIconSuffix [for]="toTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                     <mat-datepicker #toTimePerioed></mat-datepicker>
                     <mat-error>{{qualificationForm | validationError : 'toTimePerioed' : 'TimePerioed' }}</mat-error>

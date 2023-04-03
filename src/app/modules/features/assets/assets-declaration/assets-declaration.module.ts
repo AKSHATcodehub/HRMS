@@ -6,6 +6,7 @@ import { AssetsDeclarationComponent } from './assets-declaration.component';
 import { TableModule } from 'src/app/modules/common/modules/table/table.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { MatInputModule } from '@angular/material/input';
     AssetsDeclarationRoutingModule,
     TableModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    DropdownModule
   ]
 })
 export class AssetsDeclarationModule { }

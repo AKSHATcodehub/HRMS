@@ -9,101 +9,53 @@
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
                 <div class="row">
                     <div class="box-block">
-                        <div class="row">
+                        <div class="row" [formGroup]="requestAssetsForm">
                           <div class="col-md-12 pd-10">
                             <div class="row">
                               <div class="col-md-3">
                                 <div class="form-group">
-                                  <label for="short_description">Employee Id </label>AI1592                      
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
+                                  <label for="short_description">Assets Categories * </label>                      
+                                  <app-dropdown [data]="assetsCategoryDropdown"></app-dropdown>
+                                  <small *ngIf="this.requestAssetsForm.controls.assetsCategory.touched">{{requestAssetsForm | validationError:'assetsCategory':'Department' }}</small>
                                 </div>
                               </div>
                               <div class="col-md-3">
                                 <div class="form-group">
-                                  <label for="short_description">Unique Asset Code </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
+                                  <label for="short_description">Quantity *</label>
+                                  <app-dropdown [data]="quantityDropdown"></app-dropdown>
                                 </div>
                               </div>
                               <div class="col-md-3">
                                 <div class="form-group">
-                                  <label for="short_description">Serial Number <i class="fa fa-question-circle" aria-hidden="true" id="serialNoBtn" data-toggle="modal" data-target="#serialNoModal" data-placement="top" title="click here to know more"></i></label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
+                                  <label for="short_description">Priority *</label>
+                                  <app-dropdown [data]="priorityDropdown"></app-dropdown>
                                 </div>
                               </div>
                               <div class="col-md-3">
                                 <div class="form-group">
-                                  <label for="short_description">Model Number <i class="fa fa-question-circle" aria-hidden="true" id="modelNoBtn" data-toggle="modal" data-target="#modelNoModal" data-placement="top" title="click here to know more"></i></label>
+                                  <label for="short_description">Required by Date * </label>
                                   <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
+                                    <input matInput type="text" >
                                   </mat-form-field>
                                 </div>
                               </div>
             
                               <div class="col-md-3">
                                 <div class="form-group">
-                                  <label for="experience" class="control-label">OS </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
+                                  <label for="experience" class="control-label">Allocation type *  </label>
+                                  <app-dropdown [data]="allocationTypeDropdown"></app-dropdown>
                                 </div>
                               </div>
-            
-                              <div class="col-md-3">
-                                <div class="form-group">
-                                  <label for="short_description">OS version </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
-                                </div>
-                              </div>
-            
-            
-                              <div class="col-md-3">
-                                <div class="form-group">
-                                  <label for="short_description">Brand </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
-                                </div>
-                              </div>
-            
-                              <div class="col-md-3">
-                                <div class="form-group">
-                                  <label for="short_description">Colour </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
-                                </div>
-                              </div>
-            
-            
-                              <div class="col-md-3">
-                                <div class="form-group">
-                                  <label for="experience" class="control-label">Device is in working condition? </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                                  </mat-form-field>
-                                </div>
-                              </div>
-            
                             </div>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-md-6">
                             <div class="form-group col-md-12">
-                              <label for="short_description">Asset Image(Allowed Format: jpg,jpeg,JPEG,JPG,png,PNG,GIF) <span class="red-color">Upload front and backside image*</span></label>
-                              <mat-form-field appearance="outline" >
-                                <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433">
-                              </mat-form-field>
+                              <div class="col-md-12">
+                                <label for="short_description">Request Reason *</label>
+                                <textarea></textarea>
+                              </div>
                             </div>
-                          </div>
                         </div>
                         <div class="form-actions align-center text-center col-md-12">
                             <div class="col-md-12">

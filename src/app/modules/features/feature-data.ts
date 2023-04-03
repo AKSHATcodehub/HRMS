@@ -29,21 +29,27 @@ export const navBarData:any = [
       name:'Home',
       link: HOME.fullUrl,
       icon:'home',
+      outerLink:false
   },
   {
       name:'My Profile',
       link:PROFILE.fullUrl,
-      icon:'person'
+      icon:'person',
+      outerLink:false
+
   },
   {
       name:'Staff Directory',
       link:DIRECTORY.fullUrl,
-      icon:'library_books'
+      icon:'library_books',
+      outerLink:false
+
   },
   {
       name:'Entrepreneurship',
       icon:'credit_card',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'Explore',
@@ -56,6 +62,7 @@ export const navBarData:any = [
       name:'My Links',
       icon:'rate_review',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'Insurance Details',
@@ -79,6 +86,7 @@ export const navBarData:any = [
       name:'Finance',
       icon:'attach_money',
       link:null,
+      outerLink:true,
       subMenu:[
           
           {
@@ -102,6 +110,7 @@ export const navBarData:any = [
       name:'Reviews',
       icon:'warning',
       link:null,
+      outerLink:false,
       subMenu:[
           {
               name:'My Performance',
@@ -115,6 +124,7 @@ export const navBarData:any = [
       icon:'rate_review',
       subMenuClicked:false,
       // link:'refer-candidate',
+      outerLink:false,
       subMenu:[
           {
               name:'Job Openings',
@@ -134,6 +144,7 @@ export const navBarData:any = [
       name:'Recruitment',
       icon:'warning',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'My Interview',
@@ -146,6 +157,7 @@ export const navBarData:any = [
       name:'Fresher Training',
       icon:'school',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'My Trainings',
@@ -158,6 +170,7 @@ export const navBarData:any = [
       name:'Training',
       icon:'school',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'Upcoming Trainings',
@@ -185,6 +198,7 @@ export const navBarData:any = [
       name:'Assets Inventory',
       icon:'science',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'My Assets Inventory',
@@ -207,6 +221,7 @@ export const navBarData:any = [
       name:'Atendance',
       icon:'schedule',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'Attendance Calendar',
@@ -229,6 +244,7 @@ export const navBarData:any = [
       name:'My Leave ',
       icon:'calendar_today',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'My Leave',
@@ -246,6 +262,7 @@ export const navBarData:any = [
       name:'Tickets',
       icon:'calendar_today',
       subMenuClicked:false,
+      outerLink:false,
       subMenu:[
           {
               name:'My Tickets',
@@ -258,6 +275,7 @@ export const navBarData:any = [
     name:'DSR',
     icon:'calendar_today',
     subMenuClicked:false,
+    outerLink:false,
     subMenu:[
         {
             name:'My dsr',
@@ -270,14 +288,18 @@ export const navBarData:any = [
       name:'Projects',
       icon:'view_day',
       subMenuClicked:false,
-      link:PROJECT.fullUrl
+      link:PROJECT.fullUrl,
+      outerLink:false
+
       
   },
   {
       name:'Logout',
       icon:'logout',
       subMenuClicked:false,
-      link:''
+      link:'',
+      outerLink:false
+
 
   }
   

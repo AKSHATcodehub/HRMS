@@ -2,5 +2,10 @@
     
     <h1>Upcoming Training</h1>
     
-    <app-training-card [cards]="cards" (viewDetailsEvent)="viewDetails()" (openDialogEvent)="openDialog()" ></app-training-card>
+    <app-training-card [dynamicLabel]="seats" [cards]="cards" (viewDetailsEvent)="viewDetails()" (openDialogEvent)="openDialog()" >
+        <div class="job-description">
+            <p class="department_name">Who can Attend</p>
+            <h3>Angular</h3>
+        </div>
+    </app-training-card>
 </div>

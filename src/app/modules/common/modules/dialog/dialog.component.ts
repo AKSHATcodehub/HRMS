@@ -46,6 +46,7 @@ export class DialogComponent implements OnInit {
 
   onSubmit(){
     this.dialogForm.markAllAsTouched()
+
   }
 
 }

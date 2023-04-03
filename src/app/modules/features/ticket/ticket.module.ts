@@ -8,6 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
 import { TableModule } from '../../common/modules/table/table.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { TableModule } from '../../common/modules/table/table.module';
     MatInputModule,
     MatDatepickerModule,
     DropdownModule,
-    TableModule
+    TableModule,
+    ReactiveFormsModule,
+    FormsModule,
+    ValidationErrorModule
   ]
 })
 export class TicketModule { }

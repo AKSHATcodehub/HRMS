@@ -5,11 +5,14 @@
 		<button mat-icon-button (click)="expandAction()"><mat-icon>menu</mat-icon></button>
 	</mat-toolbar>
 
+	<mat-icon class="small-phone-menu" (click)="toggleSideNavSmallPhone()">menu</mat-icon>
+
 	<div class="navbar-features" *ngIf="showNavbarFeature">
 		<div class="login-time-status">
 			<strong>Last Login</strong>
 			<span class="text-mutded">Feb-02-2023 04:08 PM from 172.31.25.47</span>
 		</div>
+
 		<div class="features">
 			<div class="info">
 				
@@ -24,7 +27,7 @@
 						  <mat-icon>assignment_ind</mat-icon>
 						  <span>My Profile</span>
 						</button>
-						<button mat-menu-item >
+						<button mat-menu-item routerLink="./profile">
 						  <mat-icon>phonelink_lock</mat-icon>
 						  <span>Change Password</span>
 						</button>

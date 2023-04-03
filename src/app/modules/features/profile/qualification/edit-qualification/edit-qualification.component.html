@@ -25,25 +25,26 @@
             <div class="row">
                 <div class="col-sm-6">
                     <label for="">Time Period</label><br>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <mat-form-field appearance="outline" style="position: relative;" >
-                                <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="fromTimePerioed">
-                                <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
-                                <mat-datepicker #fromTimePerioed></mat-datepicker>
-                                <mat-error>{{editQualificationForm | validationError : 'fromTimePerioed' : 'TimePerioed' }}</mat-error>
-                            </mat-form-field>
-                        </div>
-                        <div class="col-sm-6">
-                            <mat-form-field appearance="outline" style="position: relative;" >
-                                <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed">
-                                <mat-datepicker-toggle matIconSuffix [for]="toTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
-                                <mat-datepicker #toTimePerioed></mat-datepicker>
-                                <mat-error>{{editQualificationForm | validationError : 'toTimePerioed' : 'TimePerioed' }}</mat-error>
-                              </mat-form-field>
+                    <div class="time-period">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <mat-form-field appearance="outline" style="position: relative;" >
+                                    <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="fromTimePerioed">
+                                    <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: -10px;"></mat-datepicker-toggle>
+                                    <mat-datepicker #fromTimePerioed></mat-datepicker>
+                                    <mat-error>{{editQualificationForm | validationError : 'fromTimePerioed' : 'TimePerioed' }}</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-form-field appearance="outline" style="position: relative;" >
+                                    <input matInput [matDatepicker]="toTimePerioed" placeholder="MM/DD/YYYY" formControlName="toTimePerioed" [min]="editQualificationForm.controls.fromTimePerioed.value">
+                                    <mat-datepicker-toggle matIconSuffix [for]="toTimePerioed" style="position: absolute;top: 0px;right: -10px;"></mat-datepicker-toggle>
+                                    <mat-datepicker #toTimePerioed></mat-datepicker>
+                                    <mat-error>{{editQualificationForm | validationError : 'toTimePerioed' : 'TimePerioed' }}</mat-error>
+                                  </mat-form-field>
+                            </div>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="col-sm-6">
                     <label for="">Language</label><br>
@@ -75,7 +76,7 @@
                 <div class="col-sm-12">
                     <div class="row button-wrapper">
                         <button class="button" [mat-dialog-close] >Close</button>
-                        <button (click)="actionSave()" class="button">Update</button>
+                        <button   (click)="actionSave()" class="button">Update</button>
                     </div>
                 </div>
             </div>

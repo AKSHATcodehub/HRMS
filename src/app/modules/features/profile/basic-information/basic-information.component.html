@@ -34,11 +34,13 @@
                 </div>
       
                 <div class="row">
+
     
                   <div class="col-lg-4 dropdown" >
                       <label for="" >Gender</label><br>
-                      <div class="dropdown">
-                        <app-dropdown  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender"></app-dropdown>
+                      <div class="dropdown-body">
+                        <app-dropdown  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender" (outputData)="selectedValue($event,'genderr')"></app-dropdown>
+                        <small *ngIf="this.basicInfoForm.controls.genderr.touched">{{basicInfoForm | validationError:'genderr':'Gender' }}</small>
                       </div>
                         <!-- <mat-form-field appearance="outline" >
                         <div class="wrapper" #wapper>
@@ -61,10 +63,11 @@
                 </div>
                   
                   
-                <div class="col-lg-4"  >
+                <div class="col-lg-4 dropdown"  >
                   <label for="" >Marriage status</label><br>
-                  <div class="dropdown">
-                    <app-dropdown  [placeHolder]="marriagePlaceHolder" [data]="marriage"></app-dropdown>
+                  <div class="dropdown-body">
+                    <app-dropdown  [placeHolder]="marriagePlaceHolder" [data]="marriage" (outputData)="selectedValue($event,'marriageStatus')"></app-dropdown>
+                    <small *ngIf="this.basicInfoForm.controls.marriageStatus.touched">{{basicInfoForm | validationError:'marriageStatus':'Marriage Status' }}</small>
                   </div>
     
                   <!-- <mat-form-field appearance="outline" >

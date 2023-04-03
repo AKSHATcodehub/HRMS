@@ -7,7 +7,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class TrainingCardComponent implements OnInit {
   
-  @Input() cards!:string[];
+  @Input() cards!:any[];
+  @Input() dynamicLabel!:string;
   @Output() feedbackEvent:EventEmitter<any> = new EventEmitter();
   @Output() viewDetailsEvent:EventEmitter<any> = new EventEmitter();
   

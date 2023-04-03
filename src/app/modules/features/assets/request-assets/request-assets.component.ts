@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
+import { REQUESTED_ASSETS_HEADING, REQUESTED_ASSETS_TABLE_DATA } from './request-asset-data';
 
 @Component({
   selector: 'app-request-assets',
@@ -9,27 +11,34 @@ import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
 })
 export class RequestAssetsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _fb:FormBuilder) { }
 
   ngOnInit(): void {
+    this.createForm();
   }
 
   isOpen = false;
-  datasource = new MatTableDataSource<any>(INTERVIEW_DATA);
-  headings = [
-    { heading: 'S.No.', key: 's_no', type: 'text'},
-    { heading: 'Department', key: 'department', type: 'text' },
-    { heading: 'Name', key: 'name', type: 'text' },
-    { heading: 'Email', key: 'email', type: 'text'},
-    { heading: 'Mobile No.', key: 'mobile_number', type: 'text'},
-    { heading: 'Round Type', key: 'round_type', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Date', key: 'interview_date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Time', key: 'interview_time', type: 'text'},
-    { heading: 'Final Status', key: 'final_status', type: 'text'},
-    { heading: 'Action', key: 'Action', type: 'text'},
-  ]
+  datasource = new MatTableDataSource<any>(REQUESTED_ASSETS_TABLE_DATA);
+  assetsCategoryDropdown = ['Laptop','Desktop','Mobile'];
+  quantityDropdown = ['1','2','3','4','5'];
+  priorityDropdown = ['Low','Medium','High'];
+  allocationTypeDropdown = ['Permanent','Temporary'];
+  headings = REQUESTED_ASSETS_HEADING;
+  requestAssetsForm!:FormGroup;
 
   toggleCard(){
     this.isOpen = !this.isOpen
+  }
+
+  createForm(){
+    return this.requestAssetsForm = this._fb.group({
+      assetsCategory:['',Validators.required],
+      quantity:['',Validators.required],
+      priority:['',Validators.required],
+      requestedDate:['',Validators.required],
+      allocationType:['',Validators.required],
+      requestReason:['',Validators.required]
+
+    })
   }
 }

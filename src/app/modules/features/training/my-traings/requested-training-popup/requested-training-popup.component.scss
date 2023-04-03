@@ -19,7 +19,9 @@
     border-radius: 50%;
     border: 1px solid black;
     @include flex(center,center);
-    background-color: $primary;
+    background-color: $white;
+    color: #181C21;
+    font-weight: 300;
   }
 }
 
@@ -80,6 +82,9 @@ mat-dialog-actions {
   .submit {
     margin-left: 5px;
     cursor: pointer;
+    height: 40px;
+    background-color: rgb(25, 156, 255) ;
+    color: white;
   }
 
   .cancel {
@@ -88,5 +93,8 @@ mat-dialog-actions {
     color: #96a5b8;
     border: 1.5px solid rgba(150, 165, 184, 0.5);
     padding: 10px;
+  }
+  ::ng-deep .mat-button{
+    line-height: 17px;
   }
 }

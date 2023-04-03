@@ -5,9 +5,9 @@ export const TICKET_HEADING = [
     { heading: 'Employee', key: 'employee', type: 'text'},
     { heading: 'Subject', key: 'subject', type: 'text'},
     { heading: 'Status', key: 'status', type: 'text' },
-    { heading: 'Date', key: 'date', type: 'text'},
+    { heading: 'Date', key: 'date', type: 'date'},
 ]
 
 export const TICKET_TABLE_DATA = [
-    {actiion:'Done',ticket_code:7634527,priority:'final',employee:'Permanet',subject:'Angular',status:'pending',date:'3/04/2023'}
+    {action:'1',ticket_code:7634527,priority:'final',employee:'Permanet',subject:'Angular',status:'pending',date:'3/04/2023'}
 ]

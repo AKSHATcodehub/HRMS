@@ -85,5 +85,15 @@ $purple : #512DA8;
 .seperator {
   margin: 1rem;
 }
+.file{
+  flex-direction:column !important;
+  min-height: 120px;
+  input{
+      border: 1px solid grey;
+      border-radius: 5px;
+      width: 100%;
+      padding: 15px;
+  }
+}
 
 

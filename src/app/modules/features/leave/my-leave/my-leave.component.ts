@@ -63,7 +63,7 @@ export class MyLeaveComponent implements OnInit {
       
       let leaveObject = {
         id:newID,
-        action: 'o',
+        action: 'e',
         leave_type: this.leaveForm.get('leaveType')?.value,
         request_from: this.leaveForm.get('leaveStartDate')?.value,
         request_to: this.leaveForm.get('leaveEndDate')?.value,

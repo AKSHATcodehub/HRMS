@@ -2,6 +2,6 @@
     
     <h1>Training</h1>
     
-    <app-training-card [cards]="cards" (viewDetailsEvent)="openViewDetails()" (feedbackEvent)="openFeedbackDialog()" ></app-training-card>
+    <app-training-card [dynamicLabel]="mode" [cards]="cards" (viewDetailsEvent)="openViewDetails()" (feedbackEvent)="openFeedbackDialog()" ></app-training-card>
 
 </div>

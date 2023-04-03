@@ -6,6 +6,9 @@ import { RequestAssetsComponent } from './request-assets.component';
 import { TableModule } from 'src/app/modules/common/modules/table/table.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +21,10 @@ import { MatInputModule } from '@angular/material/input';
     TableModule,
     MatFormFieldModule,
     MatInputModule,
+    DropdownModule,
+    ValidationErrorModule,
+    ReactiveFormsModule,
+    
   ]
 })
 export class RequestAssetsModule { }

@@ -13,7 +13,19 @@ export class MyTrainingComponent implements OnInit {
   constructor(private dialog:MatDialog,
               private _router:Router,
               private route: ActivatedRoute) { }
-  cards = ['cards'];
+  
+  mode:string='Mode';
+  cards = [
+    {
+      trainingName:'Micro Froented 2023',
+      trainingStatus:'Completed',
+      startDate:'20-03-2022',
+      endDate:'20-05-2023',
+      mode:'Online',
+      id:'101',
+      firstButtonName:'View Details',
+      secondButtonName:'Enrollment'
+    },];
   
   ngOnInit(): void {
   }
@@ -32,7 +44,7 @@ export class MyTrainingComponent implements OnInit {
   }
   
   viewDteails() {
-    this._router.navigate(['../job-details'],{relativeTo:this.route});
+    this._router.navigate(['../training-details'],{relativeTo:this.route});
   }
   openEntrollmentPopup() {
     throw new Error('Method not implemented.');

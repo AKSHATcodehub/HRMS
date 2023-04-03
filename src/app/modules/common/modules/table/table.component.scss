@@ -72,7 +72,7 @@ section {
       }
     }
     th {
-      border: 1px solid rgb(235, 235, 235);
+      // border: 1px solid rgb(235, 235, 235);
       font-size: 14px;
       text-align: center !important;
       margin-bottom: 20px;
@@ -109,15 +109,25 @@ section {
   }
 
 
-::ng-deep .mat-paginator{
-  ::ng-deep .mat-form-field-flex{
-    border: 1px solid #d8d8d8;
-  }
-  .mat-select-value-text{
-    @include flex(center,center);
-  }
-  .mat-input-element{
-    padding-left: 10px;
+::ng-deep {
+    .mat-table{
+      .mat-header-row{
+        height: 43px;
+        .mat-header-cell{
+          border-right: 1px solid #ebebeb;
+        }
+      }
+    }
+    .mat-paginator{
+      .mat-form-field-flex{
+        border: 1px solid #d8d8d8;
+    }
+    .mat-select-value-text{
+      @include flex(center,center);
+    }
+    .mat-input-element{
+      padding-left: 10px;
+    }
   }
 }
 

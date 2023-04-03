@@ -32,7 +32,6 @@ mat-form-field{
       background-color: white;
       @media screen and (max-width: 1200px) {
         width: 100%;
-        margin-top: 20px;
 
       }
       h1{
@@ -60,7 +59,7 @@ mat-form-field{
         }
         
         .form-action{
-          padding: 24px;
+          padding: 24px 12px ;
           button{
             color: white;
             background-color: $primary;

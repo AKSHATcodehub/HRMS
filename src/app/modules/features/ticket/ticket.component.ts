@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
+import { TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
 
 @Component({
   selector: 'app-ticket',
@@ -12,28 +14,32 @@ export class TicketComponent implements OnInit {
   isOpen!: boolean;
   panelOpenState: boolean = false;
   // projectDropdown=PROJECT_DROPDOW;
-  datasource = new MatTableDataSource<any>(INTERVIEW_DATA);
-  headings = [
-    { heading: 'S.No.', key: 's_no', type: 'text'},
-    { heading: 'Department', key: 'department', type: 'text' },
-    { heading: 'Name', key: 'name', type: 'text' },
-    { heading: 'Email', key: 'email', type: 'text'},
-    { heading: 'Mobile No.', key: 'mobile_number', type: 'text'},
-    { heading: 'Round Type', key: 'round_type', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Date', key: 'interview_date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Time', key: 'interview_time', type: 'text'},
-    { heading: 'Final Status', key: 'final_status', type: 'text'},
-    // { heading: 'Action', key: 'action', type: 'text'},
+  datasource = new MatTableDataSource<any>(TICKET_TABLE_DATA);
+  headings = TICKET_HEADING;
+  ticketForm!:FormGroup;
+  departmentDropdown = ['IT','Admin'];
+  tiketCategoryDropdown = ['Ticket Category 1','Ticket Category 2'];
+  priorityDropdown = ['High','Low','Normal'];
+  TABLE_DATA:any[]=TICKET_TABLE_DATA;
 
-  ]
-  constructor() { }
+  constructor(private _fb:FormBuilder) { }
 
   ngOnInit(): void {
 
     this.isOpen = false;
+    this.createForm();
 
   }
 
+  createForm(){
+    return this.ticketForm = this._fb.group({
+      subject:['',Validators.required],
+      department:['',Validators.required],
+      ticketCategory:['',Validators.required],
+      piority:['ii',Validators.required],
+      description:['',Validators.required]
+    })
+  }
 
   togglePanel() {
      
@@ -46,6 +52,35 @@ export class TicketComponent implements OnInit {
   toggleCard(){
     this.isOpen = !this.isOpen
   }
+
+  selectedValue(event:string,controlName:string){
+    console.log("thid id elected value>>>>>>>>>",this.ticketForm.get(controlName)?.value);
+    
+    this.ticketForm.get(controlName)?.setValue(event);
+
+    console.log("thid id elected value>>>>>>>>>",this.ticketForm.get(controlName)?.value);
+
+  }
  
+  addTicket(){
+    console.log("thi ticket value>>",this.ticketForm);
+    
+    if(this.ticketForm.valid){
+      let ticketObject = {
+        action:this.TABLE_DATA.length+1,
+        ticket_code:7634527,
+        priority:this.ticketForm.controls.piority.value,
+        employee:'Permanet',
+        subject:this.ticketForm.controls.subject?.value,
+        status:'pending',
+        date:new Date()
+      }
+      this.TABLE_DATA.push(ticketObject);
+      this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
+
+    }else{
+      this.ticketForm.markAllAsTouched();
+    }
+  }
 
 }

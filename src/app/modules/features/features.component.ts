@@ -134,6 +134,18 @@ export class FeaturesComponent implements OnInit {
     this._router.navigate(['']);
   }
 
+  toggleSideNavSmallPhone(){
+    this.isExpanded = true; // open the entire sidenav by default
+    let sideNavID = document.getElementById("side-nav-id") as HTMLElement || null
+
+    if(sideNavID.style.display == "" || sideNavID.style.display == "none" ){
+      sideNavID.style.display = "block" 
+    }else if(sideNavID.style.display == "block" ){
+      sideNavID.style.display = "none"       
+    }
+  }
+
+
  
 
 }

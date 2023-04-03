@@ -264,3 +264,11 @@ export const LEAVE_DETAILS = {
         return `${this.path}`
     }
 }
+
+export const TRAINING_DETAILS = {
+    path:'training-details',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+
+}
