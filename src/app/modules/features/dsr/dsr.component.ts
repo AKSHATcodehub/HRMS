@@ -40,7 +40,7 @@ export class DsrComponent implements OnInit {
   selctedProject:string='';
   approvingAuthority:string[] = APPROVING_AUTHORITY;
   chooseAM:string[] = CHOOSE_AM;
-  TABLE_DATA:any[]=[];
+  TABLE_DATA = new MatTableDataSource<any>();
 
   constructor(private _fb:FormBuilder) {
 
@@ -53,53 +53,56 @@ export class DsrComponent implements OnInit {
     this.createDsrFilterForm();
     this.createDsrForm();
     console.log("this is data come from my leave section }}}}}}}}}}}}}",LEAVE_TABLEDATA);
-    
-    this.datasource.filterPredicate = (data,filter) =>{
+    this.filter()
+    // this.datasource.filterPredicate = (data,filter) =>{
        
 
-      console.log("filter predicate called>>>>>>>>>");
+    //   console.log("filter predicate called>>>>>>>>>");
       
       
-      if (this.fromDate!=null && this.toDate!=null) {
-        console.log("date filter called>>>>>>");
+    //   if (this.fromDate!=null && this.toDate!=null) {
+    //     console.log("date filter called>>>>>>");
         
-        if(data.date >= this.fromDate && data.date <= this.toDate){
-          this.TABLE_DATA.push(data);
-        }
-      }
+    //     if(data.date >= this.fromDate && data.date <= this.toDate){
+    //       this.TABLE_DATA.data.push(data);
+    //     }
+    //   }
 
-      if( this.filterForm?.controls.submissionStatus.value){
-        console.log("submation status called>>>>>>>>>>",this.filterForm?.controls.submissionStatus.value);
+    //   if( this.filterForm?.controls.submissionStatus.value){
+    //     console.log("submation status called>>>>>>>>>>",this.filterForm?.controls.submissionStatus.value);
         
-        if(data.status == this.filterForm?.controls.submissionStatus.value){
-          this.TABLE_DATA.push(data);
-        }
-      }
+    //     if(data.status == this.filterForm?.controls.submissionStatus.value){
+    //       this.TABLE_DATA.data.push(data);
+    //     }
+    //   }
 
-      if(this.filterForm?.controls.project.value){
-        console.log("project  called>>>>>>>>>>",this.filterForm?.controls.project.value);
-        if(data.status == this.filterForm?.controls.project.value){
-          this.TABLE_DATA.push(data);
-        }
-      }
+    //   if(this.filterForm?.controls.project.value){
+    //     console.log("project  called>>>>>>>>>>",this.filterForm?.controls.project.value);
+    //     if(data.status == this.filterForm?.controls.project.value){
+    //       this.TABLE_DATA.data.push(data);
+    //     }
+    //   }
       
-      if(this.filterForm?.controls.finalApprovalStatus.value){
-        console.log("finalApprovalStatus called",this.filterForm.get('finalApprovalStatus')?.value);
-        if(data.logged_hr == this.filterForm?.controls.finalApprovalStatus.value){
-          this.TABLE_DATA.push(data);
-        }
-      }
+    //   if(this.filterForm?.controls.finalApprovalStatus.value){
+    //     console.log("finalApprovalStatus called",this.filterForm.get('finalApprovalStatus')?.value);
+    //     if(data.logged_hr == this.filterForm?.controls.finalApprovalStatus.value){
+    //       this.TABLE_DATA.data.push(data);
+    //     }
+    //   }
 
-      if(this.filterForm?.controls.hours.value){
-        console.log("hours called",this.filterForm.get('hours')?.value);
-        if(data.status == this.filterForm?.controls.hours.value){
-          this.TABLE_DATA.push(data);
-        }
-      }
+    //   if(this.filterForm?.controls.hours.value){
+    //     console.log("hours called",this.filterForm.get('hours')?.value);
+    //     if(data.status == this.filterForm?.controls.hours.value){
+    //       this.TABLE_DATA.data.push(data);
+    //     }
+    //   }
       
-      this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
-      return true;
-    }
+    //   this.datasource = this.TABLE_DATA;
+    //   console.log("TABLE_DATA>>>>>>>>>>>>>",this.datasource);
+
+      
+    //   return true;
+    // }
 
 
   }
@@ -132,6 +135,65 @@ export class DsrComponent implements OnInit {
 
     this.datasource.filter = ''+Math.random();
 
+    this.filter()
+
+  
+  }
+
+  filter(){
+
+
+      this.datasource.filterPredicate = (data,filter) =>{
+       
+
+        console.log("filter predicate called>>>>>>>>>");
+        
+        
+        if (this.fromDate!=null && this.toDate!=null) {
+          console.log("date filter called>>>>>>");
+          
+          if(data.date >= this.fromDate && data.date <= this.toDate){
+            this.TABLE_DATA.data.push(data);
+          }
+        }
+  
+        if( this.filterForm?.controls.submissionStatus.value){
+          console.log("submation status called>>>>>>>>>>",this.filterForm?.controls.submissionStatus.value);
+          
+          if(data.status == this.filterForm?.controls.submissionStatus.value){
+            this.TABLE_DATA.data.push(data);
+          }
+        }
+  
+        if(this.filterForm?.controls.project.value){
+          console.log("project  called>>>>>>>>>>",this.filterForm?.controls.project.value);
+          if(data.status == this.filterForm?.controls.project.value){
+            this.TABLE_DATA.data.push(data);
+          }
+        }
+        
+        if(this.filterForm?.controls.finalApprovalStatus.value){
+          console.log("finalApprovalStatus called",this.filterForm.get('finalApprovalStatus')?.value);
+          if(data.logged_hr == this.filterForm?.controls.finalApprovalStatus.value){
+            this.TABLE_DATA.data.push(data);
+          }
+        }
+  
+        if(this.filterForm?.controls.hours.value){
+          console.log("hours called",this.filterForm.get('hours')?.value);
+          if(data.status == this.filterForm?.controls.hours.value){
+            this.TABLE_DATA.data.push(data);
+          }
+        }
+        
+        this.datasource = this.TABLE_DATA;
+        console.log("TABLE_DATA>>>>>>>>>>>>>",this.datasource);
+  
+        
+        return true;
+      }
+      
+    
   }
 
     
@@ -181,6 +243,8 @@ export class DsrComponent implements OnInit {
     // this.applyFilter();
     this.datasource.filter = ''+Math.random();
 
+    this.filter();
+
     
   }
 
@@ -215,6 +279,19 @@ export class DsrComponent implements OnInit {
   
   openFilledDsr(element:any){
     
+  }
+
+  resetDsrFilter(){
+    
+    let filterObjectKeys = Object.keys(this.filterForm.controls);
+
+    filterObjectKeys.forEach((item)=>{
+      this.filterForm.get(item)?.patchValue('')
+    })
+
+    this.datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
+
+
   }
 
 }

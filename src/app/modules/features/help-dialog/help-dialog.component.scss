@@ -1,0 +1,26 @@
+@import '../../../../scss/var';
+
+.help-dialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1{
+        font-size: 33px;
+    }
+    mat-icon{
+        font-size:50px;
+        height: 50px;
+        width: 50px;
+        color: $primary;
+    }
+    button{
+        width: 100px;
+        height: 50px;
+        color: $white;
+        background-color: $primary;
+        border-radius: 8px;
+        border: 0px;
+        font-size: 20px;
+    }
+}

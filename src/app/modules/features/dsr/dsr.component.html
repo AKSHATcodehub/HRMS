@@ -161,7 +161,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Submission Status</label>
-                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event,'submissionStatus')"></app-dropdown>    
+                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event,'submissionStatus')"  [progchangedValue]="this.filterForm.controls.submissionStatus.value"></app-dropdown>    
                     </div>
                 </div>
     
@@ -169,7 +169,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Project</label>
-                        <app-dropdown [data]="projectDataDropdown" (outputData)="dropdownFilter($event,'project')"></app-dropdown>    
+                        <app-dropdown [data]="projectDataDropdown" (outputData)="dropdownFilter($event,'project')" [progchangedValue]="this.filterForm.controls.project.value"></app-dropdown>    
                     </div>
                 </div>
             
@@ -185,7 +185,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Final Approval Status</label>
-                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event,'finalApprovalStatus')"></app-dropdown>
+                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event,'finalApprovalStatus')" [progchangedValue]="this.filterForm.controls.finalApprovalStatus.value"></app-dropdown>
                     </div>
                 </div>
     
@@ -193,14 +193,14 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Hours</label>
-                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event,'hours')" ></app-dropdown>
+                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event,'hours')" [progchangedValue]="this.filterForm.controls.hours.value"></app-dropdown>
                     </div>
                 </div>
     
             
                 
                 <div class="button-wrapper "> 
-                    <button (click)="applyFilter()" name="hrsale_form" type="submit" class="button"><i class="fa fa fa-check-square-o"></i> Reset</button>
+                    <button (click)="resetDsrFilter()"  class="button">Reset</button>
                 </div>
             </div>
         </div>

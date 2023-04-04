@@ -24,6 +24,7 @@ export class DropdownComponent implements OnInit {
   @Input() formName!:FormGroup ;
   @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string;
+  @Input() progchangedValue:string = '';
   @Output() outputData :EventEmitter<any> = new EventEmitter();
   @HostListener('document:click') clickedOutside() {
     // console.log("hyy");

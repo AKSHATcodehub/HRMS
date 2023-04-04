@@ -6,6 +6,8 @@ import { FormService } from 'src/app/services/form.service';
 import { navBarData, sideNavList } from './feature-data';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { NavbarItem } from 'src/app/interfaces/navBar.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',
@@ -18,7 +20,9 @@ export class FeaturesComponent implements OnInit {
   constructor(private service:FormService,
     private ref:ElementRef,
     private render:Renderer2,
-    private _router:Router){}
+    private _router:Router,
+    public dialog: MatDialog
+    ){}
     
     @ViewChild('sidenav') sidenav!: MatSidenav; 
     
@@ -143,6 +147,10 @@ export class FeaturesComponent implements OnInit {
     }else if(sideNavID.style.display == "block" ){
       sideNavID.style.display = "none"       
     }
+  }
+
+  helpClick(){
+    this.dialog.open(HelpDialogComponent);
   }
 
 
