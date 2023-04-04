@@ -8,42 +8,56 @@
             </div>
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
                 <div class="row">
-                    <div class="box-block">
-                        <div class="row" [formGroup]="requestAssetsForm">
+                    <div class="box-block" >
+                        <div class="row" >
                           <div class="col-md-12 pd-10">
                             <div class="row">
                               <div class="col-md-3">
-                                <div class="form-group">
-                                  <label for="short_description">Assets Categories * </label>                      
-                                  <app-dropdown [data]="assetsCategoryDropdown"></app-dropdown>
+                                <div class="form-group dropdown">
+                                  <label for="short_description">Assets Categories * </label>   
+                                  <div class="dropdown-body">
+                                    <app-dropdown [data]="assetsCategoryDropdown" (outputData)="selectedValue($event,'assetsCategory')"></app-dropdown>
+                                  </div>                   
                                   <small *ngIf="this.requestAssetsForm.controls.assetsCategory.touched">{{requestAssetsForm | validationError:'assetsCategory':'Department' }}</small>
                                 </div>
                               </div>
                               <div class="col-md-3">
-                                <div class="form-group">
+                                <div class="form-group dropdown">
                                   <label for="short_description">Quantity *</label>
-                                  <app-dropdown [data]="quantityDropdown"></app-dropdown>
+                                  <div class="dropdown-body">
+                                    <app-dropdown [data]="quantityDropdown" (outputData)="selectedValue($event,'quantity')"></app-dropdown>
+                                  </div>
+                                  <small *ngIf="this.requestAssetsForm.controls.quantity.touched">{{requestAssetsForm | validationError:'quantity':'Quality' }}</small>
                                 </div>
                               </div>
                               <div class="col-md-3">
-                                <div class="form-group">
+                                <div class="form-group dropdown">
                                   <label for="short_description">Priority *</label>
-                                  <app-dropdown [data]="priorityDropdown"></app-dropdown>
+                                  <div class="dropdown-body">
+                                    <app-dropdown [data]="priorityDropdown" (outputData)="selectedValue($event,'priority')"></app-dropdown>
+                                  </div>
+                                  <small *ngIf="this.requestAssetsForm.controls.priority.touched">{{requestAssetsForm | validationError:'priority':'Priority' }}</small>
                                 </div>
                               </div>
                               <div class="col-md-3">
                                 <div class="form-group">
                                   <label for="short_description">Required by Date * </label>
-                                  <mat-form-field appearance="outline" >
-                                    <input matInput type="text" >
+                                  <mat-form-field appearance="outline" style="position: relative;" >
+                                    <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="requestedDate">
+                                    <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                                    <mat-datepicker #fromTimePerioed></mat-datepicker>
+                                    <mat-error>{{requestAssetsForm | validationError : 'requestedDate' : 'Requested Date' }}</mat-error>
                                   </mat-form-field>
                                 </div>
                               </div>
             
                               <div class="col-md-3">
-                                <div class="form-group">
+                                <div class="form-group dropdown">
                                   <label for="experience" class="control-label">Allocation type *  </label>
-                                  <app-dropdown [data]="allocationTypeDropdown"></app-dropdown>
+                                  <div class="dropdown-body">
+                                    <app-dropdown [data]="allocationTypeDropdown" (outputData)="selectedValue($event,'allocationType')"></app-dropdown>
+                                  </div>
+                                  <small *ngIf="this.requestAssetsForm.controls.allocationType.touched">{{requestAssetsForm | validationError:'allocationType':'Allocation Type' }}</small>
                                 </div>
                               </div>
                             </div>
@@ -53,13 +67,14 @@
                             <div class="form-group col-md-12">
                               <div class="col-md-12">
                                 <label for="short_description">Request Reason *</label>
-                                <textarea></textarea>
+                                <textarea formControlName="requestReason"></textarea>
+                                <small *ngIf="this.requestAssetsForm.controls.requestReason.touched">{{requestAssetsForm | validationError:'requestReason':'Request Reason' }}</small>
                               </div>
                             </div>
                         </div>
                         <div class="form-actions align-center text-center col-md-12">
                             <div class="col-md-12">
-                                <button  id="assetDeclarationSaveBtn" type="submit" class="button"> <i class="fa fa-check-square-o"></i> Submit </button>
+                                <button (click)="requestAssetsSubmit()" id="assetDeclarationSaveBtn" type="submit" class="button"> <i class="fa fa-check-square-o"></i> Submit </button>
                             </div>
                         </div>
                       </div>

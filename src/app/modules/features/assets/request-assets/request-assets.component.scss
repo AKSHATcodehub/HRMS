@@ -86,4 +86,17 @@ $purple : #512DA8;
   margin: 1rem;
 }
 
+.dropdown{
+  .dropdown-body{
+    position: relative;
+  }
+  small{
+    color: red;
+    position: absolute;
+    top: 73px;
+    left: 10px;
+  }
+}
+
+
 

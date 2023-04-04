@@ -26,7 +26,7 @@ export class DropdownComponent implements OnInit {
   @Input() placeHolder!:string;
   @Output() outputData :EventEmitter<any> = new EventEmitter();
   @HostListener('document:click') clickedOutside() {
-    console.log("hyy");
+    // console.log("hyy");
     
     if (this.state == DropdownMouseState.outside) {
       this.showMenu = false; // hide the dropdown...

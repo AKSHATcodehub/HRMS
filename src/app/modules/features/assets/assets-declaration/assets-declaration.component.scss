@@ -96,4 +96,14 @@ $purple : #512DA8;
   }
 }
 
-
+.dropdown{
+  .dropdown-body{
+    position: relative;
+  }
+  small{
+    color: red;
+    position: absolute;
+    top: 73px;
+    left: 10px;
+  }
+}

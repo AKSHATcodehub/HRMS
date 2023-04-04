@@ -40,6 +40,7 @@ export class DsrComponent implements OnInit {
   selctedProject:string='';
   approvingAuthority:string[] = APPROVING_AUTHORITY;
   chooseAM:string[] = CHOOSE_AM;
+  TABLE_DATA:any[]=[];
 
   constructor(private _fb:FormBuilder) {
 
@@ -54,21 +55,68 @@ export class DsrComponent implements OnInit {
     console.log("this is data come from my leave section }}}}}}}}}}}}}",LEAVE_TABLEDATA);
     
     this.datasource.filterPredicate = (data,filter) =>{
-      
-      if (this.fromDate && this.toDate) {
+       
 
-        console.log('hyy ther',this.fromDate, this.toDate)
+      console.log("filter predicate called>>>>>>>>>");
+      
+      
+      if (this.fromDate!=null && this.toDate!=null) {
+        console.log("date filter called>>>>>>");
         
-        return data.date >= this.fromDate && data.date <= this.toDate;
+        if(data.date >= this.fromDate && data.date <= this.toDate){
+          this.TABLE_DATA.push(data);
+        }
       }
-  
+
+      if( this.filterForm?.controls.submissionStatus.value){
+        console.log("submation status called>>>>>>>>>>",this.filterForm?.controls.submissionStatus.value);
+        
+        if(data.status == this.filterForm?.controls.submissionStatus.value){
+          this.TABLE_DATA.push(data);
+        }
+      }
+
+      if(this.filterForm?.controls.project.value){
+        console.log("project  called>>>>>>>>>>",this.filterForm?.controls.project.value);
+        if(data.status == this.filterForm?.controls.project.value){
+          this.TABLE_DATA.push(data);
+        }
+      }
+      
+      if(this.filterForm?.controls.finalApprovalStatus.value){
+        console.log("finalApprovalStatus called",this.filterForm.get('finalApprovalStatus')?.value);
+        if(data.logged_hr == this.filterForm?.controls.finalApprovalStatus.value){
+          this.TABLE_DATA.push(data);
+        }
+      }
+
+      if(this.filterForm?.controls.hours.value){
+        console.log("hours called",this.filterForm.get('hours')?.value);
+        if(data.status == this.filterForm?.controls.hours.value){
+          this.TABLE_DATA.push(data);
+        }
+      }
+      
+      this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
       return true;
     }
+
+
   }
 
   get fromDate() {
     this.filterForm?.controls.fromDate.setValue(this.convert(`${this.filterForm.get('fromDate')?.value}`));
-    return this.filterForm.get('fromDate')?.value;
+    // console.log("form Date >>>",this.filterForm.get('fromDate')?.value=='NaN-aN-aN');
+
+    if(this.filterForm.get('fromDate')?.value!='NaN-aN-aN'){
+      
+      return this.filterForm.get('fromDate')?.value;
+    }else{
+      // console.log("null return>>>>>>>>>");
+      
+      return null;
+    }
+    
    }
   get toDate() { 
     this.filterForm?.controls.toDate.setValue(this.convert(`${this.filterForm.get('toDate')?.value}`));
@@ -76,7 +124,11 @@ export class DsrComponent implements OnInit {
   }
 
 
+
   applyFilter() {
+
+    // console.log("date change>>>>>>>>>.",this.filterForm.controls.toDate.value);
+    
 
     this.datasource.filter = ''+Math.random();
 
@@ -90,17 +142,7 @@ export class DsrComponent implements OnInit {
     return [date.getFullYear(), mnth, day].join("-");
   }
 
-  createDsrFilterForm(){
-   return this.filterForm = this._fb.group({
-    fromDate: [],
-    toDate:[],
-    submissionStatus:[],
-    project:[],
-    finalApprovalHours:[],
-    hours:[]
-  });
-  }
-
+  
   createDsrForm(){
     return this.dsrForm = this._fb.group({
       dsrProject:['',Validators.required],
@@ -109,20 +151,37 @@ export class DsrComponent implements OnInit {
       dsrContent:['',Validators.required]
     })
   }
-
+  
   togglePanel() {
-     
+    
     this.panelOpenState = !this.panelOpenState;
     
   }
-
+  
   toggleCard(){
     this.isOpen = !this.isOpen
   }
- 
-  dropdownFilter(event:string){
-    console.log("juu",event.trim().toLowerCase());
-    this.datasource.filter = event.trim().toLowerCase();
+  
+  createDsrFilterForm(){
+   return this.filterForm = this._fb.group({
+    fromDate: [null],
+    toDate:[null],
+    submissionStatus:[null],
+    project:[null],
+    finalApprovalStatus:[null],
+    hours:[null]
+  });
+  }
+
+
+  dropdownFilter(event:string,controlName:string){
+    this.filterForm.get(controlName)?.setValue(event);
+    console.log("selected dropdown value>>",this.filterForm.get(controlName)?.value);
+    // this.datasource.filter = event;
+    // this.applyFilter();
+    this.datasource.filter = ''+Math.random();
+
+    
   }
 
   

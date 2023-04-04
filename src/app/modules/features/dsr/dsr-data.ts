@@ -1,4 +1,4 @@
-export const PROJECT_DROPDOWN = [
+  export const PROJECT_DROPDOWN = [
   'Training Project React JS',
   'Miscellaneous', 
   'Interview',
@@ -18,7 +18,7 @@ export var DSR_TABLEDATA:any = [
     date: '2023-03-04',
     logged_hr: 2,
     approval_status: 1,
-    status: 'submitted',
+    status: 'Submitted',
     link:`/features/dsr-details?data=1`,
     dsr_description: ['this is dsr 1 '],
   },

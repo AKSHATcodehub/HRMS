@@ -25,6 +25,7 @@ export class RequestAssetsComponent implements OnInit {
   allocationTypeDropdown = ['Permanent','Temporary'];
   headings = REQUESTED_ASSETS_HEADING;
   requestAssetsForm!:FormGroup;
+  TABLE_DATA:any[]=[];
 
   toggleCard(){
     this.isOpen = !this.isOpen
@@ -40,5 +41,31 @@ export class RequestAssetsComponent implements OnInit {
       requestReason:['',Validators.required]
 
     })
+  }
+
+  requestAssetsSubmit(){
+    if(this.requestAssetsForm.valid){
+      this.TABLE_DATA = REQUESTED_ASSETS_TABLE_DATA;
+      let requestedAssetsObject = {
+        s_no:REQUESTED_ASSETS_TABLE_DATA.length+1,
+        Status:'none',
+        Request_Reason:this.requestAssetsForm.controls.requestReason.value,
+        Priority:this.requestAssetsForm.controls.priority.value,
+        Requested_At:this.requestAssetsForm.controls.requestedDate.value,
+        Assets_Category:this.requestAssetsForm.controls.assetsCategory.value,
+        Allocation_type:this.requestAssetsForm.controls.allocationType.value,
+        Company:'HP'
+      }
+
+      this.TABLE_DATA.push(requestedAssetsObject);
+      this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
+
+    }else{
+      this.requestAssetsForm.markAllAsTouched();
+    }
+  }
+
+  selectedValue(event:string,controlName:string){
+    this.requestAssetsForm.get(controlName)?.setValue(event);
   }
 }

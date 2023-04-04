@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
-                <div class="row">
+                <div class="row" [formGroup]="assetsDeclarationForm">
                     <div class="row">
                         <div class="col-md-12 pd-10">
                           <div class="row">
@@ -15,7 +15,8 @@
                               <div class="form-group">
                                 <label for="gender">Employee Id AI1592 <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text"   >
+                                    <input matInput type="text" formControlName="employeeId"  >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'employeeId' : 'Employee Id' }}</mat-error>
                                   </mat-form-field>
                               </div>
                             </div>
@@ -24,7 +25,8 @@
                               <div class="form-group">
                                 <label for="experience" class="control-label">Unique Asset Code  <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text"  >
+                                    <input matInput type="text" formControlName="uniqueAssetCode" >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'uniqueAssetCode' : 'Unique Asset Code ' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
@@ -33,7 +35,8 @@
                               <div class="form-group">
                                 <label for="experience" class="control-label">Serial Number <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text"  >
+                                    <input matInput type="text" formControlName="serialNumber" >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'serialNumber' : 'Serial Number' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
@@ -42,15 +45,19 @@
                               <div class="form-group">
                                 <label for="required_by">Model Number <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text">
+                                    <input matInput type="text" formControlName="modelNumber" >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'modelNumber' : 'Model Number' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
 
                             <div class="col-md-3">
-                              <div class="form-group">
+                              <div class="form-group dropdown">
                                 <label for="allocationType">OS <span class="red-color">*</span> </label>
-                                <app-dropdown [data]="OsDropdown"></app-dropdown>
+                                <div class="dropdown-body">
+                                  <app-dropdown [data]="OsDropdown"  (outputData)="selectedValue($event,'os')"></app-dropdown>
+                                </div>
+                                <small *ngIf="this.assetsDeclarationForm.controls.os.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>
                             </div>
 
@@ -58,7 +65,8 @@
                               <div class="form-group">
                                 <label for="allocationType">OS version  <span class="red-color">*</span> </label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text" >
+                                    <input matInput type="text" formControlName="osVersion" >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'osVersion' : 'OS version' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
@@ -67,7 +75,8 @@
                               <div class="form-group">
                                 <label for="allocationType">Brand <span class="red-color">*</span> </label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text" >
+                                    <input matInput type="text" formControlName="brand">
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'brand' : 'Brand' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
@@ -76,15 +85,19 @@
                               <div class="form-group">
                                 <label for="allocationType">Colour <span class="red-color">*</span> </label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text" >
+                                    <input matInput type="text" formControlName="color" >
+                                    <mat-error>{{assetsDeclarationForm | validationError : 'color' : 'Color' }}</mat-error>
                                 </mat-form-field>
                               </div>
                             </div>
 
                             <div class="col-md-3">
-                              <div class="form-group">
+                              <div class="form-group dropdown">
                                 <label for="allocationType">Device is in working condition?  <span class="red-color">*</span> </label>
-                                <app-dropdown [data]="deviceWorkingDropdown" ></app-dropdown>
+                                <div class="dropdown-body">
+                                  <app-dropdown [data]="deviceWorkingDropdown"  (outputData)="selectedValue($event,'workingCondition')" ></app-dropdown>
+                                </div>
+                                <small *ngIf="this.assetsDeclarationForm.controls.workingCondition.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>
                             </div>
 
@@ -95,7 +108,8 @@
                                 <br>
                                 <label for="short_description">Asset Image(Allowed Format: jpg,jpeg,JPEG,JPG,png,PNG,GIF) <span class="red-color">Upload front and backside image*</span></label>
                                 <br>
-                                <input type="file">
+                                <input type="file" formControlName="assetsImage">
+                                <small *ngIf="this.assetsDeclarationForm.controls.assetsImage.touched">{{assetsDeclarationForm | validationError:'assetsImage':'Assets Image' }}</small>
                             </div>
                           </div>
 
@@ -105,7 +119,7 @@
 
                 <div class="row form-actions align-center text-center col-md-12">
                     <div class="col-md-12">
-                        <button  id="assetDeclarationSaveBtn" type="submit" class="button"> <i class="fa fa-check-square-o"></i> Submit </button>
+                        <button  (click)="assetsDeclarationSubmit()" type="submit" class="button">  Submit </button>
                     </div>
                 </div>
             </div>

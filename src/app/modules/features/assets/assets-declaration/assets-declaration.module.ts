@@ -7,6 +7,8 @@ import { TableModule } from 'src/app/modules/common/modules/table/table.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown
     TableModule,
     MatFormFieldModule,
     MatInputModule,
-    DropdownModule
+    DropdownModule,
+    ReactiveFormsModule,
+    ValidationErrorModule
   ]
 })
 export class AssetsDeclarationModule { }

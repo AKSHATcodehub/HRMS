@@ -59,6 +59,8 @@ export class FormService {
     fromDate:[],
     toDate:[],
     remark:[],
+    mandatory:[],
+
   }
 
   getControl(name:any,required=true,prerfilled?:any){
