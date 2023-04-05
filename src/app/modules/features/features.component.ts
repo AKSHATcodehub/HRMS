@@ -41,7 +41,7 @@ export class FeaturesComponent implements OnInit {
   
 
   ngOnInit(): void {
-    
+    // this.helpClick();  
   }
   
   panelClick(event?:any){ 

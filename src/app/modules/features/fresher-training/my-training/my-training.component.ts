@@ -22,7 +22,7 @@ export class MyTrainingComponent implements OnInit {
       endDate:'20-05-2023',
       mode:'Online',
       id:'101',
-      firstButtonName:'ViewDetails',
+      firstButtonName:'View Details',
       secondButtonName:'Feedback'
     },
     {
@@ -32,7 +32,7 @@ export class MyTrainingComponent implements OnInit {
       endDate:'20-05-2023',
       mode:'Online',
       id:'102',
-      firstButtonName:'ViewDetails',
+      firstButtonName:'View Details',
       secondButtonName:'Feedback'
       
     },
@@ -43,7 +43,7 @@ export class MyTrainingComponent implements OnInit {
       endDate:'20-05-2023',
       mode:'Online',
       id:'103',
-      firstButtonName:'ViewDetails',
+      firstButtonName:'View Details',
       secondButtonName:'Feedback'
     },
     {
@@ -53,7 +53,7 @@ export class MyTrainingComponent implements OnInit {
       endDate:'20-05-2023',
       mode:'Online',
       id:'104',
-      firstButtonName:'ViewDetails',
+      firstButtonName:'View Details',
       secondButtonName:'Feedback'
     }
   ];
@@ -64,7 +64,7 @@ export class MyTrainingComponent implements OnInit {
 
 
   openViewDetails() {
-    this._router.navigate(['../job-details'],{relativeTo:this.route});
+    this._router.navigate(['../job-details/101'],{relativeTo:this.route});
   }
   openFeedbackDialog() {
     const dialogRef = this.dialog.open(FeedbackDialogComponent, {
@@ -79,3 +79,6 @@ export class MyTrainingComponent implements OnInit {
 
 
 }
+
+
+

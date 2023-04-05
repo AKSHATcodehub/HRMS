@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, QueryList, TemplateRef, ViewChildren } from '@angular/core';
+import { JOB_OPENINGS } from './latest-job-card-data';
 
 @Component({
   selector: 'app-latest-job-cards',
@@ -11,6 +12,7 @@ throw new Error('Method not implemented.');
 }
 
   constructor() { }
+  jobOpeningsData = JOB_OPENINGS;
   render_child = false;
   dataSource:any = []
   ngOnInit(): void {

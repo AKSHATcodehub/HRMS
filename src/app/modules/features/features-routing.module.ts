@@ -56,7 +56,7 @@ const routes: Routes = [
         )
       },
       {
-        path:JOBDETAILS.fullUrl,
+        path:`${JOBDETAILS.fullUrl}/:id`,
         loadChildren:()=>import('./job-details/job-details.module').then(
           (m)=>m.JobDetailsModule
         )

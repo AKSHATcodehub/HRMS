@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { JOB_OPENINGS } from '../home/latest-job-cards/latest-job-card-data';
 
 @Component({
   selector: 'app-job-details',
@@ -7,11 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JobDetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _activateRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
-  console.log("jim morisaon");
-  
+
+    this._activateRoute.params.subscribe((params:any)=>{
+
+      this.jobDetailsData  = this.jobOpeningsData.filter((job:any)=>{
+        
+        if(job.job_id ==  params.id){
+          return job;
+        }
+      })
+      
+      this.jobDetailsData = Object.assign({},...this.jobDetailsData);
+    
+    })
+
   }
+
+  jobOpeningsData = JOB_OPENINGS;
+  jobDetailsData:any;
+
+
+
 
 }

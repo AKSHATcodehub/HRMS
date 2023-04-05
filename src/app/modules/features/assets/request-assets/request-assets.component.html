@@ -8,7 +8,7 @@
             </div>
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
                 <div class="row">
-                    <div class="box-block" >
+                    <div class="box-block" [formGroup]="requestAssetsForm">
                         <div class="row" >
                           <div class="col-md-12 pd-10">
                             <div class="row">
@@ -86,7 +86,7 @@
     <div class="wrapper">
         <div class="assest-wrapper">
             <div class="wrapper-heading">
-                <h1>List All Assets Inventory</h1>
+                <h1 class="dark-header">List All Assets Inventory</h1>
             </div>
             <app-table [columns]="headings" [dataSource]="datasource"></app-table>
         </div>

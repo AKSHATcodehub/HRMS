@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { FEATURES, JOBDETAILS } from 'src/app/constant/routes';
@@ -12,12 +12,14 @@ import { DialogComponent } from 'src/app/modules/common/modules/dialog/dialog.co
 })
 export class LatestJobComponent implements OnInit {
 
- 
+
   constructor(public dialog: MatDialog,
               private render:Renderer2,
               private  elementRef:ElementRef,
               private router:Router) { }
 
+  @Input() singleJobData:any;
+    
   slideIndex = 1;
 
   slides:any;
@@ -69,8 +71,9 @@ export class LatestJobComponent implements OnInit {
       console.log('The dialog was closed');
       // this.animal = result;
     });
+
   }
 
-  
+
  
 }

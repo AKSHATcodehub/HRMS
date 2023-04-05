@@ -1,53 +1,58 @@
-@import './../../../../../scss/var',
-        './../../../../../scss/theme/grid';
+@import "./../../../../../scss/var", "./../../../../../scss/theme/grid";
 
-.custom-error{
+.custom-error {
   height: 12px;
   font-size: 11px;
 }
-mat-form-field{
+mat-form-field {
   width: 100% !important;
 }
 
-.basic-information{
+.basic-information {
+  // margin-top: 20px;
 
-    // margin-top: 20px;
-
-    .user-basic-info{
-      width: 100%;
-      background-clip: content-box;
-      background-color: white;
-      h1{
-        padding: 20px;
-        margin: 0px;
-        color: blue;
+  .user-basic-info {
+    // padding: 20px 10px;
+    width: 100%;
+    background-clip: content-box;
+    background-color: white;
+    h1 {
+      padding: 20px;
+      margin: 0px;
+      color: blue;
+      font-weight: 500;
+    }
+    .form-action {
+      padding: 24px 10px;
+      button {
+        color: white;
+        background-color: $primary;
+        border: 0px;
+        height: 37px;
+        width: 64px;
+        font-weight: 13px;
         font-weight: 500;
-      }
-        .form-action{
-          padding: 24px;
-          button{
-            color: white;
-            background-color: $primary;
-            border: 0px;
-            height: 37px;
-            width: 64px;
-            font-weight: 13px;
-            font-weight: 500;
-            border-radius: 6px;
-          }
-        }
-        
+        border-radius: 6px;
       }
     }
-
-    .dropdown{
-      .dropdown-body{
-        position: relative;
-      }
-      small{
-        color: red;
-        position: absolute;
-        top: 53px;
-        left: 10px;
-      }
+  }
+  
+}
+.total-experience{
+  .col-md-6{
+    .col{
+      padding-left: 0px;
     }
+  }
+}
+.dropdown {
+  .dropdown-body {
+    position: relative;
+  }
+  small {
+    color: red;
+    position: absolute;
+    top: 53px;
+    left: 10px;
+  }
+}

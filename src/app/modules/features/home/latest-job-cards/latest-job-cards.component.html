@@ -1,8 +1,8 @@
 <div class="latest-job-cards-wrapper">
-    <ng-container *ngFor="let item of arr">
+    <ng-container *ngFor="let job of jobOpeningsData">
         <ng-template #listOfDivs>
             <div class="card-wrapper">
-                <app-latest-job></app-latest-job>
+                <app-latest-job [singleJobData]="job"></app-latest-job>
             </div>
         </ng-template>
     </ng-container>

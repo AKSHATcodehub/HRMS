@@ -9,10 +9,19 @@
     @include media(md){
         padding: 16px;
     }
-    h1{
-        color: blue;
+    .wrapper-header{
+        font-size: 24px !important;
+        color: #199CFF !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
     }
 }
+.dark-header{
+    color: #3246d3;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
 .button{
     // margin: 5px 20px;
     height: 40px;

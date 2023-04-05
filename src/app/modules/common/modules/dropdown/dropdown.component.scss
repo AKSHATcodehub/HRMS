@@ -1,3 +1,5 @@
+  @import '../../../../../scss/var';
+
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
   *{
     margin: 0;
@@ -20,6 +22,7 @@
     border: 1px solid #d5d1d1 !important;
     border-radius: 7px;
     box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+    margin-top: 3.5px;
     margin-bottom: 20px;
     @media screen and (max-width:700px){
       width: 100%;
@@ -36,7 +39,7 @@
     color: #B3B3B3;
   }
   .select-btn{
-    height: 50px;
+    height: 47.2px;
     padding: 0 10px;
     font-size: 16px;
     background: #fff;
@@ -50,6 +53,7 @@
     // box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   }
   .select-btn i{
+    color:$primary ;
     font-size: 31px;
     transition: transform 0.3s linear;
   }

@@ -9,7 +9,7 @@
                 <div class="flex-row">
                     <div class="flex-col-2">
                         <label for="">Job Title :</label>
-                        <span>Associate Tech Lead</span>
+                        <span>{{jobDetailsData.job_title}}</span>
                     </div>
                     <div class="flex-col-2">
                         <label for="">Job Type :</label>
@@ -19,23 +19,23 @@
                 <div class="flex-row">
                     <div class="flex-col-2">
                         <label for="">Department :</label>
-                        <span>Java</span>
+                        <span>{{jobDetailsData.department}}</span>
                     </div>
                     <div class="flex-col-2">
                         <label for="">Location :</label>
-                        <span>Noida , Uttar Pradesh</span>
+                        <span>{{jobDetailsData.location}}</span>
                     </div>
                 </div>
                 <div class="flex-row">
                     <div class="flex-col-2">
                         <label for="">No. of Openings :</label>
-                        <span>2</span>
+                        <span>{{jobDetailsData.openings_count}}</span>
                     </div>
                 </div>
                 <div class="flex-row">
                     <div class="flex-col-2">
                         <label for="">Exp. Required :</label>
-                        <span>3 to 5 Years Referral bonus will be Rs. 2000 for more information read Terms & Conditions.</span>
+                        <span>{{jobDetailsData.job_experience_required}}</span>
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                 </div>
                 <hr>
                 <div class="job-content">
-                    <h3>Java</h3>
+                    <h3>{{jobDetailsData.skills}}</h3>
                 </div>
             </div>
             <div class="card-mid-row">
@@ -54,7 +54,7 @@
                 </div>
                 <hr>
                 <div class="job-content">
-                    <h3>Hiring Java Developers & Tech Leads.</h3>
+                    <h3>{{jobDetailsData.job_description}}</h3>
                 </div>
             </div>
             <div class="card-mid-row">

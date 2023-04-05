@@ -5,20 +5,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0px 20px;
     h1{
         font-size: 33px;
     }
+    p{
+        font-size: 20px;
+    }
     mat-icon{
-        font-size:50px;
-        height: 50px;
-        width: 50px;
-        color: $primary;
+        font-size:100px;
+        height: 100px;
+        width: 100px;
+        color: #3fc3ee;
+        border-radius: 50%;
+        border: 3px solid #3fc3ee;
+
     }
     button{
         width: 100px;
         height: 50px;
         color: $white;
-        background-color: $primary;
+        background-color: #3085d6;
         border-radius: 8px;
         border: 0px;
         font-size: 20px;

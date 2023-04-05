@@ -28,7 +28,7 @@
 
     <div class="leave-section">
         <div class="add-leave row">
-            <span class="">Add Leave</span>
+            <span class="leave-header">Add Leave</span>
             <button class=" button" (click)="addLeave()">ADD</button> 
         </div>
         <div class="leave-content" *ngIf="isOpen">
@@ -148,7 +148,7 @@
     <div class="ticket-list">
         <div class="row">
             <div class="col-md-12">
-                <h1>List All Leave</h1>
+                <h1 class="leave-header">List All Leave</h1>
                 <app-table [columns]="headings" [dataSource]="datasource"></app-table>
             </div>
         </div>

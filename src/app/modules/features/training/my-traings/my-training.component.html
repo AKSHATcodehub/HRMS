@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="wrapper-heading">
-        <h1>My Training</h1>
+        <h1 class="wrapper-header">My Training</h1>
         <button class="button" (click)="requestForTraining()">Request For Training</button>
     </div>
     <app-training-card [dynamicLabel]="mode" [cards]="cards" (viewDetailsEvent)="viewDteails()" (feedbackEvent)="openEntrollmentPopup()">

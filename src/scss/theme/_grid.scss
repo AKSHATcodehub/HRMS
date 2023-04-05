@@ -6,6 +6,20 @@ html {
   -ms-overflow-style: scrollbar;
 }
 
+.wrapper-header{
+  font-size: 24px !important;
+  color: #199CFF !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  // margin-bottom: 0 !important;
+}
+
+.dark-header{
+  color: #3246d3;
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .button{
   // margin: 5px 20px;
   height: 40px;

@@ -61,7 +61,10 @@ export class BasicInformationComponent implements OnInit {
   }
 
   saveBasicInfo(){
+    console.log("basic form>>>>>>>", this.basicInfoForm.controls.firstName);
+    
     this.basicInfoForm.markAllAsTouched();
+    
     if(this.basicInfoForm.errors){
       alert("sucess");
     }
