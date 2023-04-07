@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
 import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM } from './dsr-data';
 import { LEAVE_TABLEDATA } from './../leave/my-leave/my-leave-data';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 
 
 
@@ -42,7 +45,47 @@ export class DsrComponent implements OnInit {
   chooseAM:string[] = CHOOSE_AM;
   TABLE_DATA = new MatTableDataSource<any>();
 
-  constructor(private _fb:FormBuilder) {
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '15vw',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' },
+    ],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+    uploadUrl: 'v1/image',
+  };
+
+  constructor(private _fb:FormBuilder,
+              private _snackbar:MatSnackBar) {
 
     this.pipe = new DatePipe('en');
    
@@ -255,23 +298,36 @@ export class DsrComponent implements OnInit {
   }
 
   dsrSummit(){
-    this.dsrForm.markAllAsTouched();
-    let dsrObject = {
-      s_no: DSR_TABLEDATA.length+1,
-      emp_name: 'akshat',
-      emp_id: '1553',  
-      email: 'akshat@appinventiv.com',
-      employment_type: 'Permanent',
-      date: '2023-03-08',
-      logged_hr: this.dsrForm.controls.dsrHours.value,
-      approval_status: 2,
-      status: 'Due',
-      link:`/features/dsr-details?data=3`,
-      dsr_description: this.dsrForm.controls.dsrContent.value,
-    }
-    DSR_TABLEDATA.push(dsrObject);
 
-    this.datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
+    if(this.dsrForm.valid){
+
+      let dsrObject = {
+        s_no: DSR_TABLEDATA.length+1,
+        emp_name: 'akshat',
+        emp_id: '1553',  
+        email: 'akshat@appinventiv.com',
+        employment_type: 'Permanent',
+        date: '2023-03-08',
+        logged_hr: this.dsrForm.controls.dsrHours.value,
+        approval_status: 2,
+        status: 'Due',
+        link:`/features/dsr-details?data=3`,
+        dsr_description: this.dsrForm.controls.dsrContent.value,
+      }
+      DSR_TABLEDATA.push(dsrObject);
+  
+      this.datasource.data = (DSR_TABLEDATA);
+
+      this._snackbar.openFromComponent(SnackbarComponent, {
+        duration: 1* 100000,
+        verticalPosition:'top',
+        data:'DSR Submitted!'
+      })
+    
+    }else{
+
+      this.dsrForm.markAllAsTouched();
+    }
 
     console.log('dsr updated data',DSR_TABLEDATA );
     
@@ -290,7 +346,6 @@ export class DsrComponent implements OnInit {
     })
 
     this.datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
-
 
   }
 

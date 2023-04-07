@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Regex } from 'src/app/constant/regex';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-change-password',
@@ -13,7 +14,9 @@ export class ChangePasswordComponent implements OnInit {
   passwordForm!:FormGroup;
 
   constructor( private fb:FormBuilder,
-               private _snackBar:SnackbarService) { 
+               private _snackBar:SnackbarService,
+            
+               ) { 
     this.passwordForm = this.createForm();
   }
 
@@ -34,11 +37,6 @@ export class ChangePasswordComponent implements OnInit {
     }
     if(this.passwordForm.invalid){
       this.passwordForm.markAllAsTouched();
-    }else{
-      
-        this._snackBar.snackBar("new & confirm password is diffrent",);
-  
-    
     }
   }
 

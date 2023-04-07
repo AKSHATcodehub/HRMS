@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 // import { userInfoTitle } from '../profile-data';
 
 @Component({
@@ -11,7 +15,9 @@ export class BasicInformationComponent implements OnInit {
 
   constructor(private ref:ElementRef,
               private render:Renderer2,
-              private fb:FormBuilder
+              private fb:FormBuilder,
+              public _utilities:UtilitiesService,
+              private _snackBar:SnackbarService
               ) { }
   
   today = new Date();
@@ -63,11 +69,14 @@ export class BasicInformationComponent implements OnInit {
   saveBasicInfo(){
     console.log("basic form>>>>>>>", this.basicInfoForm.controls.firstName);
     
-    this.basicInfoForm.markAllAsTouched();
     
-    if(this.basicInfoForm.errors){
-      alert("sucess");
+    if(this.basicInfoForm.valid){
+      this._snackBar.snackBar('Basic Info Updated')
+
+    }else{
+      this.basicInfoForm.markAllAsTouched();
     }
+
   }
 
   tabNext(){

@@ -19,7 +19,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     FormsModule,
     MatCheckboxModule,
-  
     MatSnackBarModule
   ],
   exports:[

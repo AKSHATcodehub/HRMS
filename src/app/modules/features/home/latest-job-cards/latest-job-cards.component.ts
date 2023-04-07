@@ -19,8 +19,6 @@ throw new Error('Method not implemented.');
   }    
   arr = [1]
   @ViewChildren("listOfDivs", { read: TemplateRef }) listToShow!: QueryList<ElementRef<HTMLDivElement>>;
-
-
  
   gridConfig = {
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },

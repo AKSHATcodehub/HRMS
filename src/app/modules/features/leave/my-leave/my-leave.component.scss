@@ -49,10 +49,14 @@ mat-form-field{
         .action-btn{
             .button{
                 margin: 20px 10px;
+                background-color: #1da81b !important;
                 @include media(md){
-                    margin: 20px 5px;
+                    margin: 20px 0px;
                 }
             
+            }
+            button:nth-child(2){
+                background-color: #d9534f !important;
             }
         }
     }

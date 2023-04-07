@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Regex } from 'src/app/constant/regex';
 import { DASHBOARD, FEATURES } from 'src/app/constant/routes';
@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit {
     
     this._snackBar.openFromComponent(SnackbarComponent, {
       duration: 1* 1000,
-      verticalPosition:'top'
-      
+      verticalPosition:'top',
+      data:'Login Sucessfully!'
     });
   
   }

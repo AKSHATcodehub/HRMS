@@ -31,7 +31,7 @@ export class WorkAnniversaryComponent implements OnInit {
     },
     {
       member_name:'Chetan singh',
-      image_name:'profile_5.png',
+      image_name:'profile_7.jpg',
       member_designation:'React JS Software Engineeer'
     },
     {

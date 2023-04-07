@@ -73,7 +73,7 @@
                                     <div class="content" #content>
                                       <div class="search">
                                         <i class="uil uil-search"></i>
-                                        <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+                                        <input type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
                                       </div>
                                       <ul class="options">
                                         <li *ngFor="let item of IndustryData" (click)="updateName(item,selectbtn,wapper,'pitchIndustry')" #{item}>{{item}}</li> 

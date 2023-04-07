@@ -2,6 +2,7 @@ import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-profile-picture',
@@ -16,7 +17,9 @@ export class ProfilePictureComponent implements OnInit {
   url!: string | ArrayBuffer | null;
   constructor(private fb:FormBuilder,
               private render:Renderer2,
-              private _snackBar:SnackbarService) { 
+              private _snackBar:SnackbarService,
+              public _utilities:UtilitiesService
+              ) { 
 
     this.profileForm = this.createForm();
 

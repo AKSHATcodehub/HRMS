@@ -13,11 +13,13 @@
                         <div class="col-6">
         
                             <!-- Project Listing -->
-                            <div class="form-group col-12" id="project_ajax">
+                            <div class="form-group col-12 dropdown" id="project_ajax">
                                 <div class="col-md-12">
                                     <label for="project_ajax" class="control-label">Project</label>
-                                    <app-dropdown [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
-                                    <small *ngIf="this.dsrForm.controls.dsrProject.touched">{{dsrForm | validationError : 'dsrProject' : 'Project' }}</small>
+                                    <div class="dropdown-body">
+                                        <app-dropdown [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
+                                        <small *ngIf="this.dsrForm.controls.dsrProject.touched">{{dsrForm | validationError : 'dsrProject' : 'Project' }}</small>
+                                    </div>
                                 </div>
                             </div>
         
@@ -43,7 +45,8 @@
                                             <label for="task_hour" class="control-label">Estimated Hour</label>
         
                                             <mat-form-field appearance="outline" >
-                                                <input matInput type="text" class="date_filter_from form-control hasDatepicker" placeholder="Select from-date" id="dp1678966291433" formControlName="dsrHours">
+                                                <input matInput type="text" placeholder="Select from-date" formControlName="dsrHours">
+                                                <mat-error>{{dsrForm | validationError : 'dsrHours' : 'Hours' }}</mat-error>
                                             </mat-form-field>
         
                                             <span class="input-group-addon">
@@ -92,22 +95,7 @@
                         <div class="col-6">
                             <div class="col-md-12">
                                 <label for="">Description</label>
-                                <editor
-                                    formControlName="dsrContent"
-                                    [init]="{
-                                        height: 400,
-                                        menubar: false,
-                                        plugins: [
-                                        'advlist autolink lists link image charmap print preview anchor',
-                                        'searchreplace visualblocks code fullscreen',
-                                        'insertdatetime media table paste code help wordcount'
-                                        ],
-                                        toolbar:
-                                        'undo redo | formatselect | bold italic backcolor | \
-                                        alignleft aligncenter alignright alignjustify | \
-                                        bullist numlist outdent indent | removeformat | help'
-                                    }"
-                                ></editor>
+                                <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="dsrContent"></angular-editor>
                                 <small *ngIf="this.dsrForm.controls.dsrContent.touched">{{dsrForm | validationError : 'dsrContent' : 'Description' }}</small>
                             </div>
                         </div>

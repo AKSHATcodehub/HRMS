@@ -71,6 +71,22 @@ hr{
     .button-wrapper{
         @include flex(center,center);
         margin: 0px 20px;
+        button{
+          color: $white;
+          border-radius: 8px;
+          background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), #199CFF;
+          color: $white;
+          border-radius: 5px;
+          box-shadow: 0px 1px 4px rgb(0 0 0 / 12%), inset 0px 2px 0px rgb(255 255 255 / 24%);
+          background-blend-mode: soft-light, normal;
+          &:hover {
+            cursor: pointer;
+            background: $primary;
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.07), 0px 4px 5px 0px rgba(0, 0, 0, 0.05),
+              0px 1px 10px 0px rgba(0, 0, 0, 0.03);
+            color: $white;
+          }
+        }
     }
 }
 
@@ -84,7 +100,17 @@ mat-expansion-panel-header
    pointer-events: none;
 }
 
-
+.dropdown {
+    .dropdown-body {
+      position: relative;
+    }
+    small {
+      color: red;
+      position: absolute;
+      top: 53px;
+      left: 10px;
+    }
+  }
 
 
 /* Button skeleton */
@@ -136,3 +162,35 @@ $purple : #512DA8;
 .seperator {
   margin: 1rem;
 }
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-width: 1px !important;
+    color: #e0e0e0;
+  }
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-width: 1px !important;
+    color: #e0e0e0;
+  }
+
+
+::-webkit-scrollbar {
+    height: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: grey; 
+  }

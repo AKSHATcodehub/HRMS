@@ -5,6 +5,7 @@ import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { DialogComponent } from 'src/app/modules/common/modules/dialog/dialog.component';
 import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 
 
@@ -21,7 +22,8 @@ export class QualificationComponent implements OnInit{
     private render:Renderer2,
     private _fb:FormBuilder,
     private _form:FormService,
-    private _snackBar:SnackbarService) { }
+    private _snackBar:SnackbarService,
+    ) { }
     slidePosition = 1;
     wrapper:any;
   dp4: any;
@@ -169,13 +171,14 @@ export class QualificationComponent implements OnInit{
     
     if(this.qualificationForm.valid){
       
-      this._snackBar.snackBar('Qualification Updated');
       this.dp4=this.convert(`${this.qualificationForm.controls?.['fromTimePerioed'].value}`)
       this.dp3=this.convert(`${this.qualificationForm.controls?.['toTimePerioed'].value}`)
       this.Table_DATA.push(
       { SUName:`${this.qualificationForm.controls?.['university'].value}`, Time_Period:`${this.dp4} - ${this.dp3}`, ElName:`${this.qualificationForm.controls?.['education'].value}`}
       )
       this.datasource = new MatTableDataSource<any>(this.Table_DATA)
+
+      this._snackBar.snackBar('Qualification Updated!')
       
     }
     setTimeout(() => {
@@ -194,6 +197,7 @@ export class QualificationComponent implements OnInit{
       data: event
     }
   );
+
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed',result);
   

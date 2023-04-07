@@ -53,7 +53,8 @@ import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown
     TableModule,
     DialogModule,
     DropdownModule,
-    MatDialogModule
+    MatDialogModule,
+    
   ],
   exports:[
     QualificationComponent

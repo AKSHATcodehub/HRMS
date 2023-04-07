@@ -10,6 +10,9 @@ import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
 import { TableModule } from '../../common/modules/table/table.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
 
 
 @NgModule({
@@ -27,7 +30,10 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
     TableModule,
     ReactiveFormsModule,
     FormsModule,
-    ValidationErrorModule
+    ValidationErrorModule,
+    AngularEditorModule,
+    MatSnackBarModule,
+    SnackbarModule
   ]
 })
 export class TicketModule { }

@@ -63,7 +63,7 @@
                     flex-direction:column !important;
                     min-height: 120px;
                     input{
-                        border: 1px solid #d8d8d8;
+                        border: 1px solid #d8d8d8 ;
                         border-radius: 5px;
                         width: 100%;
                         padding: 15px;
@@ -88,6 +88,14 @@
     }
 }
 
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-width: 1px !important;
+  color: #e0e0e0;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-width: 1px !important;
+  color: #e0e0e0;
+}
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');

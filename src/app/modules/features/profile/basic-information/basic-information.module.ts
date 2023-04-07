@@ -14,6 +14,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
     MatIconModule,
     DropdownModule,
     ReactiveFormsModule,
-    ValidationErrorModule
+    ValidationErrorModule,
+    MatSnackBarModule,
+    SnackbarModule
   ],
   exports:[
     BasicInformationComponent

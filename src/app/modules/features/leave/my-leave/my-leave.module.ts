@@ -13,6 +13,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -31,7 +34,10 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    ValidationErrorModule
+    ValidationErrorModule,
+    AngularEditorModule,
+    SnackbarModule,
+    MatSnackBarModule
   ]
 })
 export class MyLeaveModule { }

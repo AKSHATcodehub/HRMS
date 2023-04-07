@@ -112,4 +112,8 @@ export class AddPitchComponent implements OnInit {
     this.pitchForm?.get(control)?.setValue(selectedLi);
 
   }
+
+  art(){
+    alert('hy')
+  }
 }

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
 import { TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
 
@@ -13,7 +16,6 @@ export class TicketComponent implements OnInit {
 
   isOpen!: boolean;
   panelOpenState: boolean = false;
-  // projectDropdown=PROJECT_DROPDOW;
   datasource = new MatTableDataSource<any>(TICKET_TABLE_DATA);
   headings = TICKET_HEADING;
   ticketForm!:FormGroup;
@@ -21,8 +23,47 @@ export class TicketComponent implements OnInit {
   tiketCategoryDropdown = ['Ticket Category 1','Ticket Category 2'];
   priorityDropdown = ['High','Low','Normal'];
   TABLE_DATA:any[]=TICKET_TABLE_DATA;
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '15vw',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' },
+    ],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+    uploadUrl: 'v1/image',
+  };
 
-  constructor(private _fb:FormBuilder) { }
+  constructor(private _fb:FormBuilder,
+              private _snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -77,6 +118,11 @@ export class TicketComponent implements OnInit {
       }
       this.TABLE_DATA.push(ticketObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
+      this._snackbar.openFromComponent(SnackbarComponent, {
+        duration: 1* 1000,
+        verticalPosition:'top',
+        data:'Ticket Submitted!'
+      })
 
     }else{
       this.ticketForm.markAllAsTouched();

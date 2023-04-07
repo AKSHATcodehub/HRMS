@@ -11,22 +11,22 @@
                   <div class="col-lg-4">
                     <label for="">First Name</label><br>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="firstName">
-                      <mat-error>{{basicInfoForm | validationError:'firstName':'Firstname' }}</mat-error>
+                      <input matInput placeholder="Name" formControlName="firstName" (keydown)="_utilities.noSpace($event)">
+                      <mat-error>{{basicInfoForm | validationError:'firstName':'First Name' }}</mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-lg-4">
                     <label for="">Last Name</label><br>
                     <mat-form-field appearance="outline" style="position: relative;" >
-                      <input matInput placeholder="Name" formControlName="lastName">
-                      <mat-error>{{basicInfoForm | validationError:'lastName':'Lastname' }}</mat-error>
+                      <input matInput placeholder="Name" formControlName="lastName" (keydown)="_utilities.noSpace($event)">
+                      <mat-error>{{basicInfoForm | validationError:'lastName':'Last Name' }}</mat-error>
                     </mat-form-field>
                   </div>
                   <div class="col-lg-4">
                     <label for="">Date of Birth</label><br>
                     <mat-form-field appearance="outline" style="position: relative;" >
                       <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
-                      <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'DateOfBirth' }}</mat-error>
+                      <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'Date Of Birth' }}</mat-error>
                       <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                       <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
@@ -93,8 +93,8 @@
                   <div class="col-lg-4">
                     <label for="">Contact Number</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Number" formControlName="contactNumber">
-                      <mat-error>{{basicInfoForm | validationError:'contactNumber':'ContactNumber' }}</mat-error>
+                      <input matInput placeholder="Number" type="number" formControlName="contactNumber" (keydown)="_utilities.noSpace($event)">
+                      <mat-error>{{basicInfoForm | validationError:'contactNumber':'Contact Number' }}</mat-error>
                     </mat-form-field>
                   </div>
                 </div>
@@ -106,15 +106,15 @@
                       <div class="col">
                         <label for="">Years</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Name" formControlName="YearOfExperience">
-                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                          <input matInput placeholder="Years" type="number" formControlName="YearOfExperience" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'Year Of Experience' }}</mat-error>
                         </mat-form-field>
                       </div>
                       <div class="col">
                         <label for="">Months</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Name"  formControlName="YearOfExperience">
-                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'YearOfExperience' }}</mat-error>
+                          <input matInput placeholder="Months" type="number" formControlName="YearOfExperience" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'Year Of Experience' }}</mat-error>
                         </mat-form-field>
                       </div> 
                     </div>
@@ -126,15 +126,15 @@
                       <div class="col">
                         <label for="">Years</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Name"  formControlName="relevantExperience">
-                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                          <input matInput placeholder="Years" type="number" formControlName="relevantExperience" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'Relevant Experience' }}</mat-error>
                         </mat-form-field>
                       </div>
                       <div class="col">
                         <label for="">Months</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Name"  formControlName="relevantExperience">
-                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'RelevantExperience' }}</mat-error>
+                          <input matInput placeholder="Months" type="number"  formControlName="relevantExperience" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'Relevant Experience' }}</mat-error>
                         </mat-form-field>
                       </div> 
                     </div>

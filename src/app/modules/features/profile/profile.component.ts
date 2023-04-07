@@ -26,7 +26,6 @@ export class ProfileComponent implements OnInit {
     
     console.log("selected element...",selectedTitle);
     
-
     this.renderer.setProperty(selectedTitle,'width','700px');
 
 

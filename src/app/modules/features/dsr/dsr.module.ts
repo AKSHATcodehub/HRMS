@@ -14,6 +14,9 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 // import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
@@ -37,6 +40,9 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
     ReactiveFormsModule,
     FormsModule,
     ValidationErrorModule,
+    AngularEditorModule,
+    MatSnackBarModule,
+    SnackbarModule
     // NgxMatTimepickerModule
   ]
 })

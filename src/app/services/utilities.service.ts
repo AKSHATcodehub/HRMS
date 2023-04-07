@@ -17,4 +17,10 @@ export class UtilitiesService {
     
     return `${days_difference}`;
   }
+
+  noSpace(event:any){
+    if(event.target.selectionStart == 0 && event.code == "Space"){
+      event.preventDefault();
+    }
+  }
 }

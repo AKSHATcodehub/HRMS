@@ -5,17 +5,17 @@
             <h1 class="wrapper-header">Latest Job Opnings</h1>
         </div>
         <div class="main row">
-            <div class="col-sm-6 col-md-4 col-lg-4"  *ngFor="let card of cards">
+            <div class="col-sm-6 col-md-4 col-lg-4"  *ngFor="let singleJobData of jobOpeningsData">
                 <div class="card-body">
                     <!-- <app-carousel></app-carousel> -->
                     <div class="card-body-top">
                         <figure>
-                            <img src="https://dashboard.appinventiv.com/uploads/award/react-native.svg" alt="">
+                            <img [src]="'../../../../../assets/job-opening-icon/'+singleJobData.job_img" alt="">
                         </figure><br>
                         <div class="job-opining-info">
                             <div class="location">
                                 <!-- <mat-icon>location_on</mat-icon> -->
-                                <h3>
+                                    <h3>
                                     <p>Noida, Uttar Pradesh</p>
                                 </h3>
                             </div>
@@ -56,3 +56,5 @@
     </div>
     
 </div>
+
+

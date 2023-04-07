@@ -11,6 +11,8 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, NativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { MatNativeDateModule, NativeDateModule } from '@angular/material/core';
     ValidationErrorModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule,
+    SnackbarModule
   ]
 })
 export class RequestAssetsModule { }
