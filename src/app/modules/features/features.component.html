@@ -1,4 +1,5 @@
 
+
 <div class="layout-navbar">
 	<mat-toolbar color="primary" class="example-toolbar">
 		<img src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png" alt="">
@@ -45,7 +46,6 @@
 			</div>
 			<div class="notification">
 				<mat-icon>notifications</mat-icon>
-	
 			</div>
 		</div> 
 	</div>
@@ -59,7 +59,11 @@
 	<mat-nav-list>
 		<ng-container *ngFor="let navBarItem of localNavBarData">
 
-			<mat-list-item (click)="showSubMenu()"
+			<!-- (click)="showSubMenu()" function i salo called on mat list item 
+				but now its removed
+			-->
+
+			<mat-list-item 
 				class="parent"
 				(click)="openSubMenu(navBarItem)"
 				[routerLink]='navBarItem.link' [routerLinkActive]="navBarItem.link ? 'is_active' : 'null'"
@@ -120,3 +124,4 @@
 <!-- Copyright 2017 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
     can be found in the LICENSE file at http://angular.io/license -->
+

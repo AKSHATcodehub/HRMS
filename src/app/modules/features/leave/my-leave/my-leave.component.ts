@@ -16,7 +16,7 @@ import { LEAVE_HEADING, LEAVE_STATUS, LEAVE_TABLEDATA, LEAVE_TYPE } from './my-l
 })
 export class MyLeaveComponent implements OnInit {
 
-  isOpen:boolean = true;
+  isOpen:boolean = false;
   leaveTypeData = LEAVE_TYPE;
   datasource = new MatTableDataSource<any>(LEAVE_TABLEDATA);
   headings = LEAVE_HEADING;
@@ -92,6 +92,10 @@ export class MyLeaveComponent implements OnInit {
     this.leaveForm.controls.leaveType.setValue(event);
     console.log("selected leave type>>>>>>>>", this.leaveForm.controls.leaveType.value);
     
+  }
+
+  cancelAction(){
+    this.isOpen = !this.isOpen;
   }
 
   // getControl(control:any){

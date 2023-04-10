@@ -174,9 +174,13 @@ export class QualificationComponent implements OnInit{
       this.dp4=this.convert(`${this.qualificationForm.controls?.['fromTimePerioed'].value}`)
       this.dp3=this.convert(`${this.qualificationForm.controls?.['toTimePerioed'].value}`)
       this.Table_DATA.push(
-      { SUName:`${this.qualificationForm.controls?.['university'].value}`, Time_Period:`${this.dp4} - ${this.dp3}`, ElName:`${this.qualificationForm.controls?.['education'].value}`}
+      { SUName:`${this.qualificationForm.controls?.['university'].value}`, Time_Period:`${this.dp4} - ${this.dp3}`, ElName:`${this.qualificationForm.controls?.['education'].value}`,form:this.qualificationForm.value}
       )
+
       this.datasource = new MatTableDataSource<any>(this.Table_DATA)
+
+      console.log("this is table>>>>>>>>",this.datasource);
+      
 
       this._snackBar.snackBar('Qualification Updated!')
       
@@ -192,6 +196,8 @@ export class QualificationComponent implements OnInit{
   }
 
   openDialog(event:any): void {
+
+    console.log("this is qualification dialog>>>>>>>>>>",event);
     
     const dialogRef = this.dialog.open(EditQualificationComponent,{
       data: event

@@ -1,5 +1,6 @@
 @import '../../../../../scss/mixins/flex';
-@import '../../../../../scss/var';
+@import '../../../../../scss/var',
+        '../../../../../scss/theme/wrapper';
 
 .entrepreneurship-wrapper{
     background-color:$lightblue;

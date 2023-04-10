@@ -52,7 +52,7 @@
         .card-body-top{
           background-clip:border-box;
           padding: 0px 20px;
-          height: 180px;
+          height: 210px;
           background-color: $backgroundcolor;
           @include flex(center,center);
           flex-direction: column;
@@ -72,6 +72,7 @@
                 width: 100%;
                 h3{
                   width: 100%;
+                  box-sizing: border-box;
                   p{
                   text-overflow: ellipsis !important; 
                   }
@@ -106,6 +107,7 @@
                 border-radius: 15px;
                 overflow: hidden;
                 max-height: 28px;
+                padding: 0px 10px ;
                 p{
                   text-overflow: ellipsis !important;
 

@@ -29,7 +29,7 @@
     <div class="leave-section">
         <div class="add-leave row">
             <span class="leave-header">Add Leave</span>
-            <button class=" button" (click)="addLeave()">ADD</button> 
+            <button class="add-data-btn" (click)="addLeave()">+ Add</button> 
         </div>
         <div class="leave-content" *ngIf="isOpen">
             <div class="row" [formGroup]="leaveForm">
@@ -121,7 +121,7 @@
                     <div class="row action-btn">
                         <div class="col-md-12">
                             <button class="button col-md-1" (click)="addLeaveAction()">Save</button>
-                            <button class="button col-md-1" >Cancel</button>
+                            <button class="button col-md-1" (click)="cancelAction()">Cancel</button>
                         </div>  
                     </div>
                 </div>

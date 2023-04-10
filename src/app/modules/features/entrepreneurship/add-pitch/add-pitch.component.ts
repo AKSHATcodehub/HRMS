@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FEATURES } from 'src/app/constant/routes';
 import { FormService } from 'src/app/services/form.service';
 import { Industry } from './pitch-data';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
 
 @Component({
   selector: 'app-add-pitch',
@@ -25,6 +26,44 @@ export class AddPitchComponent implements OnInit {
   selectBtn: any;
   wrapper: any;
   today = new Date();
+  editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: 'auto',
+    minHeight: '15vw',
+    maxHeight: 'auto',
+    width: 'auto',
+    minWidth: '0',
+    translate: 'yes',
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: 'Enter text here...',
+    defaultParagraphSeparator: '',
+    defaultFontName: '',
+    defaultFontSize: '',
+    fonts: [
+      { class: 'arial', name: 'Arial' },
+      { class: 'times-new-roman', name: 'Times New Roman' },
+      { class: 'calibri', name: 'Calibri' },
+      { class: 'comic-sans-ms', name: 'Comic Sans MS' },
+    ],
+    customClasses: [
+      {
+        name: 'quote',
+        class: 'quote',
+      },
+      {
+        name: 'redText',
+        class: 'redText',
+      },
+      {
+        name: 'titleText',
+        class: 'titleText',
+        tag: 'h1',
+      },
+    ],
+    uploadUrl: 'v1/image',
+  };
 
   constructor(private ref:ElementRef,
     private render:Renderer2,
@@ -113,7 +152,7 @@ export class AddPitchComponent implements OnInit {
 
   }
 
-  art(){
-    alert('hy')
+  selectedValue(event:string,controlName:string){
+    this.pitchForm.get(controlName)?.setValue(event) 
   }
 }

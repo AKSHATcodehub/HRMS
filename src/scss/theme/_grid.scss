@@ -14,10 +14,24 @@ html {
   // margin-bottom: 0 !important;
 }
 
+.add-data-btn{
+  color: $darkprimary;
+  background-color: $white;
+  border: 1px solid $darkprimary;
+  &:hover{
+    color: $white;
+    background-color:$darkprimary;
+  }
+}
+
 .dark-header{
   color: #3246d3;
   font-size: 20px;
   font-weight: 700;
+}
+
+::ng-deep .mat-datepicker-toggle-default-icon{
+  color: #199CFF;
 }
 
 .button{
@@ -30,6 +44,22 @@ html {
   border: 0px;
   border-radius: 5px;
   width: 100px;
+}
+
+.button{
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), #199CFF;
+  color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px rgb(0 0 0 / 12%), inset 0px 2px 0px rgb(255 255 255 / 24%);
+  background-blend-mode: soft-light, normal;
+  &:hover {
+    cursor: pointer;
+    background: $primary;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.07), 0px 4px 5px 0px rgba(0, 0, 0, 0.05),
+      0px 1px 10px 0px rgba(0, 0, 0, 0.03);
+    color: $white;
+  }
 }
 
 .d-flex {

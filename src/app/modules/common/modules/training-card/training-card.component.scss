@@ -10,7 +10,6 @@
  
   
   .main{
-  
       min-height: 500px !important;
       width: 100% !important;
       .card-body{
@@ -85,16 +84,24 @@
             .btn-wrapper{
               @include flex(normal,space-between);
               button{
-                border: 1px solid rgba(150, 165, 184, 0.3);
+                background-color: rgba(24, 28, 33, 0.06);
+                border: 0px solid rgba(150, 165, 184, 0.3);
+                box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 7%), 0px 4px 5px 0px rgb(0 0 0 / 5%), 0px 1px 10px 0px rgb(0 0 0 / 3%);
+                transition: all 0.2s ease-in-out;
+                background-blend-mode: soft-light, normal;
                 width: 45%;
                 margin: 0px !important;
                 padding: 0px !important;
                 height: 50px;
                 font-size: 14px;
-                background-color: $white;
+                // background-color: $white;
                 color: #199CFF;
                 font-weight: 500;
                 border-radius: 5px;
+                &:hover{
+                  cursor: pointer;
+                  color: black;
+                }
               }
               button:nth-child(2){
                 color: $white;
@@ -127,4 +134,6 @@
   
      
   }
+
+
 

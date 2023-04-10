@@ -4,7 +4,7 @@
         <div [ngClass]="{'my-card': true}">
             <div class="row new-dsr">
                 <h1 class="dark-header">Create New DSR</h1>
-                <button  class="button " (click)="toggleCard()">Add</button>
+                <button  class="add-data-btn" (click)="toggleCard()">+ Add</button>
             </div>
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
             
@@ -136,7 +136,7 @@
                                   [matDatepicker]="toDate" 
                                   placeholder="To Date" 
                                   formControlName="toDate"
-                                  (dateChange)="applyFilter()"
+                                  (dateChange)="filter('date')"
                                   [min]="this.filterForm.get('fromDate')?.value"
                                   >
                                 <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
@@ -203,7 +203,7 @@
     <hr>
 
     <div class="dsr-body">
-        <app-table  [columns]="headings" [dataSource]="datasource" (openFilledDsr)="openFilledDsr($event)" ></app-table>
+        <app-table   [columns]="headings" [dataSource]="datasource" (openFilledDsr)="openFilledDsr($event)" ></app-table>
     </div>
 </div>
 

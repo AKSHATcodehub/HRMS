@@ -24,7 +24,7 @@ export class TableComponent implements OnInit,AfterViewInit {
   @Input() isFilterable: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   paginationSizes: number[] =[10];
-  defaultPageSize: NumberInput =10;
+  @Input() defaultPageSize: number =10;
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }

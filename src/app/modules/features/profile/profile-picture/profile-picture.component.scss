@@ -1,5 +1,6 @@
 @import './../../../../../scss/var';
-@import '../../../../../scss/mixins/flex';
+@import '../../../../../scss/mixins/flex',
+'./../../../../../scss/theme/wrapper';
 
 ::ng-deep #cdk-overlay-0{
 

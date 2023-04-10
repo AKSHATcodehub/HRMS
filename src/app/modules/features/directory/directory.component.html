@@ -6,13 +6,13 @@
             <div class="col-lg-4">
                 <div class="col-lg-12">
                     <label for="">Name</label><br>
-                    <app-searchbar [data]="directoryData" [reset]="reset"   (filteData)="filterDataHandler($event)"  (keyup)="keyfunc($event)"></app-searchbar>          
+                    <app-searchbar  [data]="directoryData" [reset]="reset"   (filteData)="filterDataHandler($event)"  (keyup)="keyfunc($event)"></app-searchbar>          
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="col-lg-12">
                     <label for="">Department</label>
-                    <app-dropdown [placeHolder]="departmentPlaceholder" [data]="dropDownData"  (outputData)="eventHandler($event)"></app-dropdown>                 
+                    <app-dropdown [placeHolder]="departmentPlaceholder" [data]="dropDownData" [progchangedValue]="this.reset"  (outputData)="eventHandler($event)"></app-dropdown>                 
                 </div>
             </div>
             <div class="col-lg-4 button-wrapper">

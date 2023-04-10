@@ -49,10 +49,18 @@ export class FeaturesComponent implements OnInit {
   }
 
   openSubMenu(navBarItem: any) {
+
+    console.log("open sub menu clled>>>>>");
+    
    
     if (navBarItem.subMenu) {
       navBarItem.subMenuClicked = !navBarItem.subMenuClicked;
+
     }
+    if(!this.isExpanded){
+      this.expandAction()
+    }
+    // this.expandAction();
   }
 
   expandAction() {
@@ -71,8 +79,6 @@ export class FeaturesComponent implements OnInit {
     this.collapseSubMenu();
     
   }
-
-
 
   onResize(event:any) {
     console.log("jjjjjjjjjjjjj");
@@ -99,6 +105,7 @@ export class FeaturesComponent implements OnInit {
     console.log("showsubmenu function called>>>>>>>");
     
     this.showSubmenu = !this.showSubmenu;
+    // this.expandAction();
     // if(!this.showSubmenu){
     //   let element = this.ref.nativeElement.querySelector('.example-sidenav');
     //   this.render.setStyle(element,'width','auto');
@@ -152,9 +159,6 @@ export class FeaturesComponent implements OnInit {
   helpClick(){
     this.dialog.open(HelpDialogComponent);
   }
-
-
- 
 
 }
    

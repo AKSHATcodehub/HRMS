@@ -11,7 +11,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
   templateUrl: './edit-qualification.component.html',
   styleUrls: ['./edit-qualification.component.scss']
 })
-export class EditQualificationComponent implements OnInit  , AfterViewChecked {
+export class EditQualificationComponent implements OnInit  {
   
   datasource = new MatTableDataSource<any>();
   editQualificationForm!:FormGroup;
@@ -47,18 +47,9 @@ export class EditQualificationComponent implements OnInit  , AfterViewChecked {
     
   ngOnInit(): void {
     this.createForm();
-    console.log("this is qualificiation form>>>>>>>",this.data);
-    // this.editQualificationForm = this.data.form;
-    // this.Table_DATA = this.data.value;
+    this.editQualificationForm.patchValue(this.data.form);
 
   }
-  
-  
-  ngAfterViewChecked(): void{
-    // this.editQualificationForm = this.data ;
-    // this.editQualificationForm = this.data;
-  }
-  
   
   createForm(){
     return this.editQualificationForm = this._fb.group({
@@ -73,6 +64,8 @@ export class EditQualificationComponent implements OnInit  , AfterViewChecked {
 
   actionSave(){
 
+    console.log("edit qualification form>>>>>>",this.editQualificationForm);
+    
     if(this.editQualificationForm.valid){
       this.dialogRef.close({form:this.editQualificationForm,data:this.data});
 

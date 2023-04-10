@@ -59,7 +59,8 @@ export class DirectoryComponent implements OnInit {
   }
 
   clickReset(){
-    this.reset = '';
+
+    this.reset = ' ';
     console.log("reset");
   }
 

@@ -15,6 +15,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     DropdownModule,
     ReactiveFormsModule,
-
+    AngularEditorModule
   ],
   exports:[
     AddPitchComponent

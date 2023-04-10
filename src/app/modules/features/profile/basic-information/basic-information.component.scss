@@ -1,4 +1,7 @@
-@import "./../../../../../scss/var", "./../../../../../scss/theme/grid";
+@import "./../../../../../scss/var",
+        "./../../../../../scss/theme/grid",
+        './../../../../../scss/theme/wrapper';
+
 
 .custom-error {
   height: 12px;

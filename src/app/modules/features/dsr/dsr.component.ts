@@ -43,7 +43,7 @@ export class DsrComponent implements OnInit {
   selctedProject:string='';
   approvingAuthority:string[] = APPROVING_AUTHORITY;
   chooseAM:string[] = CHOOSE_AM;
-  TABLE_DATA = new MatTableDataSource<any>();
+  TABLE_DATA = new MatTableDataSource<any>([]);
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -83,6 +83,7 @@ export class DsrComponent implements OnInit {
     ],
     uploadUrl: 'v1/image',
   };
+  pageSize!: number;
 
   constructor(private _fb:FormBuilder,
               private _snackbar:MatSnackBar) {
@@ -96,7 +97,7 @@ export class DsrComponent implements OnInit {
     this.createDsrFilterForm();
     this.createDsrForm();
     console.log("this is data come from my leave section }}}}}}}}}}}}}",LEAVE_TABLEDATA);
-    this.filter()
+    // this.filter()
     // this.datasource.filterPredicate = (data,filter) =>{
        
 
@@ -170,29 +171,13 @@ export class DsrComponent implements OnInit {
   }
 
 
+  filter(field:string){
 
-  applyFilter() {
+    console.log("filter function called>>>>>>>>>>>>>",this.datasource);
 
-    // console.log("date change>>>>>>>>>.",this.filterForm.controls.toDate.value);
-    
-
-    this.datasource.filter = ''+Math.random();
-
-    this.filter()
-
-  
-  }
-
-  filter(){
-
-
-      this.datasource.filterPredicate = (data,filter) =>{
-       
-
-        console.log("filter predicate called>>>>>>>>>");
+      this.datasource.data.forEach((data:any)=>{
         
-        
-        if (this.fromDate!=null && this.toDate!=null) {
+        if (this.fromDate!=null && this.toDate!=null && (field == 'date')) {
           console.log("date filter called>>>>>>");
           
           if(data.date >= this.fromDate && data.date <= this.toDate){
@@ -200,7 +185,7 @@ export class DsrComponent implements OnInit {
           }
         }
   
-        if( this.filterForm?.controls.submissionStatus.value){
+        if( this.filterForm?.controls.submissionStatus.value && (field == 'submissionStatus')){
           console.log("submation status called>>>>>>>>>>",this.filterForm?.controls.submissionStatus.value);
           
           if(data.status == this.filterForm?.controls.submissionStatus.value){
@@ -208,35 +193,40 @@ export class DsrComponent implements OnInit {
           }
         }
   
-        if(this.filterForm?.controls.project.value){
+        if(this.filterForm?.controls.project.value && (field == 'project')){
           console.log("project  called>>>>>>>>>>",this.filterForm?.controls.project.value);
           if(data.status == this.filterForm?.controls.project.value){
             this.TABLE_DATA.data.push(data);
           }
         }
         
-        if(this.filterForm?.controls.finalApprovalStatus.value){
-          console.log("finalApprovalStatus called",this.filterForm.get('finalApprovalStatus')?.value);
-          if(data.logged_hr == this.filterForm?.controls.finalApprovalStatus.value){
+        if(this.filterForm?.controls.finalApprovalStatus.value && (field == 'finalApprovalStatus')){
+          console.log("finalApprovalStatus called>>>>>>>>>",this.filterForm.get('finalApprovalStatus')?.value);
+          if(data.approval_status == this.filterForm?.controls.finalApprovalStatus.value){
             this.TABLE_DATA.data.push(data);
           }
         }
   
-        if(this.filterForm?.controls.hours.value){
-          console.log("hours called",this.filterForm.get('hours')?.value);
-          if(data.status == this.filterForm?.controls.hours.value){
+        if(this.filterForm?.controls.hours.value && (field == 'hours')){
+          console.log("hours called>>>>>>>>>>>",this.filterForm.get('hours')?.value);
+          if(data.logged_hr == this.filterForm?.controls.hours.value){
             this.TABLE_DATA.data.push(data);
           }
         }
         
-        this.datasource = this.TABLE_DATA;
-        console.log("TABLE_DATA>>>>>>>>>>>>>",this.datasource);
+        // console.log("TABLE_DATA>>>>>>>>>>>>>",this.datasource);
   
-        
-        return true;
-      }
+      })
+
+
+      this.datasource = this.TABLE_DATA;
+
+      console.log('111111111111111111',this.datasource);
+
+      this.TABLE_DATA = new MatTableDataSource<any>([]);  
+
+      console.log('222222222222222222' , this.TABLE_DATA);
       
-    
   }
 
     
@@ -286,7 +276,7 @@ export class DsrComponent implements OnInit {
     // this.applyFilter();
     this.datasource.filter = ''+Math.random();
 
-    this.filter();
+    this.filter(controlName);
 
     
   }
@@ -345,7 +335,15 @@ export class DsrComponent implements OnInit {
       this.filterForm.get(item)?.patchValue('')
     })
 
-    this.datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
+    // this.pageSize =5;
+
+    console.log("this is table data>>>>>>>",this.datasource);
+    
+
+    this.datasource.data = DSR_TABLEDATA;
+
+    console.log("this is table data>>>>>>>",this.datasource);
+
 
   }
 

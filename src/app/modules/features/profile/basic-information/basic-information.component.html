@@ -39,7 +39,7 @@
                   <div class="col-lg-4 dropdown" >
                       <label for="" >Gender</label><br>
                       <div class="dropdown-body">
-                        <app-dropdown  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender" (outputData)="selectedValue($event,'genderr')"></app-dropdown>
+                        <app-dropdown [progchangedValue]="this.basicInfoForm.controls.genderr.value"  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender" (outputData)="selectedValue($event,'genderr')"></app-dropdown>
                         <small *ngIf="this.basicInfoForm.controls.genderr.touched">{{basicInfoForm | validationError:'genderr':'Gender' }}</small>
                       </div>
                         <!-- <mat-form-field appearance="outline" >
@@ -66,7 +66,7 @@
                 <div class="col-lg-4 dropdown"  >
                   <label for="" >Marriage status</label><br>
                   <div class="dropdown-body">
-                    <app-dropdown  [placeHolder]="marriagePlaceHolder" [data]="marriage" (outputData)="selectedValue($event,'marriageStatus')"></app-dropdown>
+                    <app-dropdown [progchangedValue]="this.basicInfoForm.controls.marriageStatus.value" [placeHolder]="marriagePlaceHolder" [data]="marriage" (outputData)="selectedValue($event,'marriageStatus')"></app-dropdown>
                     <small *ngIf="this.basicInfoForm.controls.marriageStatus.touched">{{basicInfoForm | validationError:'marriageStatus':'Marriage Status' }}</small>
                   </div>
     
@@ -141,7 +141,7 @@
                   </div>
                 </div>
                 <div class="form-action">
-                  <button (click)="saveBasicInfo()">Save</button>
+                  <button class="button" (click)="saveBasicInfo()">Save</button>
                 </div>
               </div>
             </div>

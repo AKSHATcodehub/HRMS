@@ -37,6 +37,7 @@ export class BasicInformationComponent implements OnInit {
   alpha=['a','b','c'];
   toggleStatus=false;
   basicInfoForm!:FormGroup;
+  reset:string = '';
 
   ngOnInit(): void {
 
@@ -71,7 +72,9 @@ export class BasicInformationComponent implements OnInit {
     
     
     if(this.basicInfoForm.valid){
-      this._snackBar.snackBar('Basic Info Updated')
+      this.basicInfoForm.reset();
+      this.reset;
+      this._snackBar.snackBar('Basic Info Updated');
 
     }else{
       this.basicInfoForm.markAllAsTouched();

@@ -47,7 +47,7 @@ export class MyTrainingComponent implements OnInit {
     this._router.navigate(['../training-details'],{relativeTo:this.route});
   }
   openEntrollmentPopup() {
-    throw new Error('Method not implemented.');
+    console.log('Method not implemented.');
   }
 
 

@@ -35,7 +35,7 @@ mat-form-field{
     }
     .add-leave{
         @include flex(center,space-between);
-        padding:12px 20px;
+        padding:20px 20px;
         span{
             @include media(md){
                 padding: 10px 0px;

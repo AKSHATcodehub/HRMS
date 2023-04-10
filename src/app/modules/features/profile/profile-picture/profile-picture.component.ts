@@ -78,7 +78,7 @@ export class ProfilePictureComponent implements OnInit {
 	}
 
   saveProfile(){
-    console.log("form >>>>> ",this.profileForm);
+    
     if(!(this.profileForm.controls.profilePicture.value.length>0)){
       this.profileForm.markAsTouched();
 

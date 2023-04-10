@@ -15,7 +15,6 @@ export class ChangePasswordComponent implements OnInit {
 
   constructor( private fb:FormBuilder,
                private _snackBar:SnackbarService,
-            
                ) { 
     this.passwordForm = this.createForm();
   }
@@ -32,10 +31,16 @@ export class ChangePasswordComponent implements OnInit {
   }
 
   passwordChanged(){
+
     if(this.passwordForm.valid){
-      this._snackBar.snackBar("Password Changed ")
-    }
-    if(this.passwordForm.invalid){
+      if(this.passwordForm.controls.password.value === this.passwordForm.controls.confirmPassword.value){
+        this.passwordForm.reset();
+        this._snackBar.snackBar("Password Changed ");
+    
+      }else{
+        this._snackBar.snackBar("Password are diffrent ")
+      }
+    }else{
       this.passwordForm.markAllAsTouched();
     }
   }

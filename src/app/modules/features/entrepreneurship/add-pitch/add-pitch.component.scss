@@ -1,7 +1,12 @@
 @import './../../../../../scss/mixins/flex',
         './../../../../../scss/var',
         './../../../../../scss/mixins/media',
-        './../../../../../scss//theme/grid';
+        './../../../../../scss//theme/grid',
+        './../../../../../scss/theme/padding';
+
+hr{
+  border: 0px ;
+}
 
 .pitch-wrapper{
     background-color: $lightblue;
@@ -73,7 +78,7 @@
         }
         mat-form-field{
             width: 100%;
-            padding: 5px;
+            // padding: 5px;
         }
         
         editor{
@@ -86,6 +91,19 @@
         // }
 
     }
+}
+
+.dropdown {
+  .dropdown-body {
+    position: relative;
+  }
+  small {
+    color: #f44336;
+    position: absolute;
+    top: 74px;
+    left: 23px;
+    font-size: 11px;
+  }
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {

@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }         
 
+.button{
+    width: 140px;
+}
+
 .card{
     @include media(lg){
         padding: 16px;
