@@ -1,5 +1,6 @@
 @import '../../../../../scss/mixins/flex';
-@import '../../../../../scss/var';
+@import '../../../../../scss/var',
+        '../../../../../scss/theme/grid';
 
 .custom-error{
     font-size: 10px;
@@ -85,7 +86,8 @@
                 }
                 .skill-set{
                     ::ng-deep .mat-form-field-wrapper{
-                        height: 160px !important;
+                        height: 135
+                        ppx !important;
                     }
                     ::ng-deep .mat-form-field-flex{
                         height: 140px !important;
@@ -96,7 +98,7 @@
             .action-btn{
                 display: flex;
                 justify-content: flex-end;
-                padding: 0px 24px;
+                padding: 0px 5px;
                 button{
                     width: 100px;
                     height: 40px;

@@ -101,18 +101,9 @@
         <div class="qualification-wrapper">
           
           <div class="qualification-row">
-            <!-- <section class="table"> -->
               <app-table [columns]="headings" [dataSource]="datasource" (editEvent)="editEvent($event)"   (deleteEvent)="deleteEvent($event)" ></app-table>
-           <!-- </section> -->
-            <!-- <app-table [dataSource]="datasource" [displayedColumns]="headings"></app-table> -->
           </div>
-          <!-- <div class="qualification-row">
-            <p>Showing 0 to 0 of entries</p>
-            <div class="btn">
-              <button>Previous</button>
-              <button>Next</button>
-            </div>
-          </div> -->
+
         </div>
       </div>
       

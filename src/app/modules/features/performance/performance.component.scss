@@ -13,6 +13,16 @@
     width: 140px;
 }
 
+.user-info{
+    h2{
+        margin-bottom: 5px;
+    }
+    p{
+        margin: 5px 0px;
+    }
+
+}
+
 .card{
     @include media(lg){
         padding: 16px;
@@ -51,19 +61,29 @@
                 width: 100%;
             }
         }
-        .awards{
-            // width: 60%;
-            margin: 10px;
-            padding: 10px;
-            background-color: #FFF3CB;
-            border-radius: 5px;
-        }
-        .honours{
-            border-radius: 5px;
-            margin: 10px;
-            padding: 10px;
-            // width: 20%;
-            background-color: #CBE7FF;
+        .card-mid{
+            h6{
+                font-size: 14px;
+                font-weight: 600;
+            }
+            span{
+                font-size: 14px;
+                font-weight: 400;
+            }
+            .awards{
+                // width: 60%;
+                margin: 10px;
+                padding: 10px;
+                background-color: #FFF3CB;
+                border-radius: 5px;
+            }
+            .honours{
+                border-radius: 5px;
+                margin: 10px;
+                padding: 10px;
+                background-color: #CBE7FF;
+                min-width: 100px;
+            }
         }
     }
 

@@ -18,14 +18,14 @@
                     </div>
                 </div>
                 <div class="card-mid row">
-                    <div class="awards col-md-7">
+                    <div class="awards col-sm-7">
                         <h6>AWARDS</h6>
                         <ul></ul>
                         <span>N/A</span>
                     </div>
 
-                    <div class="honours col-md-3">
-                        <h6>AWARDS</h6>
+                    <div class="honours col-sm-2">
+                        <h6>HOUORNS</h6>
                         <ul></ul>
                         <span>N/A</span>
                     </div>
@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="card-mid row ">
-                    <div class="col-md-3"   *ngFor="let item of filterRating">
+                    <div class="col-md-3"   *ngFor="let item of filterRating" (click)="openDialog()">
                         <div class="monthly-block " [ngStyle]="{'background-color':item.data_exist ? '#F9F9F9' : 'white'}" >
                             <div class="row justify-content-sm-between">
                                 <span>{{item.month_name}}</span>

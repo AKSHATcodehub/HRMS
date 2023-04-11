@@ -1,0 +1,81 @@
+@import '../../../../../scss/theme/wrapper',
+        '../../../../../scss/mixins/flex';
+
+.performance-dialog-wrapper{
+    .performance-dialog-header{
+        padding: 24px;
+        .header-info{
+            text-align: center;
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+            border-bottom: 1px solid lightgrey;
+        }
+    }
+    .performance-dialog-body{
+        display: flex;
+        h6{
+            font-size: 14px;
+            font-weight: 600;
+        }
+        span{
+            font-size: 14px;
+            font-weight: 400;
+        }
+        .honours{
+            border-radius: 5px;
+            margin: 12px;
+            padding: 10px;
+            background-color: #CBE7FF;
+            width: 100px;
+        }
+        
+    }
+}
+
+.rating-skills{
+    display: flex;
+    @include media(md){
+        flex-wrap: wrap;
+    }
+    .block-wrapper{
+        width: 25%;
+        @include media(md){
+           min-width: 50%;
+        }
+        @include media(sm){
+            min-width: 100%;
+        }
+    }
+    padding: 10px;
+    // margin-right: 10px;
+    box-sizing: border-box;
+    .block{
+        box-sizing: border-box;
+        border-radius: 5px;
+        background-color: #FFF3CB;
+        margin: 1px;
+        padding: 5px;
+        text-align: center;
+        min-width: 70px;
+    }
+    @media screen and (max-width: 500px) {
+        display: block;
+        div{
+            width: 100%;
+        }
+      }
+}
+
+.rating-count{
+    height: 106px;
+    @include flex(center,center);
+    h3{
+        font-size: 35px;
+        @include media(md){
+            text-align: center;
+        }
+    }
+}
+mat-icon{
+    float: right;
+}

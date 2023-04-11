@@ -136,7 +136,7 @@
                                   [matDatepicker]="toDate" 
                                   placeholder="To Date" 
                                   formControlName="toDate"
-                                  (dateChange)="filter('date')"
+
                                   [min]="this.filterForm.get('fromDate')?.value"
                                   >
                                 <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
@@ -149,7 +149,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Submission Status</label>
-                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event,'submissionStatus')"  [progchangedValue]="this.filterForm.controls.submissionStatus.value"></app-dropdown>    
+                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event,'status')"  [progchangedValue]="this.filterForm.controls.status.value"></app-dropdown>    
                     </div>
                 </div>
     
@@ -173,7 +173,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Final Approval Status</label>
-                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event,'finalApprovalStatus')" [progchangedValue]="this.filterForm.controls.finalApprovalStatus.value"></app-dropdown>
+                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event,'approval_status')" [progchangedValue]="this.filterForm.controls.approval_status.value"></app-dropdown>
                     </div>
                 </div>
     
@@ -181,7 +181,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Hours</label>
-                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event,'hours')" [progchangedValue]="this.filterForm.controls.hours.value"></app-dropdown>
+                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown>
                     </div>
                 </div>
     

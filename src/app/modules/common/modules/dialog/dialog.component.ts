@@ -38,14 +38,25 @@ export class DialogComponent implements OnInit {
       projectTitle:this._form.getControl('projectTitle'),
       phoneNumber:this._form.getControl('phoneNumber'),
       skill:this._form.getControl('skill'),
-      description:this._form.getControl('description'),
+      // description:this._form.getControl('description'),
       email:this._form.getControl('email'),
       file:this._form.getControl('file')
     })
   }
 
   onSubmit(){
-    this.dialogForm.markAllAsTouched()
+    console.log("this is on submit function 1 >>>>>>>>>>>>",this.dialogForm);
+
+
+    if(this.dialogForm.valid){
+      this.dialogRef.close();
+      console.log("this is on submit function 2>>>>>>>>>>>>");
+      
+    }else{
+      this.dialogForm.markAllAsTouched()
+      console.log("this is on submit function 3>>>>>>>>>>>>");
+
+    }
 
   }
 

@@ -8,6 +8,18 @@ export const CHOOSE_AM = [ 'Account Manager','Amardeep Rawat','Amit Singh','Anan
 
 export const APPROVING_AUTHORITY = ['Aashini Sharma','Aashish Sharma','Aatish Mittal','Abhijeet Bhadouria','Akanksha Singh'];
 
+export const DSR_HEADING = [
+  { heading: 'S.No.', key: 's_no', type: 'text'},
+  { heading: 'Employee Name', key: 'emp_name', type: 'text' },
+  { heading: 'Employee Id', key: 'emp_id', type: 'text' },
+  { heading: 'Email', key: 'email', type: 'text'},
+  { heading: 'Employee Type', key: 'employment_type', type: 'text'},
+  { heading: 'Date', key: 'date', type: 'text', action: [2] , link: '/dashboard/client-details' },
+  { heading: 'Logged Hr', key: 'logged_hr', type: 'text', action: [2] , link: '/dashboard/client-details' },
+  { heading: 'Approval Status', key: 'approval_status', type: 'dsr_status' , link:'dsr-details'},
+
+]
+
 export var DSR_TABLEDATA:any = [
   {
     s_no: 1,
@@ -175,6 +187,7 @@ export var DSR_TABLEDATA:any = [
     date: '2023-03-21',
     logged_hr: 4,
     approval_status: 'Approved',
+    status: 'Submitted',
     link:`/features/dsr-details?data=13`,
     dsr_description: ['this is dsr 13'],
   },
@@ -187,6 +200,7 @@ export var DSR_TABLEDATA:any = [
     date: '2023-03-22',
     logged_hr: 7,
     approval_status: 'Pending',
+    status: 'Submitted',
     link:`/features/dsr-details?data=14`,
     dsr_description: ['this is dsr 14'],
   },

@@ -8,7 +8,7 @@
                 <fieldset class="form-group">
                     <label for="logo">Browse</label><br>
                     <input      type="file" class="form-control-file" id="p_file" name="p_file" formControlName="profilePicture" (change)="selectFile($event)" >
-                    <div style="color: red;" *ngIf=" profileForm.touched">*required</div>
+                    <div style="color: red;" *ngIf=" profileForm.touched || profileForm.valid">*required</div>
                     <div>
                         <small>Upload files only: gif,png,jpg,jpeg</small>
                     </div>

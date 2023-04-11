@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MONTHLY_RATINGS } from './performance-data';
+import { PerformanceDialogComponent } from './performance-dialog/performance-dialog.component';
 
 @Component({
   selector: 'app-performance',
@@ -8,7 +10,8 @@ import { MONTHLY_RATINGS } from './performance-data';
 })
 export class PerformanceComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _matDialog:MatDialog) { }
+
   x:null=null;
 
   ngOnInit(): void {
@@ -29,6 +32,10 @@ export class PerformanceComponent implements OnInit {
         }
     })
     
+  }
+
+  openDialog(){
+    this._matDialog.open(PerformanceDialogComponent)
   }
 
 }
