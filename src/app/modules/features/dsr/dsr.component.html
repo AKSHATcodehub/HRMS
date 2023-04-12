@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <label for="start_date">Date</label>
                                         <mat-form-field appearance="outline" style="position: relative;" >
-                                            <input  matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dsrDate">
+                                            <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dsrDate">
                                             <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                                             <mat-datepicker #picker1></mat-datepicker>
                                             <mat-error *ngIf="this.dsrForm.controls.dsrDate.touched">{{dsrForm | validationError : 'dsrDate' : 'Hours' }}</mat-error>
@@ -45,7 +45,10 @@
                                             <label for="task_hour" class="control-label">Estimated Hour</label>
         
                                             <mat-form-field appearance="outline" >
-                                                <input matInput type="text" placeholder="Select from-date" formControlName="dsrHours">
+                                                <input placeholder="Time" readonly matInput formControlName="dsrHours" [ngxMatTimepicker]="pickers"
+                                                [format]="24">
+                                              <ngx-mat-timepicker #pickers></ngx-mat-timepicker>
+                                                <!-- <input matInput type="text" placeholder="Select from-date" formControlName="dsrHours"> -->
                                                 <mat-error>{{dsrForm | validationError : 'dsrHours' : 'Hours' }}</mat-error>
                                             </mat-form-field>
         
@@ -59,8 +62,8 @@
                                 <div class="col-4">
                                     <div class="form-group mt-30">    
                                         <div class="form-check checkbox">
-                                            <input type="checkbox" class="form-check-input" name="no_work" id="no_work_done">
                                             <label class="form-check-label" for="no_work_done">No Work Done</label>
+                                            <input type="checkbox" class="form-check-input" name="no_work" id="no_work_done" formControlName="dsrNoWork" (change)="noWork()">
                                         </div>
                                     </div>
                                 </div> 
@@ -95,7 +98,7 @@
                         <div class="col-6">
                             <div class="col-md-12">
                                 <label for="">Description</label>
-                                <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="dsrContent"></angular-editor>
+                                <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="dsrContent" ></angular-editor>
                                 <small *ngIf="this.dsrForm.controls.dsrContent.touched">{{dsrForm | validationError : 'dsrContent' : 'Description' }}</small>
                             </div>
                         </div>
@@ -149,7 +152,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Submission Status</label>
-                        <app-dropdown [data]="submissionStatusData" (outputData)="dropdownFilter($event,'status')"  [progchangedValue]="this.filterForm.controls.status.value"></app-dropdown>    
+                        <app-dropdown [data]="submissionStatusData" [placeHolder]="statusPlaceHolder"(outputData)="dropdownFilter($event,'status')"  [progchangedValue]="this.filterForm.controls.status.value"></app-dropdown>    
                     </div>
                 </div>
     
@@ -157,7 +160,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Project</label>
-                        <app-dropdown [data]="projectDataDropdown" (outputData)="dropdownFilter($event,'project')" [progchangedValue]="this.filterForm.controls.project.value"></app-dropdown>    
+                        <app-dropdown [data]="projectDataDropdown" [placeHolder]="projectPlaceholder" (outputData)="dropdownFilter($event,'project')" [progchangedValue]="this.filterForm.controls.project.value"></app-dropdown>    
                     </div>
                 </div>
             
@@ -173,7 +176,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Final Approval Status</label>
-                        <app-dropdown [data]="finalApprovalDropdown" (outputData)="dropdownFilter($event,'approval_status')" [progchangedValue]="this.filterForm.controls.approval_status.value"></app-dropdown>
+                        <app-dropdown [data]="finalApprovalDropdown" [placeHolder]="approvalstatusPlaceholer" (outputData)="dropdownFilter($event,'approval_status')" [progchangedValue]="this.filterForm.controls.approval_status.value"></app-dropdown>
                     </div>
                 </div>
     
@@ -181,7 +184,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Hours</label>
-                        <app-dropdown [data]="hoursDropdown" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown>
+                        <app-dropdown [data]="hoursDropdown" [placeHolder]="hoursPlaceholder" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown>
                     </div>
                 </div>
     

@@ -43,7 +43,7 @@
                 <div class="card-body-bottom">
                     <div class="btn-wrapper">
                         <button [routerLink]="['../job-details/' + singleJobData.job_id]" >View Details</button>
-                        <button (click)="openDialog()" class="btn2">Refer a Candidate</button>
+                        <button (click)="openDialog(singleJobData)" class="btn2">Refer a Candidate</button>
                     </div>
                 </div>
             </div>

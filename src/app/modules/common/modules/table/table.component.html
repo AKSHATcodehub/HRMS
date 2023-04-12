@@ -19,7 +19,7 @@
     <ng-container class="data" *ngFor="let row of columns" [matColumnDef]="row.heading">
 
       <ng-container *ngIf="row.sort; else notSortable"  >
-        <th mat-header-cell *matHeaderCellDef >{{row.heading}}</th>
+        <th mat-header-cell *matHeaderCellDef [mat-sort-header]="row.key" >{{row.heading}}</th>
       </ng-container>
 
       <ng-template #notSortable>

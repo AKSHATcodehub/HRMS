@@ -272,3 +272,17 @@ export const TRAINING_DETAILS = {
     }
 
 }
+
+export const MY_IDEA:IRoute = {
+    path:'my-idea',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const DSR_EDIT:IRoute = {
+    path:'edit-dsr',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}

@@ -16,6 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @NgModule({
@@ -45,6 +46,9 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
   ],
   exports:[
     AddPitchComponent
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class AddPitchModule { }

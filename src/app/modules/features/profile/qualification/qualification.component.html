@@ -17,12 +17,12 @@
                 </div>
                 <div class="col-lg-6">
                     <label for="">Education Level</label><br>
-                    <mat-form-field appearance="outline">
-                      <mat-select formControlName="education">
-                        <mat-option [value]="item.value" *ngFor="let item of qualifications">{{item.viewValue}}</mat-option>
-                      </mat-select>
-                    <mat-error>{{qualificationForm | validationError : 'education' : 'Education' }}</mat-error>
-                    </mat-form-field>
+                    <div class="dropdown">
+                      <div class="dropdown-body">
+                        <app-dropdown [data]="qualifications" (outputData)="selectedDropdown($event,'education')"></app-dropdown>
+                      </div>
+                      <small *ngIf="this.qualificationForm.controls.education.touched">{{qualificationForm | validationError : 'education' : 'Education' }}</small>
+                  </div>
                 </div>
                
               </div>
@@ -58,7 +58,7 @@
                   <label for="" >Language</label><br>
                   <div class="dropdown">
                       <div class="dropdown-body">
-                        <app-dropdown  [placeHolder]="languagePlaceHolder" [data]="language" (outputData)="selectedDropdown($event)" [controlName]="this.qualificationForm.controls.language" ></app-dropdown>
+                        <app-dropdown  [placeHolder]="languagePlaceHolder" [data]="language" (outputData)="selectedDropdown($event,'language')" [controlName]="this.qualificationForm.controls.language" ></app-dropdown>
                       </div>
                       <small *ngIf="this.qualificationForm.controls.language.touched">{{qualificationForm | validationError : 'language' : 'Language' }}</small>
                   </div>

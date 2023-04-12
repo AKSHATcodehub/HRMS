@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <h1 class="wrapper-header"></h1>
+    <div class="add-dsr">
+        <div class="row " >
+            <div class="col-6">
+    
+                <!-- Project Listing -->
+                <div class="form-group col-12 dropdown" id="project_ajax">
+                    <div class="col-md-12">
+                        <label for="project_ajax" class="control-label">Project</label>
+                        <div class="dropdown-body">
+                            <app-dropdown ></app-dropdown>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row">
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="start_date">Date</label>
+                            <mat-form-field appearance="outline" style="position: relative;" >
+                                <input  matInput >
+                            </mat-form-field>
+                        </div>
+                    </div>   
+                    
+
+    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+                                <label for="task_hour" class="control-label">Estimated Hour</label>
+    
+                                <mat-form-field appearance="outline" >
+                                    <input placeholder="Time" readonly matInput  [ngxMatTimepicker]="pickers"
+                                    [format]="24">
+                                  <ngx-mat-timepicker #pickers></ngx-mat-timepicker>
+                                </mat-form-field>
+    
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-time"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                
+                
+            </div>
+    
+            <div class="col-6">
+                <div class="col-md-12">
+                    <label for="">Description</label>
+                    <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" ></angular-editor>
+                    <!-- <small *ngIf="this.dsrForm.controls.dsrContent.touched">{{dsrForm | validationError : 'dsrContent' : 'Description' }}</small> -->
+                </div>
+            </div>
+            
+        </div>
+        <div class="form-actions col-12 ">
+            <button type="submit" class="button " (click)="dsrSummit()" > <i class="fa fa-check-square-o"></i> Add </button>
+        </div>
+    </div>
+</div>

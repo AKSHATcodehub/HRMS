@@ -11,7 +11,7 @@ export class DirectoryComponent implements OnInit {
   keyupData:any;
   showList:any;
   filter:any;
-  reset:string='';
+  reset:any=null;
   departmentPlaceholder:string='Department';
   filterData=ALL_DIRECTORY_TEAM_DATA;
   selectedValue!:string;
@@ -20,6 +20,8 @@ export class DirectoryComponent implements OnInit {
   dropDown:string[] = ['admin','.net'];
   data=['Aahan Verma','Abhishek Kumar','Abhishek Shukla','Bhavya Goel','Bikramjeet Singh','Deepak Sindhu','Deepak Pokhriyal','Harsh Kukreti','Harshit Pathak']
   dropDownData:any[]=[];
+  dropdownReset: any;
+  
   
   constructor() { }
   
@@ -36,6 +38,7 @@ export class DirectoryComponent implements OnInit {
       
     });
   }
+
 
   filterDataHandler(filterData:any){
     console.log("this is filter data...",filterData);
@@ -59,8 +62,11 @@ export class DirectoryComponent implements OnInit {
   }
 
   clickReset(){
-
-    this.reset = ' ';
+    console.log("it is all directory data>>>>>",DIRECTORY_TEAM_DATA);
+    
+    this.dropdownReset = 'all'; 
+    this.reset = '';
+    this.filterData = ALL_DIRECTORY_TEAM_DATA;
     console.log("reset");
   }
 

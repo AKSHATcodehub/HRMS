@@ -17,6 +17,7 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 // import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
@@ -42,8 +43,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ValidationErrorModule,
     AngularEditorModule,
     MatSnackBarModule,
-    SnackbarModule
-    // NgxMatTimepickerModule
+    SnackbarModule,
+    NgxMatTimepickerModule
   ]
 })
 export class DsrModule { }

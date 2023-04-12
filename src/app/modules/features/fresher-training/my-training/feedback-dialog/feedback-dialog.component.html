@@ -4,7 +4,7 @@
         <mat-icon class="close-icon" >close</mat-icon>
     </div>
 </div>
-<div class="tittle">
+<div class="tittle" [formGroup]="trainingFeedbackForm" >
     <div class="data">
         <div class="data_detail">
             <label>Title :</label>
@@ -27,7 +27,7 @@
     </div>
     <div class="goal">
         <p>Do you feel that the objective/goal of the training has been fulfilled? *</p>
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" formControlName="objective" >
             <mat-radio-button value="yes">Yes</mat-radio-button><br>
             <mat-radio-button value="No">No</mat-radio-button>
         </mat-radio-group>
@@ -36,7 +36,7 @@
         <p>How relevant and helpful do you think it was for your job? *</p>
         <div class="rate">
             <p class="red">Not very</p>
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group aria-label="Select an option" formControlName="trainingRatingForJob">
                 <mat-radio-button value="1">1</mat-radio-button>
                 <mat-radio-button value="2">2</mat-radio-button>
                 <mat-radio-button value="3">3</mat-radio-button>
@@ -49,7 +49,7 @@
         <p>How would you rate the overall training? *</p>
         <div class="rate">
             <p class="red">Not Good</p>
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group aria-label="Select an option" formControlName="trainingRating">
                 <mat-radio-button value="1">1</mat-radio-button>
                 <mat-radio-button value="2">2</mat-radio-button>
                 <mat-radio-button value="3">3</mat-radio-button>
@@ -63,7 +63,7 @@
             (Both presented and pre-read material)</p>
         <div class="rate">
             <p class="red">Poor</p>
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group aria-label="Select an option" formControlName="sessionContentRating">
                 <mat-radio-button value="1">1</mat-radio-button>
                 <mat-radio-button value="2">2</mat-radio-button>
                 <mat-radio-button value="3">3</mat-radio-button>
@@ -74,10 +74,10 @@
     </div>
     <div class="feedback">
         <p>Any overall feedback for the training? *</p>
-        <textarea></textarea>
+        <textarea formControlName="overallFeedback"></textarea>
     </div>
     <div class="btn22">
         <button mat-dialog-close>Cancel</button>
-        <button>Submit</button>
+        <button (click)="submitFeedback()" >Submit</button>
     </div>
 </div> 

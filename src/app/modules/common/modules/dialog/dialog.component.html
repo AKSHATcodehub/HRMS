@@ -1,15 +1,3 @@
-<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field appearance="fill">
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div> -->
 
 <div class="dialog-wrapper">
 
@@ -33,7 +21,7 @@
                     <label for="">Department Name</label><br>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name" formControlName="departmentName">
-                      <mat-error>{{dialogForm | validationError :'departmentName' :'Department Name'}}</mat-error>
+                      <!-- <mat-error>{{dialogForm | validationError :'departmentName' :'Department Name'}}</mat-error> -->
                     </mat-form-field>
                 </div>
             </div>
@@ -42,7 +30,7 @@
                     <label for="">Job Code</label><br>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name" formControlName="jobCode">
-                      <mat-error>{{dialogForm | validationError :'jobCode' :'Job Code'}}</mat-error>
+                      <!-- <mat-error>{{dialogForm | validationError :'jobCode' :'Job Code'}}</mat-error> -->
                     </mat-form-field>
                 </div>
             </div>
@@ -52,8 +40,8 @@
                 <div class="input-field">
                     <label for="">Location</label> <br>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="location">
-                      <mat-error>{{dialogForm | validationError :'location' :'Location'}}</mat-error>
+                      <input matInput placeholder="Name" formControlName="location" [disabled]=true >
+                      <!-- <mat-error>{{dialogForm | validationError :'location' :'Location'}}</mat-error> -->
                     </mat-form-field>
                 </div>
             </div>
@@ -62,7 +50,7 @@
                     <label for="">Experience</label><br>
                     <mat-form-field appearance="outline" >
                       <input matInput placeholder="Name" formControlName="experience">
-                      <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error>
+                      <!-- <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error> -->
                     </mat-form-field>
                 </div>
             </div>
@@ -81,7 +69,7 @@
                 <div class="input-field">
                     <label for="">Job Location</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="jobLocation">
+                      <input matInput placeholder="Location" formControlName="jobLocation">
                       <mat-error>{{dialogForm | validationError :'jobLocation' :'Job Location'}}</mat-error>
                     </mat-form-field>
                 </div>
@@ -90,7 +78,7 @@
                 <div class="input-field">
                     <label for="">Candidate Name</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="empName">
+                      <input matInput placeholder="Candidate Name" formControlName="empName">
                       <mat-error>{{dialogForm | validationError :'empName' :'Candidate Name'}}</mat-error>
                     </mat-form-field>
                 </div>
@@ -101,8 +89,8 @@
                 <div class="input-field">
                     <label for="">Position Title</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="projectTitle">
-                      <mat-error>{{dialogForm | validationError :'projectTitle' :'Project Title'}}</mat-error>
+                      <input matInput placeholder="Name" formControlName="positionTitle">
+                      <!-- <mat-error>{{dialogForm | validationError :'projectTitle' :'Project Title'}}</mat-error> -->
 
                     </mat-form-field>
                 </div>
@@ -111,8 +99,8 @@
                 <div class="input-field">
                     <label for="">Experience</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="experience">
-                      <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error>
+                      <input matInput placeholder="Enter Year of Experience" formControlName="candidateExperience" type="number">
+                      <!-- <mat-error>{{dialogForm | validationError :'experience' :'Experience'}}</mat-error> -->
 
                     </mat-form-field>
                 </div>
@@ -133,7 +121,7 @@
                 <div class="input-field">
                     <label for="">Phone Number</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Name" formControlName="phoneNumber">
+                      <input matInput placeholder="Enter Phone Number" formControlName="phoneNumber">
                       <mat-error>{{dialogForm | validationError :'phoneNumber' :'Phone Number'}}</mat-error>
 
                     </mat-form-field>
@@ -154,7 +142,7 @@
                 <div class="input-field">
                     <label for="">Skill Set</label>
                     <mat-form-field appearance="outline" class="skill-set" >
-                      <input matInput placeholder="Name" formControlName="skill">
+                      <input matInput placeholder="Enter Skills" formControlName="skill">
                       <mat-error>{{dialogForm | validationError :'skill' :'Skill'}}</mat-error>
 
                     </mat-form-field>

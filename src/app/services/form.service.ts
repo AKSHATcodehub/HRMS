@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { PATTERN } from '../constant/patterns';
+import { Regex } from '../constant/regex';
 import { VALIDATION_CRITERIA } from '../constant/validation-criteria';
 
 @Injectable({
@@ -20,17 +21,14 @@ export class FormService {
   VALIDATION:any = {
     emptyControl:[],
     name:[
-      Validators.pattern(PATTERN.name),
-      Validators.minLength(VALIDATION_CRITERIA.nameMinLength),
-      Validators.maxLength(VALIDATION_CRITERIA.nameMaxLength)
+      Validators.pattern(Regex.name),
     ],
     email:[
       Validators.email,
-      Validators.pattern(PATTERN.email),
-      Validators.maxLength(VALIDATION_CRITERIA.emailMaxLength)
+      Validators.pattern(Regex.email),
     ],
     password:[
-      Validators.pattern(PATTERN.password),
+      Validators.pattern(Regex.password),
       Validators.maxLength(VALIDATION_CRITERIA.passwordMaxLength),
       Validators.minLength(VALIDATION_CRITERIA.passwordMinLength)
     ],
@@ -52,7 +50,7 @@ export class FormService {
     experience:[],
     jobLocation:[],
     projectTitle:[],
-    phoneNumber:[],
+    phoneNumber:[Validators.pattern(Regex.phone)],
     skill:[],
     file:[],
     leaveType:[],

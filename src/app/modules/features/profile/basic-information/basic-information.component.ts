@@ -63,7 +63,9 @@ export class BasicInformationComponent implements OnInit {
       marriageStatus:[null,Validators.required],
       contactNumber:['',Validators.required],
       YearOfExperience:['',Validators.required],
-      relevantExperience:['',Validators.required]
+      yearOfExperienceMonth:['',Validators.required],
+      relevantExperience:['',Validators.required],
+      relevantExperienceMonth:['',Validators.required]
     })
   }
 
@@ -73,6 +75,8 @@ export class BasicInformationComponent implements OnInit {
     
     if(this.basicInfoForm.valid){
       this.basicInfoForm.reset();
+      console.log("reset basic info form >>>>>>>",this.basicInfoForm);
+      
       this.reset;
       this._snackBar.snackBar('Basic Info Updated');
 

@@ -25,7 +25,7 @@
                   <div class="col-lg-4">
                     <label for="">Date of Birth</label><br>
                     <mat-form-field appearance="outline" style="position: relative;" >
-                      <input [max]="today" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
+                      <input [max]="today" [readonly]="true" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dateOfBirth">
                       <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'Date Of Birth' }}</mat-error>
                       <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                       <mat-datepicker #picker1></mat-datepicker>
@@ -34,7 +34,6 @@
                 </div>
       
                 <div class="row">
-
     
                   <div class="col-lg-4 dropdown" >
                       <label for="" >Gender</label><br>
@@ -42,53 +41,15 @@
                         <app-dropdown [progchangedValue]="this.basicInfoForm.controls.genderr.value"  [controlName]="basicInfoForm.controls.genderr"  [placeHolder]="genderPlaceHolder" [data]="gender" (outputData)="selectedValue($event,'genderr')"></app-dropdown>
                         <small *ngIf="this.basicInfoForm.controls.genderr.touched">{{basicInfoForm | validationError:'genderr':'Gender' }}</small>
                       </div>
-                        <!-- <mat-form-field appearance="outline" >
-                        <div class="wrapper" #wapper>
-                          <div class="select-btn" (click)="optionClicked(wapper)" #selectbtn>
-                            <input  type="text" readonly="readonly"  placeholder="Gender"   >
-                            <i class="uil uil-angle-down"></i>
-                          </div> 
-                          <div class="content" #content>
-                            <div class="search">
-                              <i class="uil uil-search"></i>
-                              <input  type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
-                            </div>
-                            <ul class="options">
-                              <li *ngFor="let item of gender" (click)="updateName(item,selectbtn,wapper,'genderr')" #{item}>{{item}}</li> 
-                            </ul>
-                          </div>
-                        </div>
-                        <mat-error class="custom-error" >{{basicInfoForm | validationError : 'genderr' : 'Gender' }}</mat-error>
-                      </mat-form-field> -->
-                </div>
-                  
-                  
-                <div class="col-lg-4 dropdown"  >
-                  <label for="" >Marriage status</label><br>
-                  <div class="dropdown-body">
-                    <app-dropdown [progchangedValue]="this.basicInfoForm.controls.marriageStatus.value" [placeHolder]="marriagePlaceHolder" [data]="marriage" (outputData)="selectedValue($event,'marriageStatus')"></app-dropdown>
-                    <small *ngIf="this.basicInfoForm.controls.marriageStatus.touched">{{basicInfoForm | validationError:'marriageStatus':'Marriage Status' }}</small>
                   </div>
-    
-                  <!-- <mat-form-field appearance="outline" >
-                    <div class="wrapper" #wapper1>
-                      <div class="select-btn" (click)="optionClicked(wapper1)" #selectbtn1>
-                        <input matInput type="text" readonly="readonly"  placeholder="Marriage Status"  formControlName="marriageStatus">
-                        <i class="uil uil-angle-down"></i>
-                      </div> 
-                      <div class="content" #content1>
-                        <div class="search">
-                          <i class="uil uil-search"></i>
-                          <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
-                        </div>
-                        <ul class="options">
-                          <li *ngFor="let item of marriage" (click)="updateName(item,selectbtn1,wapper1,'marriageStatus')" #{item}>{{item}}</li> 
-                        </ul>
-                      </div>
+                  
+                  <div class="col-lg-4 dropdown"  >
+                    <label for="" >Marriage status</label><br>
+                    <div class="dropdown-body">
+                      <app-dropdown [progchangedValue]="this.basicInfoForm.controls.marriageStatus.value" [placeHolder]="marriagePlaceHolder" [data]="marriage" (outputData)="selectedValue($event,'marriageStatus')"></app-dropdown>
+                      <small *ngIf="this.basicInfoForm.controls.marriageStatus.touched">{{basicInfoForm | validationError:'marriageStatus':'Marriage Status' }}</small>
                     </div>
-                    <mat-error class="custom-error" >{{basicInfoForm | validationError : 'marriageStatus' : 'Marriage Status' }}</mat-error>
-                  </mat-form-field>  -->
-                </div>
+                  </div>
                   
                   <div class="col-lg-4">
                     <label for="">Contact Number</label>
@@ -113,8 +74,8 @@
                       <div class="col">
                         <label for="">Months</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Months" type="number" formControlName="YearOfExperience" (keydown)="_utilities.noSpace($event)">
-                          <mat-error>{{basicInfoForm | validationError:'YearOfExperience':'Year Of Experience' }}</mat-error>
+                          <input matInput placeholder="Months" type="number" max="11" formControlName="yearOfExperienceMonth" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'yearOfExperienceMonth':'Year Of Experience in Month' }}</mat-error>
                         </mat-form-field>
                       </div> 
                     </div>
@@ -133,8 +94,8 @@
                       <div class="col">
                         <label for="">Months</label>
                         <mat-form-field appearance="outline" >
-                          <input matInput placeholder="Months" type="number"  formControlName="relevantExperience" (keydown)="_utilities.noSpace($event)">
-                          <mat-error>{{basicInfoForm | validationError:'relevantExperience':'Relevant Experience' }}</mat-error>
+                          <input matInput placeholder="Months" type="number" max="11" formControlName="relevantExperienceMonth" (keydown)="_utilities.noSpace($event)">
+                          <mat-error>{{basicInfoForm | validationError:'relevantExperienceMonth':'Relevant Experience in Month' }}</mat-error>
                         </mat-form-field>
                       </div> 
                     </div>

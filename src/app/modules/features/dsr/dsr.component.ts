@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM } from './dsr-data';
@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import {DSR_HEADING} from './dsr-data';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ import {DSR_HEADING} from './dsr-data';
 })
 export class DsrComponent implements OnInit {
 
+  today= new Date();
   isOpen!: boolean;
   panelOpenState: boolean = false;
   projectDropdown=PROJECT_DROPDOWN;
@@ -24,15 +26,18 @@ export class DsrComponent implements OnInit {
   headings = DSR_HEADING;
   pipe: DatePipe;
   filterForm!:FormGroup;
-  submissionStatusData = ['All','Submitted','Due'];
-  projectDataDropdown = ['All','Training Project React.js'];
-  finalApprovalDropdown = ['All','Pending','Approved','Rejected'];
-  hoursDropdown = ['Hours','Less than 5 Hours','Greater than 5, Less than equal to 8','Greater than 8','Greater than 10']
+  submissionStatusData = ['Submitted','Due'];
+  projectDataDropdown = ['Training Project React.js'];
+  finalApprovalDropdown = ['Pending','Approved','Rejected'];
+  hoursDropdown = ['Less than 5 Hours','Greater than 5, Less than equal to 8','Greater than 8','Greater than 10']
   selctedProject:string='';
   approvingAuthority:string[] = APPROVING_AUTHORITY;
   chooseAM:string[] = CHOOSE_AM;
   TABLE_DATA = new MatTableDataSource<any>([]);
-
+  statusPlaceHolder="Select Status";
+  projectPlaceholder='Select Project';
+  approvalstatusPlaceholer = 'Select Approval status'
+  hoursPlaceholder = 'Hours'
   filterObject:any;
 
   editorConfig: AngularEditorConfig = {
@@ -74,9 +79,11 @@ export class DsrComponent implements OnInit {
     uploadUrl: 'v1/image',
   };
   pageSize!: number;
+  @Input() ngxMatTimepicker:any;
 
   constructor(private _fb:FormBuilder,
-              private _snackbar:MatSnackBar) {
+              private _snackbar:MatSnackBar,
+              public _utilities:UtilitiesService) {
 
     this.createDsrFilterForm();
 
@@ -167,6 +174,7 @@ export class DsrComponent implements OnInit {
       dsrProject:['',Validators.required],
       dsrDate:['',Validators.required],
       dsrHours:['',Validators.required],
+      dsrNoWork:[false,Validators.required],
       dsrContent:['',Validators.required]
     })
   }
@@ -197,7 +205,6 @@ export class DsrComponent implements OnInit {
 
     this.filterForm.get(controlName)?.setValue(event);
   
-    
   }
 
   
@@ -209,6 +216,9 @@ export class DsrComponent implements OnInit {
   dsrSummit(){
 
     if(this.dsrForm.valid){
+
+      console.log("dsr form>>>>",this.dsrForm);
+      
 
       let dsrObject = {
         s_no: DSR_TABLEDATA.length+1,
@@ -228,7 +238,7 @@ export class DsrComponent implements OnInit {
       this.datasource.data = (DSR_TABLEDATA);
 
       this._snackbar.openFromComponent(SnackbarComponent, {
-        duration: 1* 100000,
+        duration: 1000,
         verticalPosition:'top',
         data:'DSR Submitted!'
       })
@@ -265,6 +275,16 @@ export class DsrComponent implements OnInit {
     console.log("this is table data>>>>>>>",this.datasource);
 
 
+  }
+
+  noWork(){
+    console.log("no wwork function called>>>>>>>>>");
+    
+    if(this.dsrForm.controls.dsrNoWork.value){
+      this.dsrForm.controls.dsrContent.setValue('Today no work has been done on this project');
+    }else{
+      this.dsrForm.controls.dsrContent.setValue('');
+    }
   }
 
 }

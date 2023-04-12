@@ -61,9 +61,9 @@ export class LatestJobComponent implements OnInit {
   //   });
   // }
 
-  openDialog(): void {
+  openDialog(job:any): void {
     const dialogRef = this.dialog.open(DialogComponent, {
-      // data: {name: "mistu", animal: "dog"},
+      data: job,
       
     });
 

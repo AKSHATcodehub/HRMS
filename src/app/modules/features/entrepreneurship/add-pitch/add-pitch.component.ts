@@ -5,6 +5,7 @@ import { FEATURES } from 'src/app/constant/routes';
 import { FormService } from 'src/app/services/form.service';
 import { Industry } from './pitch-data';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-add-pitch',
@@ -69,7 +70,8 @@ export class AddPitchComponent implements OnInit {
     private render:Renderer2,
     private fb:FormBuilder,
     private _form:FormService,
-    private _route:Router) { }
+    private _route:Router,
+    private _snackBar:SnackbarService) { }
 
   ngOnInit(): void {
 
@@ -100,6 +102,7 @@ export class AddPitchComponent implements OnInit {
   actionbtn(){
     this.pitchForm.markAllAsTouched();
     if(this.pitchForm.valid){
+      this._snackBar.showSuccess('Pitch submitted!','');
       this._route.navigate([FEATURES.fullUrl])
     }
   }

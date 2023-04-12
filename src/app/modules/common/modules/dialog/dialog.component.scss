@@ -6,6 +6,11 @@
     font-size: 10px;
     margin: 5px;
 }
+label{
+    margin-bottom: 5px;
+    color: #96A5B8;
+    font-size: 14px;
+}
 
 ::ng-deep .mat-dialog-container{
     width: 800px;
@@ -48,11 +53,7 @@
                     max-width: 100%;
                     .input-field{
 
-                        label{
-                            margin-bottom: 5px;
-                            color: #96A5B8;
-                            font-size: 14px;
-                        }
+                      
                         width: 100% !important;
                         
                         mat-form-field{

@@ -6,9 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Regex } from 'src/app/constant/regex';
 
-
-
-
 @Pipe({
   name: 'validationError',
   pure:false
@@ -85,43 +82,43 @@ export class ValidationErrorPipe implements PipeTransform {
   // }
 
   transform(form: FormGroup, control: string, label: string): string {
-    // console.log(form,control,label,"123");
-    //  console.log(form.get(control)?.touched, form.get(control)?.invalid,"456");
-
+    
     if (form.get(control)?.touched || form.get(control)?.invalid) {
       
       const errors = form.get(control)?.errors;
-      // console.log(errors,"12");
+      // console.log(errors,"12");      
       
       if (errors?.hasOwnProperty("required")) {
-        return `${label} is required`;
+        return `* ${label} is required`;
       }
       else if (errors?.hasOwnProperty("minlength")) {
-        return `Minimum ${errors.minlength.requiredLength} characters required`;
+        return `* Minimum ${errors.minlength.requiredLength} characters required`;
       }
       else if (errors?.hasOwnProperty("maxlength")) {
-        return `Maximum ${errors.maxlength.requiredLength} characters required`;
+        return `* Maximum ${errors.maxlength.requiredLength} characters required`;
       }
       else if (errors?.hasOwnProperty("min")) {
-        return `${label} should be greater than ${errors.min.min}`
+        return `* ${label} should be greater than ${errors.min.min}`
       }
       else if (errors?.hasOwnProperty("max")) {
-        return `${label} should be less than ${errors.max.max}`
+        return `* ${label} should be less than ${errors.max.max}`
       }
       else if (errors?.hasOwnProperty("pattern")) {
+
+        
         if (
           control === "password" ||
           control === "confirmPassword" ||
           control === "oldPassword"
-        ) {
-          return `One uppercase alphabet,one lowercase alphabet,one number,one special character is required`;
-        }
-        else {
-          let pattern = errors.pattern.requiredPattern;
-          return this.PATTERN_ERRORS(pattern, label);
+          ) {
+            return `* One uppercase alphabet,one lowercase alphabet,one number,one special character is required`;
+          }
+          else {
+            let pattern = errors.pattern.requiredPattern;
+            return this.PATTERN_ERRORS(pattern, label);
         }
       } else if (errors?.hasOwnProperty("passwordNotMatch")) {
-        return `Your passwords do not match, please check.`;
+        return `* Your passwords do not match, please check.`;
       }
     }
     return '';
@@ -131,22 +128,23 @@ export class ValidationErrorPipe implements PipeTransform {
     
     let comment: string
     if (pattern == Regex.email) {
-      comment = `${key} is invalid or not in correct format`;
+      comment = `* ${key} is invalid or not in correct format`;
       return comment;
 
     }
     else if (pattern == Regex.password) {
-      comment = `${key} can not contain blank spaces`
+      comment = `* ${key} can not contain blank spaces`
       return comment;
 
     }
     else if (pattern == Regex.name) {
-      comment = `${key} can not be blank`
+      comment = `* ${key} can not be blank`
       return comment;
       
     }
     else if (pattern == Regex.phone) {
-      comment = `${key} can contain only digits`
+      console.log("pattern validation error called >>>>>>>>>>",pattern);
+      comment = `* ${key} can contain only digits`
       return comment;
     }
   }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DsrDetailsRoutingModule } from './dsr-details-routing.module';
 import { DsrDetailsComponent } from './dsr-details.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { DsrDetailsComponent } from './dsr-details.component';
   imports: [
     CommonModule,
     DsrDetailsRoutingModule,
+    MatIconModule
 
   ]
 })

@@ -6,14 +6,14 @@
 
     <button NguCarouselPrev class="leftRs" 
     >
-    <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomLeftRs' : 'leftRs' " -->
-      <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt=""> -->
+    [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomLeftRs' : 'leftRs' "
+      <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt="">
   
     </button>
     <button NguCarouselNext class="rightRs"
     >
-    <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' " -->
-      <!-- <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt=""> -->
+    [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' "
+      <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt="">
     </button>
   
     <div *nguCarouselDef="let item;" class="item">

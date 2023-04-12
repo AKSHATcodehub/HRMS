@@ -28,9 +28,9 @@ export class TableComponent implements OnInit,AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
-  // @ViewChild(MatSort) set matSort(sort: MatSort) {
-  //   this.dataSource.sort = sort;
-  // }
+  @ViewChild(MatSort) set matSort(sort: MatSort) {
+    this.dataSource.sort = sort;
+  }
   // @Output() getResponse = new EventEmitter;  
   // @Output() userDetail: EventEmitter<any> = new EventEmitter();
   @Output() sort: EventEmitter<Sort> = new EventEmitter();

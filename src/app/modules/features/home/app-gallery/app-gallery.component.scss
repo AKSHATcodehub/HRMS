@@ -3,17 +3,20 @@
 
 .gallery-home{
     // width: auto;
-    width: 90%;
+    width: 95%;
     margin: 10px;
     position: relative;
     margin-top: 2.1rem;
+    .gallery-image{
+        height: 256px;
+    }
     img{
         height: 100%;
         width: 100%;
     }
     .gallery-name{
         position: absolute;
-        bottom: 35px;
+        bottom: 15px;
         left:10px;
         color: white;
         font-size: 1.4rem;

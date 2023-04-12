@@ -1,0 +1,31 @@
+@import '../../../../../scss/theme/grid',
+        '../../../../../scss/theme/wrapper';
+
+.add-dsr{
+    padding: 16px;
+    background-color: white;
+    .row{
+        @include media(sm){
+            display: block;
+        }
+        .col-6{
+            @include media(sm){
+                max-width: 100%;
+            }
+        }
+    }
+    
+    .dsr-content{
+        display: flex;
+    }
+    .button{
+        position: relative;
+        left: 20px;
+        background-color: green;
+        @include media(md){
+            margin:20px 5px;
+            left: 0px;
+           
+        }
+    }
+}

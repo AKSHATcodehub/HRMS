@@ -9,14 +9,14 @@ export const CHOOSE_AM = [ 'Account Manager','Amardeep Rawat','Amit Singh','Anan
 export const APPROVING_AUTHORITY = ['Aashini Sharma','Aashish Sharma','Aatish Mittal','Abhijeet Bhadouria','Akanksha Singh'];
 
 export const DSR_HEADING = [
-  { heading: 'S.No.', key: 's_no', type: 'text'},
-  { heading: 'Employee Name', key: 'emp_name', type: 'text' },
-  { heading: 'Employee Id', key: 'emp_id', type: 'text' },
-  { heading: 'Email', key: 'email', type: 'text'},
-  { heading: 'Employee Type', key: 'employment_type', type: 'text'},
-  { heading: 'Date', key: 'date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-  { heading: 'Logged Hr', key: 'logged_hr', type: 'text', action: [2] , link: '/dashboard/client-details' },
-  { heading: 'Approval Status', key: 'approval_status', type: 'dsr_status' , link:'dsr-details'},
+  { heading: 'S.No.', key: 's_no', type: 'text',sort:true},
+  { heading: 'Employee Name', key: 'emp_name', type: 'text' ,sort:true},
+  { heading: 'Employee Id', key: 'emp_id', type: 'text' ,sort:true},
+  { heading: 'Email', key: 'email', type: 'text',sort:true},
+  { heading: 'Employee Type', key: 'employment_type', type: 'text',sort:true},
+  { heading: 'Date', key: 'date', type: 'text', action: [2] , link: '/dashboard/client-details',sort:true },
+  { heading: 'Logged Hr', key: 'logged_hr', type: 'text', action: [2] , link: '/dashboard/client-details',sort:true },
+  { heading: 'Approval Status', key: 'approval_status', type: 'dsr_status' , link:'dsr-details',sort:true},
 
 ]
 

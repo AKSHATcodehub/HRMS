@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class SearchbarComponent implements OnInit {
 
   @Input() data:any[]=[];
-  @Input() reset:string='';
+  @Input() reset:any;
   @Output() filteData:EventEmitter<any> = new EventEmitter();
 
   arr:any[] = [];

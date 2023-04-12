@@ -9,6 +9,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { TrainingCardModule } from 'src/app/modules/common/modules/training-card/training-card.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @NgModule({
@@ -22,8 +24,12 @@ import { TrainingCardModule } from 'src/app/modules/common/modules/training-card
     CardsModule,
     MatDialogModule,
     MatRadioModule,
-    MatIconModule,
-    TrainingCardModule
+    MatIconModule, 
+    TrainingCardModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class MyTrainingModule { }

@@ -1,7 +1,7 @@
 export const JOB_OPENINGS = [
   {
     job_title: 'Business Analyst',
-    department: ' Business Analyst',
+    department: ' Business ',
     job_description: 'Looking for Business Analysts to join us immediately.',
     openings_count: 4,
     job_experience_required: '1 to 3 years',
@@ -25,7 +25,7 @@ export const JOB_OPENINGS = [
   },
   {
     job_title: 'Sr Software Engineer ',
-    department: ' DevOps',
+    department: 'DevOps',
     job_description:
       'Looking for DevOps Engineer with good cloud environments knowledge.',
     openings_count: 2,

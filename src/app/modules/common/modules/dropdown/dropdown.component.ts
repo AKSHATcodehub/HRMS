@@ -25,6 +25,7 @@ export class DropdownComponent implements OnInit {
   @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string;
   @Input() progchangedValue:string = '';
+  @Input() initialValue:any;
   @Output() outputData :EventEmitter<any> = new EventEmitter();
   @HostListener('document:click') clickedOutside() {
     // console.log("hyy");
@@ -33,11 +34,12 @@ export class DropdownComponent implements OnInit {
       this.showMenu = false; // hide the dropdown...
     }
   }
-
   
   constructor(private ref:ElementRef,private render:Renderer2) {
     this.showMenu = false;
     this.state = DropdownMouseState.outside;
+    console.log("this is initial value of dropdown>>",this.initialValue);
+    
    }
   state!: DropdownMouseState;
   showMenu!: boolean;
@@ -49,11 +51,11 @@ export class DropdownComponent implements OnInit {
   parentData:any;
   filterData:any;
   control!:FormControl ;
-  
   ngOnInit(): void {
     
     this.control = new FormControl(this.controlName);
-    // console.log("control....",this.controlName);
+    // this.initialValue = this.data[0];
+    // this.outputData.emit(this.initialValue); 
 
     setTimeout(() => {
       
