@@ -64,7 +64,7 @@
                         <div class="col-md-12 dropdown">
                             <label>Industry</label> <br>
                             <div class="dropdown-body">
-                                <app-dropdown  [data]="IndustryData"  (outputData)="selectedValue($event,'pitchIndustry')"></app-dropdown>
+                                <app-dropdown  [data]="IndustryData" [placeHolder]="indutryPlaceholder" (outputData)="selectedValue($event,'pitchIndustry')"></app-dropdown>
                             </div>
                             <small *ngIf="this.pitchForm.controls.pitchIndustry.touched">{{pitchForm | validationError:'pitchIndustry':'Industry' }}</small>
                         </div>
@@ -73,7 +73,7 @@
                         <div class="col-md-12 dropdown">
                             <label>Type</label> <br>
                             <div class="dropdown-body">
-                                <app-dropdown [data]="IndustryData" (outputData)="selectedValue($event,'pitchType')"></app-dropdown>
+                                <app-dropdown [data]="IndustryData" [placeHolder]="typePlaceholder" (outputData)="selectedValue($event,'pitchType')"></app-dropdown>
                             </div>
                             <small *ngIf="this.pitchForm.controls.pitchType.touched">{{pitchForm | validationError:'pitchType':'Type' }}</small>
                         </div>
@@ -81,8 +81,8 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label>Idea-(Share your idea in  brief)</label>
-                            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" ></angular-editor>
-                            <!-- <small *ngIf="this.pitchForm.controls.dsrContent.touched">{{pitchForm | validationError : 'dsrContent' : 'Description' }}</small> -->
+                            <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="pitchIdea" ></angular-editor>
+                            <small *ngIf="this.pitchForm.controls.pitchIdea.touched">{{pitchForm | validationError : 'pitchIdea' : 'Idea' }}</small>
                         </div>
                     </div>
                     <div class="row file">
@@ -90,7 +90,8 @@
                             <br>
                             <label for="">Presentation - (Share your detailed presentation on the idea) (ppt,pdf)</label>
                             <br>
-                            <input type="file">
+                            <input type="file" formControlName="pitchData">
+                            <small *ngIf="this.pitchForm.controls.pitchData.touched">{{pitchForm | validationError : 'pitchData' : 'Presentation' }}</small>
                         </div>
                     </div>
                     

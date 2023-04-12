@@ -27,6 +27,8 @@ export class AddPitchComponent implements OnInit {
   selectBtn: any;
   wrapper: any;
   today = new Date();
+  indutryPlaceholder='Select Industry';
+  typePlaceholder = 'Select type'
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -95,7 +97,9 @@ export class AddPitchComponent implements OnInit {
       DOB:this._form.getControl('DOB'),
       pitchTitle:this._form.getControl('pitchTitle'),
       pitchIndustry:this._form.getControl('pitchIndustry'),
-      pitchType:this._form.getControl('pitchType')
+      pitchType:this._form.getControl('pitchType'),
+      pitchIdea:this._form.getControl('description'),
+      pitchData:this._form.getControl('mandatory')
     })
   }
 

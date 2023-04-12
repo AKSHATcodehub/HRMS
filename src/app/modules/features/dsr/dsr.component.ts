@@ -156,6 +156,7 @@ export class DsrComponent implements OnInit {
     // }
     
    }
+
   get toDate() { 
     this.filterForm?.controls.toDate.setValue(this.convert(`${this.filterForm.get('toDate')?.value}`));
     return this.filterForm.get('toDate')?.value; 
@@ -167,7 +168,6 @@ export class DsrComponent implements OnInit {
     day = ("0" + date.getDate()).slice(-2);
     return [date.getFullYear(), mnth, day].join("-");
   }
-
   
   createDsrForm(){
     return this.dsrForm = this._fb.group({
@@ -200,14 +200,12 @@ export class DsrComponent implements OnInit {
   });
   }
 
-
   dropdownFilter(event:string,controlName:string){
 
     this.filterForm.get(controlName)?.setValue(event);
   
   }
 
-  
   selectDropdown(event :string,control:string){
     this.dsrForm.controls[control].setValue(event);
     this.selctedProject = event;

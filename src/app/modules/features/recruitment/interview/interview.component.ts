@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { DEPARTMENT_OPTIONS, INTERVIEW_DATA, INTERVIEW_STATUS } from './interview-data';
+import { DEPARTMENT_OPTIONS, INTERVIEW_DATA, INTERVIEW_HEADING, INTERVIEW_STATUS } from './interview-data';
 
 @Component({
   selector: 'app-interview',
@@ -12,36 +13,26 @@ export class InterviewComponent implements OnInit {
   // S. No.	Department	Name	Email	Mobile No.	Round Type	Interview Date	Interview Time	Final Status	Action
 
   datasource = new MatTableDataSource<any>(INTERVIEW_DATA);
-  headings = [
-    { heading: 'S.No.', key: 's_no', type: 'text'},
-    { heading: 'Department', key: 'department', type: 'text' },
-    { heading: 'Name', key: 'name', type: 'text' },
-    { heading: 'Email', key: 'email', type: 'text'},
-    { heading: 'Mobile No.', key: 'mobile_number', type: 'text'},
-    { heading: 'Round Type', key: 'round_type', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Date', key: 'interview_date', type: 'text', action: [2] , link: '/dashboard/client-details' },
-    { heading: 'Interview Time', key: 'interview_time', type: 'text'},
-    { heading: 'Final Status', key: 'final_status', type: 'text'},
-    { heading: 'Action', key: 'Action', type: 'text'},
-
-
-  ]
+  headings = INTERVIEW_HEADING;
   Table_DATA: any[] = [];
   deparrtmentPlaceholder='Select Department';
   statusPlaceholder = 'Select Status';
   departmentDropdown = DEPARTMENT_OPTIONS;
   interviewStatusDropdown=INTERVIEW_STATUS;
   filterValues:any;
-  filterSelectObj:{ name: string,columnProp: string,data:any[],placeholder:string,label:string}[]=[];
+  filterSelectObj:{ name: string,columnProp: string,data:any[],placeholder:string,label:string,controlName:string }[]=[];
+  interviewForm!:FormGroup;
+  f:any;
 
-  constructor() {
+  constructor(private _fb:FormBuilder) {
     this.filterSelectObj = [
       {
         name: 'Status',
         columnProp: 'status',
         data:this.departmentDropdown,
         placeholder:this.deparrtmentPlaceholder,
-        label:'Department'
+        label:'Department',
+        controlName:'department'
         
       },
       {
@@ -49,9 +40,63 @@ export class InterviewComponent implements OnInit {
         columnProp: 'dept',
         data:this.interviewStatusDropdown,
         placeholder:this.statusPlaceholder,
-        label:'Status'
+        label:'Status',
+        controlName:'status'
       }
     ];
+
+    this.createForm();
+
+    this.interviewForm.valueChanges.subscribe((value:any)=>{
+
+      console.log("interview form >>>>>",this.datasource);
+
+      let filter = {...value} ;
+
+      this.datasource.filter =  JSON.stringify(filter);
+      
+      this.datasource.filterPredicate = ((data, filter) => {
+  
+        let result = this.testJSON(filter)
+  
+        if(result){
+          let filterObject = JSON.parse(filter)      
+          
+                const a = !filterObject.status || data.status === filterObject.status;
+          
+                const b = !filterObject.department || data.team == filterObject.department;
+                
+                console.log(a && b);
+          
+                return a && b  ;
+        }else{
+          let filterObjectKeys = Object.keys(data);
+          // console.log("filterobjectkeydddd>>>>>>>>>>",filterObjectKeys);
+          
+          this.f =false;
+  
+          filterObjectKeys.forEach((item)=>{
+  
+            console.log("data.[item]>>>>>>>>",data[item]);
+            
+           
+             if(data[item].includes(filter)){
+              this.f =true;
+             };
+  
+          }) 
+  
+          console.log("this is this.f>>>>>>>>",this.f);
+          
+  
+          return this.f
+  
+        }
+  
+      }) 
+    })
+
+
    }
 
   ngOnInit(): void {
@@ -59,14 +104,35 @@ export class InterviewComponent implements OnInit {
 
   }
 
-  filterChange( event:any) {
+  filterChange( event:any,controlName:any) {
     console.log(">>>>>>>>>>",event);
 
-   let selectedOption = event.trim().toLowerCase();
-    this.datasource.filter = selectedOption;
+    this.interviewForm.get(controlName)?.setValue(event);
+
+    // let selectedOption = event.trim().toLowerCase();
+    // this.datasource.filter = selectedOption;
     console.log(">>>>>>>>>>",this.datasource);
     
   }
+
+  createForm(){
+    return this.interviewForm = this._fb.group({
+      department:[''],
+      status:['']
+    })
+  }
+
+  testJSON(text:any) {
+    if (typeof text !== "string") {
+        return false;
+    }
+    try {
+        JSON.parse(text);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
 }
 

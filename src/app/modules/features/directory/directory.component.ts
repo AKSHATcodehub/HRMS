@@ -63,7 +63,6 @@ export class DirectoryComponent implements OnInit {
 
   clickReset(){
     console.log("it is all directory data>>>>>",DIRECTORY_TEAM_DATA);
-    
     this.dropdownReset = 'all'; 
     this.reset = '';
     this.filterData = ALL_DIRECTORY_TEAM_DATA;

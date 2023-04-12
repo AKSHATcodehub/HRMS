@@ -16,36 +16,36 @@
                             <div class="location">
                                 <!-- <mat-icon>location_on</mat-icon> -->
                                     <h3>
-                                    <p>Noida, Uttar Pradesh</p>
+                                    <p>{{singleJobData.location}}</p>
                                 </h3>
                             </div>
                             <div class="date">
-                                9/02/2023
+                                {{singleJobData.date}}
                             </div>
                         </div>
                     </div>
                     <div class="card-body-mid">
                         <div class="job-description">
-                            <h3>Sr. Software Engineer - <span class="department_name">Magento</span></h3>
-                            <p>Looking for Senior Magento Developers.</p>
+                            <h3>{{singleJobData.job_title}} - <span class="department_name">{{singleJobData.department}}</span></h3>
+                            <p>{{singleJobData.job_description}}</p>
                         </div>
                         <div class="job-data">
                            
                             <div class="no_opeanings">
                                 <p>No. of Openings</p>
-                                <h4>2</h4>
+                                <h4>{{singleJobData.openings_count}}</h4>
                             </div>
                             <div class="no_experience">
                                 <p>Experience</p>
-                                <h4>3 to 5 Years</h4>
+                                <h4>{{singleJobData.job_experience_required}}</h4>
                             </div>
                            
                         </div>
                     </div>
                     <div class="card-body-bottom">
                         <div class="btn-wrapper">
-                            <button routerLink="../job-details/103" >View Details</button>
-                            <button (click)="openDialog()">Refer a Candidate</button>
+                            <button [routerLink]="['../job-details/' + singleJobData.job_id]"  >View Details</button>
+                            <button (click)="openDialog(singleJobData)">Refer a Candidate</button>
                         </div>
                     </div>
                 </div>

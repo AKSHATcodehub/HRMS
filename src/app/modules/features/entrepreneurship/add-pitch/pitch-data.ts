@@ -1,6 +1,5 @@
 export const Industry = [
     
-    'Select Industry',
     
     'Industry Domain',
    

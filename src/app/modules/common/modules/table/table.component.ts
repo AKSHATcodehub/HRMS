@@ -11,7 +11,7 @@ import { TableColumn } from 'src/app/interfaces/column';
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements OnInit,AfterViewInit {
+export class TableComponent implements OnInit {
 
   matHeaderRow: any = [];
   @Output() editEvent:EventEmitter<any> = new EventEmitter();
@@ -25,11 +25,14 @@ export class TableComponent implements OnInit,AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   paginationSizes: number[] =[10];
   @Input() defaultPageSize: number =10;
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
+  // ngAfterViewInit() {
+  //   this.dataSource.paginator = this.paginator;
+  // }
   @ViewChild(MatSort) set matSort(sort: MatSort) {
     this.dataSource.sort = sort;
+  }
+  @ViewChild(MatPaginator) set matPaginator(sort: MatPaginator) {
+    this.dataSource.paginator = this.paginator;
   }
   // @Output() getResponse = new EventEmitter;  
   // @Output() userDetail: EventEmitter<any> = new EventEmitter();
