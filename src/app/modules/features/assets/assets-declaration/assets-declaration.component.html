@@ -15,7 +15,7 @@
                               <div class="form-group">
                                 <label for="gender">Employee Id AI1592 <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text" formControlName="employeeId"  >
+                                    <input matInput type="text" formControlName="employeeId"  (keydown)="_utilities.noSpace($event)" >
                                     <mat-error>{{assetsDeclarationForm | validationError : 'employeeId' : 'Employee Id' }}</mat-error>
                                   </mat-form-field>
                               </div>
@@ -25,7 +25,7 @@
                               <div class="form-group">
                                 <label for="experience" class="control-label">Unique Asset Code  <span class="red-color">*</span></label>
                                 <mat-form-field appearance="outline" >
-                                    <input matInput type="text" formControlName="uniqueAssetCode" >
+                                    <input matInput type="text" formControlName="uniqueAssetCode" (keydown)="_utilities.noSpace($event)">
                                     <mat-error>{{assetsDeclarationForm | validationError : 'uniqueAssetCode' : 'Unique Asset Code ' }}</mat-error>
                                 </mat-form-field>
                               </div>
@@ -55,7 +55,7 @@
                               <div class="form-group dropdown">
                                 <label for="allocationType">OS <span class="red-color">*</span> </label>
                                 <div class="dropdown-body">
-                                  <app-dropdown [data]="OsDropdown"  (outputData)="selectedValue($event,'os')"></app-dropdown>
+                                  <app-dropdown [placeHolder]="osPlaceholer" [data]="OsDropdown"  (outputData)="selectedValue($event,'os')"></app-dropdown>
                                 </div>
                                 <small *ngIf="this.assetsDeclarationForm.controls.os.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>
@@ -95,7 +95,7 @@
                               <div class="form-group dropdown">
                                 <label for="allocationType">Device is in working condition?  <span class="red-color">*</span> </label>
                                 <div class="dropdown-body">
-                                  <app-dropdown [data]="deviceWorkingDropdown"  (outputData)="selectedValue($event,'workingCondition')" ></app-dropdown>
+                                  <app-dropdown [placeHolder]="deviceWorkingPlaceholder" [data]="deviceWorkingDropdown"  (outputData)="selectedValue($event,'workingCondition')" ></app-dropdown>
                                 </div>
                                 <small *ngIf="this.assetsDeclarationForm.controls.workingCondition.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>

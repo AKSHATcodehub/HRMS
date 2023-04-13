@@ -17,7 +17,7 @@
                                 <div class="col-md-12">
                                     <label for="project_ajax" class="control-label">Project</label>
                                     <div class="dropdown-body">
-                                        <app-dropdown [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
+                                        <app-dropdown [placeHolder]="projectPlaceholder" [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
                                         <small *ngIf="this.dsrForm.controls.dsrProject.touched">{{dsrForm | validationError : 'dsrProject' : 'Project' }}</small>
                                     </div>
                                 </div>

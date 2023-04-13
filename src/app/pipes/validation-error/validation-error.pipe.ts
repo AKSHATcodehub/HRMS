@@ -137,15 +137,25 @@ export class ValidationErrorPipe implements PipeTransform {
       return comment;
 
     }
-    else if (pattern == Regex.name) {
-      comment = `* ${key} can not be blank`
-      return comment;
+    // else if (pattern == Regex.name) {
+    //   comment = `* ${key} can not be blank`
+    //   return comment;
       
-    }
+    // }
     else if (pattern == Regex.phone) {
       console.log("pattern validation error called >>>>>>>>>>",pattern);
       comment = `* ${key} can contain only digits`
       return comment;
+    }
+    else if (pattern == Regex.name) {
+      comment = `*No digits/special characters empty spaces allowed`
+      return comment;
+      
+    }
+    else if (pattern == Regex.noandcharactor) {
+      comment = `*only number and charactor are allowed`
+      return comment;
+      
     }
   }
 

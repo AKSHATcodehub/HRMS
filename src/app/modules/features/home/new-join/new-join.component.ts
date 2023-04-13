@@ -16,7 +16,7 @@ export class NewJoinComponent implements OnInit,AfterViewInit {
     grid: { xs: 1, sm: 2, md: 1, lg: 1, all: 0 },
     gridBreakpoints:{sm: 850, md: 1300, lg: 2000, xl: 2000},
     load: 3,
-    interval: {timing: 3500, initialDelay: 1000},
+    interval: {timing: 3000, initialDelay: 1000},
     loop: true,
     touch: true,
     velocity: 0.2

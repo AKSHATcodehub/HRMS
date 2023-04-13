@@ -4,16 +4,18 @@
 <div class="carousel" >
   <ngu-carousel class="caro" #myCarousel1 [inputs]="carouselConfig1" [dataSource]="listToShow">
 
-    <button NguCarouselPrev class="leftRs" 
-    >
-    [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomLeftRs' : 'leftRs' "
+    
+    <button NguCarouselPrev class="leftRs"  
+    >  
       <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt="">
   
     </button>
     <button NguCarouselNext class="rightRs"
+    
     >
-    [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' "
-      <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt="">
+    <!-- [ngClass]="carouselConfigData.buttonsPosition == 'bottom' ? 'bottomRightRs' : 'rightRs' " -->
+    
+    <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt="">
     </button>
   
     <div *nguCarouselDef="let item;" class="item">

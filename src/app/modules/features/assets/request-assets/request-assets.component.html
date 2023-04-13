@@ -16,7 +16,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Assets Categories * </label>   
                                   <div class="dropdown-body">
-                                    <app-dropdown [data]="assetsCategoryDropdown" (outputData)="selectedValue($event,'assetsCategory')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="assetsCategoryPlaceholder" [data]="assetsCategoryDropdown" (outputData)="selectedValue($event,'assetsCategory')"></app-dropdown>
                                   </div>                   
                                   <small *ngIf="this.requestAssetsForm.controls.assetsCategory.touched">{{requestAssetsForm | validationError:'assetsCategory':'Department' }}</small>
                                 </div>
@@ -25,7 +25,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Quantity *</label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [data]="quantityDropdown" (outputData)="selectedValue($event,'quantity')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="qualityPlaceholder" [data]="quantityDropdown" (outputData)="selectedValue($event,'quantity')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.quantity.touched">{{requestAssetsForm | validationError:'quantity':'Quality' }}</small>
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Priority *</label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [data]="priorityDropdown" (outputData)="selectedValue($event,'priority')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="priorityPlaceholder" [data]="priorityDropdown" (outputData)="selectedValue($event,'priority')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.priority.touched">{{requestAssetsForm | validationError:'priority':'Priority' }}</small>
                                 </div>
@@ -55,7 +55,7 @@
                                 <div class="form-group dropdown">
                                   <label for="experience" class="control-label">Allocation type *  </label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [data]="allocationTypeDropdown" (outputData)="selectedValue($event,'allocationType')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="allocaationTypePlaceholder" [data]="allocationTypeDropdown" (outputData)="selectedValue($event,'allocationType')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.allocationType.touched">{{requestAssetsForm | validationError:'allocationType':'Allocation Type' }}</small>
                                 </div>

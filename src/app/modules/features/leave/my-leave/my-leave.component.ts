@@ -24,6 +24,8 @@ export class MyLeaveComponent implements OnInit {
   leaveStatus = LEAVE_STATUS;
   leaveForm!:FormGroup;
   halfDayOpen = false;
+  leaveTypePlaceholder = 'Select Leave Type';
+  
   editorConfig: AngularEditorConfig= {
     editable: true,
     spellcheck: true,
@@ -85,7 +87,7 @@ export class MyLeaveComponent implements OnInit {
       leaveType:this.formService.getControl('leaveType'),
       leaveStartDate:this.formService.getControl('fromDate'),
       leaveEndDate:this.formService.getControl('toDate'),
-      leaveRemark:this.formService.getControl('remark'),
+      leaveRemark:this.formService.getControl('name'),
       leaveDescription:this.formService.getControl('description'),
     })
   }

@@ -9,6 +9,7 @@ import { NavbarItem } from 'src/app/interfaces/navBar.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { enterLeaveAnimation } from 'src/animation/slidainoutanimation';
+import { Item } from '@syncfusion/ej2-angular-navigations';
 
 
 @Component({
@@ -54,16 +55,15 @@ export class FeaturesComponent implements OnInit {
 
   openSubMenu(navBarItem: any) {
 
-    console.log("open sub menu clled>>>>>");
+    console.log(navBarItem,"open sub menu clled>>>>>",this.localNavBarData);
     
-   
-    if (navBarItem.subMenu) {
-      navBarItem.subMenuClicked = !navBarItem.subMenuClicked;
-
-    }
-    if(!this.isExpanded){
-      this.expandAction()
-    }
+    this.localNavBarData.map((item:any)=>{
+      if(item.name != navBarItem.name){
+        item.subMenuClicked = false;
+      }
+    })
+    navBarItem.subMenuClicked = !navBarItem.subMenuClicked;
+    
     // this.expandAction();
   }
 
@@ -118,6 +118,10 @@ export class FeaturesComponent implements OnInit {
     //   this.render.setStyle(element,'width','250px');
     // } 
 
+    // this.localNavBarData.map((item:anya))
+
+
+
   }
 
   mouseenter() {
@@ -161,7 +165,9 @@ export class FeaturesComponent implements OnInit {
   }
 
   helpClick(){
-    this.dialog.open(HelpDialogComponent);
+    this.dialog.open(HelpDialogComponent,{
+
+    });
   }
 
 

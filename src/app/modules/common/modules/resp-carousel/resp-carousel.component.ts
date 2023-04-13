@@ -18,7 +18,7 @@ export class RespCarouselComponent implements OnInit {
   }
   
   ngOnInit(): void { 
-    console.log(this.listToShow,"4");
+    console.log(this.gridConfig,"44444",this.carouselConfigData);
     
     // console.log(this.carouselConfigData,"carouselConfigData");
     if(this.gridConfig){

@@ -93,7 +93,7 @@ export class AddPitchComponent implements OnInit {
   createPitchForm(){
     return this.pitchForm = this.fb.group({
       empName:this._form.getControl('name'),
-      empId:this._form.getControl('name'),
+      empId:this._form.getControl('noandcharactor'),
       DOB:this._form.getControl('DOB'),
       pitchTitle:this._form.getControl('name'),
       pitchIndustry:this._form.getControl('pitchIndustry'),

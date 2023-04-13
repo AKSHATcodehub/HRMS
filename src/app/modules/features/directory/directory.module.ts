@@ -10,6 +10,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { SearchbarModule } from '../../common/modules/searchbar/searchbar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,9 @@ import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
     MatOptionModule,
     SearchbarModule,
     MatIconModule,
-    DropdownModule
+    DropdownModule,
+    ReactiveFormsModule,
+    
   
   ]
 })

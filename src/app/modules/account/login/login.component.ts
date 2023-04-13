@@ -1,32 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Regex } from 'src/app/constant/regex';
 import { DASHBOARD, FEATURES } from 'src/app/constant/routes';
 import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
-  loginForm!:FormGroup;
-  lo=true;
-  hide:any=true;
+  loginForm!: FormGroup;
+  lo = true;
+  hide: any = true;
 
   constructor(
-    private _formBuilder:FormBuilder,
-    private formService:FormService,
-    private router:Router,
-    private _snackBar: MatSnackBar
+    private _formBuilder: FormBuilder,
+    private formService: FormService,
+    private router: Router,
+    private _snackBar: MatSnackBar,
+    private _snackbarService:SnackbarService
   ) {
     // this.loginForm=this.createLoginForm()
-    
-   }
+  }
 
   ngOnInit(): void {
     this.createLoginForm();
@@ -42,37 +47,32 @@ export class LoginComponent implements OnInit {
     return this.emaill.hasError('email') ? 'Not a valid email' : '';
   }
 
-  showLoginWithGoogle:boolean=false
+  showLoginWithGoogle: boolean = false;
 
-  onLoginwithCredential(){
-    this.showLoginWithGoogle=true;
- 
+  onLoginwithCredential() {
+    this.showLoginWithGoogle = true;
   }
-  onLoginWithGoogle(){
-    this.showLoginWithGoogle=false;
+  onLoginWithGoogle() {
+    this.showLoginWithGoogle = false;
   }
-  openSnackBar(){
-    
+  openSnackBar() {
     this._snackBar.openFromComponent(SnackbarComponent, {
-      duration: 1* 1000,
-      verticalPosition:'top',
-      data:'Login Sucessfully!'
+      duration: 1 * 1000,
+      verticalPosition: 'top',
+      data: 'Login Sucessfully!',
     });
-  
   }
 
-  onLogin(){
-    console.log("form...",this.loginForm);
-    
-    if(this.loginForm.valid){
-      sessionStorage.setItem("token","12345");
-      this.openSnackBar()
+  onLogin() {
+    console.log('form...', this.loginForm);
+
+    if (this.loginForm.valid) {
+      sessionStorage.setItem('token', '12345');
+      this._snackbarService.showSuccess('Login Sucessfully!','');
       setTimeout(() => {
-        
         this.router.navigate([FEATURES.fullUrl]);
       }, 1000);
     }
-
   }
 
   // createLoginForm():FormGroup{
@@ -82,20 +82,31 @@ export class LoginComponent implements OnInit {
   //   })
   // }
 
-  createLoginForm(){
+  createLoginForm() {
     this.loginForm = this._formBuilder.group({
-      email: ['', [Validators.required,Validators.pattern(Regex.email), Validators.maxLength(25)]],
-      password: ['', [Validators.required,Validators.minLength(8),Validators.pattern(Regex.password), Validators.maxLength(20)]],
-
-      
-    })
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern(Regex.email),
+          Validators.maxLength(25),
+        ],
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(Regex.password),
+          Validators.maxLength(20),
+        ],
+      ],
+    });
   }
 
-  noSpace(e:any){
-  
-    if (e.which === 32 || e.which == 189 || e.which == 17){
+  noSpace(e: any) {
+    if (e.which === 32 || e.which == 189 || e.which == 17) {
       e.preventDefault();
     }
-   
   }
 }

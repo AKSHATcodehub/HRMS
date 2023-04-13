@@ -24,7 +24,7 @@ throw new Error('Method not implemented.');
     grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
     gridBreakpoints:{sm: 750, md: 992, lg: 1200, xl: 1200},
     load: 3,
-    interval: {timing: 3500, initialDelay: 1000},
+    interval: {timing: 3000, initialDelay: 1000},
     loop: true,
     touch: true,
     velocity: 0.2,

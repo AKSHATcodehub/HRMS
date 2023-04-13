@@ -348,12 +348,13 @@ mat-icon{
 
 
 .example-sidenav-content {
+  position: relative;
   background-color: $lightblue;
   height: 100%;
   align-items: center;
   justify-content: center;
   overflow: auto;
-  
+  // min-height: 100vh;
 }
 .full-width {
   width: 100%;
@@ -392,6 +393,7 @@ button{
 
   ::ng-deep .mat-sidenav-content{
     margin: 0px !important;
+    position: relative;
   }
 }
 
@@ -525,9 +527,15 @@ button{
   border-radius: 20px 0 0 20px;
 }
 footer {
+  position: absolute;
+  bottom: 0px;
   background-color: white;
   padding: 4px;
   color: #5c5b5b;
+  p{
+    margin: 5px 0px 0px 25px;
+  }
+ 
 }
 
 

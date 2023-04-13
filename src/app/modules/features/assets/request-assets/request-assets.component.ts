@@ -31,7 +31,11 @@ export class RequestAssetsComponent implements OnInit {
   headings = REQUESTED_ASSETS_HEADING;
   requestAssetsForm!:FormGroup;
   TABLE_DATA:any[]=[];
-  today = new Date()
+  today = new Date();
+  assetsCategoryPlaceholder = 'Selct Assets Category';
+  qualityPlaceholder = 'Select Quality';
+  priorityPlaceholder = 'Select Priority';
+  allocaationTypePlaceholder = 'Select Allocation Type';
 
   toggleCard(){
     this.isOpen = !this.isOpen

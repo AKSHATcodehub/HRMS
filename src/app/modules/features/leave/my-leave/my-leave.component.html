@@ -40,7 +40,7 @@
                                 <div class="col-md-6 dropdown">
                                     <div class="form-group dropdown-body">
                                         <label for="leave_type" class="control-label">Leave Type</label><br>
-                                        <app-dropdown [data]="leaveTypeData" (outputData)="selectedLeave($event)"></app-dropdown>
+                                        <app-dropdown [placeHolder]="leaveTypePlaceholder" [data]="leaveTypeData" (outputData)="selectedLeave($event)"></app-dropdown>
                                         <small *ngIf="this.leaveForm.controls.leaveType.touched">{{leaveForm | validationError:'leaveType':'Leave Type' }}</small>
                                     </div>
                                 </div>

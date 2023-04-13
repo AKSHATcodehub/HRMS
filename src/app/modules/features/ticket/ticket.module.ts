@@ -13,6 +13,7 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @NgModule({
@@ -34,6 +35,9 @@ import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
     AngularEditorModule,
     MatSnackBarModule,
     SnackbarModule
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class TicketModule { }

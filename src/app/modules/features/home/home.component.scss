@@ -112,7 +112,7 @@ app-carousel{
               flex-wrap: nowrap;
 
             }
-            @media screen and (max-width: 1200px) {
+            @media screen and (max-width: 1300px) {
               display: block;
  
              }
@@ -213,7 +213,7 @@ app-carousel{
                     }
                     
                 }
-                @media screen and (max-width: 1200px) {
+                @media screen and (max-width: 1300px) {
                  width: 100%;
     
                 }
@@ -259,10 +259,10 @@ app-carousel{
                               
                           }
                       }
-                      .card-body{
-                        height: 450px;
+                      // .card-body{
+                      //   // height: 450px;
                         
-                      }
+                      // }
                   }
               
             }

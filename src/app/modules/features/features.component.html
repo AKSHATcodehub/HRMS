@@ -1,138 +1,141 @@
-
-
 <div class="layout-navbar">
-	<mat-toolbar color="primary" class="example-toolbar">
-		<img src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png" alt="">
-		<button mat-icon-button (click)="expandAction()"><mat-icon>menu</mat-icon></button>
-	</mat-toolbar>
+  <mat-toolbar color="primary" class="example-toolbar">
+    <img
+      src="https://dashboard.appinventiv.com/skin/hrsale_assets/img/applogo.png"
+      alt=""
+    />
+    <button mat-icon-button (click)="expandAction()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
 
-	<mat-icon class="small-phone-menu" (click)="toggleSideNavSmallPhone()">menu</mat-icon>
+  <mat-icon class="small-phone-menu" (click)="toggleSideNavSmallPhone()"
+    >menu</mat-icon
+  >
 
-	<div class="navbar-features" *ngIf="showNavbarFeature">
-		<div class="login-time-status">
-			<strong>Last Login</strong>
-			<span class="text-mutded">Feb-02-2023 04:08 PM from 172.31.25.47</span>
-		</div>
+  <div class="navbar-features" *ngIf="showNavbarFeature">
+    <div class="login-time-status">
+      <strong>Last Login</strong>
+      <span class="text-mutded">Feb-02-2023 04:08 PM from 172.31.25.47</span>
+    </div>
 
-		<div class="features">
-			<div class="info">
-				
-				<span>Akshat</span>
-				<img src="data:image/png;base64,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" alt="">
-				<div class="dropdown">
-					  <button mat-icon-button [matMenuTriggerFor]="menu">
-						<mat-icon>keyboard_arrow_down</mat-icon>
-					  </button>
-					  <mat-menu #menu="matMenu" xPosition="before">
-						<button mat-menu-item routerLink="./profile">
-						  <mat-icon>assignment_ind</mat-icon>
-						  <span>My Profile</span>
-						</button>
-						<button mat-menu-item routerLink="./profile">
-						  <mat-icon>phonelink_lock</mat-icon>
-						  <span>Change Password</span>
-						</button>
-						<button mat-menu-item (click)="logout()">
-						  <mat-icon>vpn_key</mat-icon>
-						  <span>Sign out</span>
-						</button>
-					  </mat-menu>
-				</div>
-			</div>
-			<div class="help">
-				<button (click)="helpClick()">
-					Help
-				</button>
-			</div>
-			<div class="notification">
-				<mat-icon (click)="openNotification()">notifications</mat-icon>
-				<mat-card class="notification-box " [@enterLeaveAnimation] *ngIf="show">
-					<mat-icon class="close" (click)="toggleDiv()">close</mat-icon>
-					<div class="notify-card">
-					  <div class="notify-header">
-						<mat-card-subtitle>No new notification</mat-card-subtitle>
-					  </div>
-					  <div class="notify-body">
-						<p class="notify-content">- -</p>
-					  </div>
-					</div>
-				  </mat-card>
-			</div>
-		</div> 
-	</div>
-	
+    <div class="features">
+      <div class="info">
+        <span>Akshat</span>
+        <img
+          src="data:image/png;base64,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"
+          alt=""
+        />
+        <div class="dropdown">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item routerLink="./profile">
+              <mat-icon>assignment_ind</mat-icon>
+              <span>My Profile</span>
+            </button>
+            <button mat-menu-item routerLink="./profile">
+              <mat-icon>phonelink_lock</mat-icon>
+              <span>Change Password</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>vpn_key</mat-icon>
+              <span>Sign out</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+      <div class="help">
+        <button (click)="helpClick()">Help</button>
+      </div>
+      <div class="notification">
+        <mat-icon (click)="openNotification()">notifications</mat-icon>
+        <mat-card class="notification-box" [@enterLeaveAnimation] *ngIf="show">
+          <mat-icon class="close" (click)="toggleDiv()">close</mat-icon>
+          <div class="notify-card">
+            <div class="notify-header">
+              <mat-card-subtitle>No new notification</mat-card-subtitle>
+            </div>
+            <div class="notify-body">
+              <p class="notify-content">- -</p>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
 <mat-sidenav-container class="example-container" autosize>
-	<mat-sidenav   #sidenav (window:resize)="onResize($event)" class="example-sidenav disappear-1000px" mode="side" opened="true"    
-	(mouseenter)="mouseenter()"
-	(mouseleave)="mouseleave()" 
-	 id="side-nav-id">
-	<mat-nav-list>
-		<ng-container *ngFor="let navBarItem of localNavBarData">
-
-			<!-- (click)="showSubMenu()" function i salo called on mat list item 
+  <mat-sidenav
+    #sidenav
+    (window:resize)="onResize($event)"
+    class="example-sidenav disappear-1000px"
+    mode="side"
+    opened="true"
+    (mouseenter)="mouseenter()"
+    (mouseleave)="mouseleave()"
+    id="side-nav-id"
+  >
+    <mat-nav-list>
+      <ng-container *ngFor="let navBarItem of localNavBarData">
+        <!-- (click)="showSubMenu()" function i salo called on mat list item 
 				but now its removed
 			-->
 
-			<mat-list-item 
-				class="parent"
-				(click)="openSubMenu(navBarItem)"
-				[routerLink]='navBarItem.link' [routerLinkActive]="navBarItem.link ? 'is_active' : 'null'"
-				>
-				<span class="full-width" *ngIf="isExpanded">
-					{{navBarItem.name}}
-				</span>
-				<mat-icon id="sidenev-icon" mat-list-icon>{{navBarItem.icon}}</mat-icon>
-				<mat-icon class="menu-button" [ngClass]="{'rotated' : navBarItem.subMenuClicked}" *ngIf="navBarItem.subMenu" >
-					expand_more
-				</mat-icon>
-			</mat-list-item>
-			<div class="submenu" 
-			[ngClass]="{'expanded' : navBarItem.subMenuClicked}"
-			 *ngIf="navBarItem.subMenuClicked" >
-				<ng-container *ngFor="let subMenuItem of navBarItem.subMenu">
-					<a   mat-list-item  [routerLink]='subMenuItem.link' [routerLinkActive]="subMenuItem.link ? 'is_active' : 'null'" >
-							<mat-icon class="mb-5">
-								{{subMenuItem.icon}}
-							</mat-icon>
-						<span>
-							{{subMenuItem.name}}
-						</span>
-					</a>
-				</ng-container>                                 
-			</div>
-		</ng-container> 
-	</mat-nav-list>
-</mat-sidenav>
+        <mat-list-item
+          class="parent"
+          (click)="openSubMenu(navBarItem)"
+          [routerLink]="navBarItem.link"
+          [routerLinkActive]="navBarItem.link ? 'is_active' : 'null'"
+        >
+          <span class="full-width" *ngIf="isExpanded">
+            {{ navBarItem.name }}
+          </span>
+          <mat-icon id="sidenev-icon" mat-list-icon>{{
+            navBarItem.icon
+          }}</mat-icon>
+          <mat-icon
+            class="menu-button"
+            [ngClass]="{ rotated: navBarItem.subMenuClicked }"
+            *ngIf="navBarItem.subMenu"
+          >
+            expand_more
+          </mat-icon>
+        </mat-list-item>
+        <div
+          class="submenu"
+          [ngClass]="{ expanded: navBarItem.subMenuClicked }"
+          *ngIf="navBarItem.subMenuClicked"
+        >
+          <ng-container *ngFor="let subMenuItem of navBarItem.subMenu">
+            <a
+              mat-list-item
+              [routerLink]="subMenuItem.link"
+              [routerLinkActive]="subMenuItem.link ? 'is_active' : 'null'"
+            >
+              <mat-icon class="mb-5">
+                {{ subMenuItem.icon }}
+              </mat-icon>
+              <span>
+                {{ subMenuItem.name }}
+              </span>
+            </a>
+          </ng-container>
+        </div>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
 
-
-	
-	
-	<div class="example-sidenav-content" >
-		
-		<router-outlet></router-outlet>   
-
-	</div>
-	<button mat-button class="covid-help">Covid 19-Desk</button>
+  <div class="example-sidenav-content">
+    <router-outlet></router-outlet>
 	<!-- <div>
-		<footer>
-			<p>2023 &#169; Appinventiv HR System v1.0.6</p>
-		  </footer>
+	  <footer>
+		<p>2023 &#169; Appinventiv HR System v1.0.6</p>
+	  </footer>
 	</div> -->
-	
-
+  </div>
+  <button mat-button class="covid-help">Covid 19-Desk</button>
 </mat-sidenav-container>
 
-
-
-
 <!-- </div> -->
-
-
-
-
-
-<!-- Copyright 2017 Google Inc. All Rights Reserved.
-    Use of this source code is governed by an MIT-style license that
-    can be found in the LICENSE file at http://angular.io/license -->
-

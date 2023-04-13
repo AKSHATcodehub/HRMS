@@ -9,11 +9,14 @@
     border-radius: 2px;
     @include flex(null,space-between);
     flex-direction: column;
-    height: 23rem;
+    // height: 23rem;
     background-color: white;
     padding: 2%;
     border-radius: 5px;
     // gap:104.5px;
+   .appreciate-wrapper-content{
+    min-height: 305px;
+   }
     
     p{
         font-size: 12px;

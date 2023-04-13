@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
 import { TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
@@ -23,6 +25,9 @@ export class TicketComponent implements OnInit {
   tiketCategoryDropdown = ['Ticket Category 1','Ticket Category 2'];
   priorityDropdown = ['High','Low','Normal'];
   TABLE_DATA:any[]=TICKET_TABLE_DATA;
+  departmentPlaceholder = 'Select Department';
+  ticketCategoryPlaceholder = 'Select Ticket Category';
+  priorityPlaceholder = 'Select Priority';
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -63,7 +68,9 @@ export class TicketComponent implements OnInit {
   };
 
   constructor(private _fb:FormBuilder,
-              private _snackbar:MatSnackBar) { }
+              private _snackbar:MatSnackBar,
+              private _formservice:FormService,
+              private _snackbarService:SnackbarService) { }
 
   ngOnInit(): void {
 
@@ -74,11 +81,11 @@ export class TicketComponent implements OnInit {
 
   createForm(){
     return this.ticketForm = this._fb.group({
-      subject:['',Validators.required],
-      department:['',Validators.required],
-      ticketCategory:['',Validators.required],
-      piority:['ii',Validators.required],
-      description:['',Validators.required]
+      subject:this._formservice.getControl('name'),
+      department:this._formservice.getControl('mandatory'),
+      ticketCategory:this._formservice.getControl('mandatory'),
+      piority:this._formservice.getControl('mandatory'),
+      description:this._formservice.getControl('mandatory'),
     })
   }
 
@@ -118,11 +125,8 @@ export class TicketComponent implements OnInit {
       }
       this.TABLE_DATA.push(ticketObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
-      this._snackbar.openFromComponent(SnackbarComponent, {
-        duration: 1* 1000,
-        verticalPosition:'top',
-        data:'Ticket Submitted!'
-      })
+      this._snackbarService.showSuccess('Ticket Add','')
+      this.isOpen = !this.isOpen
 
     }else{
       this.ticketForm.markAllAsTouched();

@@ -21,7 +21,7 @@ export class AppGalleryComponent implements OnInit {
     grid: { xs: 1, sm: 1, md: 2, lg: 3, all: 0 },
     gridBreakpoints:{sm: 650, md: 1200, lg: 1600, xl: 2000},
     load: 3,
-    interval: {timing: 20000, initialDelay: 10000},
+    interval: {timing: 3000, initialDelay: 1000},
     loop: true,
     touch: true,
     velocity: 0.2

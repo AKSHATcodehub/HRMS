@@ -57,6 +57,9 @@ export class FormService {
       Validators.maxLength(VALIDATION_CRITERIA.phoneMaxLength),
       Validators.minLength(VALIDATION_CRITERIA.phoneMinLength),
     ],
+    noandcharactor:[
+      Validators.pattern(Regex.noandcharactor),
+    ],
     skill:[],
     file:[],
     leaveType:[],

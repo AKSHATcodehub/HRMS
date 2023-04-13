@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import {DSR_HEADING} from './dsr-data';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @Component({
@@ -39,6 +40,7 @@ export class DsrComponent implements OnInit {
   approvalstatusPlaceholer = 'Select Approval status'
   hoursPlaceholder = 'Hours'
   filterObject:any;
+  reset = false;
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -83,7 +85,8 @@ export class DsrComponent implements OnInit {
 
   constructor(private _fb:FormBuilder,
               private _snackbar:MatSnackBar,
-              public _utilities:UtilitiesService) {
+              public _utilities:UtilitiesService,
+              private _snackbarService:SnackbarService) {
 
     this.createDsrFilterForm();
 
@@ -109,31 +112,44 @@ export class DsrComponent implements OnInit {
       let filter = {...value} ;
 
       this.datasource.filter =  JSON.stringify(filter);
+
+      // status:[''],
+      // project:[''],
+      // approval_status:[''],
+      // logged_hr:['']
+
+      if( (this.filterForm.value.status != null) && 
+          (this.filterForm.value.project != null) && 
+          (this.filterForm.value.approval_status != null) &&
+          (this.filterForm.value.logged_hr != null) ){
+
+        this.datasource.filterPredicate = ((data, filter) => {
+    
+          let filterObject = JSON.parse(filter)
+    
+          console.log("filter object>>>>>>>>>>>>>",filterObject);
+          
+    
+          const a = !filterObject.status || data.status === filterObject.status;
+    
+          const b = !filterObject.approval_status || data.approval_status == filterObject.approval_status;
+    
+          const c = !filterObject.fromDate || data.date >= filterObject.fromDate;
+    
+          const d = !filterObject.toDate || data.date <= filterObject.toDate;
+    
+          
+          console.log(a && b && c && d );
+          
+    
+          return a && b && c && d  ;
+    
+        }) 
+
+      }
       
     })
 
-    this.datasource.filterPredicate = ((data, filter) => {
-
-      let filterObject = JSON.parse(filter)
-
-      console.log("filter object>>>>>>>>>>>>>",filterObject);
-      
-
-      const a = !filterObject.status || data.status === filterObject.status;
-
-      const b = !filterObject.approval_status || data.approval_status == filterObject.approval_status;
-
-      const c = !filterObject.fromDate || data.date >= filterObject.fromDate;
-
-      const d = !filterObject.toDate || data.date <= filterObject.toDate;
-
-      
-      console.log(a && b && c && d );
-      
-
-      return a && b && c && d  ;
-
-    }) 
    
   }
 
@@ -235,11 +251,9 @@ export class DsrComponent implements OnInit {
   
       this.datasource.data = (DSR_TABLEDATA);
 
-      this._snackbar.openFromComponent(SnackbarComponent, {
-        duration: 1000,
-        verticalPosition:'top',
-        data:'DSR Submitted!'
-      })
+      this._snackbarService.showSuccess('DSR Submitted!','');
+
+      this.isOpen = !this.isOpen;
     
     }else{
 
@@ -256,19 +270,16 @@ export class DsrComponent implements OnInit {
 
   resetDsrFilter(){
     
-    let filterObjectKeys = Object.keys(this.filterForm.controls);
+    // let filterObjectKeys = Object.keys(this.filterForm.controls);
 
-    filterObjectKeys.forEach((item)=>{
-      this.filterForm.get(item)?.patchValue('')
-    })
+    // filterObjectKeys.forEach((item)=>{
+    //   this.filterForm.get(item)?.patchValue('')
+    // })
+    this.filterForm.reset();
 
-    // this.pageSize =5;
-
-    console.log("this is table data>>>>>>>",this.datasource);
+    console.log("this is reset filter form>>>>>>>",this.filterForm);
     
-    this.datasource.filter;
-
-    this.datasource.data = DSR_TABLEDATA;
+    this.datasource = new MatTableDataSource(DSR_TABLEDATA);
 
     console.log("this is table data>>>>>>>",this.datasource);
 

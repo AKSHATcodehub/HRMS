@@ -13,8 +13,8 @@ export class AppLatestComponent implements OnInit {
     grid: { xs: 1, sm: 1, md: 2, lg: 3, all: 0 },
     gridBreakpoints:{sm: 650, md: 800, lg: 1200, xl: 1300},
     load: 3,
-    interval: {timing: 35000, initialDelay: 1000},
-    loop: false,
+    interval: {timing: 3000, initialDelay: 1000},
+    loop: true,
     touch: true,
     velocity: 0.2
   }

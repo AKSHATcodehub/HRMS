@@ -10,6 +10,7 @@ import { GetControlModule } from 'src/app/pipes/get-control/get-control.module';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @NgModule({
@@ -30,6 +31,9 @@ import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
     MatSnackBarModule,
     SnackbarModule
 
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class LoginModule { }

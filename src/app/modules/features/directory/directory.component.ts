@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ALL_DIRECTORY_TEAM_DATA, DIRECTORY_TEAM_DATA, IdirectoryInteface } from './directory-data';
 
 @Component({
@@ -21,11 +22,13 @@ export class DirectoryComponent implements OnInit {
   data=['Aahan Verma','Abhishek Kumar','Abhishek Shukla','Bhavya Goel','Bikramjeet Singh','Deepak Sindhu','Deepak Pokhriyal','Harsh Kukreti','Harshit Pathak']
   dropDownData:any[]=[];
   dropdownReset: any;
+  directoryFilterForm!:FormGroup;
   
-  
-  constructor() { }
+  constructor(private _fb:FormBuilder) { }
   
   ngOnInit(): void {
+
+    this.createForm();
     
     this.showList = this.directoryData;
 
@@ -51,6 +54,13 @@ export class DirectoryComponent implements OnInit {
       // });
     
   }
+
+  createForm(){
+    return this.directoryFilterForm = this._fb.group({
+      searchBar:[null],
+      dropdown:[null]
+    })
+  }
   
   click(){
     console.log("this is dropdown>>>>>>>",this.dropDownData);
@@ -63,8 +73,9 @@ export class DirectoryComponent implements OnInit {
 
   clickReset(){
     console.log("it is all directory data>>>>>",DIRECTORY_TEAM_DATA);
+    this.directoryFilterForm.reset();
     this.dropdownReset = 'all'; 
-    this.reset = '';
+    this.reset = ' ';
     this.filterData = ALL_DIRECTORY_TEAM_DATA;
     console.log("reset");
   }
@@ -79,6 +90,8 @@ export class DirectoryComponent implements OnInit {
   dataAccordingToSelectedDropdownValue:any;
 
   eventHandler(event:any){
+    
+    this.directoryFilterForm.controls.dropdown.setValue(event);
 
     this.selectedValue = event;
 
@@ -113,5 +126,17 @@ export class DirectoryComponent implements OnInit {
     }
   }
 
+  func(event:any){
+
+    let arr = this.directoryData.filter((item:any)=>{
+      if(item.name?.toLowerCase()?.startsWith(event.target.value)){
+        return item;
+      }else{
+        return 
+      }
+    });
+
+    this.filterDataHandler(arr)
+  }
 
 }

@@ -18,6 +18,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 // import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
@@ -45,6 +46,9 @@ import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
     MatSnackBarModule,
     SnackbarModule,
     NgxMatTimepickerModule
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class DsrModule { }

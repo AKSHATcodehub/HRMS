@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ADD_PITCH, ASSETS_DECLARATION, ATTENDANCE_CALENDAR, DASHBOARD, DIRECTORY, DSR, DSR_DETAILS, DSR_EDIT, ENTREPRENURSHIP, FLOATING_LEAVE, HOLIDAY_CALENDAR, HOME, INTERVIEW, JOBDETAILS, JOB_OPENINGS, LEAVE_DETAILS, MANUAL_PUNCH, MYTRAINING, MY_ASSETS, MY_IDEA, MY_LEAVE, MY_TRAINING, ONGOING_TRAINING, PERFORMANCE, POLICY_DOCUMENTS, PROFILE, PROJECT, PROJECT_DETAILS, PUNCH_LOG, REFER_CANDIDATE, REQUESTED_ASSETS, REQUESTED_TRAINING, TRAINING_DETAILS, TRAINING_DETAILS_TRAINE, UPCOMING_TRAINING } from 'src/app/constant/routes';
+import { FeatureChildGuard } from 'src/app/guards/feature-child.guard';
+import { FeaturesGuard } from 'src/app/guards/features.guard';
 import { FeaturesComponent } from './features.component';
 import { HomeModule } from './home/home.module';
 
@@ -8,6 +10,8 @@ const routes: Routes = [
   {
     path:'',
     component:FeaturesComponent,
+    // canActivateChild:[FeatureChildGuard],
+    canActivate : [FeaturesGuard], 
     children:[
       {
         path:'',
