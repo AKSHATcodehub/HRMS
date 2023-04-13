@@ -64,7 +64,7 @@ export class MyTrainingComponent implements OnInit {
 
 
   openViewDetails() {
-    this._router.navigate(['../job-details/101'],{relativeTo:this.route});
+    this._router.navigate(['../training-details-traine'],{relativeTo:this.route});
   }
   openFeedbackDialog() {
     const dialogRef = this.dialog.open(FeedbackDialogComponent, {

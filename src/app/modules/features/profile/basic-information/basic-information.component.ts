@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
+import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 // import { userInfoTitle } from '../profile-data';
@@ -17,7 +18,8 @@ export class BasicInformationComponent implements OnInit {
               private render:Renderer2,
               private fb:FormBuilder,
               public _utilities:UtilitiesService,
-              private _snackBar:SnackbarService
+              private _snackBar:SnackbarService,
+              private _formService:FormService
               ) { }
   
   today = new Date();
@@ -56,12 +58,12 @@ export class BasicInformationComponent implements OnInit {
 
   createForm(){
     return this.fb.group({
-      firstName:['',Validators.required],
-      lastName:['',Validators.required],
+      firstName:this._formService.getControl('name'),
+      lastName:this._formService.getControl('name'),
       dateOfBirth:['',Validators.required],
       genderr:[null,Validators.required],
       marriageStatus:[null,Validators.required],
-      contactNumber:['',Validators.required],
+      contactNumber:this._formService.getControl('phoneNumber'),
       YearOfExperience:['',Validators.required],
       yearOfExperienceMonth:['',Validators.required],
       relevantExperience:['',Validators.required],
@@ -128,8 +130,6 @@ export class BasicInformationComponent implements OnInit {
     
   }
 
-
-
   updateName(selectedLi:any,selectbtn:any,wapper:any,control:any) {
 
     this.searchInp.value = "";
@@ -143,6 +143,8 @@ export class BasicInformationComponent implements OnInit {
     this.basicInfoForm.get(controlName)?.setValue(event);
   }
 
-
-
 }
+
+
+
+

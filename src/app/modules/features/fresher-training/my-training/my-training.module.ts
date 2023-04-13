@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { TrainingCardModule } from 'src/app/modules/common/modules/training-card/training-card.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import {  MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
     MatRadioModule,
     MatIconModule, 
     TrainingCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ValidationErrorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers:[
     SnackbarService

@@ -7,20 +7,20 @@
 <div class="tittle" [formGroup]="trainingFeedbackForm" >
     <div class="data">
         <div class="data_detail">
-            <label>Title :</label>
+            <label>Title : Angular Training Feb- 2022 </label>
             <!-- <p>{{data.training_title}}</p> -->
         </div>
         <div class="data_detail">
-            <label>Department :</label>
+            <label>Department : Angular</label>
             <!-- <p>{{data.department}}</p> -->
         </div>
         <div class="date">
             <div class="data_detail">
-                <label>Start date :</label>
+                <label>Start date : 1-02-2023</label>
                 <!-- <p>{{data.start_date}}</p> -->
             </div>
             <div class="data_detail">
-                <label>Dnd date :</label>
+                <label>Dnd date : 28-02-2023</label>
                 <!-- <p>{{data.end_date}}</p> -->
             </div>
         </div>
@@ -74,7 +74,11 @@
     </div>
     <div class="feedback">
         <p>Any overall feedback for the training? *</p>
-        <textarea formControlName="overallFeedback"></textarea>
+        <mat-form-field appearance="outline">
+            <textarea matInput formControlName="overallFeedback" ></textarea>
+            <mat-error>{{trainingFeedbackForm | validationError:'overallFeedback':'Feedback' }}</mat-error>
+        </mat-form-field>
+
     </div>
     <div class="btn22">
         <button mat-dialog-close>Cancel</button>

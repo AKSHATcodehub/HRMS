@@ -13,7 +13,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatMenuModule} from '@angular/material/menu';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -30,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatListModule,
     MatExpansionModule,
     MatMenuModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCardModule
   ] 
 }) 
 export class FeaturesModule { }

@@ -7,6 +7,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 
@@ -27,6 +28,9 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
   ],
   exports:[
     DialogComponent
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class DialogModule { }

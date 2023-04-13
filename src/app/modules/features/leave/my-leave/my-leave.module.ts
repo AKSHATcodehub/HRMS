@@ -16,7 +16,8 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { SnackbarService } from 'src/app/services/snackbar.service';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,11 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ValidationErrorModule,
     AngularEditorModule,
     SnackbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class MyLeaveModule { }

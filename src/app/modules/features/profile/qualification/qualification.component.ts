@@ -77,7 +77,7 @@ export class QualificationComponent implements OnInit {
 
   createForm() {
     return this._fb.group({
-      university: this._form.getControl('university'),
+      university: this._form.getControl('name'),
       education: this._form.getControl('education'),
       language: this._form.getControl('language'),
       description: this._form.getControl('description'),
@@ -130,7 +130,7 @@ export class QualificationComponent implements OnInit {
 
       console.log('this is table>>>>>>>>', this.datasource);
 
-      this._snackBar.snackBar('Qualification Updated!');
+      this._snackBar.showSuccess('Qualification Updated!','');
     }else{
       this.qualificationForm.markAllAsTouched();
     }

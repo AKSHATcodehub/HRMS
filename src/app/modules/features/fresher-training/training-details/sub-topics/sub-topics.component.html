@@ -1,0 +1,25 @@
+<div class="table-wrapper">
+
+    <table>
+        <tr>
+            <th>Sr No.</th>
+            <th>Sub-Topic</th>
+            <th>Topic</th>
+            <th>Trainer</th>
+            <th>Trainer Email</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Resource URL</th>  
+        </tr>
+        <tr *ngFor="let item of data; let i= index">
+            <td>{{i+1}}</td>
+            <td>{{item.subtopic}}</td>
+            <td>{{item.topic}}</td>
+            <td>{{item.trainer}}</td>
+            <td>{{item.trainer_email}}</td>
+            <td>{{item.start_date}}</td>
+            <td>{{item.end_date}}</td>
+            <td>{{item.resource_url}}</td>
+        </tr>
+    </table> 
+</div>

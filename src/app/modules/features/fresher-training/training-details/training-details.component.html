@@ -6,19 +6,19 @@
         <div class="card-body">
             <div class="training-action">
                 <div class="training-tabs">
-                    <div class="tab">
+                    <!-- <div class="tab">
                         <button class="tablinks" (click)="openCity($event, 'London')">Training Details</button>
                         <button class="tablinks" (click)="openCity($event, 'Paris')">Sub-Topics</button>
                         <button class="tablinks" (click)="openCity($event, 'Tokyo')">Attendance </button>
-                    </div>
+                    </div> -->
                 </div>
                 <div >
-                    <button class="button">Complete</button>
                 </div>
             </div>
-            <hr>
+            
             <div class="card-mid">
-                <div id="London" class="tabcontent">
+                <!-- <button class="button">Complete</button> -->
+                <!-- <div id="London" class="tabcontent">
                     <app-details></app-details>
                 </div>
                   
@@ -28,7 +28,19 @@
                   
                 <div id="Tokyo" class="tabcontent">
                     <app-attendance></app-attendance>
-                </div>
+                </div> -->
+
+                <mat-tab-group animationDuration="0ms">
+                    <mat-tab label="Trainings Details">
+                        <app-details></app-details>
+                    </mat-tab>
+                    <mat-tab label="Sub-Topics">
+                        <app-sub-topics></app-sub-topics>
+                    </mat-tab>
+                    <mat-tab label="Attendance">
+                        <app-attendance></app-attendance>
+                    </mat-tab>
+                  </mat-tab-group>
                       
             </div>
         </div>

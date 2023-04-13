@@ -1,1 +1,18 @@
 @import '../../../../../../scss/theme/grid';
+
+.table-wrapper{
+    overflow: auto;
+    table{
+        // width: 100%;
+        min-width: 150vw;
+    }
+    tr,th,td{
+        border-bottom: 1px solid grey;
+        padding: 1rem;
+        text-align: left;
+    }
+    th{
+        font-weight: 300;
+    }
+    
+}

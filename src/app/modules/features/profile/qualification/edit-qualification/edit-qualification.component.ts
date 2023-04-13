@@ -53,7 +53,7 @@ export class EditQualificationComponent implements OnInit  {
   
   createForm(){
     return this.editQualificationForm = this._fb.group({
-      university:this._form.getControl('university'),
+      university:this._form.getControl('name'),
       education:this._form.getControl('education'),
       language:this._form.getControl('language'),
       description:this._form.getControl('description'),
@@ -68,6 +68,7 @@ export class EditQualificationComponent implements OnInit  {
     
     if(this.editQualificationForm.valid){
       this.dialogRef.close({form:this.editQualificationForm,data:this.data});
+      this._snackBar.showSuccess('Qualification Updated!','');
 
     }else{
 

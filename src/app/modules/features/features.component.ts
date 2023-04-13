@@ -8,10 +8,14 @@ import { MatExpansionPanel } from '@angular/material/expansion';
 import { NavbarItem } from 'src/app/interfaces/navBar.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
+import { enterLeaveAnimation } from 'src/animation/slidainoutanimation';
+
+
 @Component({
   selector: 'app-features',
   templateUrl: './features.component.html',
-  styleUrls: ['./features.component.scss']
+  styleUrls: ['./features.component.scss'],
+  animations:[enterLeaveAnimation]
 })
 export class FeaturesComponent implements OnInit {
   
@@ -38,7 +42,7 @@ export class FeaturesComponent implements OnInit {
   slidePosition = 1;
   selectedID:any;
   sidenavv = sideNavList;
-  
+  show =false;
 
   ngOnInit(): void {
     // this.helpClick();  
@@ -158,6 +162,14 @@ export class FeaturesComponent implements OnInit {
 
   helpClick(){
     this.dialog.open(HelpDialogComponent);
+  }
+
+
+  openNotification(){
+    this.show =!this.show
+  }
+  toggleDiv() {
+    this.show = !this.show;
   }
 
 }

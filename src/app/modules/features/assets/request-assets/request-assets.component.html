@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                   <label for="short_description">Required by Date * </label>
                                   <mat-form-field appearance="outline" style="position: relative;" >
-                                    <input matInput [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="requestedDate">
+                                    <input matInput [max]="today" [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="requestedDate">
                                     <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                                     <mat-datepicker #fromTimePerioed></mat-datepicker>
                                     <mat-error>{{requestAssetsForm | validationError : 'requestedDate' : 'Requested Date' }}</mat-error>
@@ -68,7 +68,7 @@
                               <div class="col-md-12">
                                 <label for="short_description">Request Reason *</label>
                                 <textarea formControlName="requestReason"></textarea>
-                                <small *ngIf="this.requestAssetsForm.controls.requestReason.touched">{{requestAssetsForm | validationError:'requestReason':'Request Reason' }}</small>
+                                <small class="error" *ngIf="this.requestAssetsForm.controls.requestReason.touched">{{requestAssetsForm | validationError:'requestReason':'Request Reason' }}</small>
                               </div>
                             </div>
                         </div>

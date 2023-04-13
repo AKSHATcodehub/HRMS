@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
 import { REQUESTED_ASSETS_HEADING, REQUESTED_ASSETS_TABLE_DATA } from './request-asset-data';
 
@@ -14,7 +15,8 @@ import { REQUESTED_ASSETS_HEADING, REQUESTED_ASSETS_TABLE_DATA } from './request
 export class RequestAssetsComponent implements OnInit {
 
   constructor(private _fb:FormBuilder,
-              private _snackBar:MatSnackBar) { }
+              private _snackBar:MatSnackBar,
+              private _snackbarService:SnackbarService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -29,6 +31,7 @@ export class RequestAssetsComponent implements OnInit {
   headings = REQUESTED_ASSETS_HEADING;
   requestAssetsForm!:FormGroup;
   TABLE_DATA:any[]=[];
+  today = new Date()
 
   toggleCard(){
     this.isOpen = !this.isOpen
@@ -62,11 +65,8 @@ export class RequestAssetsComponent implements OnInit {
 
       this.TABLE_DATA.push(requestedAssetsObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
-      this._snackBar.openFromComponent(SnackbarComponent, {
-        duration: 1* 1000,
-        verticalPosition:'top',
-        data:'Assets Requested Submitted!'
-      });
+      this._snackbarService.showSuccess('Assets Requested Submitted!','')
+      this.isOpen = !this.isOpen
 
     }else{
       this.requestAssetsForm.markAllAsTouched();

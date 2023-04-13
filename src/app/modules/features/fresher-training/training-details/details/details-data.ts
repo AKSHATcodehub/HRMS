@@ -1,22 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { data } from './details-data';
-
-@Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.scss']
-})
-export class DetailsComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  topicsHeading = [
-    'S. No.', 'Topic', 'Topic Trainer', 'Trainer Email', 'Start Date', 'End Date', 'Resource URL'
-  ]
-  topicData = [
+export const data= [
     {
       topic:'ANgular',
       topic_trainer:'Sandeep sr',
@@ -57,5 +39,3 @@ export class DetailsComponent implements OnInit {
       url:'--'
     }
   ]
-
-}

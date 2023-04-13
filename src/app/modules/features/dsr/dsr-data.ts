@@ -16,6 +16,7 @@ export const DSR_HEADING = [
   { heading: 'Employee Type', key: 'employment_type', type: 'text',sort:true},
   { heading: 'Date', key: 'date', type: 'text', action: [2] , link: '/dashboard/client-details',sort:true },
   { heading: 'Logged Hr', key: 'logged_hr', type: 'text', action: [2] , link: '/dashboard/client-details',sort:true },
+  { heading: 'status', key: 'status', type: 'text',sort:true},
   { heading: 'Approval Status', key: 'approval_status', type: 'dsr_status' , link:'dsr-details',sort:true},
 
 ]

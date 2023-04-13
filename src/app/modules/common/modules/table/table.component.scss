@@ -193,3 +193,19 @@ table{
   .mat-cell{
     background-color: white;
   }
+  .dsr_status{
+    a{
+      width: 74;
+      padding: 2px 8px;
+      color: orange;
+      text-decoration: none;
+      border:1px solid  #d8d8d8;
+      font-size: 13px;
+    }
+    &:hover{
+      a{
+        background-color: orange;
+        color: white;
+      }
+    }
+  }

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-dialog',
@@ -19,7 +20,8 @@ export class DialogComponent implements OnInit {
     public dialogRef: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _fb:FormBuilder,
-    private _form:FormService
+    private _form:FormService,
+    // private _snackbarService:SnackbarService
     ) 
     {
       console.log("data>>>>>>>>",data);
@@ -53,9 +55,9 @@ export class DialogComponent implements OnInit {
       location:this._form.getControl('location'),
       experience:this._form.getControl('experience'),
       candidateExperience:this._form.getControl('experience'),
-      jobLocation:this._form.getControl('jobLocation'),
-      empName:this._form.getControl('empName'),
-      positionTitle:this._form.getControl('projectTitle'),
+      jobLocation:this._form.getControl('name'),
+      empName:this._form.getControl('name'),
+      positionTitle:this._form.getControl('name'),
       phoneNumber:this._form.getControl('phoneNumber'),
       skill:this._form.getControl('skill'),
       email:this._form.getControl('email'),
@@ -68,13 +70,11 @@ export class DialogComponent implements OnInit {
 
 
     if(this.dialogForm.valid){
+      // this._snackbarService.showSuccess('Feedback Submitted!','');
       this.dialogRef.close();
-      console.log("this is on submit function 2>>>>>>>>>>>>");
       
     }else{
       this.dialogForm.markAllAsTouched()
-      console.log("this is on submit function 3>>>>>>>>>>>>");
-
     }
 
   }

@@ -11,7 +11,24 @@ label{
     width: 110px;
 }
 .jd-description{
-    height: 80px;
+    // height: 80px;
     background-color: $lightblue;
     padding: 25px;
+    h3{
+        margin-bottom: 0px;
+    }
+}
+
+.table-wrapper{
+    table{
+        width: 100%;
+        
+    }
+    td,th{
+        border-bottom: 1px solid $lightgrey;
+        border-collapse: collapse;
+        text-align: start;
+        padding: 1rem;
+        font-weight: 300;
+    }
 }

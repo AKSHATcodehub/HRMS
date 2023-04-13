@@ -1,14 +1,20 @@
 @import '../../../../../scss/theme/wrapper',
         '../../../../../scss/theme/card',
         '../../../../../scss/mixins/flex',
-        '../../../../../scss/var';
+        '../../../../../scss/var',
+        '../../../../../scss/mixins/media';
 
 .card{
+    padding: 0px;
     .card-body{
+        @include media(lg){
+          padding: 0px
+        }
         .training-action{
             @include flex(center,space-between);
         }
         .card-mid{
+            border-radius: 5px;
             box-sizing: border-box;
             hr{
                 border: 1px solid $lightgrey;
@@ -17,8 +23,16 @@
 
     }
 }
-
+.button{
+  background-color: white;
+  color: $lightgrey;
+  &:hover{
+    background-color: white;
+    color: $lightgrey;
+  }
+}
 .tab {
+    border-radius: 5px;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
@@ -53,4 +67,31 @@
     display: none;
     // padding: 6px 12px;
     border-top: none;
+    border-radius: 5px;
+  }
+
+  
+
+  ::ng-deep.mat-tab-labels{
+    background-color: rgba(227, 236, 243, 0.46);
+    width: 30.5rem;
+    padding: 5px;
+    border-radius: 5px;
+    
+}
+  
+  ::ng-deep.mat-tab-list {
+    padding: 10px;
+  }
+  ::ng-deep.mat-tab-label.mat-tab-label-active {
+    background-color: $primary;
+    color: #fefefe;
+    border-radius: 10px;
+  }
+  ::ng-deep .mat-tab-body-wrapper{
+    padding: 20px;
+  }
+  
+  ::ng-deep.mat-tab-group.mat-primary .mat-ink-bar{
+    background-color: #fefefe;
   }

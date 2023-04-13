@@ -54,7 +54,7 @@
                   <div class="col-lg-4">
                     <label for="">Contact Number</label>
                     <mat-form-field appearance="outline" >
-                      <input matInput placeholder="Number" type="number" formControlName="contactNumber" (keydown)="_utilities.noSpace($event)">
+                      <input matInput placeholder="Number"  formControlName="contactNumber" (keydown)="_utilities.noSpace($event)">
                       <mat-error>{{basicInfoForm | validationError:'contactNumber':'Contact Number' }}</mat-error>
                     </mat-form-field>
                   </div>

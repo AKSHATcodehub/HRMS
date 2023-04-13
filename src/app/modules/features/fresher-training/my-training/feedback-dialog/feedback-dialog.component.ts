@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
 @Component({
   selector: 'app-feedback-dialog',
@@ -12,7 +14,9 @@ export class FeedbackDialogComponent implements OnInit {
 
   constructor(private _fb:FormBuilder,
               private service:SnackbarService,
-              private dialogRef:MatDialogRef<any,any>) { }
+              private dialogRef:MatDialogRef<any,any>,
+              public utilities:UtilitiesService,
+              private _formService:FormService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -26,7 +30,7 @@ export class FeedbackDialogComponent implements OnInit {
       trainingRatingForJob:['',Validators.required],
       trainingRating:['',Validators.required],
       sessionContentRating:['',Validators.required],
-      overallFeedback:['',Validators.required]
+      overallFeedback:this._formService.getControl('name')
     })
   }
 

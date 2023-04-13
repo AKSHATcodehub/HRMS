@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
 import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
 import { LEAVE_HEADING, LEAVE_STATUS, LEAVE_TABLEDATA, LEAVE_TYPE } from './my-leave-data';
@@ -22,6 +23,7 @@ export class MyLeaveComponent implements OnInit {
   headings = LEAVE_HEADING;
   leaveStatus = LEAVE_STATUS;
   leaveForm!:FormGroup;
+  halfDayOpen = false;
   editorConfig: AngularEditorConfig= {
     editable: true,
     spellcheck: true,
@@ -65,7 +67,8 @@ export class MyLeaveComponent implements OnInit {
   constructor(private _fb:FormBuilder,
               private formService:FormService,
               private utilities:UtilitiesService,
-              private _snackBar:MatSnackBar) { }
+              private _snackBar:MatSnackBar,
+              private snackbarService:SnackbarService) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -124,12 +127,13 @@ export class MyLeaveComponent implements OnInit {
       }
       LEAVE_TABLEDATA.push(leaveObject);
       this.datasource = new MatTableDataSource(LEAVE_TABLEDATA);
-      this._snackBar.openFromComponent(SnackbarComponent, {
-        duration: 1* 1000,
-        verticalPosition:'top',
-        data:'Leave Submitted !'
-      });
+      this.snackbarService.showSuccess('Leave Submitted!','')
+      this.isOpen = !this.isOpen
     
     }
+  }
+
+  halfDay(){
+    this.halfDayOpen = !this.halfDayOpen;
   }
 }

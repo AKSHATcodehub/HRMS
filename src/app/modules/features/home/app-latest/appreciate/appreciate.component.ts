@@ -30,15 +30,15 @@ export class AppreciateComponent implements OnInit {
   arr = [
     {
       card_name:'Appreciation for Team',
-      message:'this is to inform you that reading this you are wasting your time it entiretly futile as it is dummy text this is to inform you that reading this you are wasting your time it entiretly futile as it is dummy textthis is to inform you that reading this you are wasting your time it entiretly futile as it is dummy textthis is to inform you that reading this you are wasting your time it entiretly futile as it is dummy textthis is to inform you that reading this you are wasting your time it entiretly futile as it is dummy textthis is to inform you that reading this you are wasting your time it entiretly futile as it is dummy text'
+      message:'We would like to really appreciate the hard work of each individual and show our gratitude. We really appreciate the efforts and good work. Keep Shining and growing!&nbsp; All of us are putting our best efforts we are sure, so keep spreading your awesomeness. '
     },
     {
       card_name:'Appreciation | ABP News',
-      message:'this is to inform you that reading this you are wasting your time it entiretly futile as it is dummy text this is to inform you that reading this you are wasting your time it entiretly futile as it is dummy textthis is to inform you that reading this you are wasting your time it entiretly futile as it is dummy text'
+      message:'With immense pleasure, I would like to take this moment and appreciate the efforts that you are putting into your work. I am really very happy with your performance in the current project. Your diligence, self-motivation as well as dedication to always go the extra mile in order to achieve the best possible results is really admirable. I want to assure you that your all efforts are significantly appreciated. '
     },
     {
       card_name:'Appreciation | Cars24',
-      message:'Jack and jill went up the hill to fetch a pale of water jack and jilllllyyyy Jack went down and dumped his crown and jll came tumbling after'
+      message:'We would like to really appreciate the hard work of each individual and show our gratitude. We really appreciate the efforts and good work. Keep Shining and growing!  All of us are putting our best efforts we are sure, so keep spreading your awesomeness.'
     }
   ]
 

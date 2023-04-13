@@ -54,8 +54,8 @@
           </ng-container>
 
           <ng-container *ngSwitchCase="'dsr_status'" >
-            <div class="download_link">
-              <a [href]="element.link" (click)="dsrAction(element)" >Pending</a>
+            <div class="dsr_status">
+              <a [href]="element.link" (click)="dsrAction(element)" >{{element[row.key]}}</a>
             </div>
           </ng-container>
 

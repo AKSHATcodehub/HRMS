@@ -22,6 +22,8 @@ export class FormService {
     emptyControl:[],
     name:[
       Validators.pattern(Regex.name),
+      Validators.maxLength(VALIDATION_CRITERIA.nameMaxLength),
+      Validators.minLength(VALIDATION_CRITERIA.nameMinLength)
     ],
     email:[
       Validators.email,
@@ -50,7 +52,11 @@ export class FormService {
     experience:[],
     jobLocation:[],
     projectTitle:[],
-    phoneNumber:[Validators.pattern(Regex.phone)],
+    phoneNumber:[
+      Validators.pattern(Regex.phone),
+      Validators.maxLength(VALIDATION_CRITERIA.phoneMaxLength),
+      Validators.minLength(VALIDATION_CRITERIA.phoneMinLength),
+    ],
     skill:[],
     file:[],
     leaveType:[],

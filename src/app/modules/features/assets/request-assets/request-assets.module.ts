@@ -13,6 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, NativeDateModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 
 @NgModule({
@@ -32,6 +33,9 @@ import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar
     MatNativeDateModule,
     MatSnackBarModule,
     SnackbarModule
+  ],
+  providers:[
+    SnackbarService
   ]
 })
 export class RequestAssetsModule { }
