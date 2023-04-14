@@ -95,62 +95,69 @@ export class DsrComponent implements OnInit {
     this.filterForm.valueChanges.subscribe((value:any)=>{
 
       console.log("value>>>>>",value);
-      
-
-      if(value.fromDate!=''){
-
-        value.fromDate = this.convert(value.fromDate);
-
-      }
-      if(value.toDate!=''){
-
-        value.toDate = this.convert(value.toDate);
-
-      }
-
-      
-      let filter = {...value} ;
-
-      this.datasource.filter =  JSON.stringify(filter);
-
-      // status:[''],
-      // project:[''],
-      // approval_status:[''],
-      // logged_hr:['']
-
-      if( (this.filterForm.value.status != null) && 
-          (this.filterForm.value.project != null) && 
-          (this.filterForm.value.approval_status != null) &&
-          (this.filterForm.value.logged_hr != null) ){
-
-        this.datasource.filterPredicate = ((data, filter) => {
-    
-          let filterObject = JSON.parse(filter)
-    
-          console.log("filter object>>>>>>>>>>>>>",filterObject);
-          
-    
-          const a = !filterObject.status || data.status === filterObject.status;
-    
-          const b = !filterObject.approval_status || data.approval_status == filterObject.approval_status;
-    
-          const c = !filterObject.fromDate || data.date >= filterObject.fromDate;
-    
-          const d = !filterObject.toDate || data.date <= filterObject.toDate;
-    
-          
-          console.log(a && b && c && d );
-          
-    
-          return a && b && c && d  ;
-    
-        }) 
-
-      }
+ 
+      this.filterFunction(value)
       
     })
 
    
+  }
+
+
+  filterFunction(value:any){
+      
+
+    if(value.fromDate!=''){
+
+      value.fromDate = this.convert(value.fromDate);
+
+    }
+    if(value.toDate!=''){
+
+      value.toDate = this.convert(value.toDate);
+
+    }
+
+    let filter = {...value} ;
+
+    console.log("111");
+    
+
+    this.datasource.filter =  JSON.stringify(filter);
+
+   
+    
+
+    this.datasource.filterPredicate = ((data, filter) => {
+
+      console.log("filter predicate called>>>>>>>>>>>>>",filter);
+
+      console.log("type of filter>>>>>",this.testJSON(filter));
+
+      if(this.testJSON(filter)){
+
+        var filterObject = JSON.parse(filter)      
+  
+        const a = !filterObject.status || data.status === filterObject.status;
+  
+        const b = !filterObject.approval_status || data.approval_status == filterObject.approval_status;
+  
+        const c = !filterObject.fromDate || data.date >= filterObject.fromDate;
+  
+        const d = !filterObject.toDate || data.date <= filterObject.toDate;
+  
+        console.log(a && b && c && d );
+        
+        return a && b && c && d  ;
+      }
+      else{
+
+        return data.approval_status.toLowerCase().includes(filter) || data.status.toLowerCase().includes(filter);
+      }
+      
+    }
+      
+    )      
   }
 
   ngOnInit(): void {
@@ -295,6 +302,19 @@ export class DsrComponent implements OnInit {
       this.dsrForm.controls.dsrContent.setValue('');
     }
   }
+
+
+  testJSON(text:any) {
+    if (typeof text !== "string") {
+        return false;
+    }
+    try {
+        JSON.parse(text);
+        return true;
+    } catch (error) {
+        return false;
+    }
+}
 
 }
 

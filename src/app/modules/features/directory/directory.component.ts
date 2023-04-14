@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ALL_DIRECTORY_TEAM_DATA, DIRECTORY_TEAM_DATA, IdirectoryInteface } from './directory-data';
+import { ALL_DIRECTORY_TEAM_DATA, DIRECTORY_TEAM_DATA } from './directory-data';
 
 @Component({
   selector: 'app-directory',
@@ -77,6 +77,7 @@ export class DirectoryComponent implements OnInit {
     this.dropdownReset = 'all'; 
     this.reset = ' ';
     this.filterData = ALL_DIRECTORY_TEAM_DATA;
+    this.directoryData = ALL_DIRECTORY_TEAM_DATA
     console.log("reset");
   }
 
@@ -127,6 +128,9 @@ export class DirectoryComponent implements OnInit {
   }
 
   func(event:any){
+
+
+    
 
     let arr = this.directoryData.filter((item:any)=>{
       if(item.name?.toLowerCase()?.startsWith(event.target.value)){
