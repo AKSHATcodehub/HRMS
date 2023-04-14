@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ConfirmationDialogComponent } from 'src/app/modules/common/modules/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-upcoming-training',
@@ -8,7 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class UpcomingTrainingComponent implements OnInit {
   constructor(private _router:Router,
-              private route:ActivatedRoute) { }
+              private route:ActivatedRoute,
+              private _dialog:MatDialog) { }
   
   ngOnInit(): void {
   }
@@ -26,11 +29,18 @@ export class UpcomingTrainingComponent implements OnInit {
       },
   ];
   
-  openDialog() {
-    throw new Error('Method not implemented.');
+  openDialog(event:any) {
+    let config = {
+      data:{
+        heading:'Micro Frontend Training',
+        title:'Are you sure , want to enroll in Training',
+      }
+    }
+    this._dialog.open(ConfirmationDialogComponent,config)
   }
   
   viewDetails() {
+    console.log("upcoming");
     this._router.navigate(['../training-details'],{relativeTo:this.route});
   }
     

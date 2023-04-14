@@ -1,7 +1,7 @@
 export const LEAVE_TYPE = [ ' Planned Leave','Privileged Leave','Emergency Leave','Short Leave','All Remaining Leave']
 
 export const LEAVE_HEADING = [
-    { heading: 'Action', key: 'action', type: 'link'},
+    { heading: 'Action', key: 'action', type: 'leave_action'},
     { heading: 'Leave Type', key: 'leave_type', type: 'text'},
     { heading: 'Request From', key: 'request_from', type: 'date'},
     { heading: 'Request To', key: 'request_to', type: 'date'},
@@ -32,7 +32,7 @@ export const LEAVE_TABLEDATA : leave[]= [
     {
       id:1,
       // user_name:'Akshat',
-      action:'e',
+      action:'',
       leave_type: 'Short Leaves',
       request_from: new Date(1,30,2023) ,
       request_to: new Date(1,30,2023) ,

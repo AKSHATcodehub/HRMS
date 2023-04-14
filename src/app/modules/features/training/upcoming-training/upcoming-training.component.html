@@ -2,7 +2,7 @@
     
     <h1 class="wrapper-header">Upcoming Training</h1>
     
-    <app-training-card [dynamicLabel]="seats" [cards]="cards" (viewDetailsEvent)="viewDetails()" (openDialogEvent)="openDialog()" >
+    <app-training-card [dynamicLabel]="seats" [cards]="cards" (viewDetailsEvent)="viewDetails()" (feedbackEvent)="openDialog($event)" >
         <div class="job-description">
             <p class="department_name">Who can Attend</p>
             <h3>Angular</h3>

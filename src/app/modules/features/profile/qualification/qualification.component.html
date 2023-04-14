@@ -19,7 +19,7 @@
                     <label for="">Education Level</label><br>
                     <div class="dropdown">
                       <div class="dropdown-body">
-                        <app-dropdown [data]="qualifications" (outputData)="selectedDropdown($event,'education')"></app-dropdown>
+                        <app-dropdown [placeHolder]="educationLevelPlaceholder" [data]="qualifications" (outputData)="selectedDropdown($event,'education')"></app-dropdown>
                       </div>
                       <small *ngIf="this.qualificationForm.controls.education.touched">{{qualificationForm | validationError : 'education' : 'Education' }}</small>
                   </div>

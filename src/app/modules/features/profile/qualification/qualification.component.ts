@@ -17,6 +17,7 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import { QUALIFICATION } from './qualification-data';
+import { QualificationDialogComponent } from './qualification-dialog/qualification-dialog.component';
 
 @Component({
   selector: 'app-qualification',
@@ -46,6 +47,7 @@ export class QualificationComponent implements OnInit {
   language = ['Hindi', 'English'];
   datasource = new MatTableDataSource<any>();
   pageOptions = ['5', '10'];
+  educationLevelPlaceholder='Select Education '
   headings = [
     {
       heading: 'Action',
@@ -101,12 +103,20 @@ export class QualificationComponent implements OnInit {
   deleteEvent(event: any) {
     console.log('delete evrnt', event);
 
-    this.Table_DATA = this.Table_DATA.filter((item: any) => {
-      if (item != event) {
-        return item;
+    const dialogRef  = this.dialog.open(QualificationDialogComponent)
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.Table_DATA = this.Table_DATA.filter((item: any) => {
+          if (item != event) {
+            return item;
+          }
+        });
+        this.datasource = new MatTableDataSource<any>(this.Table_DATA);
+        this._snackBar.showSuccess('Record Deleted!','');
       }
     });
-    this.datasource = new MatTableDataSource<any>(this.Table_DATA);
+
   }
 
   actionSave() {

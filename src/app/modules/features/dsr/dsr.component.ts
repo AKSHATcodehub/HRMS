@@ -152,7 +152,9 @@ export class DsrComponent implements OnInit {
       }
       else{
 
-        return data.approval_status.toLowerCase().includes(filter) || data.status.toLowerCase().includes(filter);
+        return data.approval_status.toLowerCase().includes(filter) || 
+               data.status.toLowerCase().includes(filter) || 
+               data.date.toLowerCase().includes(filter);
       }
       
     }
@@ -170,13 +172,6 @@ export class DsrComponent implements OnInit {
   get fromDate() {
     this.filterForm?.controls.fromDate.setValue(this.convert(`${this.filterForm.get('fromDate')?.value}`));
     return this.filterForm.get('fromDate')?.value; 
-
-    // if(this.filterForm.get('fromDate')?.value!='NaN-aN-aN'){
-      
-    //   return this.filterForm.get('fromDate')?.value;
-    // }else{      
-    //   return null;
-    // }
     
    }
 
@@ -238,29 +233,50 @@ export class DsrComponent implements OnInit {
 
     if(this.dsrForm.valid){
 
-      console.log("dsr form>>>>",this.dsrForm);
+      console.log('1',DSR_TABLEDATA);
       
-
-      let dsrObject = {
-        s_no: DSR_TABLEDATA.length+1,
-        emp_name: 'akshat',
-        emp_id: '1553',  
-        email: 'akshat@appinventiv.com',
-        employment_type: 'Permanent',
-        date: '2023-03-08',
-        logged_hr: this.dsrForm.controls.dsrHours.value,
-        approval_status: 2,
-        status: 'Due',
-        link:`/features/dsr-details?data=3`,
-        dsr_description: this.dsrForm.controls.dsrContent.value,
+      
+      let dsrExixt = DSR_TABLEDATA.filter((dsr:any)=>{
+        console.log("comparision>>>>>",dsr.date , this.convert(this.dsrForm.controls.dsrDate.value));
+        
+        if(dsr.date == this.convert(this.dsrForm.controls.dsrDate.value)){
+          console.log('2');
+          
+          return dsr;
+        }
       }
-      DSR_TABLEDATA.push(dsrObject);
-  
-      this.datasource.data = (DSR_TABLEDATA);
+      )
 
-      this._snackbarService.showSuccess('DSR Submitted!','');
+      console.log('3');
+      
+      console.log("dsr exist>>>>",dsrExixt);
 
-      this.isOpen = !this.isOpen;
+      if(dsrExixt.length>0){
+        this._snackbarService.showError('DSR already Exist!','')
+      }else{
+      
+          let dsrObject = {
+            s_no: DSR_TABLEDATA.length+1,
+            emp_name: 'akshat',
+            emp_id: '1553',  
+            email: 'akshat@appinventiv.com',
+            employment_type: 'Permanent',
+            date: this.convert(this.dsrForm.controls.dsrDate.value),
+            logged_hr: this.dsrForm.controls.dsrHours.value,
+            approval_status: 'Pending',
+            status: 'Due',
+            link:`/features/dsr-details?data=3`,
+            dsr_description: this.dsrForm.controls.dsrContent.value,
+          }
+          DSR_TABLEDATA.push(dsrObject);
+      
+          this.datasource.data = (DSR_TABLEDATA);
+    
+          this._snackbarService.showSuccess('DSR Submitted!','');
+    
+          this.isOpen = !this.isOpen;
+
+      }
     
     }else{
 

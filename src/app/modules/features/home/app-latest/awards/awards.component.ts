@@ -16,10 +16,10 @@ export class AwardsComponent implements OnInit {
     grid: { xs: 1, sm: 1, md: 1, lg: 2, all: 0 },
     gridBreakpoints:{sm: 650, md: 800, lg: 1300, xl: 1900},
     load: 3,
-    interval: {timing: 35000, initialDelay: 10000},
+    interval: {timing: 3000, initialDelay: 1000},
     loop: true,
     touch: true,
-    velocity: 0.2
+    velocity: 0.9
   }
 
   arr = [

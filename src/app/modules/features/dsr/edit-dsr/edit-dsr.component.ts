@@ -17,6 +17,7 @@ throw new Error('Method not implemented.');
   }
   @Input() ngxMatTimepicker:any;
 
+  editDsrPlaceholder = 'Select Project';
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,

@@ -1,0 +1,44 @@
+// @import "../../../../../../src/scss/commonStyles.scss";
+@import '../../../../scss/mixins/flex',
+        '../../../../scss/var',
+        '../../../../scss/theme/grid';
+
+
+section{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  .left_wrapper{
+   @include flex(center,center);
+   flex-direction:column;
+   padding:4%;
+   h1{
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+   }
+  }
+  .right_wrapper{
+
+   padding: 37px 20px;
+   background: #fafafa;
+   border-top-right-radius: 11px;
+   border-bottom-right-radius: 11px;
+   form{
+    padding: 8%;
+    h1{
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #3246d3;
+     }
+
+     button{
+    //   color: $darkblue;
+      background-color: #3246d3;
+      margin: 1%;
+     }
+   }
+
+  }
+
+}

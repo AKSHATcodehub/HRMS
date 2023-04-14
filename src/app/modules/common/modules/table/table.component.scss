@@ -36,6 +36,7 @@
 
 
 section {
+  border-radius: 5px;
   padding: 30px;
   overflow-x: auto;
   position: relative;
@@ -48,7 +49,6 @@ section {
       display: block;
     }
     
-
     label{
       line-height: 3;
     }
@@ -195,8 +195,9 @@ table{
   }
   .dsr_status{
     a{
-      width: 74;
-      padding: 2px 8px;
+      display: inline-block;
+      width: 74px !important;
+      padding: 0px 8px;
       color: orange;
       text-decoration: none;
       border:1px solid  #d8d8d8;
@@ -209,3 +210,21 @@ table{
       }
     }
   }
+
+.leave_action{
+  a{
+    height: 20px;
+    width: 20px;
+    display: inline-block;
+    border: 1px solid #9ad7de;
+    position: relative;
+    mat-icon{
+      color: #9ad7de;
+      position: absolute;
+      font-size: 15px;
+      left: -2px;
+      top: 3px;
+      font-weight: 600;
+    }
+  }
+}

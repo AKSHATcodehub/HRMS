@@ -14,6 +14,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
+import { CovidDialogBoxModule } from './covid-dialog-box/covid-dialog-box.module';
 @NgModule({
   declarations: [
     FeaturesComponent,
@@ -31,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatExpansionModule,
     MatMenuModule,
     MatDialogModule,
-    MatCardModule
+    MatCardModule,
+    CovidDialogBoxModule
   ] 
 }) 
 export class FeaturesModule { }

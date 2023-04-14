@@ -53,6 +53,12 @@
             </div>
           </ng-container>
 
+          <ng-container *ngSwitchCase="'leave_action'" >
+            <div class="leave_action">
+              <a [href]="element.link" ><mat-icon>arrow_forward</mat-icon></a>
+            </div>
+          </ng-container>
+
           <ng-container *ngSwitchCase="'dsr_status'" >
             <div class="dsr_status">
               <a [href]="element.link" (click)="dsrAction(element)" >{{element[row.key]}}</a>

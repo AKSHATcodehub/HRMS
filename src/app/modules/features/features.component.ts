@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { enterLeaveAnimation } from 'src/animation/slidainoutanimation';
 import { Item } from '@syncfusion/ej2-angular-navigations';
+import { CovidDialogBoxComponent } from './covid-dialog-box/covid-dialog-box.component';
 
 
 @Component({
@@ -178,5 +179,8 @@ export class FeaturesComponent implements OnInit {
     this.show = !this.show;
   }
 
+  openCovidDialog(){
+    this.dialog.open(CovidDialogBoxComponent)
+  }
 }
    

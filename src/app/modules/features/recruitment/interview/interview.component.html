@@ -9,13 +9,13 @@
                     <ng-container *ngFor="let filter of filterSelectObj">
                         <div class="col-md-3" >
                             <label for="">{{filter.label}}</label><br>
-                            <app-dropdown [data]="filter.data"  [placeHolder]="filter.placeholder" (outputData)="filterChange($event,filter.controlName)"></app-dropdown>
+                            <app-dropdown ngModel [data]="filter.data"  [placeHolder]="filter.placeholder" (outputData)="filterChange($event,filter.controlName)"></app-dropdown>
                         </div>
                     </ng-container>
                 </div>
                 <div class="table row">
                     <div class="col-md-12">
-                        <app-table [columns]="headings" [dataSource]="datasource"></app-table>
+                        <app-table ngModel [columns]="headings" [dataSource]="datasource"></app-table>
                     </div>
                 </div>
             </div>

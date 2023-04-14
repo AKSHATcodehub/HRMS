@@ -20,6 +20,7 @@ import { DialogModule } from 'src/app/modules/common/modules/dialog/dialog.modul
 import { EditQualificationComponent } from './edit-qualification/edit-qualification.component';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { QualificationDialogComponent } from './qualification-dialog/qualification-dialog.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown
 ],
   declarations: [
     QualificationComponent,
-    EditQualificationComponent
+    EditQualificationComponent,
+    QualificationDialogComponent
   ],
   imports: [
     CommonModule,

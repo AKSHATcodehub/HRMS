@@ -1,0 +1,83 @@
+<section class="row">
+    <div class="left_wrapper col-md-6">
+      <h1>Wear a mask</h1>
+      <p>Consult docts or certified medial practitioners remotely and reduce the
+        risk of transmission. Telemediaction consulation is the best alternative
+        for steady and quick medical services</p>
+    </div>
+    <div class="right_wrapper col-md-6">
+      <form [formGroup]="covidForm">
+        <h1>
+          Need Help!
+        </h1>
+        <p>
+          Let us know if you are facing any issue because of the lockdown, We will
+          be giving our best to take care of your problems, Please fill the form
+          below and provide the required details, Concerned person will get in touch
+          with you on the earliest.
+        </p>
+        <div class="name">
+          <p>
+  
+            <mat-label> Title</mat-label>
+          </p>
+          <mat-form-field class="name_input" appearance="outline">
+            <input matInput placeholder="Title" required formControlName="title"
+              />
+            <mat-error>
+              {{covidForm | validationError :'title':'Title'}}
+            </mat-error>
+          </mat-form-field>
+  
+        </div>
+        <div class="name">
+          <p>
+  
+            <mat-label> Mobile Number</mat-label>
+          </p>
+          <mat-form-field class="name_input" appearance="outline">
+            <input matInput  placeholder="Mobile Number" required formControlName="mobile"
+              />
+            <mat-error>
+              {{covidForm | validationError :'mobile':'Mobile Number'}}
+            </mat-error>
+          </mat-form-field>
+  
+        </div>
+        <div class="name">
+          <p>
+  
+            <mat-label> Address</mat-label>
+          </p>
+          <mat-form-field class="name_input" appearance="outline">
+            <input matInput  placeholder="Address" required formControlName="address"
+              />
+            <mat-error>
+              {{covidForm | validationError :'address':'Address'}}
+            </mat-error>
+          </mat-form-field>
+  
+        </div>
+        <div class="name">
+          <p>
+  
+            <mat-label> Description</mat-label>
+          </p>
+          <mat-form-field class="name_input" appearance="outline">
+            <input matInput  placeholder="Description" required formControlName="description"
+              />
+            <mat-error>
+              {{covidForm | validationError :'description':'Description'}}
+            </mat-error>
+          </mat-form-field>
+  
+        </div>
+        <div>
+          <button class="button" mat-button [mat-dialog-close]>Cancel</button>
+          <button class="button" mat-button (click)="onSubmit()">Submit</button>
+        </div>
+      </form>
+  
+    </div>
+  </section>
+  
