@@ -13,7 +13,7 @@
         width: 30px;
         border-radius: 50%;
         background-color: white;
-        padding: 10px;
+        padding: 5px;
         mat-icon{
             font-size:30px;
         }
@@ -26,9 +26,10 @@
         border-bottom: 1px solid lightgray;
         .data_detail {
             display: flex;
+            padding: 10px 0px;
             label {
                 min-width: 150px;
-                color: #96a5b8;
+                color: black;
             }
         }
 
@@ -40,11 +41,11 @@
     .goal {
         margin-top: 10px;
         p {
-            color: #96a5b8;
+            color: black;
         }
         ::ng-deep {
             .mat-radio-button {
-                color: #96a5b8;
+                color: black;
             }
             .mat-radio-outer-circle {
                 border-color: #96a5b8;
@@ -54,7 +55,7 @@
     .relevant {
         margin-top: 20px;
         p {
-            color: #96a5b8;
+            color: black;
         }
         .rate {
             display: grid;
@@ -79,7 +80,7 @@
     .feedback {
         margin-top: 20px;
         p {
-            color: #96a5b8;
+            color: black;
         }
         textarea {
             width: 100%;

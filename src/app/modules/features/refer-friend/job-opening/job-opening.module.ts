@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { JobOpeningRoutingModule } from './job-opening-routing.module';
 import { JobOpeningComponent } from './job-opening.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     CommonModule,
     JobOpeningRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatIconModule 
     
   ]
 })

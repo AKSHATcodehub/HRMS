@@ -53,7 +53,7 @@ import { NewJoinComponent } from './new-join/new-join.component';
     RespCarouselModule,
     DialogModule,
     JobDetailsModule,
-
+    MatIconModule
   ],
   exports:[
     LatestJobComponent

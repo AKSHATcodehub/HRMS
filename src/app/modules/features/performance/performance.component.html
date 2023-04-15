@@ -92,7 +92,7 @@
                     </div>
                 </div>
                 <div class="card-mid row ">
-                    <div class="col-md-3"   *ngFor="let item of filterRating" (click)="openDialog()">
+                    <div class="col-md-3" *ngFor="let item of filterRating" (click)="openDialog()">
                         <div class="monthly-block " [ngStyle]="{'background-color':item.data_exist ? '#F9F9F9' : 'white'}" >
                             <div class="row justify-content-sm-between">
                                 <span>{{item.month_name}}</span>

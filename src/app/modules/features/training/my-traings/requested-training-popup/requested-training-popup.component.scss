@@ -50,12 +50,12 @@ mat-dialog-content {
     }
 
     .skill-set {
-      margin-left: 7px;
-      margin-bottom: 10px;
+      // margin-left: 7px;
+      // margin-bottom: 10px;
       textarea {
         min-height: 90px;
-        width: 96%;
-        border: 1px solid #d8d8d8;
+        width: 99%;
+        // border: 1px solid #d8d8d8;
         resize: none;
       }
     }
@@ -77,8 +77,14 @@ mat-dialog-content {
   }
 }
 
+::ng-deep .mat-dialog-container{
+  padding: 0px !important ;
+}
+
 mat-dialog-actions {
   @include flex('',flex-end);
+  margin-bottom: 0px;
+  margin-right: 24px;
   .submit {
     margin-left: 5px;
     cursor: pointer;
@@ -97,4 +103,9 @@ mat-dialog-actions {
   ::ng-deep .mat-button{
     line-height: 17px;
   }
+}
+
+
+::ng-deep .mat-dialog-content{
+  margin: 0px !important;
 }

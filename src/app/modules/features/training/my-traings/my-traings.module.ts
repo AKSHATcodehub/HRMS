@@ -14,6 +14,9 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ConfirmationDialogModule } from 'src/app/modules/common/modules/confirmation-dialog/confirmation-dialog.module';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { ConfirmationDialogModule } from 'src/app/modules/common/modules/confirm
     MatOptionModule,
     MatButtonModule,
     MatIconModule,
-    ConfirmationDialogModule
+    ConfirmationDialogModule,
+    DropdownModule,
+    ReactiveFormsModule,
+    ValidationErrorModule
   ]
 })
 export class MyTraingsModule { }

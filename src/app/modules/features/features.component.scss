@@ -538,14 +538,15 @@ footer {
  
 }
 
-
+// 
 .notification-box {
-  box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
+  box-shadow: 0 20px 20px grey !important;
   padding: 24px;
-  margin-top: 59rem;
+  // margin-top: 59rem;
   min-height: calc(100vh - 8em);
   width: 20em;
   position: fixed;
+  top: 80px;
   right: 0;
   z-index: 2;
   border-radius: 3px;

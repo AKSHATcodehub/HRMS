@@ -4,29 +4,26 @@
   </div>
   
   <mat-dialog-content class="mat-typography">
-    <div class="card">
+    <div class="card" [formGroup]="requestedTrainingFeedback">
       <div class="input-box">
         <p>Training Name:</p>
-        <mat-form-field appearance="outline">
-          <mat-select placeholder="Select Training">
-            <mat-option value="All"> NOne</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <app-dropdown [data]="training" [placeHolder]="trainingPlaceholder" (outputData)="selctedValue($event,'trainingName')"></app-dropdown>
+        <small *ngIf="requestedTrainingFeedback.controls.trainingName.touched">{{requestedTrainingFeedback | validationError :'trainingName' :'Training Name'}}</small>
       </div>
       <div class="input-box">
         <p>Team Name:</p>
-        <mat-form-field appearance="outline">
-          <mat-select placeholder="Select Team">
-            <mat-option value="All"> NOne</mat-option>
-          </mat-select>
-        </mat-form-field>
+        <app-dropdown [data]="teamName" [placeHolder]="teamPlaceholder" (outputData)="selctedValue($event,'teamName')"></app-dropdown>
+        <small *ngIf="requestedTrainingFeedback.controls.teamName.touched">{{requestedTrainingFeedback | validationError :'teamName' :'Team Name'}}</small>
       </div>
       <div class="skill-set">
         <p>
           Please mention the training/learning area’s you feel can be beneficial
           for your skill enhancement and job performance *
         </p>
-        <textarea placeholder="Type Your answer here..."></textarea>
+        <mat-form-field appearance="outline">
+          <textarea matInput placeholder="Type Your answer here..." formControlName="learningArea"></textarea>
+          <mat-error>{{ requestedTrainingFeedback | validationError :'learningArea' :'This field' }}</mat-error>
+        </mat-form-field>
       </div>
   
       <div class="skill-set">
@@ -34,34 +31,32 @@
           Why do you feel these skills are needed and how they will benefit your
           personal and organizational needs
         </p>
-        <textarea placeholder="Type Your answer here..."></textarea>
+        <mat-form-field appearance="outline">
+          <textarea matInput placeholder="Type Your answer here..." formControlName="skillsArea"></textarea>
+          <mat-error>{{ requestedTrainingFeedback | validationError :'skillsArea' :'This field' }}</mat-error>
+        </mat-form-field>
       </div>
   
       <div class="helpful">
         <p>Are you interested to give the Trainings? *</p>
   
-        <mat-radio-group aria-label="Select an option">
+        <mat-radio-group aria-label="Select an option" formControlName="giveTraining">
           <mat-radio-button value="1">Yes</mat-radio-button>
           <mat-radio-button value="2">No</mat-radio-button>
-        </mat-radio-group>
+        </mat-radio-group> <br>
+        <small *ngIf="requestedTrainingFeedback.controls.giveTraining.touched">{{ requestedTrainingFeedback | validationError :'giveTraining' :'This field' }}</small>
       </div>
   
       <div class="timeline">
         <p>What should be the timeline to conduct this training? *</p>
         <div>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="1">Intermediate</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div>
-          <mat-radio-group aria-label="Select an option">
-            <mat-radio-button value="2">3-6 Months</mat-radio-button>
-          </mat-radio-group>
-        </div>
-        <div>
-          <mat-radio-group aria-label="Select an option">
+          <mat-radio-group aria-label="Select an option" formControlName="conductTraining">
+            <mat-radio-button value="1">Intermediate</mat-radio-button><br>
+            <mat-radio-button value="2">3-6 Months</mat-radio-button><br>
             <mat-radio-button value="2">More than 6 Months</mat-radio-button>
-          </mat-radio-group>
+            
+          </mat-radio-group> <br>
+          <small *ngIf="requestedTrainingFeedback.controls.conductTraining.touched">{{ requestedTrainingFeedback | validationError :'conductTraining' :'This field' }}</small>
         </div>
       </div>
     </div>
@@ -69,7 +64,7 @@
   
   <mat-dialog-actions>
     <button class="cancel" mat-button mat-dialog-close>Cancel</button>
-    <button class="submit" mat-button cdkFocusInitial>
+    <button class="submit" mat-button cdkFocusInitial  (click)="submitFeedback()">
       Submit
     </button>
   </mat-dialog-actions>

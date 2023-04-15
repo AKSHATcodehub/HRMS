@@ -220,3 +220,22 @@ export var DSR_TABLEDATA:any = [
   },
 ];
 export const DSR_TABLE_COUNT = 15;
+
+export const HOURS_STATUS  = [
+  {
+      viewValue:'Less than eqaual to 5 ',
+      value:1
+  },
+  {
+      viewValue:'More than 5 and Less than equal to 8',
+      value:2
+  },
+  {
+      viewValue:'More than 8',
+      value:3
+  },
+  {
+      viewValue:'More than 10',
+      value:4
+  }
+]

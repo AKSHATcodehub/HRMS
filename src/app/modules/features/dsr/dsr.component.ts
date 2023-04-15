@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM } from './dsr-data';
+import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM, HOURS_STATUS } from './dsr-data';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
@@ -82,6 +82,7 @@ export class DsrComponent implements OnInit {
   };
   pageSize!: number;
   @Input() ngxMatTimepicker:any;
+  dsrFilterObject: any;
 
   constructor(private _fb:FormBuilder,
               private _snackbar:MatSnackBar,
@@ -102,7 +103,6 @@ export class DsrComponent implements OnInit {
 
    
   }
-
 
   filterFunction(value:any){
       
@@ -126,8 +126,6 @@ export class DsrComponent implements OnInit {
     this.datasource.filter =  JSON.stringify(filter);
 
    
-    
-
     this.datasource.filterPredicate = ((data, filter) => {
 
       console.log("filter predicate called>>>>>>>>>>>>>",filter);
@@ -145,16 +143,33 @@ export class DsrComponent implements OnInit {
         const c = !filterObject.fromDate || data.date >= filterObject.fromDate;
   
         const d = !filterObject.toDate || data.date <= filterObject.toDate;
+
+        var e = !filterObject.logged_hr;
+        
+        if(filterObject.logged_hr == 1){
+          e = !filterObject.logged_hr || data.logged_hr < 5;
+        }
+
+        if(filterObject.logged_hr == 2){
+          e = !filterObject.logged_hr || (data.logged_hr > 5 && data.logged_hr < 8 );
+        }        
+
+        if(filterObject.logged_hr == 3){
+          e = !filterObject.logged_hr || data.logged_hr > 8;
+        }        
+
+        if(filterObject.logged_hr == 4){
+          e = !filterObject.logged_hr || data.logged_hr > 10;
+        }
   
         console.log(a && b && c && d );
         
-        return a && b && c && d  ;
+        return a && b && c && d && e;
       }
       else{
 
-        return data.approval_status.toLowerCase().includes(filter) || 
-               data.status.toLowerCase().includes(filter) || 
-               data.date.toLowerCase().includes(filter);
+        return data.emp_name.toLowerCase().includes(filter) 
+              
       }
       
     }
@@ -166,6 +181,8 @@ export class DsrComponent implements OnInit {
     this.isOpen = false;
  
     this.createDsrForm();
+
+    this.dsrFilterObject = this.createFilterObject(this.filterForm);    
 
   }
 
@@ -216,6 +233,16 @@ export class DsrComponent implements OnInit {
     approval_status:[''],
     logged_hr:['']
   });
+  }
+
+  createFilterObject(form: FormGroup){
+    return{
+      loggedHours: {
+        label: 'Logged Hours',
+        list: HOURS_STATUS,
+        control: form.controls.logged_hr
+      },
+    }
   }
 
   dropdownFilter(event:string,controlName:string){
@@ -293,12 +320,12 @@ export class DsrComponent implements OnInit {
 
   resetDsrFilter(){
     
-    // let filterObjectKeys = Object.keys(this.filterForm.controls);
+    let filterObjectKeys = Object.keys(this.filterForm.controls);
 
-    // filterObjectKeys.forEach((item)=>{
-    //   this.filterForm.get(item)?.patchValue('')
-    // })
-    this.filterForm.reset();
+    filterObjectKeys.forEach((item)=>{
+      this.filterForm.get(item)?.patchValue('')
+    })
+    // this.filterForm.reset();
 
     console.log("this is reset filter form>>>>>>>",this.filterForm);
     
@@ -330,7 +357,13 @@ export class DsrComponent implements OnInit {
     } catch (error) {
         return false;
     }
-}
+  }
+
+  dropDownChange(event:any){
+    console.log("new dropdown selectd>>>>>");
+    this.filterForm.controls.logged_hr.setValue(event)
+  }
+
 
 }
 
