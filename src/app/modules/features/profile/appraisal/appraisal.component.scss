@@ -4,7 +4,7 @@
 
 .appraisal-wrapper{
     background-color: white;
-
+    @include border-radius(10px ,10px ,10px, 10px);
     .appraisal-header{
         h6{
             margin: 0px;

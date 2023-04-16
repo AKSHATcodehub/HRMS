@@ -57,6 +57,7 @@ mat-dialog-content {
         width: 99%;
         // border: 1px solid #d8d8d8;
         resize: none;
+        // box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
       }
     }
 
@@ -108,4 +109,21 @@ mat-dialog-actions {
 
 ::ng-deep .mat-dialog-content{
   margin: 0px !important;
+}
+
+.dropdown{
+  .dropdown-body{
+    position: relative;
+    top: -4px;
+  }
+  small{
+    color: red;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+  }
+}
+
+::ng-deep .mat-form-field-flex{
+  box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
 }

@@ -1,6 +1,7 @@
 @import "./../../../../../scss/var",
         "./../../../../../scss/theme/grid",
-        './../../../../../scss/theme/wrapper';
+        './../../../../../scss/theme/wrapper',
+        './../../../../../scss/mixins/flex';
 
 
 .custom-error {
@@ -19,6 +20,7 @@ mat-form-field {
     width: 100%;
     background-clip: content-box;
     background-color: white;
+    @include border-radius(10px ,10px ,10px, 10px);
     h1 {
       padding: 20px;
       margin: 0px;
@@ -51,6 +53,7 @@ mat-form-field {
 .dropdown {
   .dropdown-body {
     position: relative;
+    top: -4px;
   }
   small {
     color: red;

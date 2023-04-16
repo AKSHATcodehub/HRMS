@@ -41,6 +41,8 @@ export class DsrComponent implements OnInit {
   hoursPlaceholder = 'Hours'
   filterObject:any;
   reset = false;
+  authorityPlaceholder = 'Select Authority'
+  AMPlaceholder = "Select AM"
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -100,12 +102,9 @@ export class DsrComponent implements OnInit {
       this.filterFunction(value)
       
     })
-
-   
   }
 
   filterFunction(value:any){
-      
 
     if(value.fromDate!=''){
 
@@ -121,10 +120,8 @@ export class DsrComponent implements OnInit {
     let filter = {...value} ;
 
     console.log("111");
-    
 
     this.datasource.filter =  JSON.stringify(filter);
-
    
     this.datasource.filterPredicate = ((data, filter) => {
 
@@ -237,6 +234,7 @@ export class DsrComponent implements OnInit {
 
   createFilterObject(form: FormGroup){
     return{
+
       loggedHours: {
         label: 'Logged Hours',
         list: HOURS_STATUS,
@@ -325,6 +323,8 @@ export class DsrComponent implements OnInit {
     filterObjectKeys.forEach((item)=>{
       this.filterForm.get(item)?.patchValue('')
     })
+
+    this.progValueLoggedHr = ''
     // this.filterForm.reset();
 
     console.log("this is reset filter form>>>>>>>",this.filterForm);
@@ -359,11 +359,13 @@ export class DsrComponent implements OnInit {
     }
   }
 
-  dropDownChange(event:any){
-    console.log("new dropdown selectd>>>>>");
-    this.filterForm.controls.logged_hr.setValue(event)
-  }
+  progValueLoggedHr = ''
 
+  dropDownChange(event:any){
+    console.log("new dropdown selectd>>>>>",event);
+    this.filterForm.controls.logged_hr.setValue(event.value)
+    this.progValueLoggedHr = event.viewValue
+  }
 
 }
 

@@ -1,5 +1,8 @@
+@import '../../../../../scss/mixins/flex';
+
 .shift-wrapper{
     .shift-wrapper-header{
+        @include border-radius(10px ,10px ,10px, 10px);
         width: 100%;
         // padding: 0 20px;
         background-clip: content-box;

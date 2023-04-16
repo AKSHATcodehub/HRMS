@@ -84,11 +84,13 @@ mat-form-field{
         border-radius: 5px;
         width: 100%;
         padding: 15px;
+        box-shadow: 0px 4px 8px rgb(44 39 56 / 4%)
     }
 }
 .dropdown{
     .dropdown-body{
       position: relative;
+      top: -4px;
     }
     small{
       color: red;
@@ -100,4 +102,8 @@ mat-form-field{
   
   mat-radio-button{
     color: #666;
+  }
+
+  ::ng-deep .mat-form-field-outline{
+    box-shadow: 0px 4px 8px rgb(44 39 56 / 4%);
   }

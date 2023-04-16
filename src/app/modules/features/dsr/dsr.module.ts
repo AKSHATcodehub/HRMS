@@ -19,8 +19,7 @@ import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-import { DropdownSearchModule } from '../../common/modules/dropdown-search/dropdown-search.module';
-import { DropdownFilterModule } from '../../common/modules/dropdown-filter/dropdown-filter.module';
+import { CustomDropdownModule } from '../../common/modules/custom-dropdown/custom-dropdown.module';
 // import { NgxMatTimepickerModule } from 'ngx-mat-timepicker';
 
 @NgModule({
@@ -48,8 +47,7 @@ import { DropdownFilterModule } from '../../common/modules/dropdown-filter/dropd
     MatSnackBarModule,
     SnackbarModule,
     NgxMatTimepickerModule,
-    DropdownSearchModule,
-    DropdownFilterModule
+    CustomDropdownModule
   ],
   providers:[
     SnackbarService

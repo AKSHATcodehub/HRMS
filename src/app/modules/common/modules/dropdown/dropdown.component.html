@@ -1,13 +1,13 @@
 <!-- <div class="content-wrapper">
 </div> -->
-<div class="input-field" >
+<div class="input-field"   (clickOutside)="clickedOutside()">
   <div class="input-wrapper"  >
-    <div class="select-btn" (click)="optionClicked()" #selectbtn>
+    <div class="select-btn" (click)="toggleMenu()" (click)="optionClicked()" #selectbtn>
       <input type="text" readonly="readonly" [placeholder]="placeHolder" FormControl="controlName" [value]="progchangedValue"  >
       <i class="uil uil-angle-down"></i>
     </div>
     <!-- <div>{{formName | validationError : controlName : placeHolder}}</div> -->
-    <div class="content">
+    <div class="content" >
       <div class="search">
         <i class="uil uil-search"></i>
         <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">

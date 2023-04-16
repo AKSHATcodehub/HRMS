@@ -2,10 +2,14 @@
         "../../../../scss/mixins/flex",
         "../../../../scss/var",
         "../../../../scss//mixins/media",
-        "../../../../scss/theme/grid";
+        "../../../../scss/theme/grid",
+        '../../../../scss/theme/wrapper';
 
 .card {
   max-width: 100%;
+}
+mat-form-field{
+  width: 100%;
 }
 ::ng-deep .mat-form-field-outline {
   background-color: white;
@@ -15,6 +19,7 @@
 li {
   word-break: break-all;
 }
+
 
 .directory-wrapper {
   padding: 24px 32px;
@@ -45,22 +50,22 @@ li {
       .button-wrapper {
         @include flex(center, flex-start);
 
-        button {
-          height: 40px;
-          min-width: 100px;
-          font-size: 20px;
-          margin: 0px 10px 0px 0px;
-          border-radius: 5px;
-          background-color: white;
-          mat-icon {
-            font-size: 18px;
-            position: relative;
-            top: 3px;
-          }
-          font-size: 18px;
-          color: #bbb9b9;
-          border: 1px solid #d8d8d8;
-        }
+        // button {
+        //   height: 40px;
+        //   min-width: 100px;
+        //   font-size: 20px;
+        //   margin: 0px 10px 0px 0px;
+        //   border-radius: 5px;
+        //   background-color: white;
+        //   mat-icon {
+        //     font-size: 18px;
+        //     position: relative;
+        //     top: 3px;
+        //   }
+        //   font-size: 18px;
+        //   color: #bbb9b9;
+        //   border: 1px solid #d8d8d8;
+        // }
         button:nth-child(2) {
           background: #199cff;
           color: white;
@@ -180,4 +185,20 @@ li {
   height: 20px;
   transition: transform 1s;
   background-color: blue;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-width: 1px !important;
+  color: #e0e0e0;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-width: 1px !important;
+  color: #e0e0e0;
+} 
+
+::ng-deep .mat-form-field-infix{
+  padding: 0.5em 0 !important;
+  height: 25px !important;
+}
+::ng-deep .mat-form-field-wrapper{
+  margin: 7px 0px    !important;
 }

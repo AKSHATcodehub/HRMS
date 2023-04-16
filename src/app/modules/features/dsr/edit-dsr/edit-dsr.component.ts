@@ -1,23 +1,29 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-edit-dsr',
   templateUrl: './edit-dsr.component.html',
-  styleUrls: ['./edit-dsr.component.scss']
+  styleUrls: ['./edit-dsr.component.scss'],
 })
 export class EditDsrComponent implements OnInit {
-dsrSummit() {
-throw new Error('Method not implemented.');
-}
-
-  constructor() { }
+  constructor(private _fb: FormBuilder, 
+              private _formService: FormService,
+              private _snackbarService:SnackbarService
+              ) {}
 
   ngOnInit(): void {
+    this.editDsrForm = this.createForm();
   }
-  @Input() ngxMatTimepicker:any;
 
+  @Input() ngxMatTimepicker: any;
+  projectDataDropdown = ['Training Project React.js'];
   editDsrPlaceholder = 'Select Project';
+  editDsrForm!: FormGroup;
+  today = new Date();
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -57,4 +63,21 @@ throw new Error('Method not implemented.');
     uploadUrl: 'v1/image',
   };
 
+  createForm() {
+    
+    return this._fb.group({
+      dsrProject: ['Training Project React.js', [Validators.required]],
+      dsrDate: [new Date(), [Validators.required]],
+      dsrTime: ['', [Validators.required]],
+      dsrDescription: ['This is dsr description', [Validators.required]],
+    });
+  }
+
+  dsrSummit() {
+    if (this.editDsrForm.valid) {
+      this._snackbarService.showSuccess('DSR Updated!','')
+    } else {
+      this._snackbarService.showError('Please Fill All Field','');
+    }
+  }
 }

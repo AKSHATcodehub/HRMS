@@ -6,12 +6,16 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ValidationErrorPipe } from 'src/app/pipes/validation-error/validation-error.pipe';
+import { ClickOutsideDirective } from './click-outside.directive';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 
 
 @NgModule({
   declarations: [
-    DropdownComponent
+    DropdownComponent,
+    ClickOutsideDirective,
+    
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,8 @@ import { ValidationErrorPipe } from 'src/app/pipes/validation-error/validation-e
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ValidationErrorModule
+    ValidationErrorModule,
+    ClickOutsideModule
   ],
   exports:[
     DropdownComponent

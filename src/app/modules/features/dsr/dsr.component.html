@@ -74,19 +74,19 @@
         
                             <div class="row" *ngIf="selctedProject == 'Miscellaneous'">
                                 <div class="col-md-6">
-                                    <label for="">Approving Authority 1 (PM)</label>
-                                    <app-dropdown [data]="approvingAuthority"></app-dropdown>
+                                    <label for="">   Authority 1 (PM)</label>
+                                    <app-dropdown [data]="approvingAuthority" [placeHolder]="authorityPlaceholder" ></app-dropdown>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Approving Authority 2 (AM)</label>
-                                    <app-dropdown [data]="approvingAuthority"></app-dropdown>
+                                    <app-dropdown [data]="approvingAuthority" [placeHolder]="authorityPlaceholder" ></app-dropdown>
                                 </div>
                             </div>
 
                             <div class="row" *ngIf="selctedProject == 'Interview'">
                                 <div class="col-md-6">
                                     <label for="">Choose AM</label>
-                                    <app-dropdown [data]="chooseAM"></app-dropdown>
+                                    <app-dropdown [data]="chooseAM" [placeHolder]="AMPlaceholder" ></app-dropdown>
                                 </div>
                                 
                             </div>
@@ -181,18 +181,26 @@
                 </div>
     
     
-                <div class="col-md-3">
-                    <div class="form-group">
+                <!-- <div class="col-md-3">
+                    <div class="form-group"> -->
                         <!-- <label for="rm_status">Hours</label> -->
                         <!-- <app-dropdown [data]="hoursDropdown" [placeHolder]="hoursPlaceholder" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown> -->
-                        <app-dropdown-filter [dropdown]="dsrFilterObject.loggedHours" (onDropDownSelect)="dropDownChange($event)"  ></app-dropdown-filter>
+                        <!-- <app-dropdown-filter [dropdown]="dsrFilterObject.loggedHours" (onDropDownSelect)="dropDownChange($event)"  ></app-dropdown-filter>
+                    </div>
+                </div> -->
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="rm_status">Hours</label>
+                        <!-- <app-dropdown [data]="hoursDropdown" [placeHolder]="hoursPlaceholder" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown> -->
+                        <app-custom-dropdown [dropdownData]="dsrFilterObject.loggedHours" (outputData)="dropDownChange($event)" [progchangedValue]="progValueLoggedHr"  ></app-custom-dropdown>
                     </div>
                 </div>
-    
             
                 <div class="button-wrapper "> 
                     <button (click)="resetDsrFilter()"  class="button">Reset</button>
                 </div>
+
             </div>
         </div>
         

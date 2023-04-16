@@ -90,6 +90,14 @@ hr{
     }
 }
 
+::ng-deep .mat-form-field-outline{
+  box-shadow: 0px 4px 8px rgb(44 39 56 / 4%);
+}
+// ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+//   border-width: 1px !important;
+//   color: #e0e0e0;
+// }
+
 span.mat-expansion-indicator
 {
    pointer-events: visiblefill !important; 
@@ -103,6 +111,7 @@ mat-expansion-panel-header
 .dropdown {
     .dropdown-body {
       position: relative;
+      top: -4px;
     }
     small {
       color: red;

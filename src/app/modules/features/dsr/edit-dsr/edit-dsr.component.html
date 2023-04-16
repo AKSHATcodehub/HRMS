@@ -1,7 +1,7 @@
 <div class="wrapper">
     <h1 class="wrapper-header"></h1>
     <div class="add-dsr">
-        <div class="row " >
+        <div class="row" [formGroup]="editDsrForm" >
             <div class="col-6">
     
                 <!-- Project Listing -->
@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <label for="project_ajax" class="control-label">Project</label>
                         <div class="dropdown-body">
-                            <app-dropdown [placeHolder]="editDsrPlaceholder" ></app-dropdown>
+                            <app-dropdown [placeHolder]="editDsrPlaceholder" [data]="projectDataDropdown" [progchangedValue]=" this.editDsrForm.controls.dsrProject.value" ></app-dropdown>
                         </div>
                     </div>
                 </div>
@@ -19,8 +19,11 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="start_date">Date</label>
-                            <mat-form-field appearance="outline" style="position: relative;" >
-                                <input  matInput >
+                            <mat-form-field appearance="outline" style="position: relative;"  >
+                                <input [max]="today" [readonly]="true" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dsrDate" >
+                                <!-- <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'Date Of Birth' }}</mat-error> -->
+                                <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
                             </mat-form-field>
                         </div>
                     </div>   
@@ -33,8 +36,8 @@
                                 <label for="task_hour" class="control-label">Estimated Hour</label>
     
                                 <mat-form-field appearance="outline" >
-                                    <input placeholder="Time" readonly matInput  [ngxMatTimepicker]="pickers"
-                                    [format]="24">
+                                    <input placeholder="Time" readonly matInput  [ngxMatTimepicker]="pickers" 
+                                    [format]="24"  formControlName="dsrTime" >
                                   <ngx-mat-timepicker #pickers></ngx-mat-timepicker>
                                 </mat-form-field>
     
@@ -53,7 +56,7 @@
             <div class="col-6">
                 <div class="col-md-12">
                     <label for="">Description</label>
-                    <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" ></angular-editor>
+                    <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="dsrDescription" ></angular-editor>
                     <!-- <small *ngIf="this.dsrForm.controls.dsrContent.touched">{{dsrForm | validationError : 'dsrContent' : 'Description' }}</small> -->
                 </div>
             </div>

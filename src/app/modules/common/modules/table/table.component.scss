@@ -191,7 +191,7 @@ table{
     }
   }
   .mat-cell{
-    background-color: white;
+    // background-color: white;
   }
   .dsr_status{
     a{
@@ -225,6 +225,14 @@ table{
       left: -2px;
       top: 3px;
       font-weight: 600;
+    }
+  }
+}
+
+::ng-deep .mat-table {
+  tbody{
+    tr:nth-child(odd) {
+      background-color: #f3f3f3;
     }
   }
 }

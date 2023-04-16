@@ -17,6 +17,7 @@
 .profile-picture-wrapper{
     background-color: white;
     padding: 24px;
+    @include border-radius(10px ,10px ,10px, 10px);
     .profile-picture-header{
         h6{
             font-size: 20px;

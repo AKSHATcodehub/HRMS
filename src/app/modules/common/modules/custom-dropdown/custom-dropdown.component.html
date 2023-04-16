@@ -1,0 +1,20 @@
+<!-- <div class="content-wrapper">
+</div> -->
+<div class="input-field"   (clickOutside)="clickedOutside()">
+    <div class="input-wrapper"  >
+      <div class="select-btn" (click)="toggleMenu()" (click)="optionClicked()" #selectbtn>
+        <input type="text" readonly="readonly" [placeholder]="dropdownData.label" FormControl="controlName"  [value]="progchangedValue" >
+        <i class="uil uil-angle-down"></i>
+      </div>
+      <!-- <div>{{formName | validationError : controlName : placeHolder}}</div> -->
+      <div class="content" >
+        <div class="search">
+          <i class="uil uil-search"></i>
+          <input spellcheck="false" type="text" placeholder="Search" class="searchbar"  (keyup)="keyFunc($event)">
+        </div>
+        <ul class="options">
+          <li *ngFor="let item of dropdownData.list" (click)="updateName(item,selectbtn)" #item1>{{item.viewValue}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>

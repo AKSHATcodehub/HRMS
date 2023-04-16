@@ -5,15 +5,19 @@
   
   <mat-dialog-content class="mat-typography">
     <div class="card" [formGroup]="requestedTrainingFeedback">
-      <div class="input-box">
+      <div class="input-box dropdown">
         <p>Training Name:</p>
-        <app-dropdown [data]="training" [placeHolder]="trainingPlaceholder" (outputData)="selctedValue($event,'trainingName')"></app-dropdown>
-        <small *ngIf="requestedTrainingFeedback.controls.trainingName.touched">{{requestedTrainingFeedback | validationError :'trainingName' :'Training Name'}}</small>
+        <div class="dropdown-body">
+          <app-dropdown [data]="training" [placeHolder]="trainingPlaceholder" (outputData)="selctedValue($event,'trainingName')"></app-dropdown>
+          <small *ngIf="requestedTrainingFeedback.controls.trainingName.touched">{{requestedTrainingFeedback | validationError :'trainingName' :'Training Name'}}</small>
+        </div>
       </div>
-      <div class="input-box">
+      <div class="input-box dropdown">
         <p>Team Name:</p>
-        <app-dropdown [data]="teamName" [placeHolder]="teamPlaceholder" (outputData)="selctedValue($event,'teamName')"></app-dropdown>
-        <small *ngIf="requestedTrainingFeedback.controls.teamName.touched">{{requestedTrainingFeedback | validationError :'teamName' :'Team Name'}}</small>
+        <div class="dropdown-body">
+          <app-dropdown [data]="teamName" [placeHolder]="teamPlaceholder" (outputData)="selctedValue($event,'teamName')"></app-dropdown>
+          <small *ngIf="requestedTrainingFeedback.controls.teamName.touched">{{requestedTrainingFeedback | validationError :'teamName' :'Team Name'}}</small>
+        </div>
       </div>
       <div class="skill-set">
         <p>

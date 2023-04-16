@@ -57,6 +57,7 @@ hr{
       margin: 10px 0px;
     }
     .pitch-content{
+        @include border-radius(10px,10px,10px,10px);
         background-color: $white;
         padding: 24px;
         @include media(lg){
@@ -72,6 +73,7 @@ hr{
                         border-radius: 5px;
                         width: 100%;
                         padding: 15px;
+                        box-shadow: 0px 4px 8px rgb(44 39 56 / 4%)
                     }
                 }
             }
@@ -100,6 +102,7 @@ small{
 .dropdown {
   .dropdown-body {
     position: relative;
+    top: -4px;
   }
   small {
     color: #f44336;
@@ -108,6 +111,10 @@ small{
     left: 23px;
     font-size: 11px;
   }
+}
+
+::ng-deep .mat-form-field-flex{
+  box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {

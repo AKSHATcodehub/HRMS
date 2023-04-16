@@ -1,25 +1,26 @@
 import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { NG_VALUE_ACCESSOR,} from '@angular/forms';
-export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {provide: NG_VALUE_ACCESSOR,useExisting: forwardRef(() => DropdownComponent),multi: true,};
+// export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {provide: NG_VALUE_ACCESSOR,useExisting: forwardRef(() => DropdownComponent),multi: true,};
 enum DropdownMouseState {
   inside,
   outside,
 }
-
 @Component({
-  selector: 'app-dropdown',
-  templateUrl: './dropdown.component.html',
-  styleUrls: ['./dropdown.component.scss']
+  selector: 'app-custom-dropdown',
+  templateUrl: './custom-dropdown.component.html',
+  styleUrls: ['./custom-dropdown.component.scss']
 })
-export class DropdownComponent implements OnInit {
+export class CustomDropdownComponent implements OnInit {
 
+  @Input() dropdownData:any;
   @Input() data!:any;
   @Input() formName!:FormGroup ;
   @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string; 
   @Input() progchangedValue:any='';
   @Input() initialValue:any;
+
   @Output() outputData :EventEmitter<any> = new EventEmitter();
   // @HostListener('document:click') clickedOutside() {
   //   // console.log("hyy");
@@ -46,6 +47,7 @@ export class DropdownComponent implements OnInit {
   filterData:any;
   control!:FormControl ;
   isMenuOpened: boolean = false;
+  
 
   ngOnInit(): void {
     
@@ -112,7 +114,7 @@ export class DropdownComponent implements OnInit {
 
     this.render.removeClass(this.wrapper,'active');
 
-    this.selectBtn.firstElementChild.value = selectedLi;
+    this.selectBtn.firstElementChild.value = selectedLi.viewValue;
 
     this.outputData.emit(selectedLi);  
   }
@@ -130,5 +132,4 @@ export class DropdownComponent implements OnInit {
       this.optionClicked();
     }
   }
-  
 }
