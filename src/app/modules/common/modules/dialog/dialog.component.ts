@@ -71,7 +71,7 @@ export class DialogComponent implements OnInit {
 
     if(this.dialogForm.valid){
       // this._snackbarService.showSuccess('Feedback Submitted!','');
-      this.dialogRef.close();
+      this.dialogRef.close(true);
       
     }else{
       this.dialogForm.markAllAsTouched()

@@ -1,0 +1,25 @@
+@import '../../../../../scss/theme/wrapper',
+        '../../../../../scss/theme/grid',
+        '../../../../../scss/var';
+
+
+*{
+    box-sizing: border-box;
+    hr{
+        border: 0px !important;
+    }
+}
+.requested-dinner-header{
+    background-color: $white;
+    padding: 15px 20px;
+    border: 1px solid $lightgrey;
+    .row{
+        .button{
+            float: right;
+        }
+    }
+}
+.requested-dinner-content{
+    padding: 20px 0px;
+    background-color: $white;
+}

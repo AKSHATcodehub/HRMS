@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM, HOURS_STATUS } from './dsr-data';
@@ -89,7 +89,8 @@ export class DsrComponent implements OnInit {
   constructor(private _fb:FormBuilder,
               private _snackbar:MatSnackBar,
               public _utilities:UtilitiesService,
-              private _snackbarService:SnackbarService) {
+              private _snackbarService:SnackbarService,
+              private _elementRef:ElementRef) {
 
     this.createDsrFilterForm();
 
@@ -213,12 +214,26 @@ export class DsrComponent implements OnInit {
   
   togglePanel() {
     
-    this.panelOpenState = !this.panelOpenState;
-    
   }
   
   toggleCard(){
-    this.isOpen = !this.isOpen
+    
+    this.isOpen = !this.isOpen;
+
+    this.panelOpenState = !this.panelOpenState;
+
+    // var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    // console.log("toggle card called>>>>>>.",content.scrollHeight);
+    
+    // if (content.style.maxHeight){
+    //   content.style.maxHeight = null;
+    //   console.log('1111111')
+    // } else {
+    //   content.style.maxHeight = content.scrollHeight + "px";
+    //   console.log('2222222')
+
+    // } 
+    
   }
   
   createDsrFilterForm(){

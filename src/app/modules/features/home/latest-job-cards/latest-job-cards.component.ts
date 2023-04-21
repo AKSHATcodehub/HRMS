@@ -33,6 +33,12 @@ throw new Error('Method not implemented.');
       hideOnSingleSlide: true
     }
   }
+
+  buttondata = {
+    button:false,
+    dot:true
+  }
+
   ngAfterViewInit(){
     
     this.listToShow.forEach((item:any)=>{

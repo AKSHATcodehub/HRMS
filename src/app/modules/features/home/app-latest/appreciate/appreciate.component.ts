@@ -27,6 +27,12 @@ export class AppreciateComponent implements OnInit {
     velocity: 0.9
   }
 
+
+  buttondata = {
+    button:false,
+    dot:true
+  }
+
   arr = [
     {
       card_name:'Appreciation for Team',

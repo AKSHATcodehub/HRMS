@@ -357,6 +357,7 @@ mat-icon{
   // min-height: 100vh;
 }
 .full-width {
+  display: flex;
   width: 100%;
 }
 .menu-button {
@@ -569,4 +570,18 @@ footer {
       background-color: #0000000f;
     }
   }
+}
+
+.chakra{
+  width: 20px;
+  height: 20px;
+  margin-left: 5px;
+  animation-name: chakra;
+  animation-duration: 2 s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes chakra{
+  0%   {rotate: 0deg;}
+  100%  {rotate: 360deg;}
 }

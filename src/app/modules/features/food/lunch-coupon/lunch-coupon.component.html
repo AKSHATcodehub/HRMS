@@ -1,0 +1,62 @@
+<div class="container">
+
+    <div class="buy-coupons">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="left">
+                    <div class="amount">
+                        <h1>Amount Due</h1>
+                        <h2>Available coupon for purchase: xxxx</h2>
+                    </div>
+                    <h3>
+                        ₹75
+                    </h3>
+                    <div class="details">
+                        <p class="text-muted">
+                            Note: Amount due need to paid in cash in account office.
+                        </p>
+                        <button class="button" (click)="viewDetails()" >
+                            View Details
+                        </button>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="right">
+                    <div class="purchase">
+        
+                        <button class="button" (click)="purchaseCoupons()" >
+                            + Purchase Coupons
+                        </button>
+                    </div>
+                    <p class="text-muted">
+                        Note: You can purchase/cancel a coupon for the upcoming day before 6 p.m. today.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>   
+
+    <hr>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="calender">
+        
+                <app-lunch-calendar [myCalendar]="myCalendar" [options]="options" (calendarData)="updateCalendarData($event)"></app-lunch-calendar>
+        
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+
+
+
+
+
+

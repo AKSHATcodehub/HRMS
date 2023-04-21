@@ -13,3 +13,10 @@
         width: 100%;
     }
 }
+
+:host ::ng-deep .leftRs{
+    right: 40px !important;
+}
+:host ::ng-deep .rightRs{
+    right: 0% !important;
+}

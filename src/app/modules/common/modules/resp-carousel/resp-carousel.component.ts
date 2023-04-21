@@ -11,6 +11,8 @@ export class RespCarouselComponent implements OnInit {
     
   }
 
+  @Input() buttondata:any
+
   carouselConfig1:any
   ngAfterViewInit(): void {
     

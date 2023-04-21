@@ -3,5 +3,6 @@ export interface NavbarItem {
     link?:string,
     icon?:string,
     subMenu?:Array<NavbarItem>,
-    subMenuClicked?:boolean
+    subMenuClicked?:boolean,
+    chakra?:boolean
 }

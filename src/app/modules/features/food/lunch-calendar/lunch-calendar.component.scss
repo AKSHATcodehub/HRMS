@@ -1,0 +1,90 @@
+@import "../../../../../scss/mixins/flex";
+table, th, td {
+    border: 2px solid #f7f1f1;;
+    border-collapse: collapse;
+}
+.bottom-header{
+    @include flex(center,space-between);
+    .select{
+        @include flex(center,space-between);
+
+    }
+}
+
+table{
+    width: 100%;
+    min-width: 70vw;
+    td{
+        height: 8rem;
+        text-align: end;
+        padding-right: 8px;     
+        .table-data-wrapper{
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 6px;
+            width: 9rem;
+            mat-checkbox{
+                color:white;
+                ::ng-deep{
+                    .mat-checkbox-inner-container-no-side-margin{
+                        background-color: white;
+                    }
+                }
+            }
+        }       
+        p{
+            margin-bottom: 6rem;
+            font-size: 1rem;
+        }
+    }
+    .coupon-purchased{
+        background-color: #a4ffcc;
+    }
+
+    .coupon-available{
+        background-color: #bdc8fa;
+    }
+    .locked{
+        background-color: #bfbfbf;
+    }
+    .weekend{
+        background-color: #ff989e;
+    }
+   
+}
+
+
+
+.legend{
+    @include flex(center,flex-start);
+    gap:16px;
+    p{
+        margin-bottom: 0px;
+    }
+    span{
+        font-size: 1.1rem;
+        padding-right: 5px;
+    }
+    .coupon-purchased{
+        color:#a4ffcc;
+        background-color: #a4ffcc;
+    }
+
+    .coupon-available{
+        background-color: #bdc8fa;
+        color:#bdc8fa;
+    }
+    .locked{
+
+        color:#bfbfbf;
+        background-color: #bfbfbf;
+    }
+    .holiday{
+        color:#ff989e;
+        background-color: #ff989e;
+    }
+   
+}   
+.mr-5{
+    margin-right: 5px;
+}

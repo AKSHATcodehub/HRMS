@@ -8,6 +8,9 @@ html {
 
 mat-form-field{
   width: 100%;
+  ::ng-deep .mat-form-field-flex{
+    box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+  } 
 }
 
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
@@ -56,7 +59,8 @@ mat-form-field{
   background-color: $primary;
   border: 0px;
   border-radius: 5px;
-  width: 100px;
+  padding:0px 20px;
+  // width: 100px;
   @include media(sm){
     width: 100%;
   }

@@ -70,5 +70,15 @@ export class TableComponent implements OnInit {
   dsrAction(element:any){
     this.openFilledDsr.emit(element);
   }
+  todayDate = ''
 
+   compareDate(date:any){
+    let date1=date.split('-').map((x:any)=>+x);
+    let date2=this.todayDate.split('-').map((x:any)=>+x);
+    // console.log(date1[0],date2[0] ,'1', date1[1],date2[1] ,'2', date1[2],date2[2]);
+    if(date1[0]>date2[0] && date1[1]>=date2[1] && date1[2]>=date2[2]){
+      return true;
+    }
+    return false
+  }
 }

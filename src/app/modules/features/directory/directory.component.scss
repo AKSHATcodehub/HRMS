@@ -13,7 +13,7 @@ mat-form-field{
 }
 ::ng-deep .mat-form-field-outline {
   background-color: white;
-  box-shadow: 0px 4px 8px rgb(44 39 56 / 4%);
+  // box-shadow: 0px 4px 8px rgb(44 39 56 / 4%);
 }
 
 li {
@@ -198,7 +198,11 @@ li {
 ::ng-deep .mat-form-field-infix{
   padding: 0.5em 0 !important;
   height: 25px !important;
+  border-top: 14px solid transparent !important;
 }
 ::ng-deep .mat-form-field-wrapper{
   margin: 7px 0px    !important;
 }
+// ::ng-deep .mat-form-field-flex{
+//   height: 52px !important;
+// }

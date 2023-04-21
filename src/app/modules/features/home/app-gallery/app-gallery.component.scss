@@ -53,3 +53,14 @@
 
     }
 }
+
+:host ::ng-deep .leftRs{
+    position: absolute;
+    top: -68px !important;
+    right:40px !important;
+}
+:host ::ng-deep .rightRs{
+    position: absolute;
+    top: -68px !important;
+    right: 0px !important;
+}

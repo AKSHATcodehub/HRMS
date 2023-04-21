@@ -1,0 +1,67 @@
+<div class="bottom-header" *ngIf="options.select">
+    <h2>April 2023</h2>
+    <div class="select" >
+        <mat-checkbox (change)="selectAll($event)" class="mr-5" >Select All</mat-checkbox>
+        <div class="legend">
+            <p >
+                <span class="locked mr-5" >
+                    &#9632;
+                </span>
+                Locked
+            </p>
+            <p>
+                <span class="coupon-purchased mr-5">
+                    &#9632;
+                </span>
+                Coupon Purchased
+            </p>
+            <p>
+                <span class="coupon-available mr-5">
+                    &#9632;
+                </span>
+                Coupon Available
+            </p>
+            <p>
+                <span class="holiday mr-5">
+                    &#9632;
+                </span>
+                Holiday
+            </p>
+            
+        </div>
+    </div>
+</div>
+<table >
+    <tr>
+        <th *ngFor="let item of week">
+            {{item.viewValue}}
+        </th>
+    </tr>
+    <tr *ngFor="let week of myCalendar; let i = index">
+        <td *ngFor="let day of week"
+            [ngClass]="{ 
+                'coupon-purchased' : day.couponPurchased == true ,
+                'coupon-available' : day.couponPurchased == false,
+                'weekend' : day.dayInWeek == 'Sat' || day.dayInWeek == 'Sun' ,
+                'locked': isLocked(day) 
+            }"
+        >
+            <div class="table-data-wrapper">
+                <div>
+                    <mat-checkbox class="mr-10" *ngIf="showChecked(day) && options.edit "  (change)="onChangeCheckBox($event,i,day)" [checked] = 'day.booked' ></mat-checkbox>    
+                    <div mat-icon-button [matMenuTriggerFor]="menu" aria-label="Cancel Coupon" *ngIf="day.couponPurchased && options.cancel">
+                        <mat-icon>more_vert</mat-icon>
+                    </div>
+                    <mat-menu #menu="matMenu"  >
+                        <div mat-menu-item (click)="cancelCoupon(i,day)" >
+                            <span (click)="cancelCouponDialog()">Cancel Coupon</span>
+                        </div>
+                    </mat-menu>
+                </div>
+                <p class="fw-600">
+                    {{day.date}}
+                </p>
+            </div>
+        </td>
+    </tr>
+</table>

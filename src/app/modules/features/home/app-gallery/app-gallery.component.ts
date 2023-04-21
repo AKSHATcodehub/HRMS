@@ -27,6 +27,12 @@ export class AppGalleryComponent implements OnInit {
     velocity: 0.2
   }
 
+
+  buttondata = {
+    button:true,
+    dot:true
+  }
+
   gallery_array = GALLERY_DATA;
 
 

@@ -1,0 +1,57 @@
+@import "../../../../../scss/mixins/flex",
+        '../../../../../scss//theme/wrapper',
+        '../../../../../scss/var',
+        '../../../../../scss/theme/grid';
+
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    padding: 24px;
+    .top{
+        margin: auto;
+        margin-top: 1.5rem;
+        mat-icon{
+            height: 30px;
+            width: 30px;
+            border: 1px solid black;
+            font-size: 30px;
+            border-radius: 50%;
+        }
+    }
+    .middle{
+        box-sizing: border-box;
+        border: 1px solid #DCE2E9;    
+        background-color: white;
+        width: 100%;
+        margin: auto;
+        margin-top: 2rem;
+        align-items: center;
+        padding: 24px;
+        .input{
+            @include flex(stretch,center);
+            flex-direction: column;
+        }
+        .buttons-wrapper{
+            height: 100%;
+            @include flex(center,space-between);
+            .cancel-btn{
+                background-color: $white;
+                color: #DCE2E9;
+                
+            }
+        }
+    }
+
+    .bottom{
+        border: 1px solid #DCE2E9;      
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        margin: auto;
+        margin-top: 2rem;
+        padding: 2%;
+       
+    }
+}

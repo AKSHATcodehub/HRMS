@@ -17,14 +17,14 @@ button{
 .rightRs{
     // display: none;
     position: absolute;
-    top:0px;
+    top:-50px;
     right:10%;
     z-index: 2;
 }
 .leftRs{
     // display: none;
     position: absolute;
-    top:0px;
+    top:-50px;
     right:20%;
     z-index: 2;
 }
@@ -76,3 +76,10 @@ ngu-carousel{
 // ::ng-deep .ngu-touch-container{
 //     height: 100%;
 // }
+
+:host::ng-deep {
+    .ngucarousel {
+      position: initial !important;
+      overflow: hidden;
+    }
+  }

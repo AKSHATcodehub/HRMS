@@ -4,13 +4,13 @@
 <div class="carousel" >
   <ngu-carousel class="caro" #myCarousel1 [inputs]="carouselConfig1" [dataSource]="listToShow">
 
-    <!-- <button NguCarouselPrev class="leftRs"  >  
+    <button NguCarouselPrev class="leftRs" *ngIf="buttondata.button" >  
       <img src="../../../../assets/next-prev-icons/ic-nav-fill-left.svg" alt="">
-    </button> -->
+    </button>
 
-    <!-- <button NguCarouselNext class="rightRs" >
+    <button NguCarouselNext class="rightRs" *ngIf="buttondata.button" >
       <img src="../../../../assets/next-prev-icons/ic-nav-fill-right.svg" alt="">
-    </button> -->
+    </button>
   
     <div *nguCarouselDef="let item;" class="item">
   

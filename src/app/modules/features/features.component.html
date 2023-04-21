@@ -91,6 +91,7 @@
         >
           <span class="full-width" *ngIf="isExpanded">
             {{ navBarItem.name }}
+            <img *ngIf="navBarItem?.chakra" class="chakra" src="../../../assets/chakra.png" alt="">
           </span>
           <mat-icon id="sidenev-icon" mat-list-icon>{{
             navBarItem.icon

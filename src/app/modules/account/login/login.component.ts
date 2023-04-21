@@ -9,6 +9,7 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Regex } from 'src/app/constant/regex';
 import { DASHBOARD, FEATURES } from 'src/app/constant/routes';
+import { AuthService } from 'src/app/services/auth.service';
 import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
@@ -23,12 +24,14 @@ export class LoginComponent implements OnInit {
   lo = true;
   hide: any = true;
 
+
   constructor(
     private _formBuilder: FormBuilder,
     private formService: FormService,
     private router: Router,
     private _snackBar: MatSnackBar,
-    private _snackbarService:SnackbarService
+    private _snackbarService:SnackbarService,
+    public _authService:AuthService
   ) {
     // this.loginForm=this.createLoginForm()
   }

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { PATTERN } from '../constant/patterns';
 import { Regex } from '../constant/regex';
 import { VALIDATION_CRITERIA } from '../constant/validation-criteria';
@@ -94,6 +95,13 @@ export class FormService {
 
   getFormControl(formGroup:FormGroup,control:string){
     return formGroup.get(control)?.value;
+  }
+
+
+  newSubject = new Subject()
+   
+  passData(value:any){
+    this.newSubject.next(value);
   }
 
 }

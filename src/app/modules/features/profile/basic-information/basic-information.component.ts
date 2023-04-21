@@ -126,5 +126,8 @@ export class BasicInformationComponent implements OnInit {
 
   selectedValue(event: string, controlName: string) {
     this.basicInfoForm.get(controlName)?.setValue(event);
+    
   }
+
+  
 }

@@ -22,6 +22,11 @@ export class AwardsComponent implements OnInit {
     velocity: 0.9
   }
 
+  buttondata = {
+    button:false,
+    dot:true
+  }
+
   arr = [
     {
       member_name:'Ankit Mathur',

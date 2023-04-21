@@ -22,6 +22,12 @@ export class NewJoinComponent implements OnInit,AfterViewInit {
     velocity: 0.2
   }
 
+
+  buttondata = {
+    button:true,
+    dot:true
+  }
+
   newJoinings=['aakritiSingh.png','amanGaur.png','chitransh.png','saurabh.png']
   newJoinData = {
     heading:'New Family Members',

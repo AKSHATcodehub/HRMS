@@ -16,5 +16,7 @@ export class AppreciateMessageDialogComponent implements OnInit {
 
   closeDialog(){
     this.dialogRef.close();
+    this.dialogRef.afterClosed().subscribe(result=>console.log('closed'));
+    
   }
 }

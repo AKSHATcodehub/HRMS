@@ -1,4 +1,4 @@
-import { DIRECTORY, HOME, PROFILE , ENTREPRENURSHIP, HOLIDAY_CALENDAR, POLICY_DOCUMENTS, PERFORMANCE, JOB_OPENINGS, REFER_CANDIDATE, INTERVIEW, MY_TRAINING, MYTRAINING, PROJECT } from "src/app/constant/routes"
+import { DIRECTORY, HOME, PROFILE , ENTREPRENURSHIP, HOLIDAY_CALENDAR, POLICY_DOCUMENTS, PERFORMANCE, JOB_OPENINGS, REFER_CANDIDATE, INTERVIEW, MY_TRAINING, MYTRAINING, PROJECT, FOOD, LUNCH_COUPON, REQUESTED_DINNER } from "src/app/constant/routes"
 
 
 export const sideNavList = [
@@ -29,27 +29,29 @@ export const navBarData:any = [
       name:'Home',
       link: HOME.fullUrl,
       icon:'home',
-      outerLink:false
+      outerLink:false,
+      chakra:false,
   },
   {
       name:'My Profile',
       link:PROFILE.fullUrl,
       icon:'person',
-      outerLink:false
-
+      outerLink:false,
+      chakra:true
   },
   {
       name:'Staff Directory',
       link:DIRECTORY.fullUrl,
       icon:'library_books',
-      outerLink:false
-
+      outerLink:false,
+      chakra:true
   },
   {
       name:'Entrepreneurship',
       icon:'credit_card',
       subMenuClicked:false,
       outerLink:false,
+      chakra:true,
       subMenu:[
           {
               name:'Explore',
@@ -59,10 +61,31 @@ export const navBarData:any = [
       ],
   },
   {
+    name:'Food',
+    icon:'rate_review',
+    subMenuClicked:false,
+    outerLink:false,
+    chakra:false,
+    subMenu:[
+        {
+            name:'Lunch Coupon',
+            icon:'list',
+            link:`${FOOD.fullUrl}/${LUNCH_COUPON.fullUrl}`
+        },
+        {
+            name:'Requested Dinner',
+            icon:'calendar_today',
+            link:`${FOOD.fullUrl}/${REQUESTED_DINNER.fullUrl}`
+
+        },
+    ],
+  },
+  {
       name:'My Links',
       icon:'rate_review',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'Insurance Details',
@@ -87,6 +110,7 @@ export const navBarData:any = [
       icon:'attach_money',
       link:null,
       outerLink:true,
+      chakra:false,
       subMenu:[
           
           {
@@ -111,6 +135,7 @@ export const navBarData:any = [
       icon:'warning',
       link:null,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Performance',
@@ -125,6 +150,7 @@ export const navBarData:any = [
       subMenuClicked:false,
       // link:'refer-candidate',
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'Job Openings',
@@ -145,6 +171,7 @@ export const navBarData:any = [
       icon:'warning',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Interview',
@@ -158,6 +185,7 @@ export const navBarData:any = [
       icon:'school',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Trainings',
@@ -171,6 +199,7 @@ export const navBarData:any = [
       icon:'school',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'Upcoming Trainings',
@@ -199,6 +228,7 @@ export const navBarData:any = [
       icon:'science',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Assets Inventory',
@@ -222,6 +252,7 @@ export const navBarData:any = [
       icon:'schedule',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'Attendance Calendar',
@@ -245,6 +276,7 @@ export const navBarData:any = [
       icon:'calendar_today',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Leave',
@@ -263,6 +295,7 @@ export const navBarData:any = [
       icon:'calendar_today',
       subMenuClicked:false,
       outerLink:false,
+      chakra:false,
       subMenu:[
           {
               name:'My Tickets',
@@ -276,6 +309,7 @@ export const navBarData:any = [
     icon:'calendar_today',
     subMenuClicked:false,
     outerLink:false,
+    chakra:false,
     subMenu:[
         {
             name:'My dsr',
@@ -289,8 +323,8 @@ export const navBarData:any = [
       icon:'view_day',
       subMenuClicked:false,
       link:PROJECT.fullUrl,
-      outerLink:false
-
+      outerLink:false,
+      chakra:false
       
   },
   {
@@ -298,8 +332,8 @@ export const navBarData:any = [
       icon:'logout',
       subMenuClicked:false,
       link:'',
-      outerLink:false
-
+      outerLink:false,
+      chakra:false,
 
   }
   

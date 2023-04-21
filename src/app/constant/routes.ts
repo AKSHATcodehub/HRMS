@@ -286,3 +286,31 @@ export const DSR_EDIT:IRoute = {
         return `${this.path}`
     }
 }
+
+export const FOOD:IRoute={
+    path:'food',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const LUNCH_COUPON:IRoute = {
+    path:'lunch-coupon',
+    get fullUrl():string{
+        return`${this.path}`
+    }
+}
+
+export const REQUESTED_DINNER:IRoute = {
+    path:'requested-dinner',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}
+
+export const PURCHASE_LUNCH_COUPON:IRoute = {
+    path:'purchase-lunch-coupon',
+    get fullUrl():string{
+        return `${this.path}`
+    }
+}

@@ -21,6 +21,10 @@ export class WorkAnniversaryComponent implements OnInit {
     velocity: 0.9
   }
   
+  buttondata = {
+    button:false,
+    dot:true
+  }
   
 
   arr = [

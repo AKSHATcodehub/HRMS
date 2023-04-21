@@ -11,7 +11,9 @@ import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { SnackbarModule } from '../../common/modules/snackbar/snackbar.module';
 import { SnackbarService } from 'src/app/services/snackbar.service';
-
+import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -29,11 +31,12 @@ import { SnackbarService } from 'src/app/services/snackbar.service';
     GetControlModule,
     ValidationErrorModule,
     MatSnackBarModule,
-    SnackbarModule
-
+    SnackbarModule, 
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers:[
-    SnackbarService
+    SnackbarService,
+    AuthService
   ]
 })
 export class LoginModule { }

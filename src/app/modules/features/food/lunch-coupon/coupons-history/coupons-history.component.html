@@ -1,0 +1,37 @@
+<div class="container">
+    <header>
+        <h2>Coupons History</h2>
+        <button mat-dialog-close class="mr-10 pointer" >
+            X
+        </button>
+    </header>
+    <section class="mb-10">
+        <p>Month</p>
+        <select name="cars" id="cars">
+            <option value="4">April</option>
+            <option value="saab">March</option>
+            <option value="mercedes">Febraury</option>
+            <option value="audi">January</option>
+          </select>
+          <table class="mt-10">
+              <tr>
+                  <th *ngFor="let item of tableHeading"> {{item}} </th>
+              </tr>
+              <tr *ngFor="let item of tableData">
+                  <td>
+                      {{item.transaction_date}}
+                  </td>
+                  <td>
+                      {{item.coupon_date}}
+                  </td>
+                  <td>
+                      {{item.transaction_type}}
+                  </td>
+                  <td>
+                      {{item.amount}}
+                  </td>
+              </tr>
+
+          </table>
+    </section>
+</div>

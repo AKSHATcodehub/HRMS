@@ -1,0 +1,59 @@
+<div class="container">
+    <div class=" mt-10 top">
+        <div>
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+        <h2>
+            Lunch Coupon
+        </h2>
+        <p>
+            Note: You can purchase/cancel a coupon for the upcoming day before 6 p.m. today.
+        </p>
+    </div>
+    <div class="middle" [formGroup]="couponForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input mr-10">
+                            <mat-label class="fw-600">Coupon Count</mat-label>
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="coupon_count">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input mr-10">
+                            <mat-label class="fw-600">Total Amount</mat-label>
+                            <mat-form-field appearance="outline">
+                                <input matInput formControlName="total_amount">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="buttons-wrapper ">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button (click)="buyCoupons()" class="button submit-btn mr-10">submit</button>
+                        </div>
+                        <div class="col-md-6">
+                            <button class="button cancel-btn" (click)="cancelCoupons()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom">
+
+
+        <app-lunch-calendar [myCalendar]="myCalendar" [options]="options" (calendarData)="updateCalendarData($event)">
+        </app-lunch-calendar>
+
+    </div>
+</div>

@@ -68,7 +68,7 @@ export class DirectoryComponent implements OnInit {
   }
 
   clickSearch(){
-    this.filterData = this.filter;
+    // this.filterData = this.filter;
   }
 
   clickReset(){

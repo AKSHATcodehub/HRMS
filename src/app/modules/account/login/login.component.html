@@ -8,7 +8,7 @@
                 <div class="authentication-with-google" *ngIf="!showLoginWithGoogle">
                     <div class="sign-in-google">
                         <div><img src="assets/Google__G__Logo.svg.png" alt=""></div>
-                        <button>Sing in with Google</button>
+                        <button (click)="_authService.GoogleAuth()" >Sing in with Google</button>
                     </div>
                     <div class="text">
                         Please use your official Email id

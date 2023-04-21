@@ -1,61 +1,78 @@
-@import '../var',
-        '../mixins/flex',
-        '../mixins/media';
+@import "../var", "../mixins/flex", "../mixins/media";
 
-        
-.wrapper{
-    background-color: $lightblue;
-    padding: 24px;
-    @include media(md){
-        padding: 16px;
-    }
-    .wrapper-header{
-        font-size: 24px !important;
-        color: #199CFF !important;
-        font-weight: 700 !important;
-        line-height: 1.2 !important;
-    }
+mat-form-field {
+  width: 100%;
+  ::ng-deep .mat-form-field-flex {
+    box-shadow: 0px 4px 8px rgb(44 39 56 / 4%) !important;
+  }
 }
-.dark-header{
-    color: #3246d3;
-    font-size: 20px;
-    font-weight: 700;
-  }
-  
-.button{
-    // margin: 5px 20px;
-    min-height: 40px;
-    border: 0px;
-    border-radius: 5px;
-    min-width: 100px;
-    @include media(xs){
-        width: 100%;
-    }
-  }
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-width: 1px !important;
+  color: #e0e0e0;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-width: 1px !important;
+  color: #e0e0e0;
+}
 
- .button{
-    border-radius: 8px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0.3) 100%), #199CFF;
+.wrapper {
+  background-color: $lightblue;
+  padding: 24px;
+  @include media(md) {
+    padding: 16px;
+  }
+  .wrapper-header {
+    font-size: 24px !important;
+    color: #199cff !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+  }
+}
+.dark-header {
+  color: #3246d3;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.button {
+  // margin: 5px 20px;
+  min-height: 40px;
+  border: 0px;
+  border-radius: 5px;
+  min-width: 100px;
+  @include media(xs) {
+    width: 100%;
+  }
+}
+
+.button {
+  border-radius: 8px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    ),
+    #199cff;
+  color: $white;
+  border-radius: 5px;
+  box-shadow: 0px 1px 4px rgb(0 0 0 / 12%),
+    inset 0px 2px 0px rgb(255 255 255 / 24%);
+  background-blend-mode: soft-light, normal;
+  &:hover {
+    cursor: pointer;
+    background: $primary;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.07),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.05), 0px 1px 10px 0px rgba(0, 0, 0, 0.03);
     color: $white;
-    border-radius: 5px;
-    box-shadow: 0px 1px 4px rgb(0 0 0 / 12%), inset 0px 2px 0px rgb(255 255 255 / 24%);
-    background-blend-mode: soft-light, normal;
-    &:hover {
-      cursor: pointer;
-      background: $primary;
-      box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.07), 0px 4px 5px 0px rgba(0, 0, 0, 0.05),
-        0px 1px 10px 0px rgba(0, 0, 0, 0.03);
-      color: $white;
-    }
+  }
 }
 
-.header{
-    padding: 13px;
-    border-bottom: 1px solid #f3f7fc;
-    h2{
-        margin: 0px;
-        color: $darkblue;
-        border-radius: 10px;
-    }
+.header {
+  padding: 13px;
+  border-bottom: 1px solid #f3f7fc;
+  h2 {
+    margin: 0px;
+    color: $darkblue;
+    border-radius: 10px;
+  }
 }
-
