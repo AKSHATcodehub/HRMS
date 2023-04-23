@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { TableModule } from 'src/app/modules/common/modules/table/table.module';
 import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { CustomDropdownModule } from 'src/app/modules/common/modules/custom-dropdown/custom-dropdown.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown
     FormsModule,
     MatInputModule,
     TableModule,
-    DropdownModule
+    DropdownModule,
+    CustomDropdownModule
   ]
 })
 export class InterviewModule { }

@@ -9,6 +9,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CustomDropdownModule } from 'src/app/modules/common/modules/custom-dropdown/custom-dropdown.module';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown.module';
+import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     MatFormFieldModule,
     MatInputModule,
     CustomDropdownModule,
-    AngularEditorModule
+    AngularEditorModule,
+    DropdownModule,
+    ValidationErrorModule,
+    ReactiveFormsModule
   ]
 })
 export class RequestedDinnerModule { }

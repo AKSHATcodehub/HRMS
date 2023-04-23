@@ -6,12 +6,16 @@
         <div class="card-body">
             <div class="card-mid">
                 <div class="row">
-                    <ng-container *ngFor="let filter of filterSelectObj">
+                    <!-- <ng-container *ngFor="let filter of filterSelectObj"> -->
                         <div class="col-md-3" >
-                            <label for="">{{filter.label}}</label><br>
-                            <app-dropdown ngModel [data]="filter.data"  [placeHolder]="filter.placeholder" (outputData)="filterChange($event,filter.controlName)"></app-dropdown>
+                            <label for="">{{filterSelectObj[0].label}}</label><br>
+                            <app-dropdown  [data]="filterSelectObj[0].data"  [placeHolder]="filterSelectObj[0].placeholder" (outputData)="filterChange($event,filterSelectObj[0].controlName)"  ></app-dropdown>
                         </div>
-                    </ng-container>
+                        <div class="col-md-3" >
+                            <label for="">{{filterSelectObj[0].label}}</label><br>
+                            <app-dropdown  [data]="filterSelectObj[1].data"  [placeHolder]="filterSelectObj[1].placeholder" (outputData)="filterChange($event,filterSelectObj[1].controlName)"  ></app-dropdown>
+                        </div>
+                    <!-- </ng-container> -->
                 </div>
                 <div class="table row">
                     <div class="col-md-12">

@@ -6,6 +6,21 @@ html {
   -ms-overflow-style: scrollbar;
 }
 
+.dropdown {
+  .dropdown-body {
+    position: relative;
+    top: -4px;
+  }
+  small {
+    color: red;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    font-size: 11px;
+  }
+}
+
+
 mat-form-field{
   width: 100%;
   ::ng-deep .mat-form-field-flex{

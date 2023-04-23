@@ -49,7 +49,7 @@ export class DropdownComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.control = new FormControl(this.controlName);
+    // this.control = new FormControl(this.controlName);
     // this.initialValue = this.data[0];
     // this.outputData.emit(this.initialValue); 
 
@@ -62,6 +62,8 @@ export class DropdownComponent implements OnInit {
   
     this.parentData=this.data;
     this.filterData=this.parentData;
+    console.log("filter ddata>>>>>>>>>>",this.filterData);
+    
   
   
     }, 100);

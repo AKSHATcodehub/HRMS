@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomDropdownComponent } from './custom-dropdown.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
+import { ClickOutsideModule } from 'ng-click-outside';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClickOutsideModule
   ],
   exports:[
     CustomDropdownComponent

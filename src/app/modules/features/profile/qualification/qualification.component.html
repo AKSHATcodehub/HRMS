@@ -58,7 +58,7 @@
                   <label for="" >Language</label><br>
                   <div class="dropdown">
                       <div class="dropdown-body">
-                        <app-dropdown  [placeHolder]="languagePlaceHolder" [data]="language" (outputData)="selectedDropdown($event,'language')" [controlName]="this.qualificationForm.controls.language" ></app-dropdown>
+                        <app-dropdown  [placeHolder]="languagePlaceHolder" [data]="language" (outputData)="selectedDropdown($event,'language')"></app-dropdown>
                       </div>
                       <small *ngIf="this.qualificationForm.controls.language.touched">{{qualificationForm | validationError : 'language' : 'Language' }}</small>
                   </div>

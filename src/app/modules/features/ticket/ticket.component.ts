@@ -85,7 +85,7 @@ export class TicketComponent implements OnInit {
       department:this._formservice.getControl('mandatory'),
       ticketCategory:this._formservice.getControl('mandatory'),
       piority:this._formservice.getControl('mandatory'),
-      description:this._formservice.getControl('mandatory'),
+      description:this._formservice.getControl('name'),
     })
   }
 
@@ -125,7 +125,8 @@ export class TicketComponent implements OnInit {
       }
       this.TABLE_DATA.push(ticketObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
-      this._snackbarService.showSuccess('Ticket Add','')
+      this._snackbarService.showSuccess('Ticket Add','');
+      this.ticketForm.reset();
       this.isOpen = !this.isOpen
 
     }else{

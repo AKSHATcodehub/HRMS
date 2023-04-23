@@ -181,7 +181,7 @@ export const INTERVIEW_DATA = [
 
 export const DEPARTMENT_OPTIONS = [
 
-    'Select Department',
+    // 'Select Department',
     'Admin',
     'Angular',
     'Finance',
@@ -214,7 +214,7 @@ export const DEPARTMENT_OPTIONS = [
 
 export const INTERVIEW_STATUS = [
   
-            'Select Status',
+            // 'Select Status',
             'Selected',
             'Rejected',
             'Missed',

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { FormService } from 'src/app/services/form.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 import { REQUESTED_DINNER_DATA } from './requested-dinner-data';
 
 @Component({
@@ -11,6 +14,7 @@ export class RequestedDinnerComponent implements OnInit {
 
   dropdownData:any;
   isOpen=false;
+  requestDinnerForm!:FormGroup;
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -50,7 +54,11 @@ export class RequestedDinnerComponent implements OnInit {
     uploadUrl: 'v1/image',
   };
 
-  constructor() { }
+  constructor(private _fb:FormBuilder,
+              private _formService:FormService,
+              private _snackBar:SnackbarService) {
+    this.createForm();
+   }
 
   ngOnInit(): void {
 
@@ -70,7 +78,30 @@ export class RequestedDinnerComponent implements OnInit {
   requestDinner(){
     console.log("re");
     this.isOpen = !this.isOpen;
+  }
+
+  createForm(){
+    this.requestDinnerForm = this._fb.group({
+      dinnerDate:this._formService.getControl('mandatory'),
+      project:this._formService.getControl('mandatory'),
+      dinnerDescription:this._formService.getControl('mandatory')
+    })
+  }
+
+  selectedValue(event:{viewValue:string,value:string},controlName:string){
+    this.requestDinnerForm.get(controlName)?.setValue(event.value)
+  }
+
+  requestedDinnerSubmit(){
+    console.log(">>>>>>>",this.requestDinnerForm);
     
+    if(this.requestDinnerForm.valid){
+      this._snackBar.showSuccess('Requested Dinner Submitted!','');
+      this.requestDinnerForm.reset();
+      this.requestDinner() 
+    }else{
+      this.requestDinnerForm.markAllAsTouched()
+    }
   }
 
 }

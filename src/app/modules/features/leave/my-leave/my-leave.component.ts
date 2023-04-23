@@ -108,7 +108,7 @@ export class MyLeaveComponent implements OnInit {
   // }
 
   addLeaveAction(){
-    this.leaveForm.markAllAsTouched();
+
     if(this.leaveForm.valid){
       let newID = LEAVE_TABLEDATA.length+1;
       let timeDuration = this.utilities.getTimeOfTwoDates(this.leaveForm.get('leaveStartDate')?.value,this.leaveForm.get('leaveEndDate')?.value);
@@ -130,8 +130,11 @@ export class MyLeaveComponent implements OnInit {
       LEAVE_TABLEDATA.push(leaveObject);
       this.datasource = new MatTableDataSource(LEAVE_TABLEDATA);
       this.snackbarService.showSuccess('Leave Submitted!','')
+      this.leaveForm.reset();
       this.isOpen = !this.isOpen
     
+    }else{
+      this.leaveForm.markAllAsTouched();
     }
   }
 

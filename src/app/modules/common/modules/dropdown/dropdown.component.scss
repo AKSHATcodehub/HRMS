@@ -1,3 +1,5 @@
+  @import '../../../../../scss/var';
+
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
   *{
     margin: 0;
@@ -52,7 +54,7 @@
     input{
       border: 0px;
       width: 90%;
-
+      margin-left: 10px;
     }
     // box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   }
@@ -107,6 +109,7 @@
     border-radius: 5px;
     padding: 0 20px 0 43px;
     border: 1px solid #26B4FF;
+    
   }
   .search input:focus{
     padding-left: 42px;
@@ -119,6 +122,9 @@
   .search input::placeholder{
     color: #fafafa !important;
     font-size: 1px;
+  }
+  ::-webkit-input-placeholder{
+    font-size: 12px;
   }
   .content .options{
     margin-top: 10px;

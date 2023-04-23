@@ -3,7 +3,7 @@
 <div class="input-field"   (clickOutside)="clickedOutside()">
   <div class="input-wrapper"  >
     <div class="select-btn" (click)="toggleMenu()" (click)="optionClicked()" #selectbtn>
-      <input type="text" readonly="readonly" [placeholder]="placeHolder" FormControl="controlName" [value]="progchangedValue"  >
+      <input type="text" readonly="readonly" [placeholder]="placeHolder" [value]="progchangedValue"  >
       <i class="uil uil-angle-down"></i>
     </div>
     <!-- <div>{{formName | validationError : controlName : placeHolder}}</div> -->

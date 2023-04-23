@@ -101,7 +101,7 @@ export class InterviewComponent implements OnInit {
 
   ngOnInit(): void {
     // this.datasource = new MatTableDataSource<any>(this.Table_DATA)
-
+ 
   }
 
   filterChange( event:any,controlName:any) {

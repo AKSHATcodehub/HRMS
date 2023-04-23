@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="requested-dinner-content"  *ngIf="this.isOpen">
-        <div class="row">
+        <div class="row" [formGroup]="requestDinnerForm" >
             <div class="col-md-12">
                 <div class="row">
 
@@ -23,29 +23,33 @@
                             <div class="col-md-6">
                                 <label for="">Date</label> <br>
                                 <mat-form-field appearance="outline" style="position: relative;" >
-                                    <input [readonly]="true" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" >
-                                    <!-- <mat-error>{{basicInfoForm | validationError:'dateOfBirth':'Date Of Birth' }}</mat-error> -->
+                                    <input [readonly]="true" matInput [matDatepicker]="picker1" placeholder="MM/DD/YYYY" formControlName="dinnerDate" >
+                                    <mat-error>{{requestDinnerForm | validationError:'dinnerDate':'Date' }}</mat-error>
                                     <mat-datepicker-toggle matIconSuffix [for]="picker1" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                                     <mat-datepicker #picker1></mat-datepicker>
                                   </mat-form-field>
                             </div>
                             
-                            <div class="col-md-6">
+                            <div class="col-md-6 dropdown">
                                 <label for="">Project</label> <br>
-                                <app-custom-dropdown [dropdownData]="dropdownData" ></app-custom-dropdown>
+                                <div class="dropdown-body">
+                                    <app-custom-dropdown [dropdownData]="dropdownData.projectDropdown" (outputData)="selectedValue($event,'project')" ></app-custom-dropdown>
+                                </div>
+                                <small *ngIf="this.requestDinnerForm.controls.project.touched">{{requestDinnerForm | validationError : 'project' : 'Project' }}</small>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="">Reason for late stay</label>
-                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" ></angular-editor>
+                        <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" formControlName="dinnerDescription"></angular-editor>
+                        <small *ngIf="this.requestDinnerForm.controls.dinnerDescription.touched">{{requestDinnerForm | validationError : 'dinnerDescription' : 'Description' }}</small>
                     </div>
                 </div>
                 <hr>
                 <div class="form-actions col-12 ">
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="button "  > <i class="fa fa-check-square-o"></i> Submit </button>
+                            <button type="submit" class="button " (click)="requestedDinnerSubmit()" > <i class="fa fa-check-square-o"></i> Submit </button>
                         </div>
                     </div>
                 </div>

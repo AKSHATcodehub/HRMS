@@ -9,6 +9,7 @@ import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.compon
 import {DSR_HEADING} from './dsr-data';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { FormService } from 'src/app/services/form.service';
 
 
 @Component({
@@ -90,7 +91,8 @@ export class DsrComponent implements OnInit {
               private _snackbar:MatSnackBar,
               public _utilities:UtilitiesService,
               private _snackbarService:SnackbarService,
-              private _elementRef:ElementRef) {
+              private _elementRef:ElementRef,
+              private _formService:FormService) {
 
     this.createDsrFilterForm();
 
@@ -204,11 +206,11 @@ export class DsrComponent implements OnInit {
   
   createDsrForm(){
     return this.dsrForm = this._fb.group({
-      dsrProject:['',Validators.required],
-      dsrDate:['',Validators.required],
-      dsrHours:['',Validators.required],
-      dsrNoWork:[false,Validators.required],
-      dsrContent:['',Validators.required]
+      dsrProject:this._formService.getControl('mandatory'),
+      dsrDate:this._formService.getControl('mandatory'),
+      dsrHours:this._formService.getControl('mandatory'),
+      dsrNoWork:this._formService.getControl('mandatory'),
+      dsrContent:this._formService.getControl('name'),
     })
   }
   
@@ -222,17 +224,17 @@ export class DsrComponent implements OnInit {
 
     this.panelOpenState = !this.panelOpenState;
 
-    // var content = this._elementRef.nativeElement.querySelector('.my-card-content');
-    // console.log("toggle card called>>>>>>.",content.scrollHeight);
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    console.log("toggle card called>>>>>>.",content.scrollHeight);
     
-    // if (content.style.maxHeight){
-    //   content.style.maxHeight = null;
-    //   console.log('1111111')
-    // } else {
-    //   content.style.maxHeight = content.scrollHeight + "px";
-    //   console.log('2222222')
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      console.log('1111111')
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      console.log('2222222')
 
-    // } 
+    } 
     
   }
   
@@ -313,6 +315,8 @@ export class DsrComponent implements OnInit {
           this.datasource.data = (DSR_TABLEDATA);
     
           this._snackbarService.showSuccess('DSR Submitted!','');
+
+          this.dsrForm.reset();
     
           this.isOpen = !this.isOpen;
 
