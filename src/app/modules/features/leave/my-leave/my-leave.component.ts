@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -70,7 +70,8 @@ export class MyLeaveComponent implements OnInit {
               private formService:FormService,
               private utilities:UtilitiesService,
               private _snackBar:MatSnackBar,
-              private snackbarService:SnackbarService) { }
+              private snackbarService:SnackbarService,
+              private _elementRef:ElementRef) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -80,6 +81,17 @@ export class MyLeaveComponent implements OnInit {
 
   addLeave(){
     this.isOpen = !this.isOpen;
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    console.log("toggle card called>>>>>>.",content.scrollHeight);
+    
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      console.log('1111111')
+    } else {
+      content.style.maxHeight = 2*content.scrollHeight + "px";
+      console.log('2222222')
+
+    } 
   }
 
   createForm(){

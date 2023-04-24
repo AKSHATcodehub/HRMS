@@ -7,7 +7,7 @@
                 <button  class="add-data-btn" (click)="toggleCard()">+ Add</button>
             </div>
             <div [ngClass]="{'my-card-content': true, 'expand': isOpen}">
-            
+                <hr>
                 <div class="add-dsr">
                     <div class="row " [formGroup]="dsrForm">
                         <div class="col-6">
@@ -107,7 +107,9 @@
                     <div class="form-actions col-12 ">
                         <button type="submit" class="button " (click)="dsrSummit()" > <i class="fa fa-check-square-o"></i> Add </button>
                     </div>
+                    
                 </div>
+                <hr>
             </div>
         </div>
 

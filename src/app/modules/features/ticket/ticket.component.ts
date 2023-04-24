@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -70,7 +70,8 @@ export class TicketComponent implements OnInit {
   constructor(private _fb:FormBuilder,
               private _snackbar:MatSnackBar,
               private _formservice:FormService,
-              private _snackbarService:SnackbarService) { }
+              private _snackbarService:SnackbarService,
+              private _elementRef:ElementRef) { }
 
   ngOnInit(): void {
 
@@ -94,11 +95,22 @@ export class TicketComponent implements OnInit {
     console.log("kkkkkkkkkkkkkk");
 
     this.panelOpenState = !this.panelOpenState;
-    
+ 
   }
 
   toggleCard(){
-    this.isOpen = !this.isOpen
+    this.isOpen = !this.isOpen;
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    console.log("toggle card called>>>>>>.",content.scrollHeight);
+    
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      console.log('1111111')
+    } else {
+      content.style.maxHeight = 2*content.scrollHeight + "px";
+      console.log('2222222')
+
+    } 
   }
 
   selectedValue(event:string,controlName:string){

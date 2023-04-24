@@ -26,12 +26,12 @@
         </div>
     </div>
 
-    <div class="leave-section">
+    <div class="leave-section" [ngClass]="{'my-card': true}">
         <div class="add-leave row">
             <span class="leave-header">Add Leave</span>
             <button class="add-data-btn" (click)="addLeave()">+ Add</button> 
         </div>
-        <div class="leave-content" *ngIf="isOpen">
+        <div class="leave-content" [ngClass]="{'my-card-content': true, 'expand': isOpen}">
             <div class="row" [formGroup]="leaveForm">
                 <div class="col-md-12">
                     <div class="row">

@@ -231,7 +231,7 @@ export class DsrComponent implements OnInit {
       content.style.maxHeight = null;
       console.log('1111111')
     } else {
-      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.maxHeight = 2*content.scrollHeight + "px";
       console.log('2222222')
 
     } 
@@ -276,7 +276,6 @@ export class DsrComponent implements OnInit {
     if(this.dsrForm.valid){
 
       console.log('1',DSR_TABLEDATA);
-      
       
       let dsrExixt = DSR_TABLEDATA.filter((dsr:any)=>{
         console.log("comparision>>>>>",dsr.date , this.convert(this.dsrForm.controls.dsrDate.value));

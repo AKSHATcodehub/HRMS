@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { FormService } from 'src/app/services/form.service';
@@ -56,7 +56,8 @@ export class RequestedDinnerComponent implements OnInit {
 
   constructor(private _fb:FormBuilder,
               private _formService:FormService,
-              private _snackBar:SnackbarService) {
+              private _snackBar:SnackbarService,
+              private _elementRef:ElementRef) {
     this.createForm();
    }
 
@@ -78,6 +79,17 @@ export class RequestedDinnerComponent implements OnInit {
   requestDinner(){
     console.log("re");
     this.isOpen = !this.isOpen;
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    console.log("toggle card called>>>>>>.",content.scrollHeight);
+    
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      console.log('1111111')
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+      console.log('2222222')
+
+    } 
   }
 
   createForm(){
