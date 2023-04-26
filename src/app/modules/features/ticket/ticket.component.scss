@@ -76,61 +76,13 @@ hr{
     }
 }
 
-span.mat-expansion-indicator
-{
-   pointer-events: visiblefill !important; 
-}
-
-mat-expansion-panel-header 
-{
-   pointer-events: none;
-}
-
-
-/* Button skeleton */
-
-$purple : #512DA8;
-
-.row{
-  display: flex;
-}
-
-@mixin buttonBG($bg) {
-  border: 2px solid $bg;
-  color: $bg;
-  &:hover {
-    background-color: $bg;
-    transition: all 0.3s ease-in-out;
-  }
-}
-
-
-
-/* Button styles */
-.purple{
-  @include buttonBG($purple);
-}
-
-/* Card styles */
-
 
 .seperator {
   margin: 1rem;
 }
 
 
-.dropdown{
-    .dropdown-body{
-      position: relative;
-      top: -4px;
-    }
-    small{
-      color: red;
-      position: absolute;
-      top: 78px;
-      left: 10px;
-    }
+.dropdown small{
+    top: 78px;
   }
-  ::ng-deep .mat-form-field-outline{
-    // box-shadow: 0px 4px 8px rgb(44 39 56 / 4%);
-  }
+ 

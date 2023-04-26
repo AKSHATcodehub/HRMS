@@ -10,6 +10,15 @@
             Note: You can purchase/cancel a coupon for the upcoming day before 6 p.m. today.
         </p>
     </div>
+    
+    <div class="amount-due">
+        <h1>Amount Due</h1>
+        <h3>Rs. {{couponForm.controls.total_amount.value}}</h3>
+        <span>
+            Note: Amount due need to paid in cash in account office.
+        </span>
+    </div>
+
     <div class="middle" [formGroup]="couponForm">
         <div class="row">
             <div class="col-md-6">
@@ -40,7 +49,7 @@
                             <button (click)="buyCoupons()" class="button submit-btn mr-10">submit</button>
                         </div>
                         <div class="col-md-6">
-                            <button class="button cancel-btn" (click)="cancelCoupons()">Cancel</button>
+                            <button class="button cancel-btn"  (click)="cancelCoupons()">Cancel</button>
                         </div>
                     </div>
                 </div>

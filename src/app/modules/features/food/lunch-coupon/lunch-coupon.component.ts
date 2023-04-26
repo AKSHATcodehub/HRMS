@@ -20,7 +20,8 @@ myCalendar = [];
 options = {
  edit:false,
  cancel:true,
- select:true
+ select:true,
+ checkbox:false
 }
 ngOnInit(): void {
 

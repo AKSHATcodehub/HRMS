@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormService } from 'src/app/services/form.service';
@@ -20,7 +20,8 @@ export class AssetsDeclarationComponent implements OnInit {
     private _fb: FormBuilder,
     private _form: FormService,
     public _utilities: UtilitiesService,
-    private _snacbarService: SnackbarService
+    private _snacbarService: SnackbarService,
+    private _elementRef:ElementRef
   ) {}
 
   ngOnInit(): void {
@@ -36,8 +37,16 @@ export class AssetsDeclarationComponent implements OnInit {
   TABLE_DATA: any[] = [];
   osPlaceholer = "Select OS";
   deviceWorkingPlaceholder = "Select";
+
   toggleCard() {
     this.isOpen = !this.isOpen;
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = 2*content.scrollHeight + "px";
+    } 
   }
 
   createForm() {

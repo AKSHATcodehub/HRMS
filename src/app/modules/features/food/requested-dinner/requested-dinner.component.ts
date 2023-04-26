@@ -86,7 +86,7 @@ export class RequestedDinnerComponent implements OnInit {
       content.style.maxHeight = null;
       console.log('1111111')
     } else {
-      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.maxHeight = 2*content.scrollHeight + "px";
       console.log('2222222')
 
     } 

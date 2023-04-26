@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,7 +16,8 @@ export class RequestAssetsComponent implements OnInit {
 
   constructor(private _fb:FormBuilder,
               private _snackBar:MatSnackBar,
-              private _snackbarService:SnackbarService) { }
+              private _snackbarService:SnackbarService,
+              private _elementRef:ElementRef) { }
 
   ngOnInit(): void {
     this.createForm();
@@ -38,7 +39,17 @@ export class RequestAssetsComponent implements OnInit {
   allocaationTypePlaceholder = 'Select Allocation Type';
 
   toggleCard(){
-    this.isOpen = !this.isOpen
+    this.isOpen = !this.isOpen;
+
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = 2*content.scrollHeight + "px";
+    } 
+    
+
   }
 
   createForm(){

@@ -1,7 +1,8 @@
 @import "../../../../../scss/mixins/flex",
         '../../../../../scss//theme/wrapper',
         '../../../../../scss/var',
-        '../../../../../scss/theme/grid';
+        '../../../../../scss/theme/grid',
+        '../../../../../scss/var';
 
 *{
     box-sizing: border-box;
@@ -20,6 +21,24 @@
             border-radius: 50%;
         }
     }
+    .amount-due{
+        border: 1px solid #DCE2E9;    
+        padding: 24px;
+        background-color: $white;
+        h1{
+            color: #221e1e;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        h3{
+            font-weight: 700;
+            font-size: 38px;
+            color: #469cf8;
+            margin-bottom: 24px;
+            
+        }
+    }
     .middle{
         box-sizing: border-box;
         border: 1px solid #DCE2E9;    
@@ -28,7 +47,7 @@
         margin: auto;
         margin-top: 2rem;
         align-items: center;
-        padding: 24px;
+        padding: 24px 0px;
         .input{
             @include flex(stretch,center);
             flex-direction: column;
@@ -38,7 +57,8 @@
             @include flex(center,space-between);
             .cancel-btn{
                 background-color: $white;
-                color: #DCE2E9;
+                color: $primary;
+
                 
             }
         }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -111,5 +112,15 @@ export class LoginComponent implements OnInit {
     if (e.which === 32 || e.which == 189 || e.which == 17) {
       e.preventDefault();
     }
+  }
+}
+
+function emailDomain(control:AbstractControl){
+  const email = control.value;
+  const domain = email.substring(email.lastIndexOf('@') + 1);
+  if(domain.toLowerCase() == 'app.com'){
+    return null
+  }else{
+    return {'emailDomain':true};
   }
 }

@@ -1,420 +1,292 @@
 @import "./../../../../scss/var";
-@import './../../../../scss/mixins/flex';
-@import './../../../../scss/theme/card',
-        './../../../../scss/mixins/media';
+@import "./../../../../scss/mixins/flex";
+@import "./../../../../scss/theme/card", "./../../../../scss/mixins/media";
 
-*{
-    app-carousel{
-      display: flex;
-      justify-content: center;
-    }
-    
-    margin: 0px !important;
-    
-    ::ng-deep  .carousel-slide{
-      min-height: 400px !important;
-      border-radius: 5px !important;
-    }
-    
-    ::ng-deep .carousel-slide-content{
-      border-radius: 5px !important;
-    }
+* {
+  app-carousel {
+    display: flex;
+    justify-content: center;
+  }
 
-    ::ng-deep .carousel-list{
-      height: 400px !important;
-      min-height: 400px !important;
+  margin: 0px !important;
 
-    }
+  ::ng-deep .carousel-slide {
+    min-height: 400px !important;
+    border-radius: 5px !important;
+  }
 
-    ::ng-deep .carousel-indicators{
-      left: 35% !important;
-    }
+  ::ng-deep .carousel-slide-content {
+    border-radius: 5px !important;
+  }
 
-}
-
-app-carousel{
-  height: 400px !important;
-  mat-carousel{
+  ::ng-deep .carousel-list {
     height: 400px !important;
-    div{
-      height: 400px !important;
-      ul{
-        height: 400px !important;
-        li{
-          height: 400px !important;
-          div{
-            height: 400px !important;
-            
-          }
-        }
-      }
-    }
+    min-height: 400px !important;
+  }
 
+  ::ng-deep .carousel-indicators {
+    left: 35% !important;
   }
 }
-.referal-wrapper{
-    padding: 30px;
-    background-color: $lightblue;
-    @media screen and (max-width: 1000px) {
-      padding: 10px;
 
-    }
-
-    .emp-basic-info{
-        height: 80px;
-        display: flex;
-        
-        figure{
-            margin:0px 8px !important;
-           
-            img{
-                height: 80px;
-                width: 88px;
-                border-radius: 50%;
-            }
-            
-        }
-        .emp-name{
-            margin: 8px;
-            @include flex(center,center);
-            h2{
-            
-                margin-bottom: 5px;
-                font-size: 24px;
-                font-family: inherit;
-                color: #231E1E;
-                font-weight: 300;
-                text-transform: capitalize;
-            }
-            h3{
-                margin: 0px;
-                font-size: 25px;
-                font-family: inherit;
-                color: #231E1E;
-                font-weight: 500;
-                text-transform: capitalize;
-            }
-        }
-    }
-    hr{
-        margin: 15px 0px !important;
-        border: 0px;
-    }
-    .job-details-wrapper{
-        border-radius: 5px;
-        .row{
-            border-radius: 5px;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-
-
-            @media screen and (max-width: 1160pxpx) {
-              flex-wrap: nowrap;
-
-            }
-            @media screen and (max-width: 1300px) {
-              display: block;
- 
-             }
-
-            .job-info{
-                display: flex;
-                width: 64%;
-                background-color: $white;
-                padding: 0px;
-                border-radius: 5px 0px 0px 5px;
-                margin-right: 8px !important; 
-                border: 1px solid rgba(150, 165, 184, 0.3);
-
-
-                app-latest-job{
-                  width: 50%;
-                }
-                app-latest-job-cards{
-                  width: 50%;
-                }
-                .referal-bonous{
-                    width: 50%;
-                    
-                    border-left: 1px dashed gray;
-                    @media screen and (max-width: 1300px) {
-                      padding: 0px;
-        
-                    }
-                    .card{
-                      // height: 100%;
-                      border: 0px;
-                      padding: 24px;
-                      @include media(md){
-                        padding: 16px;
-                      }
-                      .card-header{
-                        border: 0px ;
-
-                        h3{
-                          color: $primary;
-                          text-transform: uppercase;
-                          margin-left: 10px !important;
-                          
-                        }
-                        background-color:$white;
-                      }
-                      .bonus-cards{
-                        @include flex(auto,center);
-                        display: flex !important;
-                        flex-wrap: wrap ;
-                        padding: 16px;
-                        @include media(md){
-                          padding: 0px;
-                        }
-                        li{
-                            
-                            background-color: $lightblue;
-                            width: 35%;
-                            // height: 203px;
-                            margin: 10px !important;
-                            padding: 25px 15px;
-                            list-style-type: none;
-                            @include flex(center,center);
-                            @media screen and (max-width: 1800px) {
-                                width: 100%;
-                              }
-                            div{
-                                width: 100%;
-                                height: 100%;
-                                h2{
-                                    line-height: 1.4;
-                                    text-align: center;
-                                    font-weight: 800;
-                                    font-size: 56px;
-                                    
-                                    color: #199CFF;
-                                    @media screen and (max-width: 1800px) {
-                                      font-size: 20px;
-                                    }
-                                }
-                                h3{
-                                    text-align: center;
-                                    font-size: 16px;
-                                    font-weight: 800;
-                                    font-family: 'Lato';
-                                    min-height: 30px;
-                                    margin: 5px 0px !important;
-                                }
-                                p{
-                                    text-align: center;
-                                    font-size: 12px;
-                                    font-weight: 300;
-                                    min-height: 15px;
-                                    margin: 5px 0px !important;
-                                }
-                            }
-                        }
-                    }
-                    }
-                    
-                }
-                @media screen and (max-width: 1300px) {
-                 width: 100%;
-    
-                }
-                
-            }
-            .new-family-members{
-                width: 34%;
-                // padding: 24px;
-                background-color: white;
-                border-radius:0px 5px 5px 0px;
-                margin-left: 8px ;
-                border: 1px solid rgba(150, 165, 184, 0.3);
-                
-                @media screen and (max-width: 1300px) {
-                  padding: 0px;
-    
-                }
-                @media screen and (max-width: 1300px) {
-                  
-                  width: 100%;
-     
-                 }
-                  .card{
-                    border: 0px;
-
-                      .card-header{
-                          @include flex(center,space-between);
-                          border: 0px;
-                          background-color: $white;
-                          h3{
-                            font-size: 20px;
-                            font-weight: 600;
-                          }
-                          button{
-                              border: 0px;
-                              background-color: $primary;
-                              color: $white;
-                              min-height: 28px;
-                              width: 64px;
-                              border-radius: 4px;
-                              font-size: 11px;
-                              font-weight: 500;
-                              
-                          }
-                      }
-                      // .card-body{
-                      //   // height: 450px;
-                        
-                      // }
-                  }
-              
-            }
-        }
-        
-    }
-    hr{
-      margin: 24px;
-      height: 0px;
-    }
-    .latest-info-wrapper{
-      background-color: $white;
-      border-radius: 5px;
-      border: 1px solid rgb(221, 218, 218);
-      app-app-latest{
-        width: 100%;
-      }
-
-      h3{
-        border-radius: 5px 5px 0px 0px;
-        font-size: 20px;
-        padding: 14px 24px;
-        background-color: $white;
-        border-bottom: 1px solid rgba(150, 165, 184, 0.3);
-        font-weight: 600;
-      }
-      .row{
-        padding: 24px;
-        @include flex(normal,space-between);
-        
-        // display: flex !important;
-        // justify-content: space-between !important;
-        .card{
-          padding: 0px;
-          width: 33%;
-          
-          .card-header{
-            background-color: $white;
-            padding: 16px 24px;
-            border-bottom: 0px;
-            h3{
-              height: 20px;
-              padding:0px;
-              font-size: 16px;
-              font-weight: 500;
-              color: black;
-              border: 0px;
-              ::ng-deep .mat-icon{
-                width: 10px;
-                font-size: 10px;
-              }
-            }
-          }
-          .card-body{
-            .card-body-top{
-             
-              p{
-                font-size: 12px;
-                padding: 0px 8px;
-              }
-            }
-            .card-body-mid{
-              padding: 0px 8px ;
-              .card-image{
-                @include flex(normal,center);
-
-                app-slideshow{
-                  width: 50%;
-                  padding: 8px 8px 0px 0px;
-                  border-radius:15px;
-                  background-clip:border-box;
-                  height: 200px;
-                  margin: 0px 6px;
-                }
-                app-team-carosuel{
-                  width: 100%;
-                  // padding: 8px;
-                  border-radius:15px;
-                  background-clip:border-box;
-                  height: 200px;
-                  margin: 0px 6px;
-                }
-                img{
-                  width: 50%;
-                  padding: 8px;
-                  border-radius:15px;
-                  background-clip:border-box;
-                  height: 200px;
-                  margin: 0px 6px;
-                }
-              }
-              
-              p{
-                font-size: 12px;
-                font-weight: 500px;
-                color: #606167;
-              }
-              .latest-heading{
-                padding: 0px 8px;
-                min-height: 70px;
-                
-              }
-            }
-            .card-body-bottom{
-              padding: 0px 8px;
-              p{
-                font-size: 12px;
-                font-weight: 500;
-                color: #199CFF;
-              }
-              button{
-                height: 35px;
-                border-radius: 5px;
-                background-color: #199CFF;
-                color: white;
-                border: 0px;
-              }
-
-            }
-            .card-body-bottom p:first-child {
-              color: black;
-              font-weight: 400;
-
-            }
+app-carousel {
+  height: 400px !important;
+  mat-carousel {
+    height: 400px !important;
+    div {
+      height: 400px !important;
+      ul {
+        height: 400px !important;
+        li {
+          height: 400px !important;
+          div {
+            height: 400px !important;
           }
         }
       }
     }
-
-    .gallery-wrapper{
-      background-color: white;
-      border-radius: 5px;
-      
-      .gallery-header{
-        border: 1px solid rgb(221, 218, 218);
-        border-bottom: 0px;
-        padding: 14px 24px; 
-        h3{
-          font-size: 20px;
-          font-weight: 600;
-          color: #231E1E;
-        }
-      }
-      .card{
-        @include media(md){
-          padding: 16px;
-        }
-        .card-body{
-          padding: 0px;
-        }
-      }
-    }
+  }
 }
+.referal-wrapper {
+  padding: 30px;
+  background-color: $lightblue;
+  @media screen and (max-width: 1000px) {
+    padding: 10px;
+  }
 
+  .emp-basic-info {
+    height: 80px;
+    display: flex;
+
+    figure {
+      margin: 0px 8px !important;
+
+      img {
+        height: 80px;
+        width: 88px;
+        border-radius: 50%;
+      }
+    }
+    .emp-name {
+      margin: 8px;
+      @include flex(center, center);
+      h2 {
+        margin-bottom: 5px;
+        font-size: 24px;
+        font-family: inherit;
+        color: #231e1e;
+        font-weight: 300;
+        text-transform: capitalize;
+      }
+      h3 {
+        margin: 0px;
+        font-size: 25px;
+        font-family: inherit;
+        color: #231e1e;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+    }
+  }
+  hr {
+    margin: 15px 0px !important;
+    border: 0px;
+  }
+  .job-details-wrapper {
+    border-radius: 5px;
+    .row {
+      border-radius: 5px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      @media screen and (max-width: 1160pxpx) {
+        flex-wrap: nowrap;
+      }
+      @media screen and (max-width: 1300px) {
+        display: block;
+      }
+
+      .job-info {
+        display: flex;
+        width: 64%;
+        background-color: $white;
+        padding: 0px;
+        border-radius: 5px 0px 0px 5px;
+        margin-right: 8px !important;
+        border: 1px solid rgba(150, 165, 184, 0.3);
+
+        app-latest-job {
+          width: 50%;
+        }
+        app-latest-job-cards {
+          width: 50%;
+        }
+        .referal-bonous {
+          width: 50%;
+
+          border-left: 1px dashed gray;
+          @media screen and (max-width: 1300px) {
+            padding: 0px;
+          }
+          .card {
+            // height: 100%;
+            border: 0px;
+            padding: 24px;
+            @include media(md) {
+              padding: 16px;
+            }
+            .card-header {
+              border: 0px;
+
+              h3 {
+                color: $primary;
+                text-transform: uppercase;
+                margin-left: 10px !important;
+              }
+              background-color: $white;
+            }
+            .bonus-cards {
+              @include flex(auto, center);
+              display: flex !important;
+              flex-wrap: wrap;
+              padding: 16px;
+              @include media(md) {
+                padding: 0px;
+              }
+              li {
+                background-color: $lightblue;
+                width: 35%;
+                // height: 203px;
+                margin: 10px !important;
+                padding: 25px 15px;
+                list-style-type: none;
+                @include flex(center, center);
+                @media screen and (max-width: 1800px) {
+                  width: 100%;
+                }
+                div {
+                  width: 100%;
+                  height: 100%;
+                  h2 {
+                    line-height: 1.4;
+                    text-align: center;
+                    font-weight: 800;
+                    font-size: 56px;
+
+                    color: #199cff;
+                    @media screen and (max-width: 1800px) {
+                      font-size: 20px;
+                    }
+                  }
+                  h3 {
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: 800;
+                    font-family: "Lato";
+                    min-height: 30px;
+                    margin: 5px 0px !important;
+                  }
+                  p {
+                    text-align: center;
+                    font-size: 12px;
+                    font-weight: 300;
+                    min-height: 15px;
+                    margin: 5px 0px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+        @media screen and (max-width: 1300px) {
+          width: 100%;
+        }
+      }
+      .new-family-members {
+        width: 34%;
+        background-color: white;
+        border-radius: 0px 5px 5px 0px;
+        margin-left: 8px;
+        border: 1px solid rgba(150, 165, 184, 0.3);
+
+        @media screen and (max-width: 1300px) {
+          padding: 0px;
+        }
+        @media screen and (max-width: 1300px) {
+          width: 100%;
+        }
+        .card {
+          border: 0px;
+
+          .card-header {
+            @include flex(center, space-between);
+            border: 0px;
+            background-color: $white;
+            h3 {
+              font-size: 20px;
+              font-weight: 600;
+            }
+            button {
+              border: 0px;
+              background-color: $primary;
+              color: $white;
+              min-height: 28px;
+              width: 64px;
+              border-radius: 4px;
+              font-size: 11px;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+  hr {
+    margin: 24px;
+    height: 0px;
+  }
+  .latest-info-wrapper {
+    background-color: $white;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 218, 218);
+    app-app-latest {
+      width: 100%;
+    }
+
+    h3 {
+      border-radius: 5px 5px 0px 0px;
+      font-size: 20px;
+      padding: 14px 24px;
+      background-color: $white;
+      border-bottom: 1px solid rgba(150, 165, 184, 0.3);
+      font-weight: 600;
+    }
+    .row {
+      padding: 24px;
+      @include flex(normal, space-between);
+    }
+  }
+  .gallery-wrapper {
+    background-color: white;
+    border-radius: 5px;
+
+    .gallery-header {
+      border: 1px solid rgb(221, 218, 218);
+      border-bottom: 0px;
+      padding: 14px 24px;
+      h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #231e1e;
+      }
+    }
+    .card {
+      @include media(md) {
+        padding: 16px;
+      }
+      .card-body {
+        padding: 0px;
+      }
+    }
+  }
+}
