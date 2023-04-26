@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +7,8 @@ import { Injectable } from '@angular/core';
 export class UtilitiesService {
 
   constructor() { }
+
+  subject = new BehaviorSubject('')
 
   getTimeOfTwoDates(date1:any,date2:any):string{
 
@@ -32,5 +35,10 @@ export class UtilitiesService {
     today = dd + '-' + mm + '-' + yyyy;
     return today;
   }
+
+  setValue(value:any){
+    this.subject.next(value);
+  }
+  
   
 }

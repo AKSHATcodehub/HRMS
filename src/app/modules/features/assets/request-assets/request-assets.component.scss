@@ -39,68 +39,8 @@ textarea{
     }
 }
 
-
-/* Button skeleton */
-
-$purple : #512DA8;
-
-.row{
-  display: flex;
-}
-
-@mixin buttonBG($bg) {
-  border: 2px solid $bg;
-  color: $bg;
-  &:hover {
-    background-color: $bg;
-    transition: all 0.3s ease-in-out;
-  }
-}
-
-
-
-/* Button styles */
-.purple{
-  @include buttonBG($purple);
-}
-
-/* Card styles */
-.my-card {
-  background: #fff;
-  border-radius: 2px;
-  display: inline-block;
-  position: relative;
-  width: 100%;
-}
-
-.my-card-content {
-  margin: 0rem 1rem;
-  height: 0px;
-  visibility: hidden;
-  transition: margin 225ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.my-card-content.expand {
-  margin:10px 0px;
-  height: initial;
-  visibility: visible;
-}
-
-.seperator {
-  margin: 1rem;
-}
-
-.dropdown{
-  .dropdown-body{
-    position: relative;
-    top: -4px;
-  }
-  small{
-    color: red;
-    position: absolute;
-    top: 73px;
-    left: 10px;
-  }
+.dropdown small{
+  top: 73px;
 }
 .error{
   color: red;

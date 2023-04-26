@@ -1,6 +1,7 @@
 import { Component, ElementRef, EventEmitter, forwardRef, HostListener, Input, OnInit, Output, Renderer2 } from '@angular/core';
 import { AbstractControl, FormControl, FormControlName, FormGroup } from '@angular/forms';
 import { NG_VALUE_ACCESSOR,} from '@angular/forms';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 export const CUSTOM_INPUT_CONTROL_VALUE_ACCESSOR: any = {provide: NG_VALUE_ACCESSOR,useExisting: forwardRef(() => DropdownComponent),multi: true,};
 enum DropdownMouseState {
   inside,
@@ -18,22 +19,15 @@ export class DropdownComponent implements OnInit {
   @Input() formName!:FormGroup ;
   @Input() controlName!:AbstractControl;
   @Input() placeHolder!:string; 
-  @Input() progchangedValue:any='';
-  @Input() initialValue:any;
+  @Input() progchangedValue:any;
   @Output() outputData :EventEmitter<any> = new EventEmitter();
-  // @HostListener('document:click') clickedOutside() {
-  //   // console.log("hyy");
-    
-  //   if (this.state == DropdownMouseState.outside) {
-  //     this.showMenu = false; // hide the dropdown...
-  //   }
-  // }
+
   
-  constructor(private ref:ElementRef,private render:Renderer2) {
+  constructor(private ref:ElementRef,
+              private render:Renderer2,
+              private _utilitiessService:UtilitiesService) {
     this.showMenu = false;
     this.state = DropdownMouseState.outside;
-    console.log("this is initial value of dropdown>>",this.initialValue);
-    
    }
   state!: DropdownMouseState;
   showMenu!: boolean;
@@ -48,11 +42,8 @@ export class DropdownComponent implements OnInit {
   isMenuOpened: boolean = false;
 
   ngOnInit(): void {
-    
-    // this.control = new FormControl(this.controlName);
-    // this.initialValue = this.data[0];
-    // this.outputData.emit(this.initialValue); 
 
+    
     setTimeout(() => {
       
       this.wrapper = this.ref.nativeElement.querySelector(".input-wrapper");
@@ -62,12 +53,14 @@ export class DropdownComponent implements OnInit {
   
     this.parentData=this.data;
     this.filterData=this.parentData;
-    console.log("filter ddata>>>>>>>>>>",this.filterData);
     
+  }, 100);
   
-  
-    }, 100);
-
+  this._utilitiessService.subject.subscribe((value:any)=>{
+    
+    this.selectBtn = this.ref.nativeElement.querySelector(".select-btn");
+    this.selectBtn.firstElementChild.value = value;
+  })
   }
 
 
@@ -91,15 +84,12 @@ export class DropdownComponent implements OnInit {
   }
 
   keyFunc(event:any){
-    console.log("event......",event.target.value);
-
+    
     let arr = [];
     let searchWord = event.target.value.toLowerCase();
     arr = this.parentData.filter((data:any) => {
         return data.toLowerCase().includes(searchWord);
     })
-
-    console.log("arr>>>>",arr);
     
     this.filterData = arr.length>0 ? arr : ['No Result! '];
 
@@ -125,12 +115,12 @@ export class DropdownComponent implements OnInit {
   }
 
   clickedOutside(): void {
-    console.log("click outside  event trigge>>>>>>>>>");
-    
-    // this.isMenuOpened = false;
+
     if(this.toggleStatus){
       this.optionClicked();
     }
   }
+
+  
   
 }

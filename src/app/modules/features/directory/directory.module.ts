@@ -11,6 +11,7 @@ import { SearchbarModule } from '../../common/modules/searchbar/searchbar.module
 import { MatIconModule } from '@angular/material/icon';
 import { DropdownModule } from '../../common/modules/dropdown/dropdown.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSearchDropdownModule } from '../../common/modules/mat-search-dropdown/mat-search-dropdown.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatIconModule,
     DropdownModule,
     ReactiveFormsModule,
-    
+    MatSearchDropdownModule
   
   ]
 })

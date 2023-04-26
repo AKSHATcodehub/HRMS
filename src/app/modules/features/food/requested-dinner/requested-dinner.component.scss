@@ -2,7 +2,6 @@
         '../../../../../scss/theme/grid',
         '../../../../../scss/var';
 
-
 *{
     box-sizing: border-box;
     hr{
@@ -21,12 +20,19 @@
 }
 .requested-dinner-content{
     background-color: $white;
+    mat-form-field{
+        ::ng-deep .mat-form-field-infix {
+            border-top: 0.63em solid transparent;
+        }
+    }
 }
 
 .dropdown small{
-    top: 68px;
+    top: 72px;
+    left: 20px;
 }
+
 
 /* Card styles */
 
-  
+

@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 import { ALL_DIRECTORY_TEAM_DATA, DIRECTORY_TEAM_DATA } from './directory-data';
 
 @Component({
@@ -12,23 +14,23 @@ export class DirectoryComponent implements OnInit {
   keyupData:any;
   showList:any;
   filter:any;
-  reset:any=null;
   departmentPlaceholder:string='Department';
   filterData=ALL_DIRECTORY_TEAM_DATA;
   selectedValue!:string;
   directoryData:any = DIRECTORY_TEAM_DATA;
-  selectedDropdownData:any[]=[]
-  dropDown:string[] = ['admin','.net'];
-  data=['Aahan Verma','Abhishek Kumar','Abhishek Shukla','Bhavya Goel','Bikramjeet Singh','Deepak Sindhu','Deepak Pokhriyal','Harsh Kukreti','Harshit Pathak']
   dropDownData:any[]=[];
   dropdownReset: any;
   directoryFilterForm!:FormGroup;
+  searchbarVale:any;
   
-  constructor(private _fb:FormBuilder) { }
+  constructor(private _fb:FormBuilder,
+              private _utilitiessService:UtilitiesService) { }
   
   ngOnInit(): void {
 
     this.createForm();
+
+    this.dropdownReset = 'all'; 
     
     this.showList = this.directoryData;
 
@@ -42,19 +44,6 @@ export class DirectoryComponent implements OnInit {
     });
   }
 
-
-  filterDataHandler(filterData:any){
-    console.log("this is filter data...",filterData);
-    this.filterData = filterData;
-
-      // filterData.forEach((item:any) => {
-      //   if(item.team == this.selectedValue){
-      //     this.filterData.push(item);
-      //   }
-      // });
-    
-  }
-
   createForm(){
     return this.directoryFilterForm = this._fb.group({
       searchBar:[null],
@@ -62,85 +51,51 @@ export class DirectoryComponent implements OnInit {
     })
   }
   
-  click(){
-    console.log("this is dropdown>>>>>>>",this.dropDownData);
-    
-  }
-
   clickSearch(){
-    // this.filterData = this.filter;
-  }
 
-  clickReset(){
-    console.log("it is all directory data>>>>>",DIRECTORY_TEAM_DATA);
-    this.directoryFilterForm.reset();
-    this.dropdownReset = 'all'; 
-    this.reset = ' ';
     this.filterData = ALL_DIRECTORY_TEAM_DATA;
-    this.directoryData = ALL_DIRECTORY_TEAM_DATA
-    console.log("reset");
-  }
 
-  keyfunc(event:any){
-    this.keyupData = event.target.value;
-    if(this.keyupData.length == 0){
-      this.directoryData= this.directoryData;
-    }
-  }
+    if(this.selectedValue == 'all'){
 
-  dataAccordingToSelectedDropdownValue:any;
-
-  eventHandler(event:any){
-    
-    this.directoryFilterForm.controls.dropdown.setValue(event);
-
-    this.selectedValue = event;
-
-    this.selectedDropdownData = [];
-    
-    this.dataAccordingToSelectedDropdownValue=ALL_DIRECTORY_TEAM_DATA.filter((item:any)=>{
-
-      if(item.team == event){
-
-        console.log("event Handler>>>>",item.team,event);
-        
-        this.selectedDropdownData.push(item);
-
-        return item;
-      }
-     
-    })
-
-    console.log(">>>>>>>>>>>>>>>>>>>>",this.dataAccordingToSelectedDropdownValue)
-
-
-    if( event == 'all' ){
-        this.filterData = ALL_DIRECTORY_TEAM_DATA;
-
-        this.directoryData = ALL_DIRECTORY_TEAM_DATA;
+      this.filterData = this.filterData.filter((item:any)=>{
+  
+        const a = !this.searchbarVale || item.name?.toLowerCase()?.startsWith(this.searchbarVale.target.value);
+  
+        if( a ){
+          return item
+        }
+      })
 
     }else{
 
-      this.filterData = this.selectedDropdownData;
+      this.filterData = this.filterData.filter((item:any)=>{
+  
+        const a = !this.selectedValue || item.team == this.selectedValue;
+  
+        const b = !this.searchbarVale || item.name?.toLowerCase()?.startsWith(this.searchbarVale.target.value);
+  
+        if( a && b){
+          return item
+        }
+      })
+    } 
+  }
 
-      this.directoryData = this.dataAccordingToSelectedDropdownValue;
-    }
+  clickReset(){
+    this.directoryFilterForm.reset();
+    this._utilitiessService.setValue('all');
+    this.dropdownReset = 'all'; 
+    this.filterData = ALL_DIRECTORY_TEAM_DATA;
+    console.log("reser function called>>>>>>>");
+    
+  }
+
+  eventHandler(event:any){
+    this.selectedValue = event;
   }
 
   func(event:any){
-
-
-    
-
-    let arr = this.directoryData.filter((item:any)=>{
-      if(item.name?.toLowerCase()?.startsWith(event.target.value)){
-        return item;
-      }else{
-        return 
-      }
-    });
-
-    this.filterDataHandler(arr)
+    this.searchbarVale = event;
   }
 
 }

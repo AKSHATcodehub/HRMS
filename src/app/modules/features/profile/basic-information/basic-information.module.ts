@@ -16,6 +16,7 @@ import { DropdownModule } from 'src/app/modules/common/modules/dropdown/dropdown
 import { ValidationErrorModule } from 'src/app/pipes/validation-error/validation-error.module';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar.module';
+import { MatSearchDropdownModule } from 'src/app/modules/common/modules/mat-search-dropdown/mat-search-dropdown.module';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SnackbarModule } from 'src/app/modules/common/modules/snackbar/snackbar
     ReactiveFormsModule,
     ValidationErrorModule,
     MatSnackBarModule,
-    SnackbarModule
+    SnackbarModule,
+    MatSearchDropdownModule
   ],
   exports:[
     BasicInformationComponent

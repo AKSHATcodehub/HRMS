@@ -1,22 +1,19 @@
-
-.new-join-wrapper{
-    margin-top: 34px;
-    h2{
-        margin: 0px;
-    }
-    
-    
+.new-join-wrapper {
+  margin-top: 34px;
+  h2 {
+    margin: 0px;
+  }
 }
 
-.new-joinings-image{
-    img{
-        width: 100%;
-    }
+.new-joinings-image {
+  img {
+    width: 100%;
+  }
 }
 
-:host ::ng-deep .leftRs{
-    right: 40px !important;
+:host ::ng-deep .leftRs {
+  right: 40px !important;
 }
-:host ::ng-deep .rightRs{
-    right: 0% !important;
+:host ::ng-deep .rightRs {
+  right: 0% !important;
 }

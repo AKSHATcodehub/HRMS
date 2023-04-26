@@ -24,14 +24,15 @@ export class PurchaseLunchCouponComponent implements OnInit {
   options = {
     edit:true,
     cancel:false,
-    select:true
+    select:true,
+    checkbox:true
   }
 
   ngOnInit(): void {
     
     this.myCalendar = this._foodCalendarService.myCalendar
     if(this.myCalendar.length == 0){
-      this.route.navigate(['admin/food'])
+      this.route.navigate(['features/food'])
     }
 
     this.createForm() 
@@ -43,7 +44,7 @@ export class PurchaseLunchCouponComponent implements OnInit {
   createForm(){
     this.couponForm = this._formBuilder.group({
       coupon_count: [''],
-      total_amount:['']
+      total_amount:['0']
     })
   }
 
@@ -86,7 +87,7 @@ export class PurchaseLunchCouponComponent implements OnInit {
   }
   cancelCoupons(){
  
-    this.route.navigate(['admin/food'])
+    this.route.navigate(['features/food'])
   }
 
 }

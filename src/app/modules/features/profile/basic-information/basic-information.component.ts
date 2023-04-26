@@ -5,6 +5,7 @@ import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snack
 import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
+import { GENDER_DATA, MARITAL_STATUS_DATA } from './basic-information-data';
 // import { userInfoTitle } from '../profile-data';
 
 @Component({
@@ -26,31 +27,16 @@ export class BasicInformationComponent implements OnInit {
   slidePosition = 1;
   maxNumberOfTab: number = 4;
   tabIndex: number = 0;
-  wrapper: any;
-  selectBtn: any;
-  searchInp: any;
-  options: any;
-  countries: any;
-  filterCountries: any;
   gender = ['Male', 'Female'];
   genderPlaceHolder: string = 'Gender';
   marriage = ['Single', 'Married', 'Divorced'];
   marriagePlaceHolder: string = 'Marriage Status';
-  alpha = ['a', 'b', 'c'];
   toggleStatus = false;
   basicInfoForm!: FormGroup;
   reset: string = '';
 
   ngOnInit(): void {
     this.basicInfoForm = this.createForm();
-
-    setTimeout(() => {
-      this.wrapper = this.ref.nativeElement.querySelector('.wrapper');
-      this.selectBtn = document.querySelector('.select-btn');
-      (this.searchInp = document.querySelector('.searchbar')),
-        (this.options = document.querySelector('.options'));
-      this.filterCountries = this.countries;
-    }, 2000);
   }
 
   createForm() {
@@ -69,14 +55,10 @@ export class BasicInformationComponent implements OnInit {
   }
 
   saveBasicInfo() {
-    console.log('basic form>>>>>>>', this.basicInfoForm.controls.firstName);
 
     if (this.basicInfoForm.valid) {
-      // this.basicInfoForm.reset();
-      console.log('reset basic info form >>>>>>>', this.basicInfoForm);
-
-      this.reset;
       this._snackBar.showSuccess('Basic Info Updated','');
+      this.basicInfoForm.reset();
     } else {
       this.basicInfoForm.markAllAsTouched();
     }
@@ -97,31 +79,6 @@ export class BasicInformationComponent implements OnInit {
     if (!this.toggleStatus) {
       this.render.removeClass(wapper, 'active');
     }
-  }
-
-  keyFunc(event: any) {
-    console.log('event......', event.target.value);
-
-    let arr = [];
-    let searchWord = event.target.value.toLowerCase();
-    arr = this.gender.filter((data: any) => {
-      return data.toLowerCase().startsWith(searchWord);
-    });
-
-    console.log('arr>>>>', arr);
-
-    this.filterCountries = arr.length > 0 ? arr : ['No Result! '];
-
-    if (event.target.value.toLowerCase().length == 0) {
-      this.filterCountries = this.countries;
-    }
-  }
-
-  updateName(selectedLi: any, selectbtn: any, wapper: any, control: any) {
-    this.searchInp.value = '';
-    wapper.classList.remove('active');
-    selectbtn.firstElementChild.value = selectedLi;
-    this.basicInfoForm?.get(control)?.setValue(selectedLi);
   }
 
   selectedValue(event: string, controlName: string) {

@@ -97,18 +97,8 @@ mat-form-field{
     
   }
 
-  .dropdown{
-    .dropdown-body{
-      position: relative;
-      top: -4px;
-    }
-    small{
-      color: red;
-      position: absolute;
-      top: 73px;
-      left: 20px;
-      font-size: 11px;
-    }
+  .dropdown small{
+    top: 73px;
   }
 
 

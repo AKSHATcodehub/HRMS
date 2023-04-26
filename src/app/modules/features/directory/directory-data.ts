@@ -141,6 +141,8 @@ DIRECTORY_TEAM_DATA.forEach((item:any)=>{
 })
 
 
+
+
 const membersList = [
     
     {name:'Aahan Verma',position:'Sr. Software Engineer - Android',email:'aahan.verma@appinventiv.com',DOB:' 21st, Aug'},

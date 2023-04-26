@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MyLinksComponent } from './my-links.component';
+import { MatSearchDropdownComponent } from './mat-search-dropdown.component';
 
-describe('MyLinksComponent', () => {
-  let component: MyLinksComponent;
-  let fixture: ComponentFixture<MyLinksComponent>;
+describe('MatSearchDropdownComponent', () => {
+  let component: MatSearchDropdownComponent;
+  let fixture: ComponentFixture<MatSearchDropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MyLinksComponent ]
+      declarations: [ MatSearchDropdownComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyLinksComponent);
+    fixture = TestBed.createComponent(MatSearchDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

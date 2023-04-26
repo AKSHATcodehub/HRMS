@@ -214,10 +214,7 @@ export class DsrComponent implements OnInit {
     })
   }
   
-  togglePanel() {
-    
-  }
-  
+
   toggleCard(){
     
     this.isOpen = !this.isOpen;
@@ -225,15 +222,11 @@ export class DsrComponent implements OnInit {
     this.panelOpenState = !this.panelOpenState;
 
     var content = this._elementRef.nativeElement.querySelector('.my-card-content');
-    console.log("toggle card called>>>>>>.",content.scrollHeight);
-    
+
     if (content.style.maxHeight){
       content.style.maxHeight = null;
-      console.log('1111111')
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
-      console.log('2222222')
-
     } 
     
   }
