@@ -1,4 +1,5 @@
-@import "../../../../../scss/mixins/flex";
+@import "../../../../../scss/mixins/flex",
+        '../../../../../scss/mixins/media';
 table, th, td {
     border: 2px solid #f7f1f1;;
     border-collapse: collapse;
@@ -8,12 +9,17 @@ table, th, td {
     .select{
         @include flex(center,space-between);
 
-    }
+    };
+    // @include media(sm){
+    //     overflow-x: scroll;
+    // };
 }
 
 table{
     width: 100%;
-    min-width: 70vw;
+    // @include media(sm){
+    //     overflow: scroll;
+    // };
     td{
         height: 8rem;
         text-align: end;
@@ -22,7 +28,7 @@ table{
             display: flex;
             justify-content: space-between;
             margin: 0px 6px;
-            width: 9rem;
+            // width: 9rem;
             mat-checkbox{
                 color:white;
                 ::ng-deep{

@@ -35,7 +35,10 @@ export class PerformanceComponent implements OnInit {
   }
 
   openDialog(){
-    this._matDialog.open(PerformanceDialogComponent)
+    const dialogRef =  this._matDialog.open(PerformanceDialogComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed 1',result);
+    });
   }
 
 }

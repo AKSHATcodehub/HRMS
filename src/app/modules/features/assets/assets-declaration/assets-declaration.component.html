@@ -55,7 +55,7 @@
                               <div class="form-group dropdown">
                                 <label for="allocationType">OS <span class="red-color">*</span> </label>
                                 <div class="dropdown-body">
-                                  <app-dropdown [placeHolder]="osPlaceholer" [data]="OsDropdown"  (outputData)="selectedValue($event,'os')"></app-dropdown>
+                                  <app-dropdown [placeHolder]="dropdownData.OS.placeholder" [data]="dropdownData.OS.data" [progchangedValue]="assetsDeclarationForm.controls.os.value"  (outputData)="selectedValue($event,'os')"></app-dropdown>
                                 </div>
                                 <small *ngIf="this.assetsDeclarationForm.controls.os.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>
@@ -95,7 +95,7 @@
                               <div class="form-group dropdown">
                                 <label for="allocationType">Device is in working condition?  <span class="red-color">*</span> </label>
                                 <div class="dropdown-body">
-                                  <app-dropdown [placeHolder]="deviceWorkingPlaceholder" [data]="deviceWorkingDropdown"  (outputData)="selectedValue($event,'workingCondition')" ></app-dropdown>
+                                  <app-dropdown [placeHolder]="dropdownData.device_status.placeholder" [data]="dropdownData.device_status.data" [progchangedValue]="assetsDeclarationForm.controls.workingCondition.value"  (outputData)="selectedValue($event,'workingCondition')" ></app-dropdown>
                                 </div>
                                 <small *ngIf="this.assetsDeclarationForm.controls.workingCondition.touched">{{assetsDeclarationForm | validationError:'os':'OS' }}</small>
                               </div>

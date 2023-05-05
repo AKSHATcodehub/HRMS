@@ -24,15 +24,26 @@ export const REQUESTED_ASSETS_TABLE_DATA = [
   },
 ];
 
+export const DROPDOWN_DATA = {
+  category:{
+    data:['Laptop','Desktop','Mobile'],
+    placeholder:'Selct Assets Category',
+    initialvalue:''
+  },
+  quantity:{
+    data:['1','2','3','4','5'],
+    placeholder:'Selct Quality',
+    initialvalue:''
+  },
+  priority:{
+    data:['Low','Medium','High'],
+    placeholder:'Selct Priority',
+    initialvalue:''
+  },
+  allocation_type:{
+    data:['Permanent','Temporary'],
+    placeholder:'Selct Allocation Type',
+    initialvalue:''
+  }
+}
 
-// <div class="mat-form-field-outline mat-form-field-outline-thick ng-tns-c86-1 ng-star-inserted">
-//     <div class="mat-form-field-outline-start ng-tns-c86-1"></div>
-//     <div class="mat-form-field-outline-gap ng-tns-c86-1"></div>
-//     <div class="mat-form-field-outline-end ng-tns-c86-1"></div>
-// </div>
-
-// .mat-form-field-outline{
-//     .mat-form-field-outline-start{
-        
-//     }
-// }

@@ -17,7 +17,7 @@
                                 <div class="col-md-12">
                                     <label for="project_ajax" class="control-label">Project</label>
                                     <div class="dropdown-body">
-                                        <app-dropdown [placeHolder]="projectPlaceholder" [data]="projectDropdown" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
+                                        <app-dropdown [placeHolder]="dropdownData[0].placeholder" [data]="dropdownData[0].data"  [progchangedValue]="dsrForm.controls.dsrProject.value" (outputData)="selectDropdown($event,'dsrProject')"></app-dropdown>
                                         <small *ngIf="this.dsrForm.controls.dsrProject.touched">{{dsrForm | validationError : 'dsrProject' : 'Project' }}</small>
                                     </div>
                                 </div>
@@ -75,18 +75,18 @@
                             <div class="row" *ngIf="selctedProject == 'Miscellaneous'">
                                 <div class="col-md-6">
                                     <label for="">   Authority 1 (PM)</label>
-                                    <app-dropdown [data]="approvingAuthority" [placeHolder]="authorityPlaceholder" ></app-dropdown>
+                                    <app-dropdown [data]="dropdownData[1].data" [placeHolder]="dropdownData[1].placeholder" [progchangedValue]="dropdownData[1].initialvalue" ></app-dropdown>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="">Approving Authority 2 (AM)</label>
-                                    <app-dropdown [data]="approvingAuthority" [placeHolder]="authorityPlaceholder" ></app-dropdown>
+                                    <app-dropdown [data]="dropdownData[2].data" [placeHolder]="dropdownData[2].placeholder" [progchangedValue]="dropdownData[2].initialvalue" ></app-dropdown>
                                 </div>
                             </div>
 
                             <div class="row" *ngIf="selctedProject == 'Interview'">
                                 <div class="col-md-6">
                                     <label for="">Choose AM</label>
-                                    <app-dropdown [data]="chooseAM" [placeHolder]="AMPlaceholder" ></app-dropdown>
+                                    <app-dropdown [data]="dropdownData[3].data" [placeHolder]="dropdownData[3].placeholder" [progchangedValue]="dropdownData[3].initialvalue" ></app-dropdown>
                                 </div>
                                 
                             </div>
@@ -154,7 +154,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Submission Status</label>
-                        <app-dropdown [data]="submissionStatusData" [placeHolder]="statusPlaceHolder"(outputData)="dropdownFilter($event,'status')"  [progchangedValue]="this.filterForm.controls.status.value"></app-dropdown>    
+                        <app-dropdown [data]="dropdownData[4].data" [placeHolder]="dropdownData[4].placeholder"(outputData)="dropdownFilter($event,'status')"  [progchangedValue]="this.filterForm.controls.status.value"></app-dropdown>    
                     </div>
                 </div>
     
@@ -162,7 +162,7 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="first_name">Project</label>
-                        <app-dropdown [data]="projectDataDropdown" [placeHolder]="projectPlaceholder" (outputData)="dropdownFilter($event,'project')" [progchangedValue]="this.filterForm.controls.project.value"></app-dropdown>    
+                        <app-dropdown [data]="dropdownData[5].data" [placeHolder]="dropdownData[5].placeholder" (outputData)="dropdownFilter($event,'project')" [progchangedValue]="this.filterForm.controls.project.value"></app-dropdown>    
                     </div>
                 </div>
             
@@ -178,18 +178,9 @@
                 <div class="col-md-3">
                     <div class="form-group">
                         <label for="rm_status">Final Approval Status</label>
-                        <app-dropdown [data]="finalApprovalDropdown" [placeHolder]="approvalstatusPlaceholer" (outputData)="dropdownFilter($event,'approval_status')" [progchangedValue]="this.filterForm.controls.approval_status.value"></app-dropdown>
+                        <app-dropdown [data]="dropdownData[6].data" [placeHolder]="dropdownData[6].placeholder" (outputData)="dropdownFilter($event,'approval_status')" [progchangedValue]="this.filterForm.controls.approval_status.value"></app-dropdown>
                     </div>
                 </div>
-    
-    
-                <!-- <div class="col-md-3">
-                    <div class="form-group"> -->
-                        <!-- <label for="rm_status">Hours</label> -->
-                        <!-- <app-dropdown [data]="hoursDropdown" [placeHolder]="hoursPlaceholder" (outputData)="dropdownFilter($event,'logged_hr ')" [progchangedValue]="this.filterForm.controls.logged_hr.value"></app-dropdown> -->
-                        <!-- <app-dropdown-filter [dropdown]="dsrFilterObject.loggedHours" (onDropDownSelect)="dropDownChange($event)"  ></app-dropdown-filter>
-                    </div>
-                </div> -->
 
                 <div class="col-md-3">
                     <div class="form-group">
@@ -205,11 +196,6 @@
 
             </div>
         </div>
-        
-
-        <!-- <div class="form-actions padd-left"> 
-            <button name="hrsale_form" type="submit" class="btn btn btn-primary reset-filters"><i class="fa fa fa-check-square-o"></i> Reset</button>
-        </div> -->
     
     </div>
 

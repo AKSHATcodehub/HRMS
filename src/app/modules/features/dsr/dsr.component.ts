@@ -2,10 +2,9 @@ import { DatePipe } from '@angular/common';
 import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { DSR_TABLEDATA, PROJECT_DROPDOWN,APPROVING_AUTHORITY,CHOOSE_AM, HOURS_STATUS } from './dsr-data';
+import { DSR_TABLEDATA,  HOURS_STATUS, DROPDOWN_DATA } from './dsr-data';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import {DSR_HEADING} from './dsr-data';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
@@ -19,31 +18,20 @@ import { FormService } from 'src/app/services/form.service';
 })
 export class DsrComponent implements OnInit {
 
+  dropdownData = DROPDOWN_DATA
   today= new Date();
   isOpen!: boolean;
   panelOpenState: boolean = false;
-  projectDropdown=PROJECT_DROPDOWN;
   datasource = new MatTableDataSource<any>(DSR_TABLEDATA);
   dsrForm!:FormGroup;
   headings = DSR_HEADING;
   pipe: DatePipe;
   filterForm!:FormGroup;
-  submissionStatusData = ['Submitted','Due'];
-  projectDataDropdown = ['Training Project React.js'];
-  finalApprovalDropdown = ['Pending','Approved','Rejected'];
-  hoursDropdown = ['Less than 5 Hours','Greater than 5, Less than equal to 8','Greater than 8','Greater than 10']
   selctedProject:string='';
-  approvingAuthority:string[] = APPROVING_AUTHORITY;
-  chooseAM:string[] = CHOOSE_AM;
   TABLE_DATA = new MatTableDataSource<any>([]);
-  statusPlaceHolder="Select Status";
-  projectPlaceholder='Select Project';
-  approvalstatusPlaceholer = 'Select Approval status'
-  hoursPlaceholder = 'Hours'
   filterObject:any;
   reset = false;
-  authorityPlaceholder = 'Select Authority'
-  AMPlaceholder = "Select AM"
+
 
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -83,7 +71,7 @@ export class DsrComponent implements OnInit {
     ],
     uploadUrl: 'v1/image',
   };
-  pageSize!: number;
+
   @Input() ngxMatTimepicker:any;
   dsrFilterObject: any;
 
@@ -100,7 +88,7 @@ export class DsrComponent implements OnInit {
 
     this.filterForm.valueChanges.subscribe((value:any)=>{
 
-      console.log("value>>>>>",value);
+      // console.log("value>>>>>",value);
  
       this.filterFunction(value)
       
@@ -122,15 +110,15 @@ export class DsrComponent implements OnInit {
 
     let filter = {...value} ;
 
-    console.log("111");
+    // console.log("111>>>>>>>>",this.datasource.data);
 
     this.datasource.filter =  JSON.stringify(filter);
    
     this.datasource.filterPredicate = ((data, filter) => {
 
-      console.log("filter predicate called>>>>>>>>>>>>>",filter);
+      // console.log("filter predicate called>>>>>>>>>>>>>",filter);
 
-      console.log("type of filter>>>>>",this.testJSON(filter));
+      // console.log("type of filter>>>>>",this.testJSON(filter));
 
       if(this.testJSON(filter)){
 
@@ -162,11 +150,16 @@ export class DsrComponent implements OnInit {
           e = !filterObject.logged_hr || data.logged_hr > 10;
         }
   
-        console.log(a && b && c && d );
+        // console.log(a && b && c && d );
         
         return a && b && c && d && e;
       }
       else{
+
+        // console.log("else part working>>>>>>>>>");
+        
+
+        this.resetDsrFilter();
 
         return data.emp_name.toLowerCase().includes(filter) 
               
@@ -209,7 +202,7 @@ export class DsrComponent implements OnInit {
       dsrProject:this._formService.getControl('mandatory'),
       dsrDate:this._formService.getControl('mandatory'),
       dsrHours:this._formService.getControl('mandatory'),
-      dsrNoWork:this._formService.getControl('mandatory'),
+      dsrNoWork:[null],
       dsrContent:this._formService.getControl('name'),
     })
   }
@@ -225,8 +218,11 @@ export class DsrComponent implements OnInit {
 
     if (content.style.maxHeight){
       content.style.maxHeight = null;
+      // content.style.overflow = 'hidden'
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
+      // content.style.overflow = 'visible'
+
     } 
     
   }
@@ -266,6 +262,9 @@ export class DsrComponent implements OnInit {
 
   dsrSummit(){
 
+    console.log("dsr Form>>>>>>",this.dsrForm);
+    
+
     if(this.dsrForm.valid){
 
       console.log('1',DSR_TABLEDATA);
@@ -289,6 +288,8 @@ export class DsrComponent implements OnInit {
         this._snackbarService.showError('DSR already Exist!','')
       }else{
       
+        console.log("in else>>>");
+        
           let dsrObject = {
             s_no: DSR_TABLEDATA.length+1,
             emp_name: 'akshat',
@@ -309,6 +310,8 @@ export class DsrComponent implements OnInit {
           this._snackbarService.showSuccess('DSR Submitted!','');
 
           this.dsrForm.reset();
+
+          this.toggleCard();
     
           this.isOpen = !this.isOpen;
 
@@ -356,7 +359,6 @@ export class DsrComponent implements OnInit {
       this.dsrForm.controls.dsrContent.setValue('');
     }
   }
-
 
   testJSON(text:any) {
     if (typeof text !== "string") {

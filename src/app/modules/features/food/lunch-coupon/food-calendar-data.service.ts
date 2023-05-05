@@ -9,10 +9,7 @@ export class FoodCalendarDataService {
   calendarData:any = [];
   myCalendar:any = [];
 
-  constructor() { 
-    
-    
-  }
+  constructor() { }
   
   createCalendarData(){
     // 👇️ Current Month 0 ->sun, 1->mon

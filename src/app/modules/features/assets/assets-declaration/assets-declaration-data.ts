@@ -29,3 +29,16 @@ export const ASSETS_DECLARATION_TABLE_DATA = [
     Added: 'Yes',
   },
 ];
+
+export const DROPDOWN_ASSETS_DECLARATION = {
+  OS:{
+    data:['Android', 'IOS'],
+    placeholder:'Select OS',
+    initialvalue:''
+  },
+  device_status:{
+    data:['Yes', 'No'],
+    placeholder:'Select',
+    initialvalue:''
+  }
+}

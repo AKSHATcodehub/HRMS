@@ -29,6 +29,63 @@ section {
   overflow-x: auto;
   position: relative;
   background-color: $white;
+
+  ::ng-deep {
+    .mat-table {
+      tbody {
+        tr:nth-child(odd) {
+          background-color: #f3f3f3;
+        }
+      }
+    }
+
+    .mat-form-field-infix {
+      border-top: 0.5em solid transparent;
+      .mat-input-element {
+        padding-left: 10px;
+      }
+    }
+
+    .mat-table {
+      .mat-header-row {
+        height: 43px;
+        .mat-header-cell {
+          border-right: 1px solid #ebebeb;
+        }
+      }
+    }
+
+    .mat-paginator {
+      .mat-form-field-flex {
+        border: 1px solid #d8d8d8;
+      }
+      .mat-select-value-text {
+        @include flex(center, center);
+      }
+      .mat-input-element {
+        padding-left: 10px;
+      }
+    }
+
+    .mat-paginator-page-size {
+      position: absolute;
+      top: 25px;
+      left: 83px;
+      width: 65px;
+      .mat-paginator-page-size-label {
+        display: none;
+      }
+    }
+
+    .mat-sort-header-container {
+      justify-content: center;
+    }
+
+    .mat-form-field-underline {
+      display: none;
+    }
+  }
+
   .filter-options {
     min-height: 70px;
     display: flex;
@@ -152,62 +209,5 @@ table {
       top: 3px;
       font-weight: 600;
     }
-  }
-}
-
-::ng-deep {
-
-  .mat-table {
-    tbody {
-      tr:nth-child(odd) {
-        background-color: #f3f3f3;
-      }
-    }
-  }
-
-  .mat-form-field-infix {
-    border-top: 0.5em solid transparent;
-    .mat-input-element {
-      padding-left: 10px;
-    }
-  }
-
-  .mat-table {
-    .mat-header-row {
-      height: 43px;
-      .mat-header-cell {
-        border-right: 1px solid #ebebeb;
-      }
-    }
-  }
-
-  .mat-paginator {
-    .mat-form-field-flex {
-      border: 1px solid #d8d8d8;
-    }
-    .mat-select-value-text {
-      @include flex(center, center);
-    }
-    .mat-input-element {
-      padding-left: 10px;
-    }
-  }
-
-  .mat-paginator-page-size {
-    position: absolute;
-    top: 25px;
-    left: 83px;
-    width: 65px;
-    .mat-paginator-page-size-label {
-      display: none;
-    }
-  }
-
-  .mat-sort-header-container {
-    justify-content: center;
-  }
-
-  .mat-form-field-underline {
-    display: none;
   }
 }

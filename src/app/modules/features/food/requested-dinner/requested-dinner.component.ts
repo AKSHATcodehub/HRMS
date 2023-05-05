@@ -84,10 +84,10 @@ export class RequestedDinnerComponent implements OnInit {
     
     if (content.style.maxHeight){
       content.style.maxHeight = null;
-      console.log('1111111')
+      // content.style.overflow = 'hidden'
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
-      console.log('2222222')
+      // content.style.overflow = 'visible'
 
     } 
   }

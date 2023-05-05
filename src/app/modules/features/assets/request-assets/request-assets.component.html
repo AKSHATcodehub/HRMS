@@ -16,7 +16,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Assets Categories * </label>   
                                   <div class="dropdown-body">
-                                    <app-dropdown [placeHolder]="assetsCategoryPlaceholder" [data]="assetsCategoryDropdown" (outputData)="selectedValue($event,'assetsCategory')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="dropdownData.category.placeholder" [data]="dropdownData.category.data" [progchangedValue]="requestAssetsForm.controls.assetsCategory.value" (outputData)="selectedValue($event,'assetsCategory')"></app-dropdown>
                                   </div>                   
                                   <small *ngIf="this.requestAssetsForm.controls.assetsCategory.touched">{{requestAssetsForm | validationError:'assetsCategory':'Department' }}</small>
                                 </div>
@@ -25,7 +25,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Quantity *</label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [placeHolder]="qualityPlaceholder" [data]="quantityDropdown" (outputData)="selectedValue($event,'quantity')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="dropdownData.quantity.placeholder" [data]="dropdownData.quantity.data" [progchangedValue]="requestAssetsForm.controls.quantity.value" (outputData)="selectedValue($event,'quantity')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.quantity.touched">{{requestAssetsForm | validationError:'quantity':'Quality' }}</small>
                                 </div>
@@ -34,7 +34,7 @@
                                 <div class="form-group dropdown">
                                   <label for="short_description">Priority *</label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [placeHolder]="priorityPlaceholder" [data]="priorityDropdown" (outputData)="selectedValue($event,'priority')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="dropdownData.priority.placeholder" [data]="dropdownData.priority.data" [progchangedValue]="requestAssetsForm.controls.priority.value" (outputData)="selectedValue($event,'priority')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.priority.touched">{{requestAssetsForm | validationError:'priority':'Priority' }}</small>
                                 </div>
@@ -43,7 +43,7 @@
                                 <div class="form-group">
                                   <label for="short_description">Required by Date * </label>
                                   <mat-form-field appearance="outline" style="position: relative;" >
-                                    <input matInput [max]="today" [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="requestedDate">
+                                    <input matInput [max]="today" [matDatepicker]="fromTimePerioed" placeholder="MM/DD/YYYY" formControlName="requestedDate" readonly>
                                     <mat-datepicker-toggle matIconSuffix [for]="fromTimePerioed" style="position: absolute;top: 0px;right: 0px;"></mat-datepicker-toggle>
                                     <mat-datepicker #fromTimePerioed></mat-datepicker>
                                     <mat-error>{{requestAssetsForm | validationError : 'requestedDate' : 'Requested Date' }}</mat-error>
@@ -55,7 +55,7 @@
                                 <div class="form-group dropdown">
                                   <label for="experience" class="control-label">Allocation type *  </label>
                                   <div class="dropdown-body">
-                                    <app-dropdown [placeHolder]="allocaationTypePlaceholder" [data]="allocationTypeDropdown" (outputData)="selectedValue($event,'allocationType')"></app-dropdown>
+                                    <app-dropdown [placeHolder]="dropdownData.allocation_type.placeholder" [data]="dropdownData.allocation_type.data" [progchangedValue]="requestAssetsForm.controls.allocationType.value" (outputData)="selectedValue($event,'allocationType')"></app-dropdown>
                                   </div>
                                   <small *ngIf="this.requestAssetsForm.controls.allocationType.touched">{{requestAssetsForm | validationError:'allocationType':'Allocation Type' }}</small>
                                 </div>

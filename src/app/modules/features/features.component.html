@@ -87,7 +87,9 @@
           class="parent"
           (click)="openSubMenu(navBarItem)"
           [routerLink]="navBarItem.link"
+          [ngClass]="{'parentChecked': parentChecker(navBarItem)}"
           [routerLinkActive]="navBarItem.link ? 'is_active' : 'null'"
+          
         >
           <span class="full-width" *ngIf="isExpanded">
             {{ navBarItem.name }}
@@ -111,8 +113,24 @@
         >
           <ng-container *ngFor="let subMenuItem of navBarItem.subMenu">
             <a
+              *ngIf="!subMenuItem.externalLink"
+
               mat-list-item
               [routerLink]="subMenuItem.link"
+              [routerLinkActive]="subMenuItem.link ? 'is_active' : 'null'"
+            > 
+              <mat-icon class="mb-5">
+                {{ subMenuItem.icon }}
+              </mat-icon>
+              <span>
+                {{ subMenuItem.name }}
+              </span>
+            </a>
+            <a
+              *ngIf="subMenuItem.externalLink"
+              mat-list-item
+              target="_blank"
+              [href]="subMenuItem.link"
               [routerLinkActive]="subMenuItem.link ? 'is_active' : 'null'"
             >
               <mat-icon class="mb-5">
@@ -136,7 +154,7 @@
 	  </footer>
 	</div> -->
   </div>
-  <button mat-button class="covid-help" (click)="openCovidDialog()">Covid 19-Desk</button>
+  <button mat-button class="covid-help"  (click)="openCovidDialog()">Covid 19-Desk</button> 
 </mat-sidenav-container>
 
 <!-- </div> -->

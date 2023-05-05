@@ -27,7 +27,14 @@ li {
   @include media(lg) {
     padding: 16px;
   }
-
+  ::ng-deep .mat-form-field-infix{
+    padding: 0.5em 0 !important;
+    height: 25px !important;
+    border-top: 14px solid transparent !important;
+  }
+  ::ng-deep .mat-form-field-wrapper{
+    margin: 7px 0px    !important;
+  }
   .directory-header {
     h1 {
       color: blue;
@@ -183,11 +190,4 @@ li {
   background-color: blue;
 }
 
-::ng-deep .mat-form-field-infix{
-  padding: 0.5em 0 !important;
-  height: 25px !important;
-  border-top: 14px solid transparent !important;
-}
-::ng-deep .mat-form-field-wrapper{
-  margin: 7px 0px    !important;
-}
+

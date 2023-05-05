@@ -74,7 +74,11 @@ export class AppreciateComponent implements OnInit {
     let options:MatDialogConfig = {
       maxWidth:"500px"
     }
-    this._dialog.open(AppreciateMessageDialogComponent,options)
+    const dialogRef = this._dialog.open(AppreciateMessageDialogComponent,options);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+ 
+    });
   }
 
 }

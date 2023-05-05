@@ -1,4 +1,43 @@
-  export const PROJECT_DROPDOWN = [
+export const DROPDOWN_DATA = [
+  { 
+    data:[  'Training Project React JS', 'Miscellaneous',  'Interview'],
+    placeholder:'Select Project',
+    initialvalue:''
+  },
+  { 
+    data:[ 'Aashini Sharma','Aashish Sharma','Aatish Mittal','Abhijeet Bhadouria','Akanksha Singh'],
+    placeholder:'Select Authority',
+    initialvalue:''
+  },  
+  { 
+    data:[ 'Aashini Sharma','Aashish Sharma','Aatish Mittal','Abhijeet Bhadouria','Akanksha Singh'],
+    placeholder: 'Select Authority',
+    initialvalue:''
+  },  
+  { 
+    data:[ 'Account Manager','Amardeep Rawat','Amit Singh','Anant Agarwal','Aparna Kaushik','Apeksha Mehta'],
+    placeholder:'Select AM',
+    initialvalue:''
+  },  
+  { 
+    data:['Submitted','Due'],
+    placeholder:"Select Status",
+    initialvalue:''
+  },  
+  { 
+    data:[ 'Training Project React.js'],
+    placeholder:'Select Project',
+    initialvalue:''
+  },
+  { 
+    data: ['Pending','Approved','Rejected'],
+    placeholder:'Select Approval status',
+    initialvalue:''
+  },
+
+]
+
+export const PROJECT_DROPDOWN = [
   'Training Project React JS',
   'Miscellaneous', 
   'Interview',

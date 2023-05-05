@@ -112,21 +112,23 @@ export const navBarData:any = [
       outerLink:true,
       chakra:false,
       subMenu:[
-          
           {
               name:'Salary Slip',
               icon:'maximize',
-              link:'https://hrms.easysourceindia.com/Payroll/'
+              link:'https://hrms.easysourceindia.com/Payroll/',
+              externalLink:true
           },
           {
               name:'Form 16',
               icon:'maximize',
-              link:'/https://hrms.easysourceindia.com/Payroll/'
+              link:'https://hrms.easysourceindia.com/Payroll/',
+              externalLink:true
           },
           {
               name:'Investment Declaration',
               icon:'maximize',
-              link:'/https://hrms.easysourceindia.com/Payroll/'
+              link:'https://hrms.easysourceindia.com/Payroll/',
+              externalLink:true
           }
       ]
   },

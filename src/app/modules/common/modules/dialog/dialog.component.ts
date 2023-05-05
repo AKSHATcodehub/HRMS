@@ -21,7 +21,7 @@ export class DialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _fb:FormBuilder,
     private _form:FormService,
-    // private _snackbarService:SnackbarService
+    private _snackbarService:SnackbarService
     ) 
     {
       console.log("data>>>>>>>>",data);
@@ -46,6 +46,8 @@ export class DialogComponent implements OnInit {
 
   onNoClick(): void {
     this.dialogRef.close();
+    console.log("no click called>>>>>>");
+    
   }
 
   createForm(){
@@ -70,9 +72,9 @@ export class DialogComponent implements OnInit {
 
 
     if(this.dialogForm.valid){
-      // this._snackbarService.showSuccess('Feedback Submitted!','');
-      this.dialogRef.close(true);
-      
+      this.dialogRef.close(this.dialogForm);
+      this._snackbarService.showSuccess('Referal Submitted!','');
+ 
     }else{
       this.dialogForm.markAllAsTouched()
     }

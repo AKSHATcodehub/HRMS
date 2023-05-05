@@ -8,6 +8,7 @@ import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
 import {
   ASSETS_DECLARATION_HEADING,
   ASSETS_DECLARATION_TABLE_DATA,
+  DROPDOWN_ASSETS_DECLARATION,
 } from './assets-declaration-data';
 
 @Component({
@@ -27,16 +28,13 @@ export class AssetsDeclarationComponent implements OnInit {
   ngOnInit(): void {
     this.createForm();
   }
-
+  dropdownData = DROPDOWN_ASSETS_DECLARATION;
   isOpen = false;
   datasource = new MatTableDataSource<any>(ASSETS_DECLARATION_TABLE_DATA);
   headings = ASSETS_DECLARATION_HEADING;
-  OsDropdown = ['Android', 'IOS'];
-  deviceWorkingDropdown = ['Yes', 'No'];
   assetsDeclarationForm!: FormGroup;
   TABLE_DATA: any[] = [];
-  osPlaceholer = "Select OS";
-  deviceWorkingPlaceholder = "Select";
+ 
 
   toggleCard() {
     this.isOpen = !this.isOpen;
@@ -44,8 +42,12 @@ export class AssetsDeclarationComponent implements OnInit {
 
     if (content.style.maxHeight){
       content.style.maxHeight = null;
+      // content.style.overflow = 'hidden'
+
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
+      // content.style.overflow = 'visible'
+
     } 
   }
 
@@ -89,11 +91,12 @@ export class AssetsDeclarationComponent implements OnInit {
         Is_Working: this.getControlValue('workingCondition'),
         Added: 'Yes',
       };
-
+      this.assetsDeclarationForm.reset();
       this.TABLE_DATA.push(assetsDeclarationObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
       this.isOpen = !this.isOpen;
       this._snacbarService.showSuccess('Assets Declaration Submit!', '');
+      this.toggleCard();
     } else {
       this.assetsDeclarationForm.markAllAsTouched();
     }

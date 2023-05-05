@@ -1,5 +1,5 @@
 <div class="bottom-header" *ngIf="options.select">
-    <h2>April 2023</h2>
+    <h2>{{currentMonth}} {{currentYear}}</h2>
     <div class="select" >
         <mat-checkbox *ngIf="options.checkbox"  (change)="selectAll($event)" class="mr-5" >Select All</mat-checkbox>
         <div class="legend">

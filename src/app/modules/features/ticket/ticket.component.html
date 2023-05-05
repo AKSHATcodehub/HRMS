@@ -29,21 +29,21 @@
                                 <div class="col-md-12 dropdown">
                                     <div class="form-group dropdown-body">
                                         <label for="first_name">Department</label>
-                                        <app-dropdown [placeHolder]="departmentPlaceholder" [data]="departmentDropdown" (outputData)="selectedValue($event,'department')"></app-dropdown>
+                                        <app-dropdown [placeHolder]="dropdownData[0].placeholder" [data]="dropdownData[0].data" [progchangedValue]="ticketForm.controls.department.value" (outputData)="selectedValue($event,'department')"></app-dropdown>
                                         <small *ngIf="this.ticketForm.controls.department.touched">{{ticketForm | validationError:'department':'Department' }}</small>
                                     </div>
                                 </div>
                                 <div class="col-md-12 dropdown">
                                     <div class="form-group dropdown-body">
                                         <label for="first_name">Ticket Category</label>
-                                        <app-dropdown [placeHolder]="ticketCategoryPlaceholder" [data]="tiketCategoryDropdown" (outputData)="selectedValue($event,'ticketCategory')"></app-dropdown>
+                                        <app-dropdown [placeHolder]="dropdownData[1].placeholder" [data]="dropdownData[1].data" [progchangedValue]="ticketForm.controls.ticketCategory.value" (outputData)="selectedValue($event,'ticketCategory')"></app-dropdown>
                                         <small *ngIf="this.ticketForm.controls.ticketCategory.touched">{{ticketForm | validationError:'ticketCategory':'Ticket Category' }}</small>
                                     </div>
                                 </div>
                                 <div class="col-md-12 dropdown">
                                     <div class="form-group dropdown-body">
                                         <label for="first_name">Priority</label>
-                                        <app-dropdown [placeHolder]="priorityPlaceholder" [data]="priorityDropdown" (outputData)="selectedValue($event,'piority')"></app-dropdown>
+                                        <app-dropdown [placeHolder]="dropdownData[2].placeholder" [data]="dropdownData[2].data" [progchangedValue]="ticketForm.controls.piority.value" (outputData)="selectedValue($event,'piority')"></app-dropdown>
                                         <small *ngIf="this.ticketForm.controls.piority.touched">{{ticketForm | validationError:'piority':'Priority' }}</small>
                                     </div>
                                 </div>

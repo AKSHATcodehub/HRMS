@@ -11,3 +11,21 @@ export const TICKET_HEADING = [
 export const TICKET_TABLE_DATA = [
     {action:'1',ticket_code:7634527,priority:'final',employee:'Permanet',subject:'Angular',status:'pending',date:'3/04/2023'}
 ]
+export const DROPDOWN_DATA =[
+    {
+        data:['IT','Admin'],
+        placeholder:'Select Department',
+        initialvalue:''
+    },
+    {
+        data:['Ticket Category 1','Ticket Category 2'],
+        placeholder:'Select Ticket Category',
+        initialvalue:''
+    },
+    {
+        data:['High','Low','Normal'],
+        placeholder:'Select Priority',
+        initialvalue:''
+    },
+
+]

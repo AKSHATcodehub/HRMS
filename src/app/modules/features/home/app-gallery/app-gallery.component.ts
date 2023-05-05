@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, TemplateRef, ViewChildren } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Subscription } from 'rxjs';
 import { GALLERY_DATA } from '../home-data';
 import { GalleryDialogComponent } from './gallery-dialog/gallery-dialog.component';
 
@@ -9,6 +10,9 @@ import { GalleryDialogComponent } from './gallery-dialog/gallery-dialog.componen
   styleUrls: ['./app-gallery.component.scss']
 })
 export class AppGalleryComponent implements OnInit {
+
+  serviceSubscription!: Subscription;
+
 
   constructor(
     private _dialog:MatDialog 
@@ -61,7 +65,20 @@ export class AppGalleryComponent implements OnInit {
       data:id
     }
 
-    this._dialog.open(GalleryDialogComponent,dialogConfig);
+    const dialogRef = this._dialog.open(GalleryDialogComponent,dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
 
   }
+
+
+  ngOnDestroy(){
+
+    if(this.serviceSubscription){
+      this.serviceSubscription.unsubscribe();
+    }
+}
 }

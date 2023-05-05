@@ -4,5 +4,6 @@ export interface NavbarItem {
     icon?:string,
     subMenu?:Array<NavbarItem>,
     subMenuClicked?:boolean,
-    chakra?:boolean
+    chakra?:boolean,
+    externalLink?:boolean
 }

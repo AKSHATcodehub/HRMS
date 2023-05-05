@@ -586,3 +586,11 @@ footer {
   0%   {rotate: 0deg;}
   100%  {rotate: 360deg;}
 }
+.parentChecked{
+  color:$primary;
+  border-left: 4px solid $primary;
+} 
+.is_active{
+  box-sizing: border-box;
+  border-left: 5px solid $primary;
+}

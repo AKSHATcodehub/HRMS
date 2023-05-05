@@ -36,7 +36,11 @@ export class UpcomingTrainingComponent implements OnInit {
         title:'Are you sure , want to enroll in Training',
       }
     }
-    this._dialog.open(ConfirmationDialogComponent,config)
+    const dialogRef =this._dialog.open(ConfirmationDialogComponent,config)
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed 1',result);
+    });
   }
   
   viewDetails() {

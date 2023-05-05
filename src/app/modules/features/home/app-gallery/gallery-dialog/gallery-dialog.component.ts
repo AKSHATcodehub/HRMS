@@ -33,6 +33,10 @@ export class GalleryDialogComponent implements OnInit {
       velocity: 0.2
     }
 
+    buttondata = {
+      button:false,
+      dot:true
+    }
   
 
 
@@ -59,7 +63,7 @@ export class GalleryDialogComponent implements OnInit {
 
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(true);
   }
 
 

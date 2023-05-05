@@ -39,12 +39,10 @@ html {
   }
   
   .my-card-content {
-    // margin: 0rem 1rem;
-    // visibility: hidden;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 1s linear;
-    // transition: margin 225ms cubic-bezier(0.4, 0, 0.2, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);;
+    transition: max-height 0.5s linear;
+    
   }
   
   .my-card-content.expand {

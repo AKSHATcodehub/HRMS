@@ -2,13 +2,14 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { ElementScrollController } from '@fullcalendar/core/internal';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
 import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { UtilitiesService } from 'src/app/services/utilities.service';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
-import { LEAVE_HEADING, LEAVE_STATUS, LEAVE_TABLEDATA, LEAVE_TYPE } from './my-leave-data';
+import { LEAVE_HEADING, LEAVE_STATUS, LEAVE_TABLEDATA, LEAVE_TYPE, SHORT_LEAVE_DETAILS, SHORT_LEAVE_FIRST_TIME, SHORT_LEAVE_SECOND_TIME } from './my-leave-data';
 
 @Component({
   selector: 'app-my-leave',
@@ -25,6 +26,11 @@ export class MyLeaveComponent implements OnInit {
   leaveForm!:FormGroup;
   halfDayOpen = false;
   leaveTypePlaceholder = 'Select Leave Type';
+  showShortLeaveTime=false;
+  halfDayContainerOpen = true;
+  shortLEaveDetails = SHORT_LEAVE_DETAILS;
+  shortLeaveFirstTime= SHORT_LEAVE_FIRST_TIME;
+  shortLeaveSecondTime= SHORT_LEAVE_SECOND_TIME;
   
   editorConfig: AngularEditorConfig= {
     editable: true,
@@ -86,10 +92,10 @@ export class MyLeaveComponent implements OnInit {
     
     if (content.style.maxHeight){
       content.style.maxHeight = null;
-      console.log('1111111')
+      // content.style.overflow = 'hidden'
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
-      console.log('2222222')
+      // content.style.overflow = 'visible'
 
     } 
   }
@@ -101,11 +107,21 @@ export class MyLeaveComponent implements OnInit {
       leaveEndDate:this.formService.getControl('toDate'),
       leaveRemark:this.formService.getControl('name'),
       leaveDescription:this.formService.getControl('description'),
+      shortLeaveEndTme:['12 PM']
     })
   }
 
   selectedLeave(event:string){
     // alert(`event>${event}`);
+
+    if(event == 'Short Leave'){
+      this.showShortLeaveTime = true;
+      this.halfDayContainerOpen = false;
+    }else{
+      this.halfDayContainerOpen=true;
+      this.showShortLeaveTime = false;
+    }
+
     this.leaveForm.controls.leaveType.setValue(event);
     console.log("selected leave type>>>>>>>>", this.leaveForm.controls.leaveType.value);
     
@@ -113,6 +129,17 @@ export class MyLeaveComponent implements OnInit {
 
   cancelAction(){
     this.isOpen = !this.isOpen;
+    var content = this._elementRef.nativeElement.querySelector('.my-card-content');
+    console.log("toggle card called>>>>>>.",content.scrollHeight);
+    
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+      content.style.overflow = 'hidden'
+    } else {
+      content.style.maxHeight = 2*content.scrollHeight + "px";
+      content.style.overflow = 'visible'
+
+    } 
   }
 
   // getControl(control:any){
@@ -143,6 +170,7 @@ export class MyLeaveComponent implements OnInit {
       this.datasource = new MatTableDataSource(LEAVE_TABLEDATA);
       this.snackbarService.showSuccess('Leave Submitted!','')
       this.leaveForm.reset();
+      this.addLeave();
       this.isOpen = !this.isOpen
     
     }else{
@@ -152,5 +180,13 @@ export class MyLeaveComponent implements OnInit {
 
   halfDay(){
     this.halfDayOpen = !this.halfDayOpen;
+  }
+
+  selectedValue(seletedValue:string){
+    if(seletedValue == '10 AM'){
+      this.leaveForm.controls.shortLeaveEndTme.setValue('12 PM');
+    }else{
+      this.leaveForm.controls.shortLeaveEndTme.setValue('7 PM');
+    }
   }
 }

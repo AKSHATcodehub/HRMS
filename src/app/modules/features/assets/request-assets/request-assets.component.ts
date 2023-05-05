@@ -5,7 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { SnackbarComponent } from 'src/app/modules/common/modules/snackbar/snackbar.component';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { INTERVIEW_DATA } from '../../recruitment/interview/interview-data';
-import { REQUESTED_ASSETS_HEADING, REQUESTED_ASSETS_TABLE_DATA } from './request-asset-data';
+import { DROPDOWN_DATA, REQUESTED_ASSETS_HEADING, REQUESTED_ASSETS_TABLE_DATA } from './request-asset-data';
 
 @Component({
   selector: 'app-request-assets',
@@ -23,20 +23,13 @@ export class RequestAssetsComponent implements OnInit {
     this.createForm();
   }
 
+  dropdownData = DROPDOWN_DATA;
   isOpen = false;
   datasource = new MatTableDataSource<any>(REQUESTED_ASSETS_TABLE_DATA);
-  assetsCategoryDropdown = ['Laptop','Desktop','Mobile'];
-  quantityDropdown = ['1','2','3','4','5'];
-  priorityDropdown = ['Low','Medium','High'];
-  allocationTypeDropdown = ['Permanent','Temporary'];
   headings = REQUESTED_ASSETS_HEADING;
   requestAssetsForm!:FormGroup;
   TABLE_DATA:any[]=[];
   today = new Date();
-  assetsCategoryPlaceholder = 'Selct Assets Category';
-  qualityPlaceholder = 'Select Quality';
-  priorityPlaceholder = 'Select Priority';
-  allocaationTypePlaceholder = 'Select Allocation Type';
 
   toggleCard(){
     this.isOpen = !this.isOpen;
@@ -45,8 +38,10 @@ export class RequestAssetsComponent implements OnInit {
 
     if (content.style.maxHeight){
       content.style.maxHeight = null;
+      // content.style.overflow = 'hidden';
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
+      // content.style.overflow = 'visible';
     } 
     
 
@@ -77,11 +72,12 @@ export class RequestAssetsComponent implements OnInit {
         Allocation_type:this.requestAssetsForm.controls.allocationType.value,
         Company:'HP'
       }
-
+      this.requestAssetsForm.reset();
       this.TABLE_DATA.push(requestedAssetsObject);
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
       this._snackbarService.showSuccess('Assets Requested Submitted!','')
-      this.isOpen = !this.isOpen
+      this.isOpen = !this.isOpen;
+      this.toggleCard()
 
     }else{
       this.requestAssetsForm.markAllAsTouched();

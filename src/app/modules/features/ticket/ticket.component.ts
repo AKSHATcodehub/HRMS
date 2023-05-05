@@ -7,7 +7,7 @@ import { FormService } from 'src/app/services/form.service';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { SnackbarComponent } from '../../common/modules/snackbar/snackbar.component';
 import { INTERVIEW_DATA } from '../recruitment/interview/interview-data';
-import { TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
+import { DROPDOWN_DATA, TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
 
 @Component({
   selector: 'app-ticket',
@@ -16,18 +16,13 @@ import { TICKET_HEADING, TICKET_TABLE_DATA } from './ticket-data';
 })
 export class TicketComponent implements OnInit {
 
+  dropdownData = DROPDOWN_DATA;
   isOpen!: boolean;
   panelOpenState: boolean = false;
   datasource = new MatTableDataSource<any>(TICKET_TABLE_DATA);
   headings = TICKET_HEADING;
   ticketForm!:FormGroup;
-  departmentDropdown = ['IT','Admin'];
-  tiketCategoryDropdown = ['Ticket Category 1','Ticket Category 2'];
-  priorityDropdown = ['High','Low','Normal'];
   TABLE_DATA:any[]=TICKET_TABLE_DATA;
-  departmentPlaceholder = 'Select Department';
-  ticketCategoryPlaceholder = 'Select Ticket Category';
-  priorityPlaceholder = 'Select Priority';
   editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -105,11 +100,10 @@ export class TicketComponent implements OnInit {
     
     if (content.style.maxHeight){
       content.style.maxHeight = null;
-      console.log('1111111')
+      // content.style.overflow = 'hidden';
     } else {
       content.style.maxHeight = 2*content.scrollHeight + "px";
-      console.log('2222222')
-
+      // content.style.overflow = 'visible';
     } 
   }
 
@@ -139,7 +133,8 @@ export class TicketComponent implements OnInit {
       this.datasource = new MatTableDataSource<any>(this.TABLE_DATA);
       this._snackbarService.showSuccess('Ticket Add','');
       this.ticketForm.reset();
-      this.isOpen = !this.isOpen
+      this.toggleCard();
+      this.isOpen = !this.isOpen;
 
     }else{
       this.ticketForm.markAllAsTouched();

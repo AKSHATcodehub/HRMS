@@ -166,8 +166,14 @@ export class FeaturesComponent implements OnInit {
   }
 
   helpClick(){
-    this.dialog.open(HelpDialogComponent,{
 
+
+    const dialogRef = this.dialog.open(HelpDialogComponent,{
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed 1',result);
     });
   }
 
@@ -180,7 +186,24 @@ export class FeaturesComponent implements OnInit {
   }
 
   openCovidDialog(){
-    this.dialog.open(CovidDialogBoxComponent)
+    const  dialogRef =this.dialog.open(CovidDialogBoxComponent)
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed 1',result);
+    });
+    
   }
+
+  parentChecker(navBarItem:NavbarItem):boolean{
+    let checker = (this._router.url.slice(10))
+    let found:boolean = false;
+    navBarItem.subMenu?.map((subMenuItem:any)=> {
+      // console.log(subMenuItem,'otla',checker)
+        if(subMenuItem.link == checker){
+        found = true
+      }
+    })
+    return found;
+  }
+
 }
    

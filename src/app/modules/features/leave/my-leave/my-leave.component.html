@@ -40,12 +40,26 @@
                                 <div class="col-md-12 dropdown">
                                     <div class="form-group dropdown-body">
                                         <label for="leave_type" class="control-label">Leave Type</label><br>
-                                        <app-dropdown [placeHolder]="leaveTypePlaceholder" [data]="leaveTypeData" (outputData)="selectedLeave($event)"></app-dropdown>
+                                        <app-dropdown [placeHolder]="leaveTypePlaceholder" [data]="leaveTypeData" (outputData)="selectedLeave($event)" [progchangedValue]="leaveForm.controls.leaveType.value"></app-dropdown>
                                         <small *ngIf="this.leaveForm.controls.leaveType.touched">{{leaveForm | validationError:'leaveType':'Leave Type' }}</small>
                                     </div>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12" class="short-leave" *ngIf="showShortLeaveTime" >
                                     <div class="row">
+                                        <div class="col-md-4">
+                                            <app-dropdown  [data]="shortLEaveDetails[0].data" (outputData)="selectedValue($event)" [progchangedValue]="shortLEaveDetails[0].initialValue" ></app-dropdown>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- <app-dropdown [progchangedValue]="shortLEaveDetails[1].initialValue" [data]="shortLEaveDetails[1].data" ></app-dropdown> -->
+                                    
+                                            <mat-form-field appearance="outline"  >
+                                                <input matInput formControlName="shortLeaveEndTme" readonly  >
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row" *ngIf="halfDayContainerOpen">
                                         <div class="col-md-4">
                                             <div class="" id="is_half_div">
                                                 <label class="lt_Check">
@@ -77,7 +91,7 @@
                                             <input matInput 
                                               [matDatepicker]="fromDate" 
                                               placeholder="From Date" 
-                                              formControlName="leaveStartDate">
+                                              formControlName="leaveStartDate" readonly >
                                             <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
                                             <mat-datepicker #fromDate></mat-datepicker>
                                             <mat-error>{{leaveForm | validationError:'leaveStartDate':'Start Date' }}</mat-error>
@@ -94,6 +108,7 @@
                                               placeholder="To Date" 
                                               formControlName="leaveEndDate"
                                               [min]="leaveForm.controls.leaveStartDate.value" 
+                                              readonly
                                               >
                                             <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
                                             <mat-datepicker #toDate></mat-datepicker>

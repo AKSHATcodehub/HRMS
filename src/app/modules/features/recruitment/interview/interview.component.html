@@ -9,11 +9,11 @@
                     <!-- <ng-container *ngFor="let filter of filterSelectObj"> -->
                         <div class="col-md-3" >
                             <label for="">{{filterSelectObj[0].label}}</label><br>
-                            <app-dropdown  [data]="filterSelectObj[0].data"  [placeHolder]="filterSelectObj[0].placeholder" (outputData)="filterChange($event,filterSelectObj[0].controlName)"  ></app-dropdown>
+                            <app-dropdown  [data]="filterSelectObj[0].data"  [placeHolder]="filterSelectObj[0].placeholder" [progchangedValue]="interviewForm.controls.department.value" (outputData)="filterChange($event,filterSelectObj[0].controlName)"  ></app-dropdown>
                         </div>
                         <div class="col-md-3" >
                             <label for="">{{filterSelectObj[0].label}}</label><br>
-                            <app-dropdown  [data]="filterSelectObj[1].data"  [placeHolder]="filterSelectObj[1].placeholder" (outputData)="filterChange($event,filterSelectObj[1].controlName)"  ></app-dropdown>
+                            <app-dropdown  [data]="filterSelectObj[1].data"  [placeHolder]="filterSelectObj[1].placeholder" [progchangedValue]="interviewForm.controls.status.value" (outputData)="filterChange($event,filterSelectObj[1].controlName)"  ></app-dropdown>
                         </div>
                     <!-- </ng-container> -->
                 </div>

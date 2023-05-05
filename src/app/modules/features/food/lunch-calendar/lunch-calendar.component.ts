@@ -11,9 +11,31 @@ export class LunchCalendarComponent implements OnInit {
   @Input() options: any;
   @Output() calendarData = new EventEmitter<any>();
 
+  newDate = new Date();
+  currentYear!:number;
+  currentMonth!:string;
+  
   ngOnInit(): void {
     console.log(this.myCalendar, 'ALWAYS');
+    this.currentYear = this.newDate.getFullYear();
+    this.currentMonth = this.month[this.newDate.getMonth()]
+    
   }
+ 
+  month = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
 
   week = [
     {

@@ -1,3 +1,23 @@
+export const SHORT_LEAVE_FIRST_TIME = [ 
+  
+  '10 AM' , '5 PM'
+]
+
+export const SHORT_LEAVE_DETAILS = [
+  {
+    data:[ '10 AM' , '5 PM'],
+    initialValue : '10 AM'
+
+  },
+  {
+    data:[ '12 PM' , '7 PM'],
+    initialValue : '12 PM'
+
+  }
+]
+
+export const SHORT_LEAVE_SECOND_TIME = [ '12 PM' , '7 PM']
+
 export const LEAVE_TYPE = [ ' Planned Leave','Privileged Leave','Emergency Leave','Short Leave','All Remaining Leave']
 
 export const LEAVE_HEADING = [

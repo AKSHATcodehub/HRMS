@@ -121,4 +121,7 @@
 .calender{
     padding: 24px ;
     background-color: white;
+    @include media(sm){
+        overflow-x: scroll;
+    }
 }

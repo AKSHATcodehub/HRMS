@@ -1,4 +1,5 @@
 @import "../../../../../scss/mixins/flex",
+        '../../../../../scss//mixins/media',
         '../../../../../scss//theme/wrapper',
         '../../../../../scss/var',
         '../../../../../scss/theme/grid',
@@ -54,24 +55,40 @@
         }
         .buttons-wrapper{
             height: 100%;
+            width: 100%;
             @include flex(center,space-between);
             .cancel-btn{
                 background-color: $white;
                 color: $primary;
-
-                
+            }
+            @include media(md){
+                width: 100% !important;
+            }
+            .row{
+                @include media(md){
+                    width: 100%;
+                }  
+            }
+            button{
+                margin: 5px 0px;
+                @include media(md){
+                    width: 100%;
+                }        
             }
         }
     }
 
     .bottom{
+        @include media(sm){
+            overflow: scroll;
+        }
         border: 1px solid #DCE2E9;      
         background-color: white;
-        width: 100%;
+        // width: 100%;
         border-radius: 10px;
         margin: auto;
         margin-top: 2rem;
         padding: 2%;
-       
+        margin: 5px 0px;
     }
 }

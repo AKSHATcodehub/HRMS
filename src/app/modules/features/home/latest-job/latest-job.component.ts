@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FEATURES, JOBDETAILS } from 'src/app/constant/routes';
 import { LoginComponent } from 'src/app/modules/account/login/login.component';
 import { DialogComponent } from 'src/app/modules/common/modules/dialog/dialog.component';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-latest-job',
@@ -16,7 +17,8 @@ export class LatestJobComponent implements OnInit {
   constructor(public dialog: MatDialog,
               private render:Renderer2,
               private  elementRef:ElementRef,
-              private router:Router) { }
+              private router:Router,
+              private _snackbar:SnackbarService) { }
 
   @Input() singleJobData:any;
     
@@ -67,9 +69,11 @@ export class LatestJobComponent implements OnInit {
       
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      // this.animal = result;
+      console.log('The dialog was closed 1',result);
+      
+      // this._snackbar.showSuccess('Referal Submitted!','')
     });
 
   }

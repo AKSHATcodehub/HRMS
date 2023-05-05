@@ -48,7 +48,12 @@ ngOnInit(): void {
       minHeight:'50vh',
       panelClass:'app-full-bleed-dialog'
     }
-    this._dialog.open(CouponsHistoryComponent,config);
+    const dialogRef = this._dialog.open(CouponsHistoryComponent,config);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed 1',result);
+    });
+    
   }
 
   updateCalendarData(data:any){

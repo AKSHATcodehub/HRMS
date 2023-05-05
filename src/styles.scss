@@ -9,8 +9,6 @@
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import '~ngx-toastr/toastr';
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
@@ -84,3 +82,9 @@ hr{
   height: 5px !important;
 }
 
+.mat-form-field-infix {
+  border-top: 0.5em solid transparent;
+  .mat-input-element {
+    padding-left: 10px;
+  }
+}

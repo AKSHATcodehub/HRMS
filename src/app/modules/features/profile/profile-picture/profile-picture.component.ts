@@ -60,7 +60,11 @@ export class ProfilePictureComponent implements OnInit {
     
   }
 
-  selectFile(event: any) { //Angular 11, for stricter type
+  selectFile(event: any) { 
+
+    console.log("this is profile form control value>>>>",this.profileForm.controls.profilePicture.value);
+    
+
 		if(!event.target.files[0] || event.target.files[0].length == 0) {
 		
 			return;
@@ -79,18 +83,18 @@ export class ProfilePictureComponent implements OnInit {
 
   saveProfile(){
     
-    if(!(this.profileForm.controls.profilePicture.value.length>0)){
-      this.profileForm.markAsTouched();
+    if((this.profileForm.controls.profilePicture.invalid)){
+      this.profileForm.controls.profilePicture.markAsTouched();
 
     }
     if(this.profileForm.controls.checkbox.value){
       this.removeImage();
-      this._snackBar.snackBar("Profile Updated");
+      this._snackBar.showSuccess("Profile Updated",'');
       this.profileForm.controls.checkbox.reset();
       this.profileForm.markAsUntouched();
     }
     if(this.profileForm.controls.profilePicture.valid){
-      this._snackBar.snackBar("Profile Updated");
+      this._snackBar.showSuccess("Profile Updated",'');
       this.profileForm.controls.checkbox.reset();
       this.profileForm.markAsUntouched();
     }
